@@ -39,6 +39,11 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
+              @if(auth()->user())
+                <li class="nav-item"><a href="/login" class="nav-link">{{auth()->user()->name}}</a></li>
+              @else
+                <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+              @endif
 	          <li class="nav-item active"><a href="#home" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="#work" class="nav-link">Our work</a></li>
@@ -66,7 +71,7 @@
             	</div>
             </a>
           	<h1 class="mb-0">Track your city pollution data with your owns sensors</h1>
-          	<h3 class="subheading mb-4 pb-1">Register here</h3>
+          	<h3 class="subheading mb-4 pb-1"><a href="/register">Register here</a></h3>
           </div>
         </div>
       </div>
