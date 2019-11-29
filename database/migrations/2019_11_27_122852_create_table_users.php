@@ -23,6 +23,7 @@ class CreateTableUsers extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->string('rol', 10)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
