@@ -4,6 +4,7 @@
 return [
     'dataMap' => 'Mapa de datos diario de contaminación',
     'language' => 'Idioma',
+    'create2' => 'Crea tu Cuenta!',
     'menu' => 'Menú',
     'home' => 'Inicio',
     'about' => 'Sobre',

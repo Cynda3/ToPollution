@@ -23,3 +23,8 @@ Route::get('locale/{locale}', function ($locale){
     return redirect()->back();
 });
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('users', 'UserController')->only(['store', 'show', 'edit', 'update', 'destroy']);

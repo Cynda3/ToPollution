@@ -4,14 +4,14 @@
     <title>Topollution</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:300,400,500,600,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i" rel="stylesheet">
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
-    
+
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
 
-    
+
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
@@ -58,19 +58,125 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="#home" class="nav-link">{{ __('navMenu.menu') }}</a></li>
+              @if(auth()->user())
+                <li class="nav-item"><a href="{{route('users.show', auth()->user()->id)}}" class="nav-link">{{auth()->user()->name}}</a></li>
+              @else
+              <li data-toggle="modal" data-target="#ModalLoginForm"><a href="#home" class="nav-link">{{ __('Login') }}</a></li>
+                        <div id="ModalLoginForm" class="modal fade">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <h1>Log In!</h1>
+                                    <form role="form" method="POST" action="{{ route('login') }}">
+                                      @csrf
+                                        <div class="form-group">
+                                            <label for="email" class="control-label">{{ __('E-Mail Address') }}</label>
+                                            <div>
+                                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                                @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div> <div class="form-group">
+                                            <label for="password" class="control-label">{{ __('Password') }}</label>
+                                            <div>
+                                                <input type="password" class="form-control input-lg @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                                @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div>
+                                                <button type="submit" class="btn btn-success">
+                                                    {{ __('Login') }}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+              @endif
+              <li class="nav-item active"><a href="#home" class="nav-link">{{ __('navMenu.menu') }}</a></li>
 	          <li class="nav-item"><a href="#about" class="nav-link">@lang('navMenu.about')</a></li>
 	          <li class="nav-item"><a href="#work" class="nav-link">@lang('navMenu.work')</a></li>
 	          <li class="nav-item"><a href="#team" class="nav-link">@lang('navMenu.team')</a></li>
 	          <li class="nav-item"><a href="#news" class="nav-link">@lang('navMenu.news')</a></li>
 	          <li class="nav-item"><a href="#contact" class="nav-link">@lang('navMenu.contact')</a></li>
+            <li><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalRegisterForm">Register</button></li>
+                        <div id="ModalRegisterForm" class="modal fade">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <h1>@lang('navMenu.create2')</h1>
+                                    <form role="form" method="POST" action="{{ route('register') }}">
+                                      @csrf
+                                        <input type="hidden" name="_token" value="">
+                                        <div class="form-group">
+                                            <label class="control-label">{{ __('Name') }}</label>
+                                            <div>
+                                                <input type="text" class="form-control input-lg @error('name') is-invalid @enderror" name="name" value="">
+                                                @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">{{ __('E-Mail Address') }}</label>
+                                            <div>
+                                                <input type="email" class="form-control input-lg @error('email') is-invalid @enderror" name="email" value="">
+                                                @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">{{ __('Password') }}</label>
+                                            <div>
+                                                <input type="password" class="form-control input-lg  @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                                @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">{{ __('Confirm Password') }}</label>
+                                            <div>
+                                                <input type="password" class="form-control input-lg" name="password_confirmation" required autocomplete="new-password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div>
+                                                <button type="submit" class="btn btn-success">
+                                                    {{ __('Register') }}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
 
 	        </ul>
 	      </div>
 	    </div>
 	  </nav>
     <!-- END nav -->
-    
+
     <div id="home" class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
       <div class="overlay"></div>
       <div class="container">
@@ -85,7 +191,9 @@
             	</div>
             </a>
           	<h1 class="mb-0">@lang('navMenu.track')</h1>
-          	<h3 class="subheading mb-4 pb-1">@lang('navMenu.register')</h3>
+          	<h3 class="subheading mb-4 pb-1"><a href="/register">@lang('navMenu.register')</a></h3>
+            
+
           </div>
         </div>
       </div>
@@ -168,7 +276,7 @@
 		          <div class="col-md-3 justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center py-4 mb-4">
 		              <div class="text">
-		              	
+
 		                <strong class="number" data-number="10000">0</strong>
 		                <span>@lang('navMenu.sensors')</span>
 		              </div>
@@ -177,7 +285,7 @@
 		          <div class="col-md-3 justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center py-4 mb-4">
 		              <div class="text">
-		              	
+
 		                <strong class="number" data-number="6000">0</strong>
 		                <span>@lang('navMenu.members')</span>
 		              </div>
@@ -186,7 +294,7 @@
 		          <div class="col-md-3 justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center py-4 mb-4">
 		              <div class="text">
-		              	
+
 		                <strong class="number" data-number="2000">0</strong>
 		                <span>@lang('navMenu.citys')</span>
 		              </div>
@@ -195,7 +303,7 @@
 		          <div class="col-md-3 justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center py-4 mb-4">
 		              <div class="text">
-		              	
+
 		                <strong class="number" data-number="50">0</strong>
 		                <span>@lang('navMenu.countries')</span>
 		              </div>
@@ -403,7 +511,7 @@
                 <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
               </div>
             </form>
-          
+
           </div>
 
           <div class="col-lg-6 d-flex">
@@ -447,8 +555,8 @@
         </div>
       </div>
     </footer>
-    
-  
+
+
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
@@ -470,6 +578,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-    
+
   </body>
 </html>

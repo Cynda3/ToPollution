@@ -4,6 +4,7 @@
 return [
     'dataMap' => 'Daily Pollution data map',
     'language' => 'Language',
+    'create2' => 'Create your Account!',
     'menu' => 'Menu',
     'home' => 'Home',
     'about' => 'About',
