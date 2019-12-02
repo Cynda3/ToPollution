@@ -32,19 +32,38 @@
 
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Topollution<span>Daily Pollution data map</span></a>
+	      <a class="navbar-brand" href="index.html">Topollution<span>@lang('navMenu.dataMap')</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
+	        <span class="oi oi-menu"></span>@lang('navMenu.menu')
 	      </button>
+        
+        <!-- Botones provisionales traducción  -->
+
+        <ul class="navbar-nav ml-auto">
+            <!-- Authentication Links -->
+    
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    @lang('navMenu.language') <span class="caret"></span>
+                        
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ url('locale/en') }}"><img src="images/en.jpeg" width="30px" height="20x"> English</a>
+                        <a class="dropdown-item" href="{{ url('locale/es') }}"><img src="images/es.png" width="30px" height="20x"> Spanish</a>
+                        
+                    </div>
+                </li>
+        </ul>
+        
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="#home" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="#work" class="nav-link">Our work</a></li>
-	          <li class="nav-item"><a href="#team" class="nav-link">Team</a></li>
-	          <li class="nav-item"><a href="#news" class="nav-link">News</a></li>
-	          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+	          <li class="nav-item active"><a href="#home" class="nav-link">{{ __('navMenu.menu') }}</a></li>
+	          <li class="nav-item"><a href="#about" class="nav-link">@lang('navMenu.about')</a></li>
+	          <li class="nav-item"><a href="#work" class="nav-link">@lang('navMenu.work')</a></li>
+	          <li class="nav-item"><a href="#team" class="nav-link">@lang('navMenu.team')</a></li>
+	          <li class="nav-item"><a href="#news" class="nav-link">@lang('navMenu.news')</a></li>
+	          <li class="nav-item"><a href="#contact" class="nav-link">@lang('navMenu.contact')</a></li>
 
 	        </ul>
 	      </div>
@@ -62,11 +81,11 @@
             		<span class="ion-ios-play"></span>
             	</div>
             	<div class="heading-title ml-3">
-	            	<span>Watch about daily pollution</span>
+	            	<span>@lang('navMenu.watch')</span>
             	</div>
             </a>
-          	<h1 class="mb-0">Track your city pollution data with your owns sensors</h1>
-          	<h3 class="subheading mb-4 pb-1">Register here</h3>
+          	<h1 class="mb-0">@lang('navMenu.track')</h1>
+          	<h3 class="subheading mb-4 pb-1">@lang('navMenu.register')</h3>
           </div>
         </div>
       </div>
@@ -79,44 +98,44 @@
     				<div class="d-flex services ftco-animate text-lg-right py-4 px-lg-4">
 	            <div class="icon order-md-last d-flex align-items-center justify-content-center"><span class="flaticon-praying"></span></div>
 	            <div class="media-body pr-lg-4">
-	              <h3 class="heading mb-3">Air pollution</h3>
-	              <p>Occurs when harmful or excessive quantities of substances including gases, particulates, and biological molecules are introduced into Earth's atmosphere.</p>
+	              <h3 class="heading mb-3">@lang('navMenu.air')</h3>
+	              <p>@lang('navMenu.air2')</p>
 	            </div>
 	          </div>
 	          <div class="d-flex services active ftco-animate text-lg-right py-4 px-4">
 	            <div class="icon order-md-last d-flex align-items-center justify-content-center"><span class="flaticon-church"></span></div>
 	            <div class="media-body pr-lg-4">
-	              <h3 class="heading mb-3">Enviroment noise</h3>
-	              <p>Is the propagation of noise with harmful impact on the activity of human or animal life.</p>
+	              <h3 class="heading mb-3">@lang('navMenu.enviroment')</h3>
+	              <p>@lang('navMenu.enviroment2')</p>
 	            </div>
 	          </div>
 	          <div class="d-flex services ftco-animate text-lg-right py-4 px-lg-4">
 	            <div class="icon order-md-last d-flex align-items-center justify-content-center"><span class="flaticon-bible"></span></div>
 	            <div class="media-body pr-lg-4">
-	              <h3 class="heading mb-3">Water pollution</h3>
-	              <p>Is the contamination of any body of water (lakes, groundwater, oceans, etc).</p>
+	              <h3 class="heading mb-3">@lang('navMenu.water')</h3>
+	              <p>@lang('navMenu.water2')</p>
 	            </div>
 	          </div>
 
 	          <div class="d-flex services ftco-animate text-lg-right py-4 px-lg-4">
 	            <div class="icon order-md-last d-flex align-items-center justify-content-center"><span class="flaticon-social-care"></span></div>
 	            <div class="media-body pr-lg-4">
-	              <h3 class="heading mb-3">Land pollution</h3>
-	              <p>Is the degradation of the Earth's surface caused by a misuse of resources and improper disposal of waste. </p>
+	              <h3 class="heading mb-3">@lang('navMenu.land')</h3>
+	              <p>@lang('navMenu.land2') </p>
 	            </div>
 	          </div>
 	          <div class="d-flex services ftco-animate text-lg-right py-4 px-lg-4">
 	            <div class="icon order-md-last d-flex align-items-center justify-content-center"><span class="flaticon-rings"></span></div>
 	            <div class="media-body pr-lg-4">
-	              <h3 class="heading mb-3">Light pollution</h3>
-	              <p>Is the brightening of the night sky inhibiting the visibility of stars and planets by the use of improper lighting of communities.</p>
+	              <h3 class="heading mb-3">@lang('navMenu.light')</h3>
+	              <p>@lang('navMenu.light2')</p>
 	            </div>
 	          </div>
 	          <div class="d-flex services ftco-animate text-lg-right py-4 px-lg-4">
 	            <div class="icon order-md-last d-flex align-items-center justify-content-center"><span class="flaticon-promotion"></span></div>
 	            <div class="media-body pr-lg-4">
-	              <h3 class="heading mb-3">Termal pollution</h3>
-	              <p>Is the increase of temperature caused by human activity.</p>
+	              <h3 class="heading mb-3">@lang('navMenu.termal')</h3>
+	              <p>@lang('navMenu.termal2')</p>
 	            </div>
 	          </div>
     			</div>
@@ -141,8 +160,8 @@
     			<div class="col-md-6 px-md-5 py-4 py-md-5">
     				<div class="row justify-content-start pt-md-3 pb-md-3">
 		          <div class="col-md-12 heading-section ftco-animate">
-		            <h2 class="mb-4">We try to convince people with real data</h2>
-		            <p>Our sensors are day after day tracking data of their enviroment to show it with graphics and maps. We choose this way to show people the impact of our daily rutins in the enviroment.</p>
+		            <h2 class="mb-4">@lang('navMenu.convince')</h2>
+		            <p>@lang('navMenu.convince2')</p>
 		          </div>
 		        </div>
 		    		<div class="row">
@@ -151,7 +170,7 @@
 		              <div class="text">
 		              	
 		                <strong class="number" data-number="10000">0</strong>
-		                <span>Sensors</span>
+		                <span>@lang('navMenu.sensors')</span>
 		              </div>
 		            </div>
 		          </div>
@@ -160,7 +179,7 @@
 		              <div class="text">
 		              	
 		                <strong class="number" data-number="6000">0</strong>
-		                <span>Members</span>
+		                <span>@lang('navMenu.members')</span>
 		              </div>
 		            </div>
 		          </div>
@@ -169,7 +188,7 @@
 		              <div class="text">
 		              	
 		                <strong class="number" data-number="2000">0</strong>
-		                <span>Citys</span>
+		                <span>@lang('navMenu.citys')</span>
 		              </div>
 		            </div>
 		          </div>
@@ -178,7 +197,7 @@
 		              <div class="text">
 		              	
 		                <strong class="number" data-number="50">0</strong>
-		                <span>Countries</span>
+		                <span>@lang('navMenu.countries')</span>
 		              </div>
 		            </div>
 		          </div>
@@ -193,7 +212,7 @@
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-            <h2 class="mb-2">Our team</h2>
+            <h2 class="mb-2">@lang('navMenu.team2')</h2>
           </div>
         </div>
         <div class="row justify-content-center ftco-animate">
@@ -207,9 +226,9 @@
                     </span>
                   </div>
                   <div class="text p-3">
-                    <p class="mb-4">Web developer</p>
+                    <p class="mb-4">@lang('navMenu.develop')</p>
                     <p class="name">Asier Fernández</p>
-                    <span class="position">Member</span>
+                    <span class="position">@lang('navMenu.develop2')</span>
                   </div>
                 </div>
               </div>
@@ -221,9 +240,9 @@
                     </span>
                   </div>
                   <div class="text p-3">
-                    <p class="mb-4">Web developer</p>
+                    <p class="mb-4">@lang('navMenu.develop3')</p>
                     <p class="name">Ander González</p>
-                    <span class="position">Member</span>
+                    <span class="position">@lang('navMenu.develop4')</span>
                   </div>
                 </div>
               </div>
@@ -235,9 +254,9 @@
                     </span>
                   </div>
                   <div class="text p-3">
-                    <p class="mb-4">Web developer</p>
+                    <p class="mb-4">@lang('navMenu.develop5')</p>
                     <p class="name">Jon Imanol</p>
-                    <span class="position">Member</span>
+                    <span class="position">@lang('navMenu.develop6')</span>
                   </div>
                 </div>
               </div>
@@ -249,9 +268,9 @@
                     </span>
                   </div>
                   <div class="text p-3">
-                    <p class="mb-4">Web developer</p>
+                    <p class="mb-4">@lang('navMenu.develop7')Web developer</p>
                     <p class="name">Andrés Rojas</p>
-                    <span class="position">Member</span>
+                    <span class="position">@lang('navMenu.develop8')</span>
                   </div>
                 </div>
               </div>
@@ -265,8 +284,8 @@
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-12 text-center heading-section heading-section-light ftco-animate">
-          	<span class="subheading">News</span>
-            <h2 class="mb-2"><span class="px-4">Recent News</span></h2>
+          	<span class="subheading">@lang('navMenu.news')</span>
+            <h2 class="mb-2"><span class="px-4">@lang('navMenu.rnews')</span></h2>
           </div>
         </div>
         <div class="row">
@@ -278,13 +297,13 @@
                   <div><a href="#">BBC</a></div>
                   <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                 </div>
-                <h3 class="heading pl-md-5"><a href="#">India pollution: Supreme Court says world 'laughing' at smog issues</a></h3>
+                <h3 class="heading pl-md-5"><a href="#">@lang('navMenu.india')</a></h3>
               </div>
               <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
               </a>
               <div class="text py-3">
                 <div class="desc pl-md-5">
-	                <p>The court came down heavily on federal and state governments over what it sees as a failure to curb pollution levels. </p>
+	                <p>@lang('navMenu.court')</p>
 	              </div>
               </div>
             </div>
@@ -297,13 +316,13 @@
                   <div><a href="#">BBC</a></div>
                   <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                 </div>
-                <h3 class="heading pl-md-5"><a href="#">Bristol diesel ban: Gas boss warns over bankruptcy worry</a></h3>
+                <h3 class="heading pl-md-5"><a href="#">@lang('navMenu.bristol')</a></h3>
               </div>
               <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
               </a>
               <div class="text py-3">
                 <div class="desc pl-md-5">
-	                <p>Richard Martin, from Gas Safe Bristol, has started a Tradesmen Against Diesel Ban campaign on Facebook.</p>
+	                <p>@lang('navMenu.richard')</p>
 	              </div>
               </div>
             </div>
@@ -316,13 +335,13 @@
                   <div><a href="#">Admin</a></div>
                   <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                 </div>
-                <h3 class="heading pl-md-5"><a href="#">Pakistan pollution: Teens fight to save Lahore from toxic air</a></h3>
+                <h3 class="heading pl-md-5"><a href="#">@lang('navMenu.pakistan')</a></h3>
               </div>
               <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
               </a>
               <div class="text py-3">
                 <div class="desc pl-md-5">
-	                <p>Three students launch a bid to tackle Pakistan's government head-on in the fight against pollution.</p>
+	                <p>@lang('navMenu.three')</p>
 	              </div>
               </div>
             </div>
@@ -337,8 +356,8 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-center">
           <div class="col-md-9 ftco-animate pb-5 text-center">
-            <h1 class="mb-2 bread">Conctact us</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-2 bread">@lang('navMenu.contact2')</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">@lang('navMenu.home2') <i class="ion-ios-arrow-forward"></i></a></span> <span>@lang('navMenu.contact3')<i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
       </div>
@@ -348,20 +367,20 @@
       <div class="container">
         <div class="row d-flex mb-5 contact-info">
           <div class="col-md-12 mb-4">
-            <h2 class="h3">Contact Information</h2>
+            <h2 class="h3">@lang('navMenu.cinfo')</h2>
           </div>
           <div class="w-100"></div>
           <div class="col-md-3">
-            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+            <p><span>@lang('navMenu.address')</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
           </div>
           <div class="col-md-3">
-            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+            <p><span>@lang('navMenu.phone')</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
           </div>
           <div class="col-md-3">
-            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@topollution.com</a></p>
+            <p><span>@lang('navMenu.email')</span> <a href="mailto:info@yoursite.com">info@topollution.com</a></p>
           </div>
           <div class="col-md-3">
-            <p><span>Website</span> <a href="#">topollution.com</a></p>
+            <p><span>@lang('navMenu.website')</span> <a href="#">topollution.com</a></p>
           </div>
         </div>
         <div class="row block-9">
@@ -409,7 +428,7 @@
           </div>
           <div class="col-md">
             <div class="ftco-footer-widget mb-4 ml-md-5">
-              <h2 class="ftco-heading-2">About</h2>
+              <h2 class="ftco-heading-2">@lang('navMenu.about')</h2>
               <ul class="list-unstyled">
                 <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Staff</a></li>
                 <li><a href="#" class="py-1 d-block"><span class="ion-ios-arrow-forward mr-3"></span>Zubiri</a></li>

@@ -16,3 +16,10 @@ Route::get('/', function () {
 });
 
 Route::resource('contacts', 'ContactController')->only('store');
+
+//Traducción
+Route::get('locale/{locale}', function ($locale){
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
+
