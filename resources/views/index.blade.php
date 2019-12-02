@@ -42,29 +42,40 @@
               @if(auth()->user())
                 <li class="nav-item"><a href="{{route('users.show', auth()->user()->id)}}" class="nav-link">{{auth()->user()->name}}</a></li>
               @else
-              <li data-toggle="modal" data-target="#ModalLoginForm"><a href="#home" class="nav-link">Log In</a></li>
+              <li data-toggle="modal" data-target="#ModalLoginForm"><a href="#home" class="nav-link">{{ __('Login') }}</a></li>
                         <div id="ModalLoginForm" class="modal fade">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-body">
                                     <h1>Log In!</h1>
-                                    <form role="form" method="POST" action="">
-                                        <input type="hidden" name="_token" value="">
+                                    <form role="form" method="POST" action="{{ route('login') }}">
+                                      @csrf
                                         <div class="form-group">
-                                            <label class="control-label">Username:</label>
+                                            <label for="email" class="control-label">{{ __('E-Mail Address') }}</label>
                                             <div>
-                                                <input type="text" class="form-control input-lg" name="name" value="">
+                                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                                @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div> <div class="form-group">
-                                            <label class="control-label">Password:</label>
+                                            <label for="password" class="control-label">{{ __('Password') }}</label>
                                             <div>
-                                                <input type="password" class="form-control input-lg" name="password">
+                                                <input type="password" class="form-control input-lg @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                                @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div>
                                                 <button type="submit" class="btn btn-success">
-                                                    Log In
+                                                    {{ __('Login') }}
                                                 </button>
                                             </div>
                                         </div>
@@ -80,42 +91,58 @@
 	          <li class="nav-item"><a href="#team" class="nav-link">Team</a></li>
 	          <li class="nav-item"><a href="#news" class="nav-link">News</a></li>
 	          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-            <li><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalLoginForm">Register</button></li>
-                        <div id="ModalLoginForm" class="modal fade">
+            <li><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalRegisterForm">Register</button></li>
+                        <div id="ModalRegisterForm" class="modal fade">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-body">
                                     <h1>Create your account!</h1>
-                                    <form role="form" method="POST" action="">
+                                    <form role="form" method="POST" action="{{ route('register') }}">
+                                      @csrf
                                         <input type="hidden" name="_token" value="">
                                         <div class="form-group">
-                                            <label class="control-label">Username:</label>
+                                            <label class="control-label">{{ __('Name') }}</label>
                                             <div>
-                                                <input type="text" class="form-control input-lg" name="name" value="">
+                                                <input type="text" class="form-control input-lg @error('name') is-invalid @enderror" name="name" value="">
+                                                @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label">E-Mail Address:</label>
+                                            <label class="control-label">{{ __('E-Mail Address') }}</label>
                                             <div>
-                                                <input type="email" class="form-control input-lg" name="email" value="">
+                                                <input type="email" class="form-control input-lg @error('email') is-invalid @enderror" name="email" value="">
+                                                @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label">Password:</label>
+                                            <label class="control-label">{{ __('Password') }}</label>
                                             <div>
-                                                <input type="password" class="form-control input-lg" name="password">
+                                                <input type="password" class="form-control input-lg  @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                                @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label">Confirm Password:</label>
+                                            <label class="control-label">{{ __('Confirm Password') }}</label>
                                             <div>
-                                                <input type="password" class="form-control input-lg" name="password_confirmation">
+                                                <input type="password" class="form-control input-lg" name="password_confirmation" required autocomplete="new-password">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div>
                                                 <button type="submit" class="btn btn-success">
-                                                    Create account
+                                                    {{ __('Register') }}
                                                 </button>
                                             </div>
                                         </div>
@@ -144,7 +171,7 @@
 	            	<span>Watch about daily pollution</span>
             	</div>
             </a>
-          	<h1 class="mb-0">Track your city pollution data with your owns sensors</h1>
+          	<h1 class="mb-0">Track your city pollution data with your own sensors</h1>
           	<h3 class="subheading mb-4 pb-1"><a href="/register">Register here</a></h3>
           </div>
         </div>
