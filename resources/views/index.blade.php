@@ -4,14 +4,14 @@
     <title>Topollution</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:300,400,500,600,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i" rel="stylesheet">
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
-    
+
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
 
-    
+
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
@@ -42,21 +42,95 @@
               @if(auth()->user())
                 <li class="nav-item"><a href="/login" class="nav-link">{{auth()->user()->name}}</a></li>
               @else
-                <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+              <li data-toggle="modal" data-target="#ModalLoginForm"><a href="#home" class="nav-link">Log In</a></li>
+                        <div id="ModalLoginForm" class="modal fade">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <h1>Log In!</h1>
+                                    <form role="form" method="POST" action="">
+                                        <input type="hidden" name="_token" value="">
+                                        <div class="form-group">
+                                            <label class="control-label">Username:</label>
+                                            <div>
+                                                <input type="text" class="form-control input-lg" name="name" value="">
+                                            </div>
+                                        </div> <div class="form-group">
+                                            <label class="control-label">Password:</label>
+                                            <div>
+                                                <input type="password" class="form-control input-lg" name="password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div>
+                                                <button type="submit" class="btn btn-success">
+                                                    Log In
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
               @endif
-	          <li class="nav-item active"><a href="#home" class="nav-link">Home</a></li>
+	          <li class="nav-item "><a href="#home" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="#work" class="nav-link">Our work</a></li>
 	          <li class="nav-item"><a href="#team" class="nav-link">Team</a></li>
 	          <li class="nav-item"><a href="#news" class="nav-link">News</a></li>
 	          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            <li><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalLoginForm">Register</button></li>
+                        <div id="ModalLoginForm" class="modal fade">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <h1>Create your account!</h1>
+                                    <form role="form" method="POST" action="">
+                                        <input type="hidden" name="_token" value="">
+                                        <div class="form-group">
+                                            <label class="control-label">Username:</label>
+                                            <div>
+                                                <input type="text" class="form-control input-lg" name="name" value="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">E-Mail Address:</label>
+                                            <div>
+                                                <input type="email" class="form-control input-lg" name="email" value="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Password:</label>
+                                            <div>
+                                                <input type="password" class="form-control input-lg" name="password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Confirm Password:</label>
+                                            <div>
+                                                <input type="password" class="form-control input-lg" name="password_confirmation">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div>
+                                                <button type="submit" class="btn btn-success">
+                                                    Create account
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
 
 	        </ul>
 	      </div>
 	    </div>
 	  </nav>
     <!-- END nav -->
-    
+
     <div id="home" class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
       <div class="overlay"></div>
       <div class="container">
@@ -154,7 +228,7 @@
 		          <div class="col-md-3 justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center py-4 mb-4">
 		              <div class="text">
-		              	
+
 		                <strong class="number" data-number="10000">0</strong>
 		                <span>Sensors</span>
 		              </div>
@@ -163,7 +237,7 @@
 		          <div class="col-md-3 justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center py-4 mb-4">
 		              <div class="text">
-		              	
+
 		                <strong class="number" data-number="6000">0</strong>
 		                <span>Members</span>
 		              </div>
@@ -172,7 +246,7 @@
 		          <div class="col-md-3 justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center py-4 mb-4">
 		              <div class="text">
-		              	
+
 		                <strong class="number" data-number="2000">0</strong>
 		                <span>Citys</span>
 		              </div>
@@ -181,7 +255,7 @@
 		          <div class="col-md-3 justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center py-4 mb-4">
 		              <div class="text">
-		              	
+
 		                <strong class="number" data-number="50">0</strong>
 		                <span>Countries</span>
 		              </div>
@@ -389,7 +463,7 @@
                 <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
               </div>
             </form>
-          
+
           </div>
 
           <div class="col-lg-6 d-flex">
@@ -433,8 +507,8 @@
         </div>
       </div>
     </footer>
-    
-  
+
+
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
@@ -456,6 +530,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-    
+
   </body>
 </html>
