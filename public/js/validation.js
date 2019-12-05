@@ -1,5 +1,5 @@
 //Validation of the name field in the register modal window
-
+/*
 function validateRegisterForm() {
     //Variables of the Register form inputs
     var name = document.getElementById("name");
@@ -37,3 +37,4 @@ function validateRegisterForm() {
     }
 
   }
+  */

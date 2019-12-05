@@ -22,7 +22,9 @@ class CreateTableUsers extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->string('rol', 10)->nullable();
+            $table->boolean('confirmed')->default(0);
+            $table->string('confirmation_code')->nullable();
+            $table->string('role', 10)->default('User');
             $table->softDeletes();
             $table->timestamps();
         });
