@@ -1,5 +1,5 @@
 //Validation of the name field in the register modal window
-
+/*
 function validateRegisterForm() {
     //Variables of the Register form inputs
     var numeracion = 0;
@@ -50,3 +50,4 @@ function validateRegisterForm() {
     
 
   }
+  */
