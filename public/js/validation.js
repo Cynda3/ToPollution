@@ -1,40 +1,57 @@
-//Validation of the name field in the register modal window
-/*
-function validateRegisterForm() {
-    //Variables of the Register form inputs
-    var name = document.getElementById("name");
-    var mail = document.getElementById("mail");
-    var password = document.getElementById("password");
-    var cpassword = document.getElementById("CPassword")
-    //Regluar expresion to check if the email is valid
-    var regex = new RegExp('^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$');
+$(document).ready(function () {
+  $('#errorName').hide();
+  $('#registro').keyup(function () {
+      let name = document.getElementById('name').value;
+      let lastname = document.getElementById('lastname').value;
+      let email = document.getElementById('email').value;
+      let password = document.getElementById('password').value;
+      let confirmpassword = document.getElementById('password-confirm').value;
 
-    console.log(password);
-    console.log(cpassword);
-   
-    //Function to check if the name contains numbers
-    var nombre = name.value;
-    function hasnumber(nombre){
-      return /\d/.test(nombre);
-    }
-    //Function to check if the email is valid
-    var email = mail.value;
-    function matchMail(nombre){
-      return regex.test(nombre);
-    }
+      if (empty(name) || empty(lastname) || empty(email) || empty(password) || empty(confirmpassword) ) {
+          $('#Registrarse').prop('disabled', true);
+          
+          console.log("No dejes los campos vacios");
+      }
+      else if (emailVer(email)) {
+          console.log("email no valido");
+      }
+      else if (passwords(password, confirmpassword)) {
+          console.log("Las contraseñas son diferentes");
+      }
+      else if(rolVer() === "select"){
+          console.log("Selecciona un rol");
+      }
+      else {
+          console.log('si');
+          $('#Registrarse').prop('disabled', false);
+      }
+  });
 
-    if (name.value === "" || hasnumber(nombre) == true ) {
-      alert ("Please insert a name or check that only contains letters");
-    }else if(mail.value === "" || matchMail(email) == false){
-      alert("Please insert a valid email");
-    }else if(password.value === " "){
-      alert("Please insert an email");
-    }else if(password.value != cpassword.value){
-      alert("The inserted passwords dont match");
-    }else{
-      alert("The registration was successful");
-      return ("1");
-    }
-
+  let empty = (string) => {
+      if (string === "")
+          return true
+      else
+          return false
   }
-  */
+
+  let emailVer = (email) => {
+      var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      if(regex.test(email))
+          return false;
+      else
+          return true;
+  }
+
+  let passwords = (password, confirmpassword) => {
+      if (password == confirmpassword)
+          return false;
+      else
+          return true;
+  }
+
+  //Funcion que devuelve el valor del select (rol) seleccionado
+  let rolVer = () => {
+      let parrafo = $('#rol').val();
+      return parrafo
+  }
+});
