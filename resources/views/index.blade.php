@@ -32,7 +32,7 @@
 
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Topollution<span>@lang('navMenu.dataMap')</span></a>
+	      <a class="navbar-brand" href="{{route('index')}}">Topollution<span>@lang('navMenu.dataMap')</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span>@lang('navMenu.menu')
 	      </button>
@@ -74,7 +74,14 @@
                     </form>
                 </li>
               @else
-              <li data-toggle="modal" data-target="#ModalLoginForm"><a href="#home" class="nav-link">{{ __('Login') }}</a></li>
+              
+            <li class="nav-item active"><a href="#home" class="nav-link">{{ __('navMenu.menu') }}</a></li>
+	          <li class="nav-item"><a href="#about" class="nav-link">@lang('navMenu.about')</a></li>
+	          <li class="nav-item"><a href="#work" class="nav-link">@lang('navMenu.work')</a></li>
+	          <li class="nav-item"><a href="#team" class="nav-link">@lang('navMenu.team')</a></li>
+	          <li class="nav-item"><a href="#news" class="nav-link">@lang('navMenu.news')</a></li>
+	          <li class="nav-item"><a href="#contact" class="nav-link">@lang('navMenu.contact')</a></li>
+            <li><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalLoginForm">Log in</a></button></li>
                         <div id="ModalLoginForm" class="modal fade">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -116,13 +123,6 @@
                             </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->
                     </div><!-- /.modal -->
-              
-              <li class="nav-item active"><a href="#home" class="nav-link">{{ __('navMenu.menu') }}</a></li>
-	          <li class="nav-item"><a href="#about" class="nav-link">@lang('navMenu.about')</a></li>
-	          <li class="nav-item"><a href="#work" class="nav-link">@lang('navMenu.work')</a></li>
-	          <li class="nav-item"><a href="#team" class="nav-link">@lang('navMenu.team')</a></li>
-	          <li class="nav-item"><a href="#news" class="nav-link">@lang('navMenu.news')</a></li>
-	          <li class="nav-item"><a href="#contact" class="nav-link">@lang('navMenu.contact')</a></li>
             <li><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalRegisterForm">Register</button></li>
                         <div id="ModalRegisterForm" class="modal fade">
                         <div class="modal-dialog" role="document">
@@ -199,12 +199,12 @@
             	<div class="icon d-flex align-items-center justify-content-center">
             		<span class="ion-ios-play"></span>
             	</div>
-            	<div class="heading-title ml-3">
+            	<div class="heading-title ml-3">  
 	            	<span>@lang('navMenu.watch')</span>
             	</div>
             </a>
           	<h1 class="mb-0">@lang('navMenu.track')</h1>
-          	<h3 class="subheading mb-4 pb-1"><a href="/register">@lang('navMenu.register')</a></h3>
+          	<button type="button" class="text-white btn bg-dark  btn-lg btn-block " data-toggle="modal" data-target="#ModalRegisterForm">@lang('navMenu.register')</button>
             
 
           </div>
