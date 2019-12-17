@@ -2,13 +2,13 @@
 
 
 return [
-    'dataMap' => 'Mapa de datos diario de contaminación',
+    'dataMap' => 'Mapas de contaminación',
     'language' => 'Idioma',
     'create2' => 'Crea tu Cuenta!',
     'menu' => 'Menú',
     'home' => 'Inicio',
-    'about' => 'Sobre',
-    'work' => 'NUestro trabajo',
+    'about' => 'Nosotros',
+    'work' => 'Nuestro trabajo',
     'team' => 'Equipo',
     'news' => 'Noticias',
     'contact' => 'Contacto',
