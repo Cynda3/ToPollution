@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use App\Sensor;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,5 +14,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         factory(User::class, 50)->create();
+        factory(Sensor::class, 50)->create();
     }
 }
