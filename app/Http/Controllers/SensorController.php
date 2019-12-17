@@ -13,8 +13,8 @@ class SensorController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $sensors = Sensor::all();
+        return view('sensors/index')->with('sensors', $sensors);    }
 
     /**
      * Show the form for creating a new resource.
@@ -23,7 +23,7 @@ class SensorController extends Controller
      */
     public function create()
     {
-        //
+        return view('sensor/create');
     }
 
     /**
@@ -34,7 +34,14 @@ class SensorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sensor = new Sensor;
+        $sensor->alias = $request->alias;
+        $sensor->type = $request->type;
+
+        // Guardo los cambios
+        $sensor->save();
+
+        return back();
     }
 
     /**
@@ -71,6 +78,7 @@ class SensorController extends Controller
     {
         $sensor = Sensor::find($id);
         $sensor->alias = $request->alias;
+        $sensor->type = $request->type;
 
         // Guardo los cambios
         $sensor->save();
