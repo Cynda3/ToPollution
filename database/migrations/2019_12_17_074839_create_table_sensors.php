@@ -15,6 +15,10 @@ class CreateTableSensors extends Migration
     {
         Schema::create('sensors', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('alias', 100);
+            $table->string('type', 100);
+            $table->string('data', 100)->nullable();
+            $table->string('gps', 100)->nullable();
             $table->timestamps();
         });
     }

@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 
-class UserController extends Controller
+class SensorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,8 @@ class UserController extends Controller
      */
     public function index()
     {
-    }
+        $sensors = Sensor::all();
+        return view('sensors/index')->with('sensors', $sensors);    }
 
     /**
      * Show the form for creating a new resource.
@@ -23,8 +23,7 @@ class UserController extends Controller
      */
     public function create()
     {
-    
-        return view('user/create');
+        return view('sensor/create');
     }
 
     /**
@@ -35,16 +34,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
-        $user = User::find($id);
-        // Actualizo cada parametro del usuario
-        $user->name = $request->name;
-        $user->email = $request->email;
+        $sensor = new Sensor;
+        $sensor->alias = $request->alias;
+        $sensor->type = $request->type;
 
         // Guardo los cambios
-        $user->save();
+        $sensor->save();
 
-        return view('/home')->with('user', $user);
+        return back();
     }
 
     /**
@@ -55,9 +52,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-        return view('home')->with('user', $user);
-    }
+        $sensor = Sensor::find($id);
+        return view('home')->with('sensor', $sensor);    }
 
     /**
      * Show the form for editing the specified resource.
@@ -67,8 +63,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('user/edit')->with('user', $user);
+        $sensor = Sensor::find($id);
+        return view('sensor/edit')->with('sensor', $sensor);
     }
 
     /**
@@ -80,16 +76,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        // Actualizo cada parametro del usuario
-        $user->name = $request->name;
-        $user->email = $request->email;
+        $sensor = Sensor::find($id);
+        $sensor->alias = $request->alias;
+        $sensor->type = $request->type;
 
         // Guardo los cambios
-        $user->save();
+        $sensor->save();
 
-        return view('/home')->with('user', $user);
-   }
+        return view('/home')->with('sensor', $sensor);
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -99,7 +94,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id)->delete();
+        $sensor = Sensor::find($id)->delete();
         return view('/index');
     }
 }
