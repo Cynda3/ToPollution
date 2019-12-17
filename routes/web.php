@@ -25,13 +25,9 @@ Route::get('locale/{locale}', function ($locale){
 
 Route::resource('users', 'UserController')->only(['store', 'show', 'edit', 'update', 'destroy']);
 
-// Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('/home', 'HomeController@index')->name('home');
  
-
 //Email
 Auth::routes(['verify' =>true]);
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
-// Auth::routes();
-// Auth::routes();
+
