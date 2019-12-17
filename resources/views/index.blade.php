@@ -1,64 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Topollution</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!--
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:300,400,500,600,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i" rel="stylesheet">
--->
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
+ @extends('layouts.app')
 
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-
-    <link rel="stylesheet" href="css/aos.css">
-
-    <link rel="stylesheet" href="css/ionicons.min.css">
-
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-
-
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-
+ @section('content')
+@include('includes.modales.modalInicioSesion')
+@include('includes.modales.modalRegistro')
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
+	   
 	      <a class="navbar-brand" href="{{route('index')}}">Topollution<span>@lang('navMenu.dataMap')</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span>@lang('navMenu.menu')
 	      </button>
-        
+        <div class="collapse navbar-collapse">
         <!-- Botones provisionales traducción  -->
 
         <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
-    
+
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     @lang('navMenu.language') <span class="caret"></span>
-                        
+
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ url('locale/en') }}"><img src="images/en.jpeg" width="30px" height="20x"> English</a>
                         <a class="dropdown-item" href="{{ url('locale/es') }}"><img src="images/es.png" width="30px" height="20x"> Spanish</a>
-                        
+
                     </div>
                 </li>
-        </ul>
-        
-
-	      <div class="collapse navbar-collapse" id="ftco-nav">
+          </ul>
 	        <ul class="navbar-nav ml-auto">
-              @if(auth()->user())
+              @if(Auth::user())
                 <li class="nav-item"><a href="{{route('users.show', auth()->user()->id)}}" class="nav-link">{{auth()->user()->name}}</a></li>
 
               <li class="nav-item active"><a href="#home" class="nav-link">{{ __('navMenu.menu') }}</a></li>
@@ -74,7 +44,7 @@
                     </form>
                 </li>
               @else
-              
+
             <li class="nav-item active"><a href="#home" class="nav-link">{{ __('navMenu.menu') }}</a></li>
 	          <li class="nav-item"><a href="#about" class="nav-link">@lang('navMenu.about')</a></li>
 	          <li class="nav-item"><a href="#work" class="nav-link">@lang('navMenu.work')</a></li>
@@ -82,113 +52,17 @@
 	          <li class="nav-item"><a href="#news" class="nav-link">@lang('navMenu.news')</a></li>
 	          <li class="nav-item"><a href="#contact" class="nav-link">@lang('navMenu.contact')</a></li>
             <li><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalLoginForm">Log in</a></button></li>
-                        <div id="ModalLoginForm" class="modal fade">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <h1>Log In!</h1>
-                                    <form id="loginForm" role="form" method="POST" action="{{ route('login') }}">
-                                      @csrf
-                                        <div class="form-group">
-                                            <label for="email" class="control-label">{{ __('E-Mail Address') }}</label>
-                                            <div>
-                                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                                                @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                      <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div> <div class="form-group">
-                                            <label for="password" class="control-label">{{ __('Password') }}</label>
-                                            <div>
-                                                <input id="password" type="password" class="form-control input-lg @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                                                @error('password')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div>
-                                                <button type="submit" class="btn btn-success" >
-                                                    {{ __('Login') }}
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
             <li><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalRegisterForm">Register</button></li>
-                        <div id="ModalRegisterForm" class="modal fade">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <h1>@lang('navMenu.create2')</h1>
-                                    <form role="form" method="POST" action="{{ route('register') }}">
-                                      @csrf
-                                        <input type="hidden" name="_token" value="">
-                                        <div class="form-group">
-                                            <label class="control-label">{{ __('Name') }}</label>
-                                            <div>
-                                                <input id="name" type="text" class="form-control input-lg @error('name') is-invalid @enderror" name="name" value="">
-                                                @error('name')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email" class="control-label">{{ __('E-Mail Address') }}</label>
-                                            <div>
-                                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-                                                @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label">{{ __('Password') }}</label>
-                                            <div>
-                                                <input type="password" class="form-control input-lg  @error('password') is-invalid @enderror" id="password" minlength="8" name="password" required autocomplete="new-password">
-                                                @error('password')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label">{{ __('Confirm Password') }}</label>
-                                            <div>
-                                                <input id="CPassword" type="password" class="form-control input-lg" name="password_confirmation" required autocomplete="new-password">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div>
-                                                <button type="submit" class="btn btn-success" onclick="validateRegisterForm()">
-                                                    {{ __('Register') }}
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
+
                     @endif
 	        </ul>
 	      </div>
-	    </div>
 	  </nav>
     <!-- END nav -->
+
+
+
 
     <div id="home" class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
       <div class="overlay"></div>
@@ -199,13 +73,13 @@
             	<div class="icon d-flex align-items-center justify-content-center">
             		<span class="ion-ios-play"></span>
             	</div>
-            	<div class="heading-title ml-3">  
+            	<div class="heading-title ml-3">
 	            	<span>@lang('navMenu.watch')</span>
             	</div>
             </a>
           	<h1 class="mb-0">@lang('navMenu.track')</h1>
           	<button type="button" class="text-white btn bg-dark  btn-lg btn-block " data-toggle="modal" data-target="#ModalRegisterForm">@lang('navMenu.register')</button>
-            
+
 
           </div>
         </div>
@@ -533,7 +407,6 @@
         </div>
       </div>
     </section>
-
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
         <div class="row mb-5">
@@ -568,29 +441,4 @@
         </div>
       </div>
     </footer>
-
-
-
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>-->
-  <script src="js/google-map.js"></script>
-  <script src="js/main.js"></script>
-
-  </body>
-</html>
+@endsection
