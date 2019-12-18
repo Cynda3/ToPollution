@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('index');
-})->name('index');
+    return view('welcome');
+})->name('welcome');
 
 Route::resource('contacts', 'ContactController')->only('store');
 
