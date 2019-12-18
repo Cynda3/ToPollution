@@ -15,7 +15,7 @@
                     @endif
                     Name: {{$user->name}}<br>
                     Email: {{$user->email}}<br>
-                    Rol: {{$user->rol}}<br>
+                    Rol: {{$user->role->name}}<br>
                     You are logged in!
                     Wanna edit your profile?<br>
                     <a href="{{route('users.edit', $user->id)}}">Edit</a>
