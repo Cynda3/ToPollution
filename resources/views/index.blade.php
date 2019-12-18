@@ -3,7 +3,7 @@
 @section('content')
 @include('includes.modales.modalInicioSesion')
 @include('includes.modales.modalRegistro')
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+<nav class=" navbar text-dark navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light mx-5" id="ftco-navbar">
 
   <a class="navbar-brand" href="{{route('index')}}">Topollution<span>@lang('navMenu.dataMap')</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav"
@@ -12,10 +12,14 @@
   </button>
   <div class="collapse navbar-collapse">
     <!-- Botones provisionales traducción  -->
-
     <ul class="navbar-nav ml-auto">
-      <!-- Authentication Links -->
-
+      @if(Auth::user())
+      <li class="nav-item active"><a href="#home" class="nav-link">{{ __('navMenu.menu') }}</a></li>
+      <li class="nav-item"><a href="#about" class="nav-link">@lang('navMenu.about')</a></li>
+      <li class="nav-item"><a href="#work" class="nav-link">@lang('navMenu.work')</a></li>
+      <li class="nav-item"><a href="#team" class="nav-link">@lang('navMenu.team')</a></li>
+      <li class="nav-item"><a href="#news" class="nav-link">@lang('navMenu.news')</a></li>
+      <li class="nav-item"><a href="#contact" class="nav-link">@lang('navMenu.contact')</a></li>
       <li class="nav-item dropdown">
         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false" v-pre>
@@ -30,24 +34,20 @@
 
         </div>
       </li>
-    </ul>
-    <ul class="navbar-nav ml-auto">
-      @if(Auth::user())
-      <li class="nav-item"><a href="{{route('users.show', auth()->user()->id)}}"
-          class="nav-link">{{auth()->user()->name}}</a></li>
-
-      <li class="nav-item active"><a href="#home" class="nav-link">{{ __('navMenu.menu') }}</a></li>
-      <li class="nav-item"><a href="#about" class="nav-link">@lang('navMenu.about')</a></li>
-      <li class="nav-item"><a href="#work" class="nav-link">@lang('navMenu.work')</a></li>
-      <li class="nav-item"><a href="#team" class="nav-link">@lang('navMenu.team')</a></li>
-      <li class="nav-item"><a href="#news" class="nav-link">@lang('navMenu.news')</a></li>
-      <li class="nav-item"><a href="#contact" class="nav-link">@lang('navMenu.contact')</a></li>
-      <li class="nav-item">
-        <a class="dropdown-item" href="{{ route('logout') }}"
-          onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-          @csrf
-        </form>
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{Auth::user()->name}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{route('users.show', Auth::user()->id)}}">
+            Profile
+          </a>
+          <a class="dropdown-item" href="{{ route('logout') }}"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+          </form>
+        </div>
       </li>
       @else
 
@@ -57,8 +57,22 @@
       <li class="nav-item"><a href="#team" class="nav-link">@lang('navMenu.team')</a></li>
       <li class="nav-item"><a href="#news" class="nav-link">@lang('navMenu.news')</a></li>
       <li class="nav-item"><a href="#contact" class="nav-link">@lang('navMenu.contact')</a></li>
+      <li class="nav-item dropdown">
+        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" v-pre>
+          @lang('navMenu.language') <span class="caret"></span>
+
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ url('locale/en') }}"><img src="images/en.jpeg" width="30px" height="20x">
+            English</a>
+          <a class="dropdown-item" href="{{ url('locale/es') }}"><img src="images/es.png" width="30px" height="20x">
+            Spanish</a>
+
+        </div>
+      </li>
       <li><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalLoginForm">Log
-          in</a></button></li>
+          in</button></li>
 
       <li><button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
           data-target="#ModalRegisterForm">Register</button></li>
@@ -69,28 +83,15 @@
 </nav>
 <!-- END nav -->
 
-
-
-
 <div id="home" class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
   <div class="overlay"></div>
   <div class="container">
-    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-end"
+    <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center "
       data-scrollax-parent="true">
-      <div class="col-md-8 text-justify ftco-animate mb-5 pr-lg-4">
-        <a href="https://vimeo.com/45830194" class="icon-wrap popup-vimeo d-flex align-items-center mt-4">
-          <div class="icon d-flex align-items-center justify-content-center">
-            <span class="ion-ios-play"></span>
-          </div>
-          <div class="heading-title ml-3">
-            <span>@lang('navMenu.watch')</span>
-          </div>
-        </a>
-        <h1 class="mb-0">@lang('navMenu.track')</h1>
-        <button type="button" class="text-white btn bg-dark  btn-lg btn-block " data-toggle="modal"
+      <div class="col-md-8 text-justify ftco-animate mb-5 pr-lg-4" >
+        <h1 class="mb-0"style="background-color: rgba(0,0,0,0.2)">@lang('navMenu.track')</h1>
+        <button type="button" class="text-white btn bg-dark  btn-lg btn-block mt-3 " data-toggle="modal"
           data-target="#ModalRegisterForm">@lang('navMenu.register')</button>
-
-
       </div>
     </div>
   </div>

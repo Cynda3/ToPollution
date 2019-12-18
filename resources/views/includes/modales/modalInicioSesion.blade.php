@@ -1,5 +1,5 @@
 <div id="ModalLoginForm" class="modal fade">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
                 <h1>Log In!</h1>
