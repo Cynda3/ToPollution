@@ -13,14 +13,14 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    Name: {{$user->name}}<br>
-                    Email: {{$user->email}}<br>
-                    Rol: {{$user->role->name}}<br>
+                    Name: {{Auth::user()->name}}<br>
+                    Email: {{Auth::user()->email}}<br>
+                    Rol: <br>
                     You are logged in!
                     Wanna edit your profile?<br>
-                    <a href="{{route('users.edit', $user->id)}}">Edit</a>
+                    <a href="{{route('users.edit', Auth::user()->id)}}">Edit</a><br>
                     Try deleting your profile!<br>
-                    <form action="{{route('users.destroy', $user->id)}}" method="post">
+                    <form action="{{route('users.destroy', Auth::user()->id)}}" method="post">
                         @csrf
                         @method('DELETE')
                         <button>Delete</button>

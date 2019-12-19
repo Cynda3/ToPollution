@@ -10,11 +10,14 @@
 
   <title>ToPollution</title>
 
+  <!-- Jquery -->
+  <script src="/necessary/jquery/jquery.min.js"></script>
+
   <!-- Bootstrap core CSS -->
-  <link href="necessary/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/necessary/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link href="necessary/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/necessary/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
   <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -22,7 +25,8 @@
 
   <!-- Custom styles for this template -->
   <link href="css/grayscale.min.css" rel="stylesheet">
-
+  @include('includes.modales.modalInicioSesion')
+  @include('includes.modales.modalRegistro')
 </head>
 
 <body id="page-top">
@@ -40,16 +44,17 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger px-3" href="#about">About</a>
+            <a class="nav-link js-scroll-trigger px-0 px-lg-3" href="#about">@lang('navMenu.about')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger px-3" href="#projects">Our work</a>
+            <a class="nav-link js-scroll-trigger px-0 px-lg-3" href="#projects">Our work</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger px-3" href="#signup">Contacto</a>
+            <a class="nav-link js-scroll-trigger px-0 px-lg-3" href="#signup">Contacto</a>
           </li>
           <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false" v-pre>
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false" v-pre>
               @lang('navMenu.language') <span class="caret"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -60,7 +65,7 @@
               <a class="dropdown-item" href="{{ url('locale/es') }}">
                 <img src="img/languajes/es.png" width="30px" height="20x">
                 Spanish
-              </a> 
+              </a>
             </div>
           </li>
           @if(Auth::user())
@@ -70,7 +75,7 @@
               {{Auth::user()->name}}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{route('users.show', Auth::user()->id)}}">Profile</a>
+              <a class="dropdown-item" href="{{route('home', Auth::user()->id)}}">Profile</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
@@ -81,12 +86,14 @@
           </li>
           @else
           <li class="nav-item">
-            <button type="button" class="btn btn-dark p-2 mt-4" data-toggle="modal" data-target="#ModalLoginForm">
+            <button type="button" class="btn btn-dark p-2 mt-3 mt-lg-4 ml-lg-2" data-toggle="modal"
+              data-target="#ModalLoginForm">
               Log in
             </button>
-          </li>      
+          </li>
           <li class="nav-item">
-            <button type="button" class="btn btn-dark p-2 mt-4 ml-2" data-toggle="modal" data-target="#ModalRegisterForm">
+            <button type="button" class="btn btn-dark p-2 mt-3 mt-lg-4 mb-3 mb-lg-0 ml-lg-3" data-toggle="modal"
+              data-target="#ModalRegisterForm">
               Register
             </button>
           </li>
@@ -102,9 +109,12 @@
       <div class="mx-auto text-center">
         <h1 class="mx-auto my-0 text-uppercase">ToPollution</h1>
         <h2 class="text-white-50 mx-auto mt-2 mb-5">Track your city pollution data with your own sensors.</h2>
+        @if(Auth::user())
+        @else
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalRegisterForm">
           Register
         </button>
+        @endif
       </div>
     </div>
   </header>
@@ -115,31 +125,32 @@
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <h2 class="text-white mb-4">We try to convince people with real data</h2>
-          <p class="text-white-50">Our sensors are day after day tracking data of their enviroment to show it with graphics and maps. We choose this way to show people the impact of our daily rutins in the enviroment.</p>
+          <p class="text-white-50">Our sensors are day after day tracking data of their enviroment to show it with
+            graphics and maps. We choose this way to show people the impact of our daily rutins in the enviroment.</p>
         </div>
       </div>
-        <div class="col-lg-10 mx-auto">
-          <div class="row justify-content-center">
-            <div class="mx-4 mb-5">
-              <strong class="number text-white display-4" data-number="10000">10.000</strong><br>
-              <span class="text-primary h5">Sensors</span>
-            </div>
-            <div class="mx-4">
-              <strong class="number text-white display-4" data-number="6000">6.000</strong><br>
-              <span class="text-primary h5">Members</span>
-            </div>
-            <div class="mx-4">
-              <strong class="number text-white display-4" data-number="2000">2.000</strong><br>
-              <span class="text-primary h5">Cities</span>
-            </div>
-            <div class="mx-4">
-              <strong class="number text-white display-4" data-number="50">50</strong><br>
-              <span class="text-primary h5">Countries</span>
-            </div>
+      <div class="col-lg-10 mx-auto">
+        <div class="row justify-content-center">
+          <div class="mx-4 mb-5">
+            <strong class="number text-white display-4" data-number="10000">10.000</strong><br>
+            <span class="text-primary h5">Sensors</span>
+          </div>
+          <div class="mx-4">
+            <strong class="number text-white display-4" data-number="6000">6.000</strong><br>
+            <span class="text-primary h5">Members</span>
+          </div>
+          <div class="mx-4">
+            <strong class="number text-white display-4" data-number="2000">2.000</strong><br>
+            <span class="text-primary h5">Cities</span>
+          </div>
+          <div class="mx-4">
+            <strong class="number text-white display-4" data-number="50">50</strong><br>
+            <span class="text-primary h5">Countries</span>
+          </div>
         </div>
       </div>
       <img src="img/pol.png" class="w-75 rounded" height="300px" alt="">
-      
+
     </div>
   </section>
 
@@ -155,7 +166,8 @@
         <div class="col-xl-4 col-lg-5">
           <div class="featured-text text-center text-lg-left">
             <h4>Air-Pollution</h4>
-            <p class="text-black-50 mb-0">Occurs when harmful or excessive quantities of substances including gases, particulates, and biological molecules are introduced into Earths atmosphere.</p>
+            <p class="text-black-50 mb-0">Occurs when harmful or excessive quantities of substances including gases,
+              particulates, and biological molecules are introduced into Earths atmosphere.</p>
           </div>
         </div>
       </div>
@@ -170,7 +182,8 @@
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-left">
                 <h4 class="text-white">Enviroment noise</h4>
-                <p class="mb-0 text-white-50">Is the propagation of noise with harmful impact on the activity of human or animal life.</p>
+                <p class="mb-0 text-white-50">Is the propagation of noise with harmful impact on the activity of human
+                  or animal life.</p>
                 <hr class="d-none d-lg-block mb-0 ml-0">
               </div>
             </div>
@@ -188,7 +201,8 @@
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-right">
                 <h4 class="text-white">Land pollution</h4>
-                <p class="mb-0 text-white-50">Is the degradation of the Earths surface caused by a misuse of resources and improper disposal of waste.</p>
+                <p class="mb-0 text-white-50">Is the degradation of the Earths surface caused by a misuse of resources
+                  and improper disposal of waste.</p>
                 <hr class="d-none d-lg-block mb-0 mr-0">
               </div>
             </div>
@@ -202,23 +216,24 @@
   <!-- Signup Section -->
   <section id="signup" class="signup-section">
     <div class="container">
-      
-        <div class="col-md-10 col-lg-8 mx-auto text-center">
 
-          <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-          <h2 class="text-white mb-5">Contact</h2>
+      <div class="col-md-10 col-lg-8 mx-auto text-center">
 
-          <form class="text-left text-white">
-            <div class="form-group">
-              <label for="exampleFormControlInput1">Email address</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Message</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary mx-auto">Send Message</button>
-          </form>
+        <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+        <h2 class="text-white mb-5">Contact</h2>
+
+        <form action="{{ Route('contacts.store') }}" method="POST" class="text-left text-white">
+          @csrf
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Message</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary mx-auto">Send Message</button>
+        </form>
       </div>
     </div>
   </section>
@@ -265,18 +280,20 @@
         </div>
       </div>
 
-      <div class="social d-flex justify-content-center">
+      <div class="social d-flex justify-content-center align-content-center">
         <a href="#" class="mx-2">
-          <i class="fab fa-twitter"></i>
+          <span class="fab fa-twitter"></span>
         </a>
         <a href="#" class="mx-2">
-          <i class="fab fa-facebook-f"></i>
+          <span class="fab fa-facebook-f"></span>
         </a>
         <a href="#" class="mx-2">
-          <i class="fab fa-github"></i>
+          <span class="fab fa-instagram"></span>
+        </a>
+        <a href="#" class="mx-2">
+          <span class="fab fa-github"></span>
         </a>
       </div>
-
     </div>
   </section>
 
@@ -288,7 +305,6 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="necessary/jquery/jquery.min.js"></script>
   <script src="necessary/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Plugin JavaScript -->
