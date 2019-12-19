@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
     {
         factory(User::class, 50)->create();
         factory(Sensor::class, 50)->create();
+        $this->call(RoleTableSeeder::class);
     }
 }

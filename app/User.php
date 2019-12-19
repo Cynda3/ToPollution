@@ -39,6 +39,15 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
 
+
+    public function role()
+    {
+        return $this->BelongsTo('App\Role');
+    }
+
+
+
+
     use SoftDeletes;
     protected $dates = ['deleted_at'];
 }
