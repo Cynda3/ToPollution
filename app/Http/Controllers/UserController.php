@@ -14,7 +14,6 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -24,7 +23,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+    
+        return view('user/create');
     }
 
     /**
@@ -35,7 +35,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $user = User::find($id);
+        // Actualizo cada parametro del usuario
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        // Guardo los cambios
+        $user->save();
+
+        return view('/home')->with('user', $user);
     }
 
     /**
