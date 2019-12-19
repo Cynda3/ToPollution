@@ -15,11 +15,11 @@ class RoleTableSeeder extends Seeder
     {
         
         Role::insert([
-          'name'=> "User",
+          'name'=> "user",
         ]);
 
         Role::insert([
-          'name'=> "Admin",
+          'name'=> "admin",
         ]);
     }
 }
