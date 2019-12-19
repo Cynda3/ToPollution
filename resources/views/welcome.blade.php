@@ -28,7 +28,10 @@
   @include('includes.modales.modalInicioSesion')
   @include('includes.modales.modalRegistro')
 
+  <!-- Register validation-->
   <script src="/js/validacion.js"></script>
+
+  <!-- Custom styles for buttons -->
   <link href="css/botones.css" rel="stylesheet">
 
 
