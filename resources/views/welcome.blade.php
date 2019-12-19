@@ -27,6 +27,11 @@
   <link href="css/grayscale.min.css" rel="stylesheet">
   @include('includes.modales.modalInicioSesion')
   @include('includes.modales.modalRegistro')
+
+  <script src="/js/validacion.js"></script>
+  <link href="css/botones.css" rel="stylesheet">
+
+
 </head>
 
 <body id="page-top">
@@ -87,13 +92,13 @@
           @else
           <li class="nav-item">
             <button type="button" class="btn btn-dark p-2 mt-3 mt-lg-4 ml-lg-2" data-toggle="modal"
-              data-target="#ModalLoginForm">
+              data-target="#inicioSesionModal">
               Log in
             </button>
           </li>
           <li class="nav-item">
             <button type="button" class="btn btn-dark p-2 mt-3 mt-lg-4 mb-3 mb-lg-0 ml-lg-3" data-toggle="modal"
-              data-target="#ModalRegisterForm">
+              data-target="#registroModal">
               Register
             </button>
           </li>
