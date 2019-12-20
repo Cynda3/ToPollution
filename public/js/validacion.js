@@ -1,14 +1,17 @@
 $(document).ready(function () {
     //Hide all error messages
     $('#nameError').hide();
+    $('#nameError2').hide();
     $('#emailError').hide();
     $('#emailError2').hide();
     $('#passError').hide();
     $('#passError2').hide();
     $('#cPassError').hide();
 
-    //Email regex
-    var re = new RegExp("^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$");
+    //Regex
+    var reEmail = /^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$/g;
+    var reName = /^[A-Za-z+ +]{1,20}$/g;
+    var rePass = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/g;
 
     //Every time we release a key checks validation
     $('input').keyup(function () {
@@ -22,6 +25,18 @@ $(document).ready(function () {
         if (name === '') {
             $('#Registrarse').prop('disabled', true);
             $('#nameError').show();
+            $('#nameError2').hide();
+            $('#emailError').hide();
+            $('#emailError2').hide();
+            $('#passError').hide();
+            $('#passError2').hide();
+            $('#cPassError').hide();
+        }
+        //Name regex validation
+        else if(name.match(reName) === null){
+            $('#Registrarse').prop('disabled', true);
+            $('#nameError2').show();
+            $('#nameError').hide();
             $('#emailError').hide();
             $('#emailError2').hide();
             $('#passError').hide();
@@ -32,13 +47,14 @@ $(document).ready(function () {
             $('#Registrarse').prop('disabled', true);
             $('#emailError').show();
             $('#nameError').hide();
+            $('#nameError2').hide();
             $('#emailError2').hide();
             $('#passError').hide();
             $('#passError2').hide();
             $('#cPassError').hide();
         }
         //Email regex validation
-        else if (!re.test(email)){
+        else if (email.match(reEmail) === null){
             $('#Registrarse').prop('disabled', true);
             $('#emailError2').show();
             $('#nameError').hide();
@@ -51,16 +67,18 @@ $(document).ready(function () {
             $('#Registrarse').prop('disabled', true);
             $('#passError').show();
             $('#nameError').hide();
+            $('#nameError2').hide();
             $('#emailError').hide();
             $('#emailError2').hide();
             $('#passError2').hide();
             $('#cPassError').hide();
         }
-        //Password length
-        else if(password.length < 8){
+        //Password regex validation
+        else if(password.match(rePass) === null){
             $('#Registrarse').prop('disabled', true);
             $('#passError2').show();
             $('#nameError').hide();
+            $('#nameError2').hide();
             $('#emailError').hide();
             $('#emailError2').hide();
             $('#passError').hide();
@@ -71,6 +89,7 @@ $(document).ready(function () {
             $('#Registrarse').prop('disabled', true);
             $('#cPassError').show();
             $('#nameError').hide();
+            $('#nameError2').hide();
             $('#emailError').hide();
             $('#emailError2').hide();
             $('#passError').hide();
@@ -79,6 +98,7 @@ $(document).ready(function () {
         else {
             $('#Registrarse').prop('disabled', false);
             $('#nameError').hide();
+            $('#nameError2').hide();
             $('#emailError').hide();
             $('#emailError2').hide();
             $('#passError').hide();

@@ -17,6 +17,7 @@
                         <div class="col-md-6">
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                             <span id="nameError" class="text-danger">Tienes que escribir un nombre</span>
+                            <span id="nameError2" class="text-danger">El nombre no puede tener mas de 20 caracteres ni caracteres especiales</span>
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -46,7 +47,7 @@
                         <div class="col-md-6">
                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                             <span id="passError" class="text-danger">Tienes que escribir una contraseña</span>
-                            <span id="passError2" class="text-danger">La contraseña tiene que tener minimo 8 letras</span>
+                            <span id="passError2" class="text-danger">La contraseña tiene que tener mínimo ocho caracteres, al menos una letra, un número y un carácter especial</span>
                             @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
