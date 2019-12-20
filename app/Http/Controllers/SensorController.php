@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Sensor;
 use Illuminate\Http\Request;
 
 class SensorController extends Controller
@@ -14,7 +15,8 @@ class SensorController extends Controller
     public function index()
     {
         $sensors = Sensor::all();
-        return view('sensors/index')->with('sensors', $sensors);    }
+        return view('/sensors.sensors')->with('sensors', $sensors);    
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -53,7 +55,8 @@ class SensorController extends Controller
     public function show($id)
     {
         $sensor = Sensor::find($id);
-        return view('home')->with('sensor', $sensor);    }
+        return view('home')->with('sensor', $sensor);    
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -78,7 +81,6 @@ class SensorController extends Controller
     {
         $sensor = Sensor::find($id);
         $sensor->alias = $request->alias;
-        $sensor->type = $request->type;
 
         // Guardo los cambios
         $sensor->save();
