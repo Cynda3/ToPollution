@@ -119,7 +119,7 @@
         <h2 class="text-white-50 mx-auto mt-2 mb-5">Track your city pollution data with your own sensors.</h2>
         @if(Auth::user())
         @else
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalRegisterForm">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registroModal">
           Register
         </button>
         @endif
