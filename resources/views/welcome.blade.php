@@ -225,8 +225,16 @@
         <form action="{{ Route('contacts.store') }}" method="POST" class="text-left text-white">
           @csrf
           <div class="form-group">
-            <label for="exampleFormControlInput1">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
+            <label for="exampleFormControlInput1">Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Asier" name="name">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Subject</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Subject" name="subject">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Email</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Example@email.com " name="email">
           </div>
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Message</label>

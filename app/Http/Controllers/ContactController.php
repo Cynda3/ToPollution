@@ -46,7 +46,7 @@ class ContactController extends Controller
         // Guardo el objeto
         $contact->save();
         
-        return view('/');
+        return view('welcome');
     }
 
     /**
