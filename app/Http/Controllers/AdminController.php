@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -13,7 +14,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.Plantilla.index');
+        $users = User::all();
+        return view('admin.Plantilla.index')->with('users', $users);
     }
 
     /**
@@ -45,7 +47,9 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        $user = User::find($id);
+        return view('home')->with('user', $user);
     }
 
     /**
