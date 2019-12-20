@@ -27,6 +27,14 @@
   <link href="css/grayscale.min.css" rel="stylesheet">
   @include('includes.modales.modalInicioSesion')
   @include('includes.modales.modalRegistro')
+
+  <!-- Register validation-->
+  <script src="/js/validacion.js"></script>
+
+  <!-- Custom styles for buttons -->
+  <link href="css/botones.css" rel="stylesheet">
+
+
 </head>
 
 <body id="page-top">
@@ -87,13 +95,13 @@
           @else
           <li class="nav-item">
             <button type="button" class="btn btn-dark p-2 mt-3 mt-lg-4 ml-lg-2" data-toggle="modal"
-              data-target="#ModalLoginForm">
+              data-target="#inicioSesionModal">
               Log in
             </button>
           </li>
           <li class="nav-item">
             <button type="button" class="btn btn-dark p-2 mt-3 mt-lg-4 mb-3 mb-lg-0 ml-lg-3" data-toggle="modal"
-              data-target="#ModalRegisterForm">
+              data-target="#registroModal">
               Register
             </button>
           </li>
@@ -111,7 +119,7 @@
         <h2 class="text-white-50 mx-auto mt-2 mb-5">Track your city pollution data with your own sensors.</h2>
         @if(Auth::user())
         @else
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalRegisterForm">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registroModal">
           Register
         </button>
         @endif
