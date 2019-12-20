@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('index');
-});
+    return view('welcome');
+})->name('welcome');
 
 Route::resource('contacts', 'ContactController')->only('store');
 
@@ -23,8 +23,14 @@ Route::get('locale/{locale}', function ($locale){
     return redirect()->back();
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::resource('users', 'UserController')->only(['store', 'show', 'edit', 'update', 'destroy']);
+
+ 
+//Email
+Auth::routes(['verify' =>true]);
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+
+
+// Admin
+
+Route::get('/admin', 'AdminController@index')->middleware('auth', 'role:admin')->name('admin');
