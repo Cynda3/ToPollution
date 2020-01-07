@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -56,7 +57,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('home')->with('user', $user);
+        return view('users.show',compact('user', $user));
     }
 
     /**
@@ -68,7 +69,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('user/edit')->with('user', $user);
+        return view('users/edit')->with('user', $user);
     }
 
     /**
@@ -83,12 +84,13 @@ class UserController extends Controller
         $user = User::find($id);
         // Actualizo cada parametro del usuario
         $user->name = $request->name;
-        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+
 
         // Guardo los cambios
         $user->save();
 
-        return view('/home')->with('user', $user);
+        return view('users.show')->with('user', $user);
    }
 
     /**
