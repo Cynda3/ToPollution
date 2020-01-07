@@ -157,8 +157,6 @@
           </div>
         </div>
       </div>
-      <img src="img/pol.png" class="w-75 rounded" height="300px" alt="">
-
     </div>
   </section>
 
