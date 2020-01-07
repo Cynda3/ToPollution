@@ -100,6 +100,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id)->delete();
-        return view('/index');
+        return view('welcome');
     }
 }
