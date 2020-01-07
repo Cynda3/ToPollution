@@ -36,4 +36,4 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 Route::get('/admin', 'AdminController@index')->middleware('auth', 'role:admin')->name('admin');
 
 //Sensors
-Route::resource('sensor', 'SensorController')->only(['store', 'show', 'edit', 'update', 'destroy']);
+Route::resource('sensor', 'SensorController')->only(['index','store', 'show', 'edit', 'update', 'destroy']);
