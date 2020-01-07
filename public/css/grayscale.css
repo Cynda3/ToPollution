@@ -112,10 +112,30 @@
   font-size: 1rem;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 1000px) {
   .masthead h1 {
     font-size: 4rem;
     line-height: 4rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .masthead h1 {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+  .masthead h2 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .masthead h1 {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+  }
+  .masthead h2 {
+    font-size: 0.8rem;
   }
 }
 
