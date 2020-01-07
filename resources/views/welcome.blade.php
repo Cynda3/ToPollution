@@ -24,7 +24,7 @@
     rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/grayscale.min.css" rel="stylesheet">
+  <link href="css/grayscale.css" rel="stylesheet">
   @include('includes.modales.modalInicioSesion')
   @include('includes.modales.modalRegistro')
 
