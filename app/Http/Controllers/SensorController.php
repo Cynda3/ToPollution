@@ -15,6 +15,7 @@ class SensorController extends Controller
     public function index()
     {
         $sensors = Sensor::all();
+        var_dump($sensors);
         return view('/sensors.sensors')->with('sensors', $sensors);    
     }
 
