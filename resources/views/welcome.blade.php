@@ -24,7 +24,7 @@
     rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/grayscale.min.css" rel="stylesheet">
+  <link href="css/grayscale.css" rel="stylesheet">
   @include('includes.modales.modalInicioSesion')
   @include('includes.modales.modalRegistro')
 
@@ -83,7 +83,7 @@
               {{Auth::user()->name}}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{route('home', Auth::user()->id)}}">Profile</a>
+              <a class="dropdown-item" href="{{route('users.show', Auth::user()->id)}}">Profile</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
@@ -157,8 +157,6 @@
           </div>
         </div>
       </div>
-      <img src="img/pol.png" class="w-75 rounded" height="300px" alt="">
-
     </div>
   </section>
 
