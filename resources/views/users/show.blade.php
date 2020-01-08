@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -16,10 +15,10 @@
                     Name: {{Auth::user()->name}}<br>
                     Email: {{Auth::user()->email}}<br>
                     Rol: {{$user->role->name}}<br>
-                    You are logged in!
-                    Wanna edit your profile?<br>
-                    <a href="{{route('users.edit', Auth::user()->id)}}">Edit</a><br>
-                    Try deleting your profile!<br>
+                    <strong>You are logged in!</strong>
+                    <strong>Wanna edit your profile?</strong><br>
+                    <a href="{{route('users.edit', Auth::user()->id)}}"><button>Edit</button></a><br>
+                    <strong>Try deleting your profile!</strong><br>
                     <form action="{{route('users.destroy', Auth::user()->id)}}" method="post">
                         @csrf
                         @method('DELETE')
