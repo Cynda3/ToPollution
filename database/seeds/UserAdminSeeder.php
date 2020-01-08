@@ -11,16 +11,14 @@ class UserAdminSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        
-        User::insert([
+    {  
+    	User::insert([
 	        'name' => "Antonio",
 	        'email' => "antonio@bobomaster.com",
 	        'email_verified_at' => now(),
 	        'password' => bcrypt('patata'), // password
 	        'remember_token' => Str::random(10),
-	        'role_id' = 2,
+	        'role_id' => 2,
         ]);
-
     }
 }

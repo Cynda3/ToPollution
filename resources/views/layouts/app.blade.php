@@ -11,20 +11,20 @@
     <title>ToPollution</title>
 
     <!-- Jquery -->
-    <script src="/necessary/jquery/jquery.min.js"></script>
+    <script src="{{ URL::asset('/necessary/jquery/jquery.min.js') }}"></script>
 
     <!-- Bootstrap core CSS -->
-    <link href="/necessary/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ URL::asset('/necessary/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="/necessary/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="{{ URL::asset('/necessary/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/grayscale.min.css" rel="stylesheet">
+    <link href="{{ URL::asset('/css/grayscale.css') }}" rel="stylesheet">
     @if(Auth::user())
     @else
         @include('includes.modales.modalInicioSesion')
@@ -37,7 +37,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-black sticky-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="{{ route('welcome') }}">ToPollution</a>
+            <a class="navbar-brand js-scroll-trigger" href="{{ route('home') }}">ToPollution</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -53,11 +53,11 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ url('locale/en') }}">
-                                <img src="img/languajes/en.png" width="30px" height="20x">
+                                <img src="{{ URL::asset('/img/languajes/en.png') }}" width="30px" height="20x">
                                 English
                             </a>
                             <a class="dropdown-item" href="{{ url('locale/es') }}">
-                                <img src="img/languajes/es.png" width="30px" height="20x">
+                                <img src="{{ URL::asset('/img/languajes/es.png') }}" width="30px" height="20x">
                                 Spanish
                             </a>
                         </div>
@@ -69,7 +69,7 @@
                             {{Auth::user()->name}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{route('home', Auth::user()->id)}}">Profile</a>
+                            <a class="dropdown-item" href="{{route('users.show', Auth::user()->id)}}">Profile</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
@@ -100,20 +100,20 @@
     @yield('content')
 
     <!-- Footer -->
-    <footer class="bg-black small text-center text-white-50">
+    <footer class="bg-black small text-center text-white-50 footer">
         <div class="container">
             Copyright &copy; ToPollution 2019
         </div>
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="necessary/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ URL::asset('/necessary/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="necessary/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{ URL::asset('/necessary/jquery-easing/jquery.easing.min.js') }}"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="js/grayscale.min.js"></script>
+    <script src="{{ URL::asset('/js/grayscale.min.js"></script>
 
 </body>
 

@@ -11,28 +11,28 @@
   <title>ToPollution</title>
 
   <!-- Jquery -->
-  <script src="/necessary/jquery/jquery.min.js"></script>
+  <script src="{{ URL::asset('/necessary/jquery/jquery.min.js') }}"></script>
 
   <!-- Bootstrap core CSS -->
-  <link href="/necessary/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ URL::asset('/necessary/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link href="/necessary/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="{{ URL::asset('/necessary/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
   <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/grayscale.css" rel="stylesheet">
+  <link href="{{ URL::asset('/css/grayscale.css') }}" rel="stylesheet">
   @include('includes.modales.modalInicioSesion')
   @include('includes.modales.modalRegistro')
 
   <!-- Register validation-->
-  <script src="/js/validacion.js"></script>
+  <script src="{{ URL::asset('/js/validacion.js') }}"></script>
 
   <!-- Custom styles for buttons -->
-  <link href="css/botones.css" rel="stylesheet">
+  <link href="{{ URL::asset('css/botones.css') }}" rel="stylesheet">
 
 
 </head>
@@ -83,7 +83,7 @@
               {{Auth::user()->name}}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{route('home', Auth::user()->id)}}">Profile</a>
+              <a class="dropdown-item" href="{{route('users.show', Auth::user()->id)}}">Profile</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
@@ -319,13 +319,13 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="necessary/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ URL::asset('/necessary/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
   <!-- Plugin JavaScript -->
-  <script src="necessary/jquery-easing/jquery.easing.min.js"></script>
+  <script src="{{ URL::asset('/necessary/jquery-easing/jquery.easing.min.js') }}"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="js/grayscale.min.js"></script>
+  <script src="{{ URL::asset('/js/grayscale.min.js') }}"></script>
 
 </body>
 
