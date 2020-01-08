@@ -23,6 +23,7 @@ Route::get('locale/{locale}', function ($locale){
     return redirect()->back();
 });
 
+//User
 Route::resource('users', 'UserController')->middleware('verified');
 
  
