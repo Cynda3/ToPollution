@@ -23,7 +23,8 @@ Route::get('locale/{locale}', function ($locale){
     return redirect()->back();
 });
 
-Route::resource('users', 'UserController')->only(['store', 'show', 'edit', 'update', 'destroy']);
+//User
+Route::resource('users', 'UserController')->middleware('verified');
 
  
 //Email
