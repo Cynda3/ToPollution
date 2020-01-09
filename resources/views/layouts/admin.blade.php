@@ -1,319 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>ToPollution - Admin</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-    <!-- Custom Theme files -->
-    <link href="/css/AdminPanelCss/adminStyle.css" rel="stylesheet" type="text/css" media="all"/>
-    <!--js-->
-    <script src="/js/AdminPanelJS/jquery-2.1.1.min.js"></script> 
-    <!--icons-css-->
-    <link href="/css/AdminPanelCss/font-awesome.css" rel="stylesheet"> 
-    <!--Google Fonts-->
-    <link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
-    <!--static chart-->
-    <script src="/js/AdminPanelJS/Chart.min.js"></script>
-    <!--//charts-->
-    <!-- geo chart -->
-        <script src="//cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
-        <script>window.modernizr </script>
-        <!--<script src="lib/html5shiv/html5shiv.js"></script>-->
-         <!-- Chartinator  -->
-        <script src="/js/AdminPanelJS/chartinator.js" ></script>
-        <script type="text/javascript">
-            jQuery(function ($) {
 
-                var chart3 = $('#geoChart').chartinator({
-                    tableSel: '.geoChart',
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-                    columns: [{role: 'tooltip', type: 'string'}],
-             
-                    colIndexes: [2],
-                 
-                    rows: [
-                        ['China - 2015'],
-                        ['Colombia - 2015'],
-                        ['France - 2015'],
-                        ['Italy - 2015'],
-                        ['Japan - 2015'],
-                        ['Kazakhstan - 2015'],
-                        ['Mexico - 2015'],
-                        ['Poland - 2015'],
-                        ['Russia - 2015'],
-                        ['Spain - 2015'],
-                        ['Tanzania - 2015'],
-                        ['Turkey - 2015']],
-                  
-                    ignoreCol: [2],
-                  
-                    chartType: 'GeoChart',
-                  
-                    chartAspectRatio: 1.5,
-                 
-                    chartZoom: 1.75,
-                 
-                    chartOffset: [-12,0],
-                 
-                    chartOptions: {
-                      
-                        width: null,
-                     
-                        backgroundColor: '#fff',
-                     
-                        datalessRegionColor: '#F5F5F5',
-                   
-                        region: 'world',
-                      
-                        resolution: 'countries',
-                     
-                        legend: 'none',
+  <title>ToPollution - Admin Dashboard</title>
 
-                        colorAxis: {
-                           
-                            colors: ['#679CCA', '#337AB7']
-                        },
-                        tooltip: {
-                         
-                            trigger: 'focus',
+  <!-- Custom fonts for this template-->
+  <link href="/AdminPanel/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-                            isHtml: true
-                        }
-                    }
+  <!-- Custom styles for this template-->
+  <link href="/AdminPanel/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="/AdminPanel/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-                   
-                });                       
-            });
-        </script>
-    <!--geo chart-->
+</head>
 
-    <!--skycons-icons-->
-    <script src="/js/AdminPanelJS/skycons.js"></script>
-    <!--//skycons-icons-->
-   </head>
-   <body>
-    <div class="page-container">    
-       <div class="left-content">
-           <div class="mother-grid-inner">
-               <!-- Header_Area -->
-               <!-- header
-                  ================================================== -->
-               <header class="">
-                  <!-- Crear elemento layout para el navegador en la columna izquierda
-                  -->
-            <!--header start here-->
-                <div class="header-main">
-                    <div class="header-left">
-                            <div class="logo-name">
-                                     <a href="index.html"> <h1>Admin panel</h1> 
-                                    <!--<img id="logo" src="" alt="Logo"/>--> 
-                                  </a>                              
-                            </div>
-                            <!--search-box-->
-                                <div class="search-box">
-                                    <form>
-                                        <input type="text" placeholder="Search..." required=""> 
-                                        <input type="submit" value="">                  
-                                    </form>
-                                </div><!--//end-search-box-->
-                            <div class="clearfix"> </div>
-                         </div>
-                         <div class="header-right">
-                            <div class="profile_details_left"><!--notifications of menu start -->
-                                <ul class="nofitications-dropdown">
-                                    <li class="dropdown head-dpdn">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope"></i><span class="badge">3</span></a>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <div class="notification_header">
-                                                    <h3>You have 3 new messages</h3>
-                                                </div>
-                                            </li>
-                                            <li><a href="#">
-                                               <div class="user_img"><img src="/images/p4.png" alt=""></div>
-                                               <div class="notification_desc">
-                                                <p>Wanna go out?</p>
-                                                <p><span>1 hour ago</span></p>
-                                                </div>
-                                               <div class="clearfix"></div> 
-                                            </a></li>
-                                            <li class="odd"><a href="#">
-                                                <div class="user_img"><img src="/images/p2.png" alt=""></div>
-                                               <div class="notification_desc">
-                                                <p>Hey there! </p>
-                                                <p><span>2 hour ago</span></p>
-                                                </div>
-                                              <div class="clearfix"></div>  
-                                            </a></li>
-                                            <li><a href="#">
-                                               <div class="user_img"><img src="images/p3.png" alt=""></div>
-                                               <div class="notification_desc">
-                                                <p>Just a reminder</p>
-                                                <p><span>3 hour ago</span></p>
-                                                </div>
-                                               <div class="clearfix"></div> 
-                                            </a></li>
-                                            <li>
-                                                <div class="notification_bottom">
-                                                    <a href="#">See all messages</a>
-                                                </div> 
-                                            </li>
-                                        </ul>
-                                    </li>
-                                        </ul>
-                                    </li>   
-                                </ul>
-                                <div class="clearfix"> </div>
-                            </div>
-                            <!--notification menu end -->
-                            <div class="profile_details">       
-                                <ul>
-                                    <li class="dropdown profile_details_drop">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                            <div class="profile_img">   
-                                                <span class="prfil-img"><img src="images/p1.png" alt=""> </span> 
-                                                <div class="user-name">
-                                                    <p>{{Auth::user()->name}}</p>
-                                                    <span>Administrator</span>
-                                                </div>
-                                                <i class="fa fa-angle-down lnr"></i>
-                                                <i class="fa fa-angle-up lnr"></i>
-                                                <div class="clearfix"></div>    
-                                            </div>  
-                                        </a>
-                                        <ul class="dropdown-menu drp-mnu">
-                                            <li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
-                                            <li> <a href=""><i class="fa fa-user"></i> Profile</a> </li> 
-                                            <li>
-                                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i>{{ __('Logout') }}</a>
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                @csrf
-                                                </form>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="clearfix"> </div>               
-                        </div>
-                     <div class="clearfix"> </div>  
-                </div>
-<!--heder end here-->
+<body id="page-top">
 
-<!-- script-for sticky-nav -->
-        <script>
-        $(document).ready(function() {
-             var navoffeset=$(".header-main").offset().top;
-             $(window).scroll(function(){
-                var scrollpos=$(window).scrollTop(); 
-                if(scrollpos >=navoffeset){
-                    $(".header-main").addClass("fixed");
-                }else{
-                    $(".header-main").removeClass("fixed");
-                }
-             });
-             
-        });
-        </script>
-        <!-- /script-for sticky-nav -->
+  <!-- Page Wrapper -->
+  <div id="wrapper">
 
-               </header>
-            </div>
-         </div>
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin')}}">
+        <div class="sidebar-brand-text mx-3">ToPollution</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="{{route('admin')}}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Interface
       </div>
 
-      <div class="container-profile container-profile-logged">
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Components</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Components:</h6>
+            <a class="collapse-item" href="">Buttons</a>
+            <a class="collapse-item" href="">Cards</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Nav Item - Utilities Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>Utilities</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Utilities:</h6>
+            <a class="collapse-item" href="">Colors</a>
+            <a class="collapse-item" href="">Borders</a>
+            <a class="collapse-item" href="">Animations</a>
+            <a class="collapse-item" href="">Other</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Addons
+      </div>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Charts</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('listUsers')}}">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Users</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            
+
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Counter - Alerts -->
+                <span class="badge badge-danger badge-counter">3+</span>
+              </a>
+              <!-- Dropdown - Alerts -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  Alerts Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-primary">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 12, 2019</div>
+                    <span class="font-weight-bold">You should pay the cocaine, second advice!</span>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-success">
+                      <i class="fas fa-donate text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 7, 2019</div>
+                    $290.29 has been donated to Mia Khalifa!
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                      <i class="fas fa-exclamation-triangle text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 2, 2019</div>
+                    I don't want to get mad, pay de cocaine, first advice.
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+              </div>
+            </li>
+
+            <!-- Nav Item - Messages -->
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-envelope fa-fw"></i>
+                <!-- Counter - Messages -->
+                <span class="badge badge-danger badge-counter">7</span>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                <h6 class="dropdown-header">
+                  Message Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                    <div class="status-indicator bg-success"></div>
+                  </div>
+                  <div class="font-weight-bold">
+                    <div class="text-truncate">Help! Iran is going to start WWIII!!.</div>
+                    <div class="small text-gray-500">Donal Trump · 58m</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
+                    <div class="status-indicator"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
+                    <div class="small text-gray-500">FBI · 1d</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
+                    <div class="status-indicator bg-warning"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">Last month's report looks great, Iran can't do nothing, keep up the good work!</div>
+                    <div class="small text-gray-500">First minister · 2d</div>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="dropdown-list-image mr-3">
+                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                    <div class="status-indicator bg-success"></div>
+                  </div>
+                  <div>
+                    <div class="text-truncate">Let's invade Poland, guys!</div>
+                    <div class="small text-gray-500">Deutchland · 2w</div>
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name}}</span>
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="{{route('adminShow', Auth::user()->id)}}">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Settings
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>{{ __('Logout') }}</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+                </form>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+
             
           @yield('content')
 
         
-
       </div>
-      <!--slider menu-->
-            <div class="sidebar-menu">
-                    <div class="logo"> <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="#"> <span id="logo" ></span> 
-                          <!--<img id="logo" src="" alt="Logo"/>--> 
-                      </a> </div>         
-                    <div class="menu">
-                      <ul id="menu" >
-                        <li id="menu-home" ><a href="index.html"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
-                        <li><a href="#"><i class="fa fa-cogs"></i><span>Components</span><span class="fa fa-angle-right" style="float: right"></span></a>
-                          <ul>
-                            <li><a href="grids.html">Grids</a></li>
-                            <li><a href="portlet.html">Portlets</a></li>                    
-                          </ul>
-                        </li>
-                        <li id="menu-comunicacao" ><a href="#"><i class="fa fa-book nav_icon"></i><span>Element</span><span class="fa fa-angle-right" style="float: right"></span></a>
-                          <ul id="menu-comunicacao-sub" >
-                            <li id="menu-mensagens" style="width: 120px" ><a href="buttons.html">Buttons</a>                      
-                            </li>
-                            <li id="menu-arquivos" ><a href="typography.html">Typography</a></li>
-                            <li id="menu-arquivos" ><a href="icons.html">Icons</a></li>
-                          </ul>
-                        </li>
-                          <li><a href="maps.html"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>
-                        <li id="menu-academico" ><a href="#"><i class="fa fa-file-text"></i><span>Pages</span><span class="fa fa-angle-right" style="float: right"></span></a>
-                          <ul id="menu-academico-sub" >
-                             <li id="menu-academico-boletim" ><a href="login.html">Login</a></li>
-                            <li id="menu-academico-avaliacoes" ><a href="signup.html">Sign Up</a></li>                 
-                          </ul>
-                        </li>
-                        
-                        <li><a href="charts.html"><i class="fa fa-bar-chart"></i><span>Charts</span></a></li>
-                        <li><a href="#"><i class="fa fa-envelope"></i><span>Mailbox</span><span class="fa fa-angle-right" style="float: right"></span></a>
-                             <ul id="menu-academico-sub" >
-                                <li id="menu-academico-avaliacoes" ><a href="inbox.html">Inbox</a></li>
-                                <li id="menu-academico-boletim" ><a href="inbox-details.html">Compose email</a></li>
-                             </ul>
-                        </li>
-                         <li><a href="#"><i class="fa fa-cog"></i><span>System</span><span class="fa fa-angle-right" style="float: right"></span></a>
-                             <ul id="menu-academico-sub" >
-                                <li id="menu-academico-avaliacoes" ><a href="404.html">404</a></li>
-                                <li id="menu-academico-boletim" ><a href="blank.html">Blank</a></li>
-                             </ul>
-                         </li>
-                         <li><a href="#"><i class="fa fa-shopping-cart"></i><span>E-Commerce</span><span class="fa fa-angle-right" style="float: right"></span></a>
-                            <ul id="menu-academico-sub" >
-                                <li id="menu-academico-avaliacoes" ><a href="product.html">Product</a></li>
-                                <li id="menu-academico-boletim" ><a href="price.html">Price</a></li>
-                             </ul>
-                         </li>
-                      </ul>
-                    </div>
-             </div>
-            <div class="clearfix"> </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; ToPollution 2019</span>
+          </div>
         </div>
-        <!--slide bar menu end here--> 
-    <script>
-    var toggle = true;
-                
-    $(".sidebar-icon").click(function() {                
-      if (toggle)
-      {
-        $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
-        $("#menu span").css({"position":"absolute"});
-      }
-      else
-      {
-        $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
-        setTimeout(function() {
-          $("#menu span").css({"position":"relative"});
-        }, 400);
-      }               
-                    toggle = !toggle;
-                });
-    </script>
-    <!--scrolling js-->
-            <script src="/js/AdminPanelJS/jquery.nicescroll.js"></script>
-            <script src="/js/AdminPanelJS/scripts.js"></script>
-            <!--//scrolling js-->
-    <script src="/js/AdminPanelJS/bootstrap.js"> </script>
-    <!-- mother grid end here-->
-   </body>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="/AdminPanel/vendor/jquery/jquery.min.js"></script>
+  <script src="/AdminPanel/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="/AdminPanel/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="/AdminPanel/js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="/AdminPanel/vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="/AdminPanel/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="/AdminPanel/vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="/AdminPanel/js/demo/datatables-demo.js"></script>
+  <script src="/AdminPanel/js/demo/chart-area-demo.js"></script>
+  <script src="/AdminPanel/js/demo/chart-pie-demo.js"></script>
+
+  <!-- Page level custom scripts -->
+</body>
+
 </html>

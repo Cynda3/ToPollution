@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Contact;
+use App\Device;
 use App\User;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -14,8 +16,21 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $messages = Contact::all();
+        $devices = Device::all();
         $users = User::all();
-        return view('admin.Plantilla.index')->with('users', $users);
+        return view('admin.index')->with(['users' => $users, 'devices' => $devices, 'messages' => $messages]);
+    }
+
+    /**
+     * Display a listing of the users.
+     *
+     */
+
+    public function listUsers()
+    {
+        $users = User::all();
+        return view('admin.userlist')->with(['users' => $users]);
     }
 
     /**
@@ -49,7 +64,7 @@ class AdminController extends Controller
     {
         
         $user = User::find($id);
-        return view('home')->with('user', $user);
+        return view('admin.profile')->with('user', $user);
     }
 
     /**
