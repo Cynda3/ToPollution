@@ -45,7 +45,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->BelongsTo('App\Role');
     }
 
-
+    public function device()
+    {
+        return $this->hasOne('App\Device');
+    }
 
 
     use SoftDeletes;
