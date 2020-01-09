@@ -35,3 +35,11 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 // Admin
 
 Route::get('/admin', 'AdminController@index')->middleware('auth', 'role:admin')->name('admin');
+<<<<<<< HEAD
+
+//Sensors
+Route::resource('sensor', 'SensorController')->only(['index','store', 'show', 'edit', 'update', 'destroy']);
+=======
+Route::get('/admin/users', 'AdminController@listUsers')->middleware('auth', 'role:admin')->name('listUsers');
+Route::get('/admin/{id}', 'AdminController@show')->middleware('auth', 'role:admin')->name('adminShow');
+>>>>>>> 1af7bb0ec1663fe322b32ad1e90b52390a5e779d
