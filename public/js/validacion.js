@@ -9,9 +9,9 @@ $(document).ready(function () {
     $('#cPassError').hide();
 
     //Regex
-    var reEmail = /^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$/g;
-    var reName = /^[A-Za-z+ +]{1,20}$/g;
-    var rePass = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/g;
+    var reEmail = /^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$/m;
+    var reName = /^[A-Za-z+ +]{1,20}$/m;
+    var rePass = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/m;
 
     //Every time we release a key checks validation
     $('input').keyup(function () {
