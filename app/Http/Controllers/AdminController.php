@@ -64,7 +64,6 @@ class AdminController extends Controller
     {
         
         $user = User::find($id);
-        echo "snow, hey oh";
         return view('admin.profile')->with('user', $user);
     }
 
