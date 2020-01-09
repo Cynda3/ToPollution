@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Contact;
+use App\Sensor;
 use App\User;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -14,8 +16,21 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $messages = Contact::all();
+        $sensors = Sensor::all();
         $users = User::all();
-        return view('admin.Plantilla.index')->with('users', $users);
+        return view('admin.index')->with(['users' => $users, 'sensors' => $sensors, 'messages' => $messages]);
+    }
+
+    /**
+     * Display a listing of the users.
+     *
+     */
+
+    public function listUsers()
+    {
+        $users = User::all();
+        return view('admin.userlist')->with(['users' => $users]);
     }
 
     /**
@@ -49,7 +64,8 @@ class AdminController extends Controller
     {
         
         $user = User::find($id);
-        return view('home')->with('user', $user);
+        echo "snow, hey oh";
+        return view('admin.profile')->with('user', $user);
     }
 
     /**
