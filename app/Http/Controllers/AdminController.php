@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
-use App\Sensor;
+use App\Device;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -17,9 +17,9 @@ class AdminController extends Controller
     public function index()
     {
         $messages = Contact::all();
-        $sensors = Sensor::all();
+        $devices = Device::all();
         $users = User::all();
-        return view('admin.index')->with(['users' => $users, 'sensors' => $sensors, 'messages' => $messages]);
+        return view('admin.index')->with(['users' => $users, 'devices' => $devices, 'messages' => $messages]);
     }
 
     /**
