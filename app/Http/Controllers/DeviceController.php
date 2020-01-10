@@ -14,7 +14,7 @@ class DeviceController extends Controller
      */
     public function index()
     {
-        //
+        return redirect('home');
     }
 
     /**
@@ -24,7 +24,7 @@ class DeviceController extends Controller
      */
     public function create()
     {
-        //
+        return view('devices.create');
     }
 
     /**
