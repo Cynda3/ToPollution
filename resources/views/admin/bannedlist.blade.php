@@ -43,11 +43,11 @@
                       <td>{{$user->email}}</td>
                       <td>{{$user->role->name}}</td>
                       <td>
-                        <a href="{{route('adminShow', $user->id)}}" class="btn btn-info btn-circle btn-sm">
-                          <i class="fas fa-info"></i>
+                        <a href="{{route('/restore', $user->id)}}" class="btn btn-success btn-circle btn-sm">
+                          <i class="fas fa-check"></i>
                         </a>
-                        <a href="{{route('/ban', $user->id)}}" class="btn btn-warning btn-circle btn-sm">
-                          <i class="fas fa-exclamation-triangle"></i>
+                        <a href="{{route('/ban', $user->id)}}" class="btn btn-danger btn-circle btn-sm">
+                          <i class="fas fa-trash"></i>
                         </a>
                       </td>
                     </tr>

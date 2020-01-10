@@ -33,6 +33,39 @@ class AdminController extends Controller
         return view('admin.userlist')->with(['users' => $users]);
     }
 
+
+    public function bannedUsers()
+    {
+        $users = User::onlyTrashed()->get();
+        return view('admin.bannedlist')->with(['users' => $users]);
+    }
+
+
+    public function banUser($id)
+    {
+        $userToBan = User::withTrashed()->find($id);
+        if ($userToBan->deleted_at != NULL) {
+            $userToBan->forceDelete();
+            $bannedUsers = User::onlyTrashed()->get();
+            return view('admin.bannedlist')->with(['users' => $bannedUsers]);
+        }
+        else{
+            User::where('id', $id)->delete();
+            $users = User::all();
+            return view('admin.userlist')->with(['users' => $users]);
+        }
+    }
+
+
+    public function restoreUser($id)
+    {
+        $user_recuperado = User::onlyTrashed()->find($id)->restore();
+        $users = User::onlyTrashed()->get();
+        return view('admin.bannedlist')->with(['users' => $users]);
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -75,7 +108,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('admin.edit')->with(['user' => $user]);
     }
 
     /**
@@ -87,7 +121,23 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+
+
+        // Update
+
+        $user = User::find($id);
+
+        $user->name = $request->name;
+        $user->avatar = '/images/'.$request->avatar;
+        $user->lastname = $request->lastname;
+        $user->biography = $request->biography;
+        $user->age = $request->age;
+        $user->country = $request->country;
+
+        $user->save();
+
+        return view('admin.profile')->with(['user' => $user]);
     }
 
     /**
