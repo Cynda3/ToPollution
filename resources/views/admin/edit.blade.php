@@ -7,7 +7,7 @@
 
           <div class="row">
 
-          	<div class="col-lg-6 border-bottom-primary rotate-n-15">
+          	<div class="col-lg-6 border-bottom-primary">
 
 	          <div class="card shadow mb-6">
 
