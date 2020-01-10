@@ -75,6 +75,8 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('users.show', Auth::user()->id)}}">Profile</a>
                             <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{route('home', Auth::user()->id)}}">Sensors</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -106,7 +108,7 @@
     <!-- Footer -->
     <footer class="bg-black small text-center text-white-50 footer">
         <div class="container">
-            Copyright &copy; ToPollution 2020
+            Copyright &copy; ToPollution <script>document.write(new Date().getFullYear());</script>
         </div>
     </footer>
 
