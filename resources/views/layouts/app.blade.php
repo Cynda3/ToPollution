@@ -10,10 +10,6 @@
     
 
     <title>ToPollution</title>
-
-  
-    
-  
   
 
     <!-- Jquery -->
@@ -42,7 +38,7 @@
 <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-black sticky-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-black " id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="{{ route('home') }}">ToPollution</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
