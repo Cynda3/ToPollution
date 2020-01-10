@@ -11,12 +11,10 @@
 
     <title>ToPollution</title>
 
-    <!-- Estilos Perfil usuario -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
     
-
+  
+  
 
     <!-- Jquery -->
     <script src="{{ URL::asset('/necessary/jquery/jquery.min.js') }}"></script>
@@ -31,6 +29,7 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
     <!-- Custom styles for this template -->
+    <link href="{{ URL::asset('/css/stickyFooter.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('/css/grayscale.css') }}" rel="stylesheet">
     @if(Auth::user())
     @else
@@ -111,7 +110,7 @@
     <!-- Footer -->
     <footer class="bg-black small text-center text-white-50 footer">
         <div class="container">
-            Copyright &copy; ToPollution 2019
+            Copyright &copy; ToPollution 2020
         </div>
     </footer>
 
