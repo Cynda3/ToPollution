@@ -6,11 +6,7 @@
             <div class="card">
                 <div class="card-header">Aqui puede editar su perfil</div>                
                 <div class="card-body">
-                    @if (session('status')) 
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                   
                     <form action="{{route('users.update', $user->id)}}" method="post">
                         @csrf
                         @method('PUT')

@@ -10,11 +10,8 @@
     
 
     <title>ToPollution</title>
-
   
-    
-  
-  
+   
 
     <!-- Jquery -->
     <script src="{{ URL::asset('/necessary/jquery/jquery.min.js') }}"></script>
@@ -42,7 +39,7 @@
 <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-black sticky-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-black " id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="{{ route('home') }}">ToPollution</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -53,7 +50,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                
+                <li class="nav-item">
+                        <a class="nav-link " href="{{route('home')}}">
+                            Global
+                        </a>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -78,6 +78,8 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('users.show', Auth::user()->id)}}">Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{route('users.index', Auth::user()->id)}}">Sensors</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
@@ -110,7 +112,7 @@
     <!-- Footer -->
     <footer class="bg-black small text-center text-white-50 footer">
         <div class="container">
-            Copyright &copy; ToPollution 2020
+            Copyright &copy; ToPollution <script>document.write(new Date().getFullYear());</script>
         </div>
     </footer>
 
