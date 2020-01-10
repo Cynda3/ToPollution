@@ -7,8 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    
 
     <title>ToPollution</title>
+
+  
+    
+  
+  
 
     <!-- Jquery -->
     <script src="{{ URL::asset('/necessary/jquery/jquery.min.js') }}"></script>
@@ -22,14 +28,15 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
     <!-- Custom styles for this template -->
+    <link href="{{ URL::asset('/css/stickyFooter.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('/css/grayscale.css') }}" rel="stylesheet">
     @if(Auth::user())
     @else
         @include('includes.modales.modalInicioSesion')
         @include('includes.modales.modalRegistro')
     @endif
+    
 </head>
 
 <body id="page-top">
@@ -103,7 +110,7 @@
     <!-- Footer -->
     <footer class="bg-black small text-center text-white-50 footer">
         <div class="container">
-            Copyright &copy; ToPollution 2019
+            Copyright &copy; ToPollution 2020
         </div>
     </footer>
 
