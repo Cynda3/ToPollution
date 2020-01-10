@@ -19,7 +19,7 @@
                 <td>{{$d->name}}</td>
                 <td>{{$d->latitude}}</td>
                 <td>{{$d->longitude}}</td>
-                <td>{{$d->user->name}}</td>
+                <td><a href="{{route('users.show',$d->user->id)}}">{{$d->user->name}}</td>
                 <td class="d-flex justify-content-center"><a href="{{route('devices.show',$d->id)}}"><i class="fas fa-glasses" style="color:white"></i></a></td>
             </tr>
         </tbody>
