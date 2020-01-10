@@ -4,7 +4,7 @@
 <hr>
 <div class="container bootstrap snippet">
     <div class="row">
-  		<div class="col-sm-10"><h1>Tu perfil</h1></div>
+  		<div class="col-sm-10"><h1>Profile</h1></div>
     	
     </div>
     <div class="row">
@@ -12,9 +12,8 @@
               
 
       <div class="text-center">
-        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-        <h6>Upload a different photo...</h6>
-        <input type="file" class="text-center center-block file-upload">
+      <img class="img-profile" src="{{Auth::user()->avatar}}">
+        
       </div></hr><br>
 
                
@@ -37,12 +36,7 @@
 
        
     	<div class="col-sm-9">
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="/home">Home</a></li>
-                
-              </ul>
-
-              
+   
           <div class="tab-content">
             <div class="tab-pane active" id="home">
                 <hr>
@@ -51,23 +45,29 @@
                           
                           <div class="col-xs-6">
                               <label for="first_name"><h4>First name</h4></label><br>
-                              {{Auth::user()->name}}
+                              {{$user->name}}
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="col-xs-6">
                             <label for="last_name"><h4>Last name</h4></label><br>
-                            {{Auth::user()->name}}
+                            {{$user->lastname}}
                           </div>
                       </div>
-          
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                            <label for="last_name"><h4>Country</h4></label><br>
+                            {{$user->country}}
+                          </div>
+                      </div>
                     
                       <div class="form-group">
                           
                           <div class="col-xs-6">
                               <label for="email"><h4>Email</h4></label><br>
-                              {{Auth::user()->email}}
+                              {{$user->email}}
                           </div>
                       </div>
 
