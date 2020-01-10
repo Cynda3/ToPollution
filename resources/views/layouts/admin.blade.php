@@ -54,11 +54,36 @@
 
 
 
-      <!-- Nav Item - Tables -->
+        <!-- Nav Item - Admin profile & log out -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>{{Auth::user()->name}}</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">{{Auth::user()->name}}:</h6>
+            <a class="collapse-item" href="{{route('adminShow', Auth::user()->id)}}">Profile</a>
+            <a class="collapse-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+                </form>
+          </div>
+        </div>
+      </li>
+
+      <!-- Nav Item - User List -->
       <li class="nav-item">
         <a class="nav-link" href="{{route('listUsers')}}">
           <i class="fas fa-fw fa-table"></i>
-          <span>List</span></a>
+          <span>Non-banneds</span></a>
+      </li>
+
+      <!-- Nav Item - Banned List -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('bannedUsers')}}">
+          <i class="fas fa-fw fa-exclamation-triangle"></i>
+          <span>Banneds</span></a>
       </li>
 
       <!-- Divider -->
