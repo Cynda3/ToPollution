@@ -240,7 +240,8 @@
           </div>
           <div class="form-group">
             <label for="exampleFormControlInput1">Email</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Example@email.com " name="email">
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Example@email.com "
+              name="email">
           </div>
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Message</label>
@@ -314,7 +315,9 @@
   <!-- Footer -->
   <footer class="bg-black small text-center text-white-50">
     <div class="container">
-      Copyright &copy; ToPollution 2019
+      Copyright &copy; ToPollution <script>
+        document.write(new Date().getFullYear());
+      </script>
     </div>
   </footer>
 
