@@ -11,6 +11,7 @@
 
     <title>ToPollution</title>
   
+    
 
     <!-- Jquery -->
     <script src="{{ URL::asset('/necessary/jquery/jquery.min.js') }}"></script>
@@ -75,7 +76,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('users.show', Auth::user()->id)}}">Profile</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('home', Auth::user()->id)}}">Sensors</a>
+                            <a class="dropdown-item" href="{{route('users.index', Auth::user()->id)}}">Sensors</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>

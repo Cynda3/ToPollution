@@ -30,12 +30,8 @@
             
           </ul> 
                
-          <div class="panel panel-default">
-            <div class="panel-heading">Social Media</div>
-            <div class="panel-body">
-            	<i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
-            </div>
-          </div>
+          
+           
           
         </div><!--/col-3-->
 
@@ -87,11 +83,11 @@
                       <div class="form-group">
                            <div class="col-xs-12">
                                 
-                                <a href="{{route('users.edit', Auth::user()->id)}}"><button class="btn btn-lg btn-success" type="submit">Edit</button>
+                                <a href="{{route('users.edit', Auth::user()->id)}}"><button class="btn btn-lg btn-success"  type="submit">Edit</button>
                                 <form action="{{route('users.destroy', Auth::user()->id)}}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-lg btn-danger" type="submit">Delete</button>
+                                <button class="btn btn-lg btn-danger"  type="submit">Delete</button>
                     </form>
                             </div>
                       </div>
