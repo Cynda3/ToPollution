@@ -32,8 +32,10 @@ Auth::routes(['verify' =>true]);
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
 
-// Admin
-
+//Admin
 Route::get('/admin', 'AdminController@index')->middleware('auth', 'role:admin')->name('admin');
 Route::get('/admin/users', 'AdminController@listUsers')->middleware('auth', 'role:admin')->name('listUsers');
 Route::get('/admin/{id}', 'AdminController@show')->middleware('auth', 'role:admin')->name('adminShow');
+
+//Devices
+Route::resource('devices', 'DeviceController')->middleware('verified');
