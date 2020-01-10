@@ -4,11 +4,14 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-          <!-- Page Heading -->
-          	<img class="img-profile" src="{{Auth::user()->avatar}}">
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">{{$user->name}} {{$user->lastname}}</h1>
+          <div class="row">
+          	<div class="col-lg-4">
+	          <!-- Page Heading -->
+	          <div class="d-sm-flex align-items-center justify-content-around mb-4">
+		        <img class="img-fluid mb-0" src="{{Auth::user()->avatar}}">
+	            <h1 class="h3 mb-0 text-gray-800">{{$user->name}} {{$user->lastname}}</h1>
+	          </div>
+	        </div>
           </div>
 
           <div class="row">
