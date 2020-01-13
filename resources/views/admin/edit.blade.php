@@ -34,9 +34,43 @@
 
 					        <button type="submit" class="btn btn-light">Edit profile</button>
 				    	</form>
-				      </div>
-				  </div>
+				</div>
+
 			  </div>
+			  <!-- End card -->
+
+			</div>
+
+
+
+          	<div class="col-lg-6 border-bottom-primary">
+
+	          <div class="card shadow mb-6">
+
+	            <div class="card-header py-3">
+	              <h6 class="m-0 font-weight-bold text-primary">Error messagess</h6>
+	            </div>
+
+	            <div class="card-body border-left-danger">
+	            	<!-- Error messagess -->
+	            	<ul>
+	            		@if($errors->any())
+			            	@foreach($errors->all() as $error)
+
+			            	<li>
+			            		{{$error}}
+			            	</li>
+
+			            	@endforeach
+		            	@endif
+	            	</ul>
+				</div>
+
+			  </div>
+				<!-- End card -->
+
+			</div>
+
 
 	        </div>
 
