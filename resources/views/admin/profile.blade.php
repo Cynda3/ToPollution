@@ -4,11 +4,14 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-          <!-- Page Heading -->
-          	<img class="img-profile" src="{{Auth::user()->avatar}}">
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">{{$user->name}} {{$user->lastname}}</h1>
+          <div class="row">
+          	<div class="col-lg-4">
+	          <!-- Page Heading -->
+	          <div class="d-sm-flex align-items-center justify-content-around mb-4">
+		        <img class="img-fluid mb-0" src="{{$user->avatar}}">
+	            <h1 class="h3 mb-0 text-gray-800">{{$user->name}} {{$user->lastname}}</h1>
+	          </div>
+	        </div>
           </div>
 
           <div class="row">
@@ -26,6 +29,17 @@
 	          </div>
 	    	</div>
 
+	  	  </div>
+	  	  <div class="row">
+	  	  	<div class="col-lg-6">
+              <div class="my-2"></div>
+              <a href="{{route('userEdit', $user->id)}}" class="btn btn-light btn-icon-split">
+                <span class="icon text-gray-600">
+                  <i class="fas fa-arrow-right"></i>
+                </span>
+                <span class="text">Edit profile</span>
+              </a>
+	  	  	</div>
 	  	  </div>
 
         </div>
