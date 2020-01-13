@@ -23,6 +23,7 @@
                 <td class="d-flex justify-content-center"><a href="{{route('devices.show',$d->id)}}"><i class="fas fa-glasses" style="color:white"></i></a></td>
             </tr>
         </tbody>
+        
         @endforeach
     </table>
 </div>
