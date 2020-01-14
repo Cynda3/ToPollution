@@ -50,7 +50,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link " href="{{route('home')}}">
-                            Global Sensors
+                            Global Devices
                         </a>
 
                     <li class="nav-item">
@@ -76,7 +76,7 @@
                     @if(Auth::user())
                     <li class="nav-item">
                         <a class="nav-link " href="{{route('users.index', Auth::user()->id)}}">
-                            My Sensors
+                            My Devices
                         </a>
                         </li>
                     <li class="nav-item dropdown">
