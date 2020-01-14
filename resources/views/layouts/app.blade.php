@@ -9,7 +9,7 @@
     <meta name="author" content="">
 
     <title>ToPollution</title>
-  
+
     <!-- Jquery -->
     <script src="{{ URL::asset('/necessary/jquery/jquery.min.js') }}"></script>
 
@@ -27,11 +27,11 @@
     <link href="{{ URL::asset('/css/grayscale.css') }}" rel="stylesheet">
     @if(Auth::user())
     @else
-        @include('includes.modales.modalInicioSesion')
-        @include('includes.modales.modalRegistro')
+    @include('includes.modales.modalInicioSesion')
+    @include('includes.modales.modalRegistro')
     @endif
     @yield('head')
-    
+
 </head>
 
 <body id="page-top">
@@ -48,7 +48,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link " href="{{route('home')}}">
                             Global Sensors
                         </a>
@@ -110,7 +110,9 @@
     <!-- Footer -->
     <footer class="bg-black small text-center text-white-50 footer">
         <div class="container">
-            Copyright &copy; ToPollution <script>document.write(new Date().getFullYear());</script>
+            Copyright &copy; ToPollution <script>
+                document.write(new Date().getFullYear());
+            </script>
         </div>
     </footer>
 
@@ -121,8 +123,8 @@
     <script src="{{ URL::asset('/necessary/jquery-easing/jquery.easing.min.js') }}"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="{{ URL::asset('/js/grayscale.min.js"></script>
-@yield('scripts')
+    <script src="{{ URL::asset('/js/grayscale.min.js') }}"></script>
+    @yield('scripts')
 </body>
 
 </html>
