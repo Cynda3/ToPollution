@@ -1,9 +1,10 @@
 <!-- Modal Inicio de sesion -->
-<div id="inicioSesionModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div id="inicioSesionModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content bg-dark text-white">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">@lang('Formulario inicio de sesion')</h5>
+                <h5 class="modal-title" id="exampleModalLabel">@lang('navMenu.formulariologin')</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -12,10 +13,12 @@
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group row">
-                        <label for="email" class="col-md-4 col-form-label text-md-right">@lang('Correo electronico')</label>
+                        <label for="email" class="col-md-4 col-form-label text-md-right">@lang('navMenu.correo')</label>
 
                         <div class="col-md-6">
-                            <input id="emailLogIn" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            <input id="emailLogIn" type="email"
+                                class="form-control @error('email') is-invalid @enderror" name="email"
+                                value="{{ old('email') }}" required autocomplete="email">
 
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -26,10 +29,13 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="password" class="col-md-4 col-form-label text-md-right">@lang('Contraseña')</label>
+                        <label for="password"
+                            class="col-md-4 col-form-label text-md-right">@lang('navMenu.contraseña')</label>
 
                         <div class="col-md-6">
-                            <input id="passwordLogIn" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                            <input id="passwordLogIn" type="password"
+                                class="form-control @error('password') is-invalid @enderror" name="password" required
+                                autocomplete="new-password">
                             @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -41,13 +47,13 @@
                         <div class="form-group col">
                             @if (Route::has('password.request'))
                             <a class="" href="{{ route('password.request') }}">
-                                @lang('¿Olvidaste tu contraseña?')
+                                @lang('navMenu.olvidada')
                             </a>
                             @endif
                         </div>
                         <div class="form-group row mb-0">
                             <div class="input-group col">
-                                <button class="btn btn-primary p-2 mt-1" type="submit">@lang('Iniciar Sesion')</button>
+                                <button class="btn btn-primary p-2 mt-1" type="submit">@lang('navMenu.iniciar')</button>
                             </div>
                         </div>
                     </div>

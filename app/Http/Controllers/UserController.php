@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Device;
+use Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -15,6 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
+        $devices = Device::where('user_id', Auth::user()->id)->get();
+        return view('users.index')->with('devices', $devices);
     }
 
     /**
@@ -25,7 +29,7 @@ class UserController extends Controller
     public function create()
     {
     
-        return view('user/create');
+        return view('user.create');
     }
 
     /**
@@ -69,7 +73,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('users/edit')->with('user', $user);
+        return view('users.edit')->with('user', $user);
     }
 
     /**
@@ -101,7 +105,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id)->delete();
-        return view('welcome');
+        $user = User::find($id);
+        $user->delete();
+        return redirect (route('welcome'));
     }
 }

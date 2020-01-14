@@ -22,20 +22,22 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
     <!-- Custom styles for this template -->
+    <link href="{{ URL::asset('/css/stickyFooter.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('/css/grayscale.css') }}" rel="stylesheet">
     @if(Auth::user())
     @else
-        @include('includes.modales.modalInicioSesion')
-        @include('includes.modales.modalRegistro')
+    @include('includes.modales.modalInicioSesion')
+    @include('includes.modales.modalRegistro')
     @endif
+    @yield('head')
+
 </head>
 
 <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-black sticky-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-black " id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="{{ route('home') }}">ToPollution</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -46,6 +48,25 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{route('home')}}">
+                            Global Devices
+                        </a>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{route('home')}}">
+                            Maps
+                        </a>
+
+                        @if(Auth::user())
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{route('users.index', Auth::user()->id)}}">
+                            My Devices
+                        </a>
+                    </li>
+                    @endif
+
+
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -102,7 +123,9 @@
     <!-- Footer -->
     <footer class="bg-black small text-center text-white-50 footer">
         <div class="container">
-            Copyright &copy; ToPollution 2019
+            Copyright &copy; ToPollution <script>
+                document.write(new Date().getFullYear());
+            </script>
         </div>
     </footer>
 
@@ -113,8 +136,8 @@
     <script src="{{ URL::asset('/necessary/jquery-easing/jquery.easing.min.js') }}"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="{{ URL::asset('/js/grayscale.min.js"></script>
-
+    <script src="{{ URL::asset('/js/grayscale.min.js') }}"></script>
+    @yield('scripts')
 </body>
 
 </html>
