@@ -52,6 +52,11 @@
                         <a class="nav-link " href="{{route('home')}}">
                             Global Sensors
                         </a>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{route('home')}}">
+                            Maps
+                        </a>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -69,6 +74,11 @@
                         </div>
                     </li>
                     @if(Auth::user())
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{route('users.index', Auth::user()->id)}}">
+                            My Sensors
+                        </a>
+                        </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -76,8 +86,6 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('users.show', Auth::user()->id)}}">Profile</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('users.index', Auth::user()->id)}}">Sensors</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
