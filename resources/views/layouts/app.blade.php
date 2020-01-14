@@ -7,12 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    
 
     <title>ToPollution</title>
   
-   
-
     <!-- Jquery -->
     <script src="{{ URL::asset('/necessary/jquery/jquery.min.js') }}"></script>
 
@@ -33,6 +30,7 @@
         @include('includes.modales.modalInicioSesion')
         @include('includes.modales.modalRegistro')
     @endif
+    @yield('head')
     
 </head>
 
@@ -52,7 +50,7 @@
                 <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                         <a class="nav-link " href="{{route('home')}}">
-                            Global
+                            Global Sensors
                         </a>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -124,7 +122,7 @@
 
     <!-- Custom scripts for this template -->
     <script src="{{ URL::asset('/js/grayscale.min.js"></script>
-
+@yield('scripts')
 </body>
 
 </html>
