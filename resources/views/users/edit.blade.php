@@ -10,19 +10,19 @@
                     <form action="{{route('users.update', $user->id)}}" method="post">
                         @csrf
                         @method('PUT')
-                        New Name: <input type="text" placeholder="{{$user->name}}" name="name" value="{{ old('name') }}"><br>
+                        <label for="name"> New Name:</label> <input type="text" class="form-control" placeholder="{{$user->name}}" name="name" value="{{ old('name') }}"><br>
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        New password: <input type="password" name="password" value="{{ old('password') }}"><br>
+                            <label for="password">New password:</label> <input type="password" class="form-control" name="password" value="{{ old('password') }}"><br>
                         @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        Confirm Password:<input type="password" name="password-confirm" value="{{ old('password') }}"><br>
+                            <label for="confpassword">Confirm Password:</label><input type="password" class="form-control" name="password-confirm" value="{{ old('password') }}"><br>
                         @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

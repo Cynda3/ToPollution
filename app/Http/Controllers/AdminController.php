@@ -122,6 +122,24 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
 
+        $request->validate([
+            'avatar' => 'image',
+            'name' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
+            'lastname' => 'regex:/^[A-Za-záéíóú+ +]{0,20}$/m',
+            'biography' => 'regex:/^[A-Za-záéíóú0-9+ +\.]{0,150}$/m',
+            'age' => 'regex:/^[0-9]{0,2}$/m',
+            'country' => 'regex:/^[A-Za-z+ +]{0,20}$/m'
+        ]);
+
+        $messages = [
+            'avatar.image' => 'Avatar must be a image file!',
+            'name.required' => 'Name field is required!',
+            'name.regex' => 'Name field must be a text between 1 and 20 words!',
+            'lastname.regex' => 'Lastname must be a text between 0 and 20 words!',
+            'biography.regex' => 'Biography must be a text between 0 and 150 words!',
+            'age.regex' => 'Age must be a number!',
+            'country.regex' => 'Country must be a text between 0 and 20 words!'
+        ];
 
 
         // Update
@@ -137,7 +155,7 @@ class AdminController extends Controller
 
         $user->save();
 
-        return view('admin.profile')->with(['user' => $user]);
+        return view('admin.profile')->with(['user' => $user, 'messages' => $messages]);
     }
 
     /**
