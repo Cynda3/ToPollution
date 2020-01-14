@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,8 +52,8 @@ return [
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
-            'charset' => 'utf8_unicode_ci',
-            'collation' => 'utf8mb4_unicode_ci',
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
             'prefix' => '',
             'prefix_indexes' => true,
             'strict' => true,
@@ -72,6 +72,7 @@ return [
             'username' => env('DB_USERNAME', 'pwwdsqicydjpdt'),
             'password' => env('DB_PASSWORD', 'f34c033f4a765b8eec1fd09cf4ab852967240942003e6b6dfb2cc234b1b1d15c'),
             'charset' => 'utf8',
+            'collation'=> 'utf8_unicode_ci',
             'prefix' => '',
             'prefix_indexes' => true,
             'schema' => 'public',

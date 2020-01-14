@@ -4,6 +4,24 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-grayscale/blob/master/LICENSE)
  */
 
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 12rem;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 1px;
+}
+
 #mainNav {
   min-height: 56px;
   background-color: #fff;
@@ -112,10 +130,30 @@
   font-size: 1rem;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 1000px) {
   .masthead h1 {
     font-size: 4rem;
     line-height: 4rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .masthead h1 {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+  .masthead h2 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .masthead h1 {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+  }
+  .masthead h2 {
+    font-size: 0.8rem;
   }
 }
 
