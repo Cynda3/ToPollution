@@ -37,12 +37,12 @@ return [
     'phone' => 'Phone number:',
     'email' => 'Email:',
     'website' => 'Web Page',
-    'formulariologin' => 'Formulario de inicio de sesión',
-    'correo' => 'Correo Electrónico',
-    'contraseña' => 'Contraseña',
-    'olvidada' => '¿olvidaste tu contraseña?',
-    'iniciar'=> 'Iniciar Sesion',
-    'formularioregistro' => 'Formulario de registro',
-    'cContraseña' => 'Confirmar Contraseña',
-    'registrarse' => 'Registrarse'
+    'formulariologin' => 'Log In Form',
+    'correo' => 'Email Address',
+    'contraseña' => 'Password',
+    'olvidada' => '¿Forgot your Password?',
+    'iniciar'=> 'Log In',
+    'formularioregistro' => 'Register Form',
+    'cContraseña' => 'Confirm Password',
+    'registrarse' => 'Register'
 ];
