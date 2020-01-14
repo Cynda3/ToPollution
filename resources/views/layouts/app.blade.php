@@ -7,11 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    
 
     <title>ToPollution</title>
-  
-   
 
     <!-- Jquery -->
     <script src="{{ URL::asset('/necessary/jquery/jquery.min.js') }}"></script>
@@ -30,10 +27,11 @@
     <link href="{{ URL::asset('/css/grayscale.css') }}" rel="stylesheet">
     @if(Auth::user())
     @else
-        @include('includes.modales.modalInicioSesion')
-        @include('includes.modales.modalRegistro')
+    @include('includes.modales.modalInicioSesion')
+    @include('includes.modales.modalRegistro')
     @endif
-    
+    @yield('head')
+
 </head>
 
 <body id="page-top">
@@ -50,9 +48,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link " href="{{route('home')}}">
-                            Global
+                            Global Devices
+                        </a>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{route('home')}}">
+                            Maps
                         </a>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
@@ -71,6 +74,11 @@
                         </div>
                     </li>
                     @if(Auth::user())
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{route('users.index', Auth::user()->id)}}">
+                            My Devices
+                        </a>
+                        </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -78,8 +86,6 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('users.show', Auth::user()->id)}}">Profile</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('users.index', Auth::user()->id)}}">Sensors</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
@@ -112,7 +118,9 @@
     <!-- Footer -->
     <footer class="bg-black small text-center text-white-50 footer">
         <div class="container">
-            Copyright &copy; ToPollution <script>document.write(new Date().getFullYear());</script>
+            Copyright &copy; ToPollution <script>
+                document.write(new Date().getFullYear());
+            </script>
         </div>
     </footer>
 
@@ -123,8 +131,8 @@
     <script src="{{ URL::asset('/necessary/jquery-easing/jquery.easing.min.js') }}"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="{{ URL::asset('/js/grayscale.min.js"></script>
-
+    <script src="{{ URL::asset('/js/grayscale.min.js') }}"></script>
+    @yield('scripts')
 </body>
 
 </html>

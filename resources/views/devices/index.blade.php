@@ -9,6 +9,7 @@
                 <th scope="col">Latitude</th>
                 <th scope="col">Longitude</th>
                 <th scope="col">Owner</th>
+                
             </tr>
         </thead>
         @foreach ($devices as $d)
