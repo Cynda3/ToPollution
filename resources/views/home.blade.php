@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-<table class="table table-hover table-dark">
+    <table class="table table-hover table-dark">
         <thead>
             <tr>
                 <th scope="col">Id</th>
@@ -20,10 +20,11 @@
                 <td>{{$d->latitude}}</td>
                 <td>{{$d->longitude}}</td>
                 <td><a href="{{route('users.show',$d->user->id)}}">{{$d->user->name}}</td>
-                <td class="d-flex justify-content-center"><a href="{{route('devices.show',$d->id)}}"><i class="fas fa-glasses" style="color:white"></i></a></td>
+                <td class="d-flex justify-content-center"><a href="{{route('devices.show',$d->id)}}"><i
+                            class="fas fa-glasses" style="color:white"></i></a></td>
             </tr>
         </tbody>
-        
+
         @endforeach
     </table>
 </div>
