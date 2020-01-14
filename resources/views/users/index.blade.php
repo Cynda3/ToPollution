@@ -20,8 +20,10 @@
                 <td>{{$d->latitude}}</td>
                 <td>{{$d->longitude}}</td>
                 <td>{{$d->user->name}}</td>
-                <td><i class="fas fa-pencil-alt"></i></td>
-                <td><i class="far fa-trash-alt"></i></td>
+                <td>
+                <!--<a href="{{route('devices.show',$d->id)}}"><i class="far fa-plus-square"></i></a> -->
+                <a href="{{route('devices.edit',$d->id)}}"><i class="fas fa-pencil-alt"></i></a>
+                <a href="{{route('devices.show',$d->id)}}"><i class="far fa-trash-alt"></i></a></td>
             </tr>
         </tbody>
         @endforeach
