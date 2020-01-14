@@ -57,7 +57,17 @@
                         <a class="nav-link " href="{{route('home')}}">
                             Maps
                         </a>
-                    <li class="nav-item dropdown">
+                    
+                    @if(Auth::user())
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{route('users.index', Auth::user()->id)}}">
+                            My Devices
+                        </a>
+                        </li>
+                        @endif
+                        
+
+                        <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             @lang('navMenu.language') <span class="caret"></span>
@@ -74,11 +84,6 @@
                         </div>
                     </li>
                     @if(Auth::user())
-                    <li class="nav-item">
-                        <a class="nav-link " href="{{route('users.index', Auth::user()->id)}}">
-                            My Devices
-                        </a>
-                        </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
