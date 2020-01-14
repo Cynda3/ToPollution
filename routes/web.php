@@ -44,3 +44,10 @@ Route::get('/admin/{id}', 'AdminController@show')->middleware('auth', 'role:admi
 
 //Devices
 Route::resource('devices', 'DeviceController')->middleware('verified');
+
+
+
+// Rutas Api
+
+
+//Route::get('/device/{id}', 'ApiMeasurement@show');
