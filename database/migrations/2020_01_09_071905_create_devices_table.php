@@ -16,8 +16,9 @@ class CreateDevicesTable extends Migration
         Schema::create('devices', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
+            $table->string('net')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->softDeletes();

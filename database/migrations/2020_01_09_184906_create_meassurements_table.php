@@ -18,6 +18,8 @@ class CreateMeassurementsTable extends Migration
             $table->unsignedBigInteger('device_id');
             $table->unsignedBigInteger('data_id');
             $table->integer('value');
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->timestamps();
         });
     }
