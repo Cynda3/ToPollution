@@ -64,6 +64,11 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <a href="{{route('users.edit', Auth::user()->id)}}"><button
+                                        class="btn btn-lg btn-success" type="submit">Edit</button></a>
+                            </div>
+
                         </div>
 
                         <div class="col-xs-6">
@@ -93,27 +98,19 @@
                                     {{$user->country}}
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <form action="{{route('users.destroy', Auth::user()->id)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-lg btn-danger" type="submit">Delete</button>
+                                </form>
+                            </div>
                         </div>
 
                     </div>
 
 
-                    <div class="row justify-content-around">
-                        <div class="form-group">
-                            <a href="{{route('users.edit', Auth::user()->id)}}"><button class="btn btn-lg btn-success"
-                                    type="submit">Edit</button>
-                        </div>
-
-                        <div class="form-group">
-                            <form action="{{route('users.destroy', Auth::user()->id)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-lg btn-danger" type="submit">Delete</button>
-                            </form>
-                        </div>
-
-
-                    </div>
                 </div>
             </div>
 
