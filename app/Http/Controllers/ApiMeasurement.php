@@ -22,6 +22,7 @@ class ApiMeasurement extends Controller
     public function index(Request $request)
     {
 
+
         $device = new Device;
 
         $device->name = $request->name;
@@ -32,7 +33,10 @@ class ApiMeasurement extends Controller
         $device->save();
 
 
-        return $device;
+
+        $devices = Device::all();
+
+        return $devices;
 
 
     }
