@@ -14,7 +14,7 @@ class UserAdminSeeder extends Seeder
     {  
     	User::insert([
             'name' => "Antonio",
-	        'lastName' => "Smith",
+	        'lastname' => "Smith",
             'email' => "antonio@bobomaster.com",
             'age' => "20",
             'biography' => "復讐者」. 復讐者」. 復讐者」. 第十八章 第十二章 第十五章 第十六章 第十三章 第十七章. 復讐者」. 第十二章 第十三章 第十六章.第十二章 第十一章 第十八章. 復讐者」 伯母さん .復讐者」 伯母さん. .手配書 第十七章 第十三章 第十五章 第十二章 第十一章.",
