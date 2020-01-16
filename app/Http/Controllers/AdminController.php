@@ -121,9 +121,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $request->validate([
-            'avatar' => 'image',
             'name' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
             'lastname' => 'regex:/^[A-Za-záéíóú+ +]{0,20}$/m',
             'biography' => 'regex:/^[A-Za-záéíóú0-9+ +\.]{0,150}$/m',
@@ -132,7 +130,6 @@ class AdminController extends Controller
         ]);
 
         $messages = [
-            'avatar.image' => 'Avatar must be a image file!',
             'name.required' => 'Name field is required!',
             'name.regex' => 'Name field must be a text between 1 and 20 words!',
             'lastname.regex' => 'Lastname must be a text between 0 and 20 words!',
@@ -144,16 +141,53 @@ class AdminController extends Controller
 
         // Update
 
-        $user = User::find($id);
 
-        $user->name = $request->name;
-        $user->avatar = '/images/'.$request->avatar;
-        $user->lastname = $request->lastname;
-        $user->biography = $request->biography;
-        $user->age = $request->age;
-        $user->country = $request->country;
+        // Image
 
-        $user->save();
+        $image = $request->avatar;
+        $image64 = base64_encode(file_get_contents($image));
+                $curl = curl_init();
+
+        $client_id = "ea6b6f70e1374d5";
+
+        $token = "e12ef67319da5de1c22ed6f4b3d813f46f0f07d4";
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.imgur.com/3/image",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => false,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => array("image" => $image64),
+            CURLOPT_HTTPHEADER => array("Authorization: Client-ID ". $client_id)
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if($err){
+            echo "cURL Error #:" . $err;
+        }else{
+            $json = json_decode($response, true);
+            $user = User::find($id);
+
+            $user->name = $request->name;
+            $user->avatar = $json['data']['link'];
+            $user->lastname = $request->lastname;
+            $user->biography = $request->biography;
+            $user->age = $request->age;
+            $user->country = $request->country;
+
+            $user->save();
+        }
+
+
+
+
 
         return view('admin.profile')->with(['user' => $user, 'messages' => $messages]);
     }

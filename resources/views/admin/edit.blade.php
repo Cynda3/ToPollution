@@ -16,7 +16,7 @@
 	            </div>
 	            <div class="card-body">
 		          		<!-- Edit form -->
-			          	<form action="{{route('userUpdate', $user->id)}}" method="post">
+			          	<form action="{{route('userUpdate', $user->id)}}" enctype="multipart/form-data" method="post">
 			          	@csrf
 			          	@method('get')
 			          		<label>Avatar</label><br>
