@@ -13,10 +13,10 @@
                         <label for="name"> New Name:</label> <input type="text" class="form-control"
                             placeholder="{{$device->name}}" name="name" value="{{ old('name') }}"><br>
                         @error('name')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="text-danger" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                        @enderror
+                        @enderror<br>
 
                         <button>Send</button>
                     </form>

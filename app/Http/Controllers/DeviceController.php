@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Device;
+use Auth;
+//Quitar cuando reciba los datos
+use Faker\Generator as Faker;
 
 class DeviceController extends Controller
 {
@@ -33,9 +36,16 @@ class DeviceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Faker $faker)//Quitar faker cuando reciba valores
     {
-        //
+        $device = new Device;
+        $device->user_id = Auth::user()->id;
+        $device->name = $request->name;
+        $device->latitude = " - ";
+        $device->longitude = " - ";
+
+        $device->save();
+        return view('devices.show')->with('device', $device);
     }
 
     /**
@@ -71,6 +81,15 @@ class DeviceController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //VALIDATE
+        $request->validate( [
+            'name' => 'required|name',
+        ]);
+        
+        $messages = [
+            'name.required' => 'Name is required!',
+        ];
+        //UPDATE
         $device = Device::find($id);
         // Actualizo cada parametro del device
         $device->name = $request->name;
@@ -78,7 +97,7 @@ class DeviceController extends Controller
         // Guardo los cambios
         $device->save();
 
-        return view('device.show')->with('device', $device);
+        return redirect (route('home'));
     }
 
     /**
