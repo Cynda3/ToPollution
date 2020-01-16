@@ -17,7 +17,7 @@ class UserAdminSeeder extends Seeder
 	        'lastname' => "Smith",
             'email' => "antonio@bobomaster.com",
             'age' => "20",
-            'biography' => "復讐者」. 復讐者」. 復讐者」. 第十八章 第十二章 第十五章 第十六章 第十三章 第十七章. 復讐者」. 第十二章 第十三章 第十六章.第十二章 第十一章 第十八章. 復讐者」 伯母さん .復讐者」 伯母さん. .手配書 第十七章 第十三章 第十五章 第十二章 第十一章.",
+            'biography' => "Estudiante de grado superior de desarrollo de aplicaciones web",
             'country' => "Japan",
 	        'avatar' => "/images/p4.png",
 	        'email_verified_at' => now(),
