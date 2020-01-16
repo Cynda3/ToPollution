@@ -20,10 +20,18 @@
                 <td>{{$d->latitude}}</td>
                 <td>{{$d->longitude}}</td>
                 <td>{{$d->user->name}}</td>
-                <td>
-                    <!--<a href="{{route('devices.show',$d->id)}}"><i class="far fa-plus-square"></i></a> -->
+
+                    <td>
+                    
                     <a href="{{route('devices.edit',$d->id)}}"><i class="fas fa-pencil-alt"></i></a>
-                    <a href="{{route('devices.show',$d->id)}}"><i class="far fa-trash-alt"></i></a></td>
+                    <form action="{{route('devices.destroy',$d->id)}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" id="delete"><i class="far fa-trash-alt"></i>
+                        </button>
+                    </form>
+                    </td>
+                    
             </tr>
         </tbody>
         @endforeach

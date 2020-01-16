@@ -2,39 +2,41 @@
 
 @section('head')
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-    crossorigin="" />
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin="" />
 @endsection
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center my-3">
-        <h1 class=""><u>Device {{ $device->name }}</u></h1>
+  <div class="row justify-content-center my-3">
+    <h1 class=""><u>Device {{ $device->name }}</u></h1>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div id="mapid" style="height: 500px;"></div>
     </div>
-    <div class="row">
-        <div class="col-5">
-            <div id="mapid" style="height: 500px;"></div>
-        </div>
-        <div class="col-7">
-            <div class="row justify-content-center">
-                <div id="chart_div" style="width: 400px; height: 120px;"></div>
-            </div>
-            <div class="row justify-content-center">
-                <div id="chart_div2" style="width: 100%; height: 500px;"></div>
-            </div>
-        </div>
+    <div class="col-6">
+      <div class="row justify-content-center mt-3">
+        <h4>Medidas en tiempo real</h4>
+        <div id="chart_div" style="width: 400px; height: 120px;" class="text-center"><h5>Cargando...</h5></div>
+      </div>
+      <div class="row justify-content-center mt-4">
+        <h4>Medidas historicas</h4>
+        <div id="chart_div2" style="height: 400px;" class="text-center col-12"><h5>Cargando...</h5></div>
+      </div>
     </div>
+  </div>
 </div>
 @endsection
 
 @section('scripts')
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-    crossorigin=""></script>
+  integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+  crossorigin=""></script>
 
 <!-- -------MAPA------ -->
 <script type="text/javascript">
-    var map = L.map('mapid', {
+  var map = L.map('mapid', {
      center: [ {{ $device->latitude }}, {{ $device->longitude }} ],
      zoom: 14
     });
@@ -61,7 +63,7 @@
 <!-- -----GRAFICOS---- -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-    //Grafico1
+  //Grafico1
     google.charts.load('current', {'packages':['gauge']});
     google.charts.setOnLoadCallback(drawChart);
 
@@ -118,7 +120,6 @@
     ]);
 
     var options2 = {
-        title: 'All meassurements',
         hAxis: {title: 'Date',  titleTextStyle: {color: '#333'}},
         vAxis: {minValue: 0}
     };
