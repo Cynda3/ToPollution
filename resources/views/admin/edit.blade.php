@@ -16,11 +16,11 @@
 	            </div>
 	            <div class="card-body">
 		          		<!-- Edit form -->
-			          	<form action="{{route('userUpdate', $user->id)}}" method="post">
+			          	<form action="{{route('userUpdate', $user->id)}}" enctype="multipart/form-data" method="post">
 			          	@csrf
 			          	@method('get')
 			          		<label>Avatar</label><br>
-					        <input type="file" name="avatar" value="{{$user->avatar}}"><br>
+					        <input type="file" name="avatar"><br>
 			          		<label>Name</label><br>
 					        <input type="text" name="name" value="{{$user->name}}"><br>
 			          		<label>Last name</label><br>
