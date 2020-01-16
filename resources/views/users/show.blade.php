@@ -20,7 +20,7 @@
 
             <ul class="list-group">
                 <li class="list-group-item text-muted">Sensors Owned: <i class="fa fa-dashboard fa-1x"></i></li>
-                <li class="list-group-item text-left"><span class="pull-left"><strong>Sensor1</strong></span> 4</li>
+                <li class="list-group-item text-left"><span class="pull-left"><strong>Sensor 1</strong></span></li>
 
             </ul>
 

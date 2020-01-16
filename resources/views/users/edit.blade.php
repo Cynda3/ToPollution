@@ -5,32 +5,32 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Aqui puede editar su perfil</div>
-                <div class="card-body">
+                <span class="card-body">
 
                     <form action="{{route('users.update', $user->id)}}" method="post">
                         @csrf
                         @method('PUT')
                         <label for="name"> New Name:</label> <input type="text" class="form-control"
-                            placeholder="{{$user->name}}" name="name" value="{{ old('name') }}"><br>
+                            placeholder="{{$user->name}}" name="name" value="{{ old('name') }}">
+                        
                         @error('name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                        <span class="text-danger" role="alert">{{ $message }}</span>
+                        @enderror<br>
+
                         <label for="password">New password:</label> <input type="password" class="form-control"
-                            name="password" value="{{ old('password') }}"><br>
+                            name="password" value="{{ old('password') }}">
+
                         @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                        <span class="text-danger" role="alert">{{ $message }}</span>
+                        @enderror<br>
+
                         <label for="confpassword">Confirm Password:</label><input type="password" class="form-control"
                             name="password-confirm" value="{{ old('password') }}"><br>
+
                         @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                        <span class="text-danger" role="alert">{{ $message }}</span>
+                        @enderror<br>
+
                         <button>Enviar</button>
                     </form>
                 </div>
