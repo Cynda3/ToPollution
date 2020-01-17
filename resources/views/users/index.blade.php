@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+    <a href="{{route('devices.create')}}"><button type="button" class="btn btn-primary btn-lg btn-block">ADD DEVICE</button></a>
     <table class="table table-hover table-dark">
         <thead>
             <tr>
@@ -21,17 +22,16 @@
                 <td>{{$d->longitude}}</td>
                 <td>{{$d->user->name}}</td>
 
-                    <td>
+                    <td style='white-space: nowrap'>
                     
-                    <a href="{{route('devices.edit',$d->id)}}"><i class="fas fa-pencil-alt"></i></a>
-                    <form action="{{route('devices.destroy',$d->id)}}" method="post">
+                    <a href="{{route('devices.edit',$d->id)}}"><button type="submit" id="update"><i class="fas fa-pencil-alt"></i></a></button>
+                    <form style='display:inline;' action="{{route('devices.destroy',$d->id)}}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" id="delete"><i class="far fa-trash-alt"></i>
                         </button>
                     </form>
-                    </td>
-                    
+                    </td> 
             </tr>
         </tbody>
         @endforeach
