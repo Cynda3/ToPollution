@@ -18,11 +18,15 @@
     <div class="col-6">
       <div class="row justify-content-center mt-3">
         <h4>Medidas en tiempo real</h4>
-        <div id="chart_div" style="width: 400px; height: 120px;" class="text-center"><h5>Cargando...</h5></div>
+        <div id="chart_div" style="width: 400px; height: 120px;" class="text-center">
+          <h5>Cargando...</h5>
+        </div>
       </div>
       <div class="row justify-content-center mt-4">
         <h4>Medidas historicas</h4>
-        <div id="chart_div2" style="height: 400px;" class="text-center col-12"><h5>Cargando...</h5></div>
+        <div id="chart_div2" style="height: 400px;" class="text-center col-12">
+          <h5>Cargando...</h5>
+        </div>
       </div>
     </div>
   </div>
@@ -89,21 +93,21 @@
         chart.draw(data, options);
 
         setInterval(function() {
-          data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+          data.setValue(0, 1, cogerValor({{$device->id}}));
           chart.draw(data, options);
-        }, 1000);
+        }, 5000);
         setInterval(function() {
           data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
           chart.draw(data, options);
-        }, 1000);
+        }, 5000);
         setInterval(function() {
           data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
           chart.draw(data, options);
-        }, 1000);
+        }, 5000);
         setInterval(function() {
           data.setValue(3, 1, 40 + Math.round(60 * Math.random()));
           chart.draw(data, options);
-        }, 1000);
+        }, 5000);
       }
 
     //GRAFICO2
@@ -126,6 +130,16 @@
 
     var chart2 = new google.visualization.AreaChart(document.getElementById('chart_div2'));
     chart2.draw(data2, options2);
+    }
+    
+    let cogerValor = (device) => {
+      $.get("http://topollution.herokuapp.com/api/device/" + device + "/", function (data, status) {
+                if (status == "success") {
+                  console.log(data)
+                }
+            }).fail(function () {
+                console.log('Error')
+            });
     }
 </script>
 
