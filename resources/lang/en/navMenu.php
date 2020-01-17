@@ -64,6 +64,9 @@ return [
     'edad' =>'Age',
     'apellido' =>'Last Name',
     'eliminar' => 'Delete',
-    'actualizar' => 'Update'
+    'actualizar' => 'Update',
+    'perfil' => 'Profile',
+    'sensores' => 'Owned Sensors',
+
 
 ];

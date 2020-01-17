@@ -63,7 +63,9 @@ return [
     'edad' =>'Edad',
     'apellido' =>'Apellido',
     'eliminar' => 'Eliminar',
-    'actualizar' => 'Editar'
+    'actualizar' => 'Editar',
+    'perfil' => 'Perfil',
+    'sensores' => 'Sensores Adquiridos',
 
 
     
