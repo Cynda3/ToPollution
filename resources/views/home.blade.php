@@ -1,33 +1,31 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Latitude</th>
+                <th scope="col">Longitude</th>
+                <th scope="col">Owner</th>
+                <th scope="col" class="d-flex justify-content-center">Información</th>
+            </tr>
+        </thead>
+        @foreach ($devices as $d)
+        <tbody>
+            <tr>
+                <td>{{$d->id}}</td>
+                <td>{{$d->name}}</td>
+                <td>{{$d->latitude}}</td>
+                <td>{{$d->longitude}}</td>
+                <td><a href="{{route('users.show',$d->user->id)}}">{{$d->user->name}}</td>
+                <td class="d-flex justify-content-center"><a href="{{route('devices.show',$d->id)}}"><i
+                            class="fas fa-glasses" style="color:white"></i></a></td>
+            </tr>
+        </tbody>
 
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
-                    Name: {{Auth::user()->name}}<br>
-                    Email: {{Auth::user()->email}}<br>
-                    Rol: <br>
-                    You are logged in!
-                    Wanna edit your profile?<br>
-                    <a href="{{route('users.edit', Auth::user()->id)}}">Edit</a><br>
-                    Try deleting your profile!<br>
-                    <form action="{{route('users.destroy', Auth::user()->id)}}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button>Delete</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+        @endforeach
+    </table>
 </div>
 @endsection
