@@ -5,7 +5,7 @@
         <thead>
             <tr>
                 <th scope="col">Id</th>
-                <th scope="col">Name</th>
+                <th scope="col">Sensor Name</th>
                 <th scope="col">Latitude</th>
                 <th scope="col">Longitude</th>
                 <th scope="col">Owner</th>
@@ -20,8 +20,9 @@
                 <td>{{$d->latitude}}</td>
                 <td>{{$d->longitude}}</td>
                 <td><a href="{{route('users.show',$d->user->id)}}">{{$d->user->name}}</td>
-                <td class="d-flex justify-content-center"><a href="{{route('devices.show',$d->id)}}"><i
-                            class="fas fa-glasses" style="color:white"></i></a></td>
+                <td class="d-flex justify-content-center"><a href="{{route('devices.show',$d->id)}}">
+                    <button type="submit" id="show"><i class="fas fa-glasses" style="color:black"></i></a></button>
+                    </td>
             </tr>
         </tbody>
 
