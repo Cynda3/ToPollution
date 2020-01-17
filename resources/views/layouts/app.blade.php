@@ -50,18 +50,18 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link " href="{{route('home')}}">
-                            Global Devices
+                        @lang('navMenu.dGlobales')
                         </a>
 
                     <li class="nav-item">
                         <a class="nav-link " href="{{route('home')}}">
-                            Maps
+                        @lang('navMenu.mapas')
                         </a>
 
                         @if(Auth::user())
                     <li class="nav-item">
                         <a class="nav-link " href="{{route('users.index', Auth::user()->id)}}">
-                            My Devices
+                        @lang('navMenu.misDisp')
                         </a>
                     </li>
                     @endif
@@ -74,12 +74,10 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ url('locale/en') }}">
-                                <img src="{{ URL::asset('/img/languajes/en.png') }}" width="30px" height="20x">
-                                English
+                            @lang('navMenu.english')
                             </a>
-                            <a class="dropdown-item" href="{{ url('locale/es') }}">
-                                <img src="{{ URL::asset('/img/languajes/es.png') }}" width="30px" height="20x">
-                                Spanish
+                            <a class="dropdown-item" href="{{ url('locale/es') }}"> 
+                                @lang('navMenu.spanish')
                             </a>
                         </div>
                     </li>
@@ -90,7 +88,7 @@
                             {{Auth::user()->name}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{route('users.show', Auth::user()->id)}}">Profile</a>
+                            <a class="dropdown-item" href="{{route('users.show', Auth::user()->id)}}">@lang('navMenu.profile')</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
@@ -103,13 +101,13 @@
                     <li class="nav-item">
                         <button type="button" class="btn btn-dark p-2 mt-3 mt-lg-4 ml-lg-2" data-toggle="modal"
                             data-target="#ModalLoginForm">
-                            Log in
+                            @lang('navMenu.login')
                         </button>
                     </li>
                     <li class="nav-item">
                         <button type="button" class="btn btn-dark p-2 mt-3 mt-lg-4 mb-3 mb-lg-0 ml-lg-3"
                             data-toggle="modal" data-target="#ModalRegisterForm">
-                            Register
+                            @lang('navMenu.register')
                         </button>
                     </li>
                     @endif
