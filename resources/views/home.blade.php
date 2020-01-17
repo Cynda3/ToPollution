@@ -5,10 +5,10 @@
         <thead>
             <tr>
                 <th scope="col">Id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Latitude</th>
-                <th scope="col">Longitude</th>
-                <th scope="col">Owner</th>
+                <th scope="col">@lang('navMenu.name')</th>
+                <th scope="col">@lang('navMenu.latitud')</th>
+                <th scope="col">@lang('navMenu.longitud')</th>
+                <th scope="col">@lang('navMenu.dueño')</th>
                 <th scope="col" class="d-flex justify-content-center">Información</th>
             </tr>
         </thead>
