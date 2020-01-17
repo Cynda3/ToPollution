@@ -45,6 +45,7 @@ return [
     'formularioregistro' => 'Formulario de registro',
     'cContraseña' => 'Confirmar Contraseña',
     'registrarse' => 'Registrarse',
+    'enviar' => 'Enviar Mensaje',
     /*
     * Home page translation texts
     */
@@ -63,7 +64,9 @@ return [
     'edad' =>'Edad',
     'apellido' =>'Apellido',
     'eliminar' => 'Eliminar',
-    'actualizar' => 'Editar'
+    'actualizar' => 'Editar',
+    'perfil' => 'Perfil',
+    'sensores' => 'Sensores Obtenidos'
 
 
     

@@ -241,7 +241,7 @@
             <label for="exampleFormControlTextarea1">@lang('navMenu.message')</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary mx-auto">@lang('navMenu.')</button>
+          <button type="submit" class="btn btn-primary mx-auto">@lang('navMenu.enviar')</button>
         </form>
       </div>
     </div>

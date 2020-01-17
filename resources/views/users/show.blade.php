@@ -3,7 +3,7 @@
 <div class="container bootstrap snippet">
     <div class="row">
         <div class="col-sm-10">
-            <h1>Profile</h1>
+            <h1>@lang('navMenu.perfil')</h1>
         </div>
 
     </div>
@@ -19,7 +19,7 @@
 
 
             <ul class="list-group">
-                <li class="list-group-item text-muted">Sensors Owned: <i class="fa fa-dashboard fa-1x"></i></li>
+                <li class="list-group-item text-muted">@lang('navMenu.sensores'): <i class="fa fa-dashboard fa-1x"></i></li>
                 <li class="list-group-item text-left"><span class="pull-left"><strong>Sensor 1</strong></span></li>
 
             </ul>

@@ -46,6 +46,7 @@ return [
     'formularioregistro' => 'Register Form',
     'cContraseña' => 'Confirm Password',
     'registrarse' => 'Register',
+    'enviar' => 'Send Message',
     /*
     * Home page translation texts
     */
@@ -64,6 +65,8 @@ return [
     'edad' =>'Age',
     'apellido' =>'Last Name',
     'eliminar' => 'Delete',
-    'actualizar' => 'Update'
+    'actualizar' => 'Update',
+    'perfil' => 'Profile',
+    'sensores' => 'Owned Sensors'
 
 ];
