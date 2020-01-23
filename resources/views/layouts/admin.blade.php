@@ -79,16 +79,24 @@
       <!-- Nav Item - User List -->
       <li class="nav-item">
         <a class="nav-link" href="{{route('listUsers')}}">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-fw fa-users"></i>
           <span>Non-banneds</span></a>
       </li>
 
       <!-- Nav Item - Banned List -->
       <li class="nav-item">
         <a class="nav-link" href="{{route('bannedUsers')}}">
-          <i class="fas fa-fw fa-exclamation-triangle"></i>
+          <i class="fas fa-fw fa-ban"></i>
           <span>Banneds</span></a>
       </li>
+
+      <!-- Nav Item - Banned List -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('messageList')}}">
+          <i class="fas fa-fw fa-sms"></i>
+          <span>Banneds</span></a>
+      </li>
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
