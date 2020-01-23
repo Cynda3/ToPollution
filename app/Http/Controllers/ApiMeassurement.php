@@ -110,7 +110,7 @@ class ApiMeassurement extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($device_id)
+    public function show($id)
     {
         /*
         $client = new Client([
@@ -125,12 +125,12 @@ class ApiMeassurement extends Controller
         */
 
 
-        $last_co2_data = Meassurement::where([['data_id', '=', 1], ['device_id', '=', $device_id]])->latest()->get();
-        $last_co_data = Meassurement::where([['data_id', '=', 2], ['device_id', '=', $device_id]])->latest()->get();
-        $last_decibel_data = Meassurement::where([['data_id', '=', 4], ['device_id', '=', $device_id]])->latest()->get();
+        // $last_co2_data = Meassurement::where([['data_id', '=', 1], ['device_id', '=', $device_id]])->latest()->get();
+        // $last_co_data = Meassurement::where([['data_id', '=', 2], ['device_id', '=', $device_id]])->latest()->get();
+        // $last_decibel_data = Meassurement::where([['data_id', '=', 4], ['device_id', '=', $device_id]])->latest()->get();
 
-        $dataArray = [$last_co2_data, $last_co_data, $last_decibel_data];
-        return response()->json($dataArray);
+        // $dataArray = [$last_co2_data, $last_co_data, $last_decibel_data];
+        // return response()->json($dataArray);
 /*
         $last_co2_data = Meassurement::where('device_id', $id)->groupBy('data_id')->having('data_id', 1)->latest()->get();
         $last_co_data = Meassurement::where('device_id', $id)->groupBy('data_id')->having('data_id', 2)->latest()->get();
@@ -142,6 +142,9 @@ class ApiMeassurement extends Controller
         return $last_decibel_data;
         dd($device['attributes']);
 */
+
+        $device = Device::find($id);
+        return $device->datas;
     }
 
     /**
