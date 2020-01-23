@@ -5,17 +5,10 @@
         <thead>
             <tr>
                 <th scope="col">Id</th>
-<<<<<<< HEAD
-                <th scope="col">Sensor Name</th>
-                <th scope="col">Latitude</th>
-                <th scope="col">Longitude</th>
-                <th scope="col">Owner</th>
-=======
                 <th scope="col">@lang('navMenu.name')</th>
                 <th scope="col">@lang('navMenu.latitud')</th>
                 <th scope="col">@lang('navMenu.longitud')</th>
                 <th scope="col">@lang('navMenu.dueño')</th>
->>>>>>> 00e49adc8b50e543832dc1d2aae26c4812a5d7ae
                 <th scope="col" class="d-flex justify-content-center">Información</th>
             </tr>
         </thead>
