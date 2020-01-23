@@ -35,6 +35,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 //Admin
 Route::get('/admin', 'AdminController@index')->middleware('auth', 'role:admin')->name('admin');
 Route::get('/admin/users', 'AdminController@listUsers')->middleware('auth', 'role:admin')->name('listUsers');
+Route::get('/admin/messages', 'AdminController@listMessages')->middleware('auth', 'role:admin')->name('listMessages');
 Route::get('/admin/bannedusers', 'AdminController@bannedUsers')->middleware('auth', 'role:admin')->name('bannedUsers');
 Route::get('/admin/restore/{id}', 'AdminController@restoreUser')->middleware('auth', 'role:admin')->name('/restore');
 Route::get('/admin/ban/{id}', 'AdminController@banUser')->middleware('auth', 'role:admin')->name('/ban');

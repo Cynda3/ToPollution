@@ -34,6 +34,13 @@ class AdminController extends Controller
     }
 
 
+    public function listMessages()
+    {
+        $messages = Contact::all();
+        return view('admin.messagelist')->with(['messages' => $messages]);
+    }
+
+
     public function bannedUsers()
     {
         $users = User::onlyTrashed()->get();
