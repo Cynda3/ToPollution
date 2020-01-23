@@ -16,7 +16,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $messages = Contact::all();
+        $messages = Contact::orderBy('created_at', 'desc')->get();
         $devices = Device::all();
         $users = User::all();
         return view('admin.index')->with(['users' => $users, 'devices' => $devices, 'messages' => $messages]);
@@ -29,8 +29,9 @@ class AdminController extends Controller
 
     public function listUsers()
     {
+        $messages = Contact::orderBy('created_at', 'desc')->get();
         $users = User::all();
-        return view('admin.userlist')->with(['users' => $users]);
+        return view('admin.userlist')->with(['users' => $users, 'messages' => $messages]);
     }
 
 
@@ -43,32 +44,35 @@ class AdminController extends Controller
 
     public function bannedUsers()
     {
+        $messages = Contact::orderBy('created_at', 'desc')->get();
         $users = User::onlyTrashed()->get();
-        return view('admin.bannedlist')->with(['users' => $users]);
+        return view('admin.bannedlist')->with(['users' => $users, 'messages' => $messages]);
     }
 
 
     public function banUser($id)
     {
+        $messages = Contact::orderBy('created_at', 'desc')->get();
         $userToBan = User::withTrashed()->find($id);
         if ($userToBan->deleted_at != NULL) {
             $userToBan->forceDelete();
             $bannedUsers = User::onlyTrashed()->get();
-            return view('admin.bannedlist')->with(['users' => $bannedUsers]);
+            return view('admin.bannedlist')->with(['users' => $bannedUsers, 'messages' => $messages]);
         }
         else{
             User::where('id', $id)->delete();
             $users = User::all();
-            return view('admin.userlist')->with(['users' => $users]);
+            return view('admin.userlist')->with(['users' => $users, 'messages' => $messages]);
         }
     }
 
 
     public function restoreUser($id)
     {
+        $messages = Contact::orderBy('created_at', 'desc')->get();
         $user_recuperado = User::onlyTrashed()->find($id)->restore();
         $users = User::onlyTrashed()->get();
-        return view('admin.bannedlist')->with(['users' => $users]);
+        return view('admin.bannedlist')->with(['users' => $users, 'messages' => $messages]);
     }
 
 
@@ -102,9 +106,10 @@ class AdminController extends Controller
      */
     public function show($id)
     {
+        $messages = Contact::orderBy('created_at', 'desc')->get();
         
         $user = User::find($id);
-        return view('admin.profile')->with('user', $user);
+        return view('admin.profile')->with(['user'=> $user, 'messages' => $messages]);
     }
 
     /**
@@ -115,8 +120,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
+        $messages = Contact::orderBy('created_at', 'desc')->get();
         $user = User::find($id);
-        return view('admin.edit')->with(['user' => $user]);
+        return view('admin.edit')->with(['user' => $user, 'messages' => $messages]);
     }
 
     /**
@@ -128,7 +134,10 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $messages = Contact::orderBy('created_at', 'desc')->get();
+
         $request->validate([
+            'avatar' => 'required',
             'name' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
             'lastname' => 'regex:/^[A-Za-záéíóú+ +]{0,20}$/m',
             'biography' => 'regex:/^[A-Za-záéíóú0-9+ +\.]{0,150}$/m',
@@ -136,7 +145,8 @@ class AdminController extends Controller
             'country' => 'regex:/^[A-Za-z+ +]{0,20}$/m'
         ]);
 
-        $messages = [
+        $errMessages = [
+            'avatar.required' => 'Avatar field is required!',
             'name.required' => 'Name field is required!',
             'name.regex' => 'Name field must be a text between 1 and 20 words!',
             'lastname.regex' => 'Lastname must be a text between 0 and 20 words!',
@@ -196,7 +206,7 @@ class AdminController extends Controller
 
 
 
-        return view('admin.profile')->with(['user' => $user, 'messages' => $messages]);
+        return view('admin.profile')->with(['user' => $user, 'errMessages' => $errMessages, 'messages' => $messages]);
     }
 
     /**
