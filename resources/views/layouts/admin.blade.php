@@ -92,7 +92,7 @@
 
       <!-- Nav Item - Banned List -->
       <li class="nav-item">
-        <a class="nav-link" href="{{route('messageList')}}">
+        <a class="nav-link" href="{{route('listMessages')}}">
           <i class="fas fa-fw fa-sms"></i>
           <span>Messages</span></a>
       </li>
