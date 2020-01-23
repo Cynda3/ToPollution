@@ -35,7 +35,7 @@ return [
     'cinfo' => 'Información de contacto',
     'address' => 'Dirección:',
     'phone' => 'Teléfono:',
-    'email' => 'Email:',
+    'email' => 'Email',
     'website' => 'Página Web',
     'formulariologin' => 'Formulario de inicio de sesión',
     'correo' => 'Correo Electrónico',

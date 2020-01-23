@@ -99,13 +99,13 @@
                   </div>
                   <div class="mt-4 text-center small">
                     <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Air pollution
+                      <i class="fas fa-circle text-primary"></i> Decibel
                     </span>
                     <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Noise
+                      <i class="fas fa-circle text-success"></i> CO2
                     </span>
                     <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Water pollution
+                      <i class="fas fa-circle text-info"></i> O2
                     </span>
                   </div>
                 </div>
