@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div class="container table-responsive">
     <a href="{{route('devices.create')}}"><button type="button" class="btn btn-primary btn-lg btn-block">ADD
             DEVICE</button></a>
     <table class="table table-hover table-dark">

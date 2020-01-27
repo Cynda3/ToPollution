@@ -3,14 +3,14 @@
 <div class="container bootstrap snippet">
     
     <div class="row">
-        <div class="col-12">
+        <div class="col-lg-12 col-sm-6 col-xs-3">
             <h1>@lang('navMenu.perfil')</h1>
         </div>
 
     </div>
     
     <div class="row">
-        <div class="col-3">
+        <div class="col-lg-3 col-xs-3">
             <!--columna izquierda-->
 
             <div class="text-start">
@@ -32,14 +32,14 @@
 
             <div class="col-9">
                 <div class="row mb-2">
-                    <div class="col-6">
+                    <div class="col-lg-6 col-xs-3">
                         <label for="first_name">
                             <h4>@lang('navMenu.name')</h4>
                         </label><br>
                         {{$user->name}}
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-lg-6 col-xs-3">
                         <label for="last_name">
                             <h4>@lang('navMenu.apellido')</h4>
                         </label><br>
@@ -48,14 +48,14 @@
                 </div>
                 
                 <div class="row mb-2">
-                    <div class="col-6">
+                    <div class="col-lg-6 col-xs-3">
                         <label for="age">
                             <h4>@lang('navMenu.edad')</h4>
                         </label><br>
                         {{$user->age}}<br>
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-lg-6 col-xs-3">
                         <label for="email">
                             <h4>@lang('navMenu.email')</h4>
                         </label><br>
@@ -64,14 +64,14 @@
                 </div>
 
                 <div class="row mb-2">
-                    <div class="col-6">
+                    <div class="col-lg-6 col-xs-3">
                         <label for="country">
                             <h4>@lang('navMenu.ciudades')</h4>
                         </label><br>
                         {{$user->country}}
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-lg-6 col-xs-3">
                         <label for="biography">
                             <h4>@lang('navMenu.email')</h4>
                         </label><br>
