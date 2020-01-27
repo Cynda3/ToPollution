@@ -35,12 +35,6 @@ class AdminController extends Controller
     }
 
 
-    public function listMessages()
-    {
-        $messages = Contact::all();
-        return view('admin.messagelist')->with(['messages' => $messages]);
-    }
-
 
     public function bannedUsers()
     {
@@ -218,5 +212,36 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+/*
+
+    Messages
+
+
+*/
+
+
+
+    public function listMessages()
+    {
+        $messages = Contact::all();
+        return view('admin.messagelist')->with(['messages' => $messages]);
+    }
+
+    public function showMessage($id)
+    {
+        $message = Contact::find($id);
+        return view('admin.message')->with(['message' => $message]);
+    }
+
+    public function destroyMessage($id)
+    {
+        $message = Contact::destroy($id);
+
+        $messages = Contact::all();
+
+        return view('admin.messagelist')->with(['messages' => $messages]);
     }
 }

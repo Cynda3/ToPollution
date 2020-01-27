@@ -39,9 +39,11 @@ Route::get('/admin/messages', 'AdminController@listMessages')->middleware('auth'
 Route::get('/admin/bannedusers', 'AdminController@bannedUsers')->middleware('auth', 'role:admin')->name('bannedUsers');
 Route::get('/admin/restore/{id}', 'AdminController@restoreUser')->middleware('auth', 'role:admin')->name('/restore');
 Route::get('/admin/ban/{id}', 'AdminController@banUser')->middleware('auth', 'role:admin')->name('/ban');
+Route::get('/admin/delete/{id}', 'AdminController@destroyMessage')->middleware('auth', 'role:admin')->name('/deleteMessage');
 Route::get('/admin/{id}/edit', 'AdminController@edit')->middleware('auth', 'role:admin')->name('userEdit');
 Route::get('/admin/{id}/update', 'AdminController@update')->middleware('auth', 'role:admin')->name('userUpdate');
 Route::get('/admin/{id}', 'AdminController@show')->middleware('auth', 'role:admin')->name('adminShow');
+Route::get('/messages/{id}', 'AdminController@showMessage')->middleware('auth', 'role:admin')->name('messageShow');
 
 //Devices
 Route::resource('devices', 'DeviceController')->middleware('verified');

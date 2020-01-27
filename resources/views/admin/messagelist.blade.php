@@ -30,6 +30,21 @@
                  <div class="card-body">
                    {{$message->message}}
                  </div>
+                  <div class="my-2"></div>
+                  <a href="{{route('messageShow', $message->id)}}" class="btn btn-info btn-icon-split">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-info-circle"></i>
+                    </span>
+                    <span class="text">More info</span>
+                  </a>
+                  <div class="my-2"></div>
+                  <a href="{{route('/deleteMessage', $message->id)}}" class="btn btn-danger btn-icon-split">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-trash"></i>
+                    </span>
+                    <span class="text">Delete</span>
+                  </a>
+                  <div class="my-2"></div>
                </div>
              </div>
 
