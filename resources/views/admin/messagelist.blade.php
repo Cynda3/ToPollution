@@ -22,7 +22,8 @@
              <div class="card shadow mb-4">
                <!-- Card Header - Accordion -->
                <a href="#collapseCard{{$message->id}}" class="d-block card-header py-3 collapsed" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCardExample">
-                 <h6 class="m-0 font-weight-bold text-primary">{{$message->subject}}</h6>
+                 <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                 <span class="m-0 font-weight-bold text-primary">{{$message->subject}}</span>
                </a>
                <!-- Card Content - Collapse -->
                <div class="collapse" id="collapseCard{{$message->id}}">
