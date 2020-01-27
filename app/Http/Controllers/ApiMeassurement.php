@@ -84,8 +84,8 @@ class ApiMeassurement extends Controller
             return dd($device.$o2.$co2.$decibel);
         }
         else {
-            $devices= Device::all();
-            return $devices;
+            $meassurements= Meassurement::all();
+            return $meassurements;
         }
 
     }

@@ -33,7 +33,7 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin')}}">
-        <div class="sidebar-brand-text mx-3">ToPollution</div>
+        <div class="sidebar-brand-text mx-3 rotate-n-15">ToPollution</div>
       </a>
 
       <!-- Divider -->
