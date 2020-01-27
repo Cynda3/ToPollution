@@ -75,10 +75,10 @@
 
         var data = google.visualization.arrayToDataTable([
           ['Unidad', 'Value'],
-          ['CO2', 80],
-          ['NOx', 55],
-          ['CO', 68],
-          ['dB', 30]
+          ['CO2', 0],
+          ['NOx', 0],
+          ['CO', 0],
+          ['dB', 0]
         ]);
 
         var options = {
@@ -93,21 +93,19 @@
         chart.draw(data, options);
 
         setInterval(function() {
-          data.setValue(0, 1, cogerValor({{$device->id}}));
-          chart.draw(data, options);
-        }, 5000);
-        setInterval(function() {
-          data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
-          chart.draw(data, options);
-        }, 5000);
-        setInterval(function() {
-          data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
-          chart.draw(data, options);
-        }, 5000);
-        setInterval(function() {
-          data.setValue(3, 1, 40 + Math.round(60 * Math.random()));
-          chart.draw(data, options);
-        }, 5000);
+          $.get("http://10.14.2.59:8000/api/device/" + {{ $device->id }}, function (datos, status) {
+            if (status == "success") {
+              console.log(datos)
+              for(i = 0; i < datos.length; i++){
+                data.setValue(i, 1, datos[i].value%100);
+                chart.draw(data, options);
+              }
+            }
+          }).fail(function () {
+            console.log('Error')
+          });
+        }, 2000)
+        
       }
 
     //GRAFICO2
@@ -116,11 +114,11 @@
 
     function drawChart2() {
     var data2 = google.visualization.arrayToDataTable([
-        ['Update', 'CO2', 'NOx', 'CO'],
-        ['2013',  100, 74, 123],
-        ['2014',  165, 62, 96],
-        ['2015',  57, 51, 23],
-        ['2016',  74, 85, 102]
+        ['Update', 'Db'],
+        ['2013',  100],
+        ['2014',  165],
+        ['2015',  57],
+        ['2016',  74]
     ]);
 
     var options2 = {
@@ -130,16 +128,6 @@
 
     var chart2 = new google.visualization.AreaChart(document.getElementById('chart_div2'));
     chart2.draw(data2, options2);
-    }
-    
-    let cogerValor = (device) => {
-      $.get("http://topollution.herokuapp.com/api/device/" + device + "/", function (data, status) {
-                if (status == "success") {
-                  console.log(data)
-                }
-            }).fail(function () {
-                console.log('Error')
-            });
     }
 </script>
 

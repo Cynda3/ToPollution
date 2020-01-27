@@ -112,39 +112,17 @@ class ApiMeassurement extends Controller
      */
     public function show($id)
     {
-        /*
-        $client = new Client([
-            // Base URI is used with relative requests
-            'base_uri' => 'http://10.14.2.81:8000',
-            // You can set any number of default request options.
-            'timeout'  => 2.0,
-        ]);
-
-        // Send a request to https://foo.com/api/users
-        $response = $client->request('GET', '/devices/'.$id);
-        */
-
-
-        // $last_co2_data = Meassurement::where([['data_id', '=', 1], ['device_id', '=', $device_id]])->latest()->get();
-        // $last_co_data = Meassurement::where([['data_id', '=', 2], ['device_id', '=', $device_id]])->latest()->get();
-        // $last_decibel_data = Meassurement::where([['data_id', '=', 4], ['device_id', '=', $device_id]])->latest()->get();
-
-        // $dataArray = [$last_co2_data, $last_co_data, $last_decibel_data];
-        // return response()->json($dataArray);
-/*
-        $last_co2_data = Meassurement::where('device_id', $id)->groupBy('data_id')->having('data_id', 1)->latest()->get();
-        $last_co_data = Meassurement::where('device_id', $id)->groupBy('data_id')->having('data_id', 2)->latest()->get();
-        $last_decibel_data = Meassurement::where('device_id', $id)->groupBy('data_id')->having('data_id', 4)->latest()->get();
+        $datos = [];
+        $meassurement = Meassurement::where('device_id', $id)->where('data_id', 1)->latest('created_at')->get()->first();
+        array_push($datos, $meassurement);
+        $meassurement = Meassurement::where('device_id', $id)->where('data_id', 2)->latest('created_at')->get()->first();
+        array_push($datos, $meassurement);
+        $meassurement = Meassurement::where('device_id', $id)->where('data_id', 3)->latest('created_at')->get()->first();
+        array_push($datos, $meassurement);
+        $meassurement = Meassurement::where('device_id', $id)->where('data_id', 4)->latest('created_at')->get()->first();
+        array_push($datos, $meassurement);
         
-       
-        //$dataArray = [$last_co2_data, $last_co_data, $last_decibel_data];
-        //dd($last_decibel_data);
-        return $last_decibel_data;
-        dd($device['attributes']);
-*/
-
-        $device = Device::find($id);
-        return $device->datas;
+        return $datos;
     }
 
     /**
