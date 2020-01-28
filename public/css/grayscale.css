@@ -90,9 +90,9 @@
     }
 
     #mainNav.navbar-shrink .nav-link.active {
-        color: #64a19d;
+        color: #1e7a1b;
         outline: none;
-        border-bottom: 0.25rem solid #64a19d;
+        border-bottom: 0.25rem solid #1e7a1b;
     }
 
 }
@@ -230,7 +230,7 @@
 @media (min-width: 992px) {
     .projects-section .featured-text {
         padding: 0 0 0 2rem;
-        border-left: 0.5rem solid #64a19d;
+        border-left: 0.5rem solid #364708;
     }
 }
 
@@ -245,7 +245,7 @@
     }
 
     .projects-section .project-text hr {
-        border-color: #64a19d;
+        border-color: #364708;
         border-width: .25rem;
         width: 30%;
     }
@@ -335,7 +335,7 @@ a:hover {
 }
 
 .bg-primary {
-    background-color: #5a5fa8 !important;
+    background-color: #38641d !important;
 }
 
 .text-primary {
