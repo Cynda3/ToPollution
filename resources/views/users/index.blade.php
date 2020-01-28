@@ -33,7 +33,7 @@
                         @method('DELETE')
                         <button type="submit" id="delete"><i class="far fa-trash-alt"></i></button>
                     </form>
-
+                    <!--public/private-->
                 </td>
             </tr>
         </tbody>

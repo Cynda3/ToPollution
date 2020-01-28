@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="row justify-content-between">
-                    <div class="form-group ml-3">
+                    <div class="form-group">
                         <a href="{{route('users.edit', Auth::user()->id)}}"><button
                                 class="btn btn-lg btn-success" type="submit">@lang('navMenu.actualizar')</button></a>
                     </div>
