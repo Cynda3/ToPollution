@@ -1,4 +1,9 @@
 @extends('layouts.app')
+
+@section('head')
+<link href="{{ asset('css/hyperbutton.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -16,8 +21,22 @@
                         <span class="text-danger" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                        @enderror<br>
-
+                        @enderror
+                
+                        <!-- hyper mega button -->
+                        
+                            
+                        <div>
+                            <label>
+                                <input type="radio" class="option-input radio" name="example" checked />
+                              Publico
+                            </label>
+                            <label>
+                                <input type="radio" class="option-input radio" name="example" />
+                              Privado
+                            </label>
+                        </div><br>
+                        <!-- End hyper mega button -->
                         <button>Send</button>
                     </form>
                 </div>
