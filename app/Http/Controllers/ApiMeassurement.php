@@ -21,8 +21,7 @@ class ApiMeassurement extends Controller
      */
     public function index(Request $request)
     {
-
-        if (isset($request->db) && isset($request->ppm) && isset($request->gps) && isset($request->device_id)/* && isset($request->net)*/) {
+        if (isset($request->db) && isset($request->ppm) && isset($request->gps) && isset($request->device_id) && isset($request->net)) {
                 
 
             // Split PPM and GPS 
@@ -30,7 +29,7 @@ class ApiMeassurement extends Controller
             // GPS -> latitude - longitude
             $cords = explode('_', $request->gps, 2);
             // PPM -> Co2 - O2
-            $gases = explode('_', $request->ppm, 2);
+            $gases = explode('_', $request->ppm, 3);
 
             // Create a new meassurement for every data
 
@@ -42,6 +41,8 @@ class ApiMeassurement extends Controller
             $decibel->latitude = $cords[0];
             $decibel->longitude = $cords[1];
             $decibel->data_id = 4;
+            $decibel->net = $request->net;
+            $decibel->net = $request->net;
 
             $decibel->save();
 
@@ -54,16 +55,29 @@ class ApiMeassurement extends Controller
             $co2->latitude = $cords[0];
             $co2->longitude = $cords[1];
             $co2->data_id = 1;
+            $co2->net = $request->net;
 
             $co2->save();
 
+            // NOx
+            $nox = new Meassurement;
+            $nox->value = $gases[1];
+            $nox->device_id = $request->device_id;
+            $nox->latitude = $cords[0];
+            $nox->longitude = $cords[1];
+            $nox->data_id = 2;
+            $nox->net = $request->net;
+
+            $nox->save();
+
             // O2
             $o2 = new Meassurement;
-            $o2->value = $gases[1];
+            $o2->value = $gases[2];
             $o2->device_id = $request->device_id;
             $o2->latitude = $cords[0];
             $o2->longitude = $cords[1];
             $o2->data_id = 3;
+            $o2->net = $request->net;
 
             $o2->save();
 
@@ -81,11 +95,23 @@ class ApiMeassurement extends Controller
             $device->save();
 
 
-            return dd($device.$o2.$co2.$decibel);
+            $response = [
+                'device' => $device->name,
+                'co2' => $co2->value,
+                'o2' => $o2->value,
+                'nox' => $nox->value,
+                'decibel' => $decibel->value,
+                'latitud' => $cords[0],
+                'longitud' => $cords[1],
+                'net' => $request->net,
+                'date' => $device->created_at
+            ];
+
+
+            return $response;
         }
         else {
-            $devices= Device::all();
-            return $devices;
+            return 'Faltan parametros';
         }
 
     }
@@ -110,38 +136,19 @@ class ApiMeassurement extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($device_id)
+    public function show($id)
     {
-        /*
-        $client = new Client([
-            // Base URI is used with relative requests
-            'base_uri' => 'http://10.14.2.81:8000',
-            // You can set any number of default request options.
-            'timeout'  => 2.0,
-        ]);
-
-        // Send a request to https://foo.com/api/users
-        $response = $client->request('GET', '/devices/'.$id);
-        */
-
-
-        $last_co2_data = Meassurement::where([['data_id', '=', 1], ['device_id', '=', $device_id]])->latest()->get();
-        $last_co_data = Meassurement::where([['data_id', '=', 2], ['device_id', '=', $device_id]])->latest()->get();
-        $last_decibel_data = Meassurement::where([['data_id', '=', 4], ['device_id', '=', $device_id]])->latest()->get();
-
-        $dataArray = [$last_co2_data, $last_co_data, $last_decibel_data];
-        return response()->json($dataArray);
-/*
-        $last_co2_data = Meassurement::where('device_id', $id)->groupBy('data_id')->having('data_id', 1)->latest()->get();
-        $last_co_data = Meassurement::where('device_id', $id)->groupBy('data_id')->having('data_id', 2)->latest()->get();
-        $last_decibel_data = Meassurement::where('device_id', $id)->groupBy('data_id')->having('data_id', 4)->latest()->get();
+        $datos = [];
+        $meassurement = Meassurement::where('device_id', $id)->where('data_id', 1)->latest('created_at')->get()->first();
+        array_push($datos, $meassurement);
+        $meassurement = Meassurement::where('device_id', $id)->where('data_id', 2)->latest('created_at')->get()->first();
+        array_push($datos, $meassurement);
+        $meassurement = Meassurement::where('device_id', $id)->where('data_id', 3)->latest('created_at')->get()->first();
+        array_push($datos, $meassurement);
+        $meassurement = Meassurement::where('device_id', $id)->where('data_id', 4)->latest('created_at')->get()->first();
+        array_push($datos, $meassurement);
         
-       
-        //$dataArray = [$last_co2_data, $last_co_data, $last_decibel_data];
-        //dd($last_decibel_data);
-        return $last_decibel_data;
-        dd($device['attributes']);
-*/
+        return $datos;
     }
 
     /**

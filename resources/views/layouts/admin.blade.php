@@ -33,7 +33,7 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin')}}">
-        <div class="sidebar-brand-text mx-3">ToPollution</div>
+        <div class="sidebar-brand-text mx-3 rotate-n-15">ToPollution</div>
       </a>
 
       <!-- Divider -->
@@ -79,16 +79,31 @@
       <!-- Nav Item - User List -->
       <li class="nav-item">
         <a class="nav-link" href="{{route('listUsers')}}">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-fw fa-users"></i>
           <span>Non-banneds</span></a>
       </li>
 
       <!-- Nav Item - Banned List -->
       <li class="nav-item">
         <a class="nav-link" href="{{route('bannedUsers')}}">
-          <i class="fas fa-fw fa-exclamation-triangle"></i>
+          <i class="fas fa-fw fa-ban"></i>
           <span>Banneds</span></a>
       </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Messages
+      </div>
+      <!-- Nav Item - Banned List -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('listMessages')}}">
+          <i class="fas fa-fw fa-sms"></i>
+          <span>Messages</span></a>
+      </li>
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -185,48 +200,20 @@
                 <h6 class="dropdown-header">
                   Message Center
                 </h6>
+                @if(isset($messages))
+                @foreach($messages as $message)
                 <a class="dropdown-item d-flex align-items-center" href="#">
                   <div class="dropdown-list-image mr-3">
                     <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
                     <div class="status-indicator bg-success"></div>
                   </div>
                   <div class="font-weight-bold">
-                    <div class="text-truncate">Help! Iran is going to start WWIII!!.</div>
-                    <div class="small text-gray-500">Donal Trump · 58m</div>
+                    <div class="text-truncate">{{$message->subject}}</div>
+                    <div class="small text-gray-500">{{$message->name}} · {{$message->created_at}}</div>
                   </div>
                 </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                    <div class="status-indicator"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them
-                      sent to you?</div>
-                    <div class="small text-gray-500">FBI · 1d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                    <div class="status-indicator bg-warning"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Last month's report looks great, Iran can't do nothing, keep up the good
-                      work!</div>
-                    <div class="small text-gray-500">First minister · 2d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Let's invade Poland, guys!</div>
-                    <div class="small text-gray-500">Deutchland · 2w</div>
-                  </div>
-                </a>
+                @endforeach
+                @endif
                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
               </div>
             </li>

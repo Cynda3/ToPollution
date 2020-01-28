@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div class="container" style="overflow-x:auto">
     <table class="table table-hover table-dark">
         <thead>
             <tr>
