@@ -90,6 +90,13 @@
           <span>Banneds</span></a>
       </li>
 
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Messages
+      </div>
       <!-- Nav Item - Banned List -->
       <li class="nav-item">
         <a class="nav-link" href="{{route('listMessages')}}">
