@@ -173,4 +173,14 @@ class ApiMeassurement extends Controller
     {
         //
     }
+
+    public function dia($id, $tipo, $fecha)
+    {
+        $meassurement = Meassurement::where('device_id', $id)
+                                    ->where('data_id', $tipo)
+                                    ->whereDate('created_at', $fecha)
+                                    ->orderBy('created_at', 'asc')
+                                    ->get();
+        return $meassurement;
+    }
 }

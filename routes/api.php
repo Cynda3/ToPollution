@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::apiResource('device', 'ApiMeassurement');
+
+Route::get('device/{id}/{tipo}/{fecha}', 'ApiMeassurement@dia');

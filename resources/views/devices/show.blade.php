@@ -95,7 +95,6 @@
         setInterval(function() {
           $.get("http://10.14.2.59:8000/api/device/" + {{ $device->id }}, function (datos, status) {
             if (status == "success") {
-              console.log(datos)
               for(i = 0; i < datos.length; i++){
                 data.setValue(i, 1, datos[i].value%100);
                 chart.draw(data, options);
@@ -105,29 +104,44 @@
             console.log('Error')
           });
         }, 2000)
-        
       }
-
+</script>
+<script>
+  //Fecha
+    let f = new Date();
+    let dia = f.getDate();
+    let mes = f.getMonth();
+    let año = f.getFullYear();
+    let date = año + "-" + (mes+1) + "-" + dia;
+    
     //GRAFICO2
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart2);
-
+    
     function drawChart2() {
-    var data2 = google.visualization.arrayToDataTable([
-        ['Update', 'Db'],
-        ['2013',  100],
-        ['2014',  165],
-        ['2015',  57],
-        ['2016',  74]
-    ]);
+      setInterval(function() {
+        let info = [['Update','CO2']];
+        $.get("http://10.14.2.59:8000/api/device/" + {{ $device->id }}, function (datos, status) {
+              if (status == "success") {
+                for(i = 0; i < datos.length; i++)
+                  info.push([datos[i].created_at, datos[i].value])
+              }
+            }).fail(function () {
+              console.log('Error')
+            });
+        console.log(datos)
+        var data2 = google.visualization.arrayToDataTable([
+          ['Update', 'CO2'],
+        ]);
+        
+        var options2 = {
+            hAxis: {title: 'Date',  titleTextStyle: {color: '#333'}},
+            vAxis: {minValue: 0}
+        };
 
-    var options2 = {
-        hAxis: {title: 'Date',  titleTextStyle: {color: '#333'}},
-        vAxis: {minValue: 0}
-    };
-
-    var chart2 = new google.visualization.AreaChart(document.getElementById('chart_div2'));
-    chart2.draw(data2, options2);
+        var chart2 = new google.visualization.AreaChart(document.getElementById('chart_div2'));
+        chart2.draw(data2, options2);
+      }, 2000)
     }
 </script>
 
