@@ -15,9 +15,9 @@
                     <form action="{{route('devices.update', $device->id)}}" method="post">
                         @csrf
                         @method('PUT')
-                        <label for="id"> New Id:</label> <input type="text" class="form-control"
-                        placeholder="{{$device->id}}" name="id" value="{{ old('id') }}"><br>
-                        
+                        <label for="id"> Device Id:</label> <input type="text" class="form-control"
+                        placeholder="{{$device->id}}" name="id" value="{{ old('id') }}" readonly><br>
+
                         <label for="name"> New Name:</label> <input type="text" class="form-control"
                             placeholder="{{$device->name}}" name="name" value="{{ old('name') }}"><br>
                         @error('name')

@@ -10,7 +10,10 @@
                 <th scope="col">Sensor Name</th>
                 <th scope="col">Latitude</th>
                 <th scope="col">Longitude</th>
-                <th scope="col">Owner</th>
+                <th scope="col">CO2</th>
+                <th scope="col">O2</th>
+                <th scope="col">CO</th>
+                <th scope="col">dB</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -21,7 +24,10 @@
                 <td>{{$d->name}}</td>
                 <td>{{$d->latitude}}</td>
                 <td>{{$d->longitude}}</td>
-                <td>{{$d->user->name}}</td>
+                <td>{{$d->id}}</td>
+                <td>{{$d->id}}</td>
+                <td>{{$d->id}}</td>
+                <td>{{$d->id}}</td>
 
                 <td style='white-space: nowrap'>
                     <a href="{{route('devices.show',$d->id)}}"><button type="submit" id="show"><i

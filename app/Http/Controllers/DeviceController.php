@@ -40,6 +40,8 @@ class DeviceController extends Controller
     {
         $device = new Device;
         $device->user_id = Auth::user()->id;
+        $device->id = $request->id;
+        $device->public = $request->example;
         $device->name = $request->name;
         $device->latitude = " - ";
         $device->longitude = " - ";
