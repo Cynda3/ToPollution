@@ -15,8 +15,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RoleTableSeeder::class);
         $this->call(UserAdminSeeder::class);
-        factory(User::class, 50)->create();
-        factory(Device::class, 50)->create();
+        //factory(User::class, 50)->create();
+        //factory(Device::class, 50)->create();
+        $this->call(DeviceTableSeeder::class);
         $this->call(RoleTableSeeder::class);
         $this->call(DataSeeder::class);
         $this->call(MeassurementSeeder::class);
