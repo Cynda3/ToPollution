@@ -117,31 +117,57 @@
     //GRAFICO2
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart2);
-    
+  
     function drawChart2() {
       setInterval(function() {
-        let info = [['Update','CO2']];
-        $.get("http://10.14.2.59:8000/api/device/" + {{ $device->id }}, function (datos, status) {
+        
+
+  
+
+        $.get("http://10.14.2.59:8000/api/device/" + {{ $device->id }} + "/1/" + date, function (datos, status) {
+
               if (status == "success") {
-                for(i = 0; i < datos.length; i++)
-                  info.push([datos[i].created_at, datos[i].value])
+                //console.log(datos)
+                var info = [['Update', 'CO2']]
+                var info2 =       [   ['Year', 'Sales'],
+                ['2013',  1000],
+                ['2014',  1170],]
+                for(i = 0; i < datos.length; i++){
+                  let fecha1 = new Date(datos[i].created_at);
+                  if (fecha1.getHours()<10)
+                    var hora =  "0"+fecha1.getHours();
+                  else
+                    var hora = fecha1.getHours();
+                  if (fecha1.getMinutes()<10)
+                    var min = "0"+fecha1.getMinutes();
+                  else
+                    var min = fecha1.getMinutes();
+                  if (fecha1.getSeconds()<10)
+                    var sec = "0"+fecha1.getSeconds();
+                  else 
+                    var sec = fecha1.getSeconds();
+                  let fecha = hora+":"+min+":"+sec;
+                  let datosarray=[fecha, datos[i].value]
+                  info.push(datosarray);
+                  //console.log(typeof(fecha))
+                  //console.log(typeof(datos[i].value))
+                }
+                var data2 = google.visualization.arrayToDataTable(
+                    info
+                  );
+        
+                var options2 = {
+                    hAxis: {title: 'Date',  titleTextStyle: {color: '#333'}},
+                    vAxis: {minValue: 0}
+                };
+
+                var chart2 = new google.visualization.AreaChart(document.getElementById('chart_div2'));
+                chart2.draw(data2, options2);
               }
             }).fail(function () {
               console.log('Error')
             });
-        console.log(datos)
-        var data2 = google.visualization.arrayToDataTable([
-          ['Update', 'CO2'],
-        ]);
-        
-        var options2 = {
-            hAxis: {title: 'Date',  titleTextStyle: {color: '#333'}},
-            vAxis: {minValue: 0}
-        };
-
-        var chart2 = new google.visualization.AreaChart(document.getElementById('chart_div2'));
-        chart2.draw(data2, options2);
-      }, 2000)
+      }, 5000)
     }
 </script>
 
