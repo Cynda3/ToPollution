@@ -120,18 +120,11 @@
   
     function drawChart2() {
       setInterval(function() {
-        
-
-  
-
         $.get("http://10.14.2.59:8000/api/device/" + {{ $device->id }} + "/1/" + date, function (datos, status) {
 
               if (status == "success") {
                 //console.log(datos)
                 var info = [['Update', 'CO2']]
-                var info2 =       [   ['Year', 'Sales'],
-                ['2013',  1000],
-                ['2014',  1170],]
                 for(i = 0; i < datos.length; i++){
                   let fecha1 = new Date(datos[i].created_at);
                   if (fecha1.getHours()<10)
