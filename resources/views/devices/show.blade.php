@@ -90,10 +90,8 @@
 
         var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
 
-        chart.draw(data, options);
-
         setInterval(function() {
-          $.get("http://10.14.2.59:8000/api/device/" + {{ $device->id }}, function (datos, status) {
+          $.get("http://topolution.herokuapp.com/api/device/" + {{ $device->id }}, function (datos, status) {
             if (status == "success") {
               for(i = 0; i < datos.length; i++){
                 data.setValue(i, 1, datos[i].value%100);
@@ -103,7 +101,7 @@
           }).fail(function () {
             console.log('Error')
           });
-        }, 2000)
+        }, 5000)
       }
 </script>
 <script>
@@ -120,13 +118,12 @@
   
     function drawChart2() {
       setInterval(function() {
-        $.get("http://10.14.2.59:8000/api/device/" + {{ $device->id }} + "/1/" + date, function (datos, status) {
-
+        var info = [['Update', 'CO2', 'NOX', 'O2']]
+        $.get("http://topollution.herokuapp.com/api/device/" + {{ $device->id }} + "/" + date, function (datos, status) {
               if (status == "success") {
-                //console.log(datos)
-                var info = [['Update', 'CO2']]
-                for(i = 0; i < datos.length; i++){
-                  let fecha1 = new Date(datos[i].created_at);
+                console.log(datos)
+                for(i = 1; i < datos[1].length; i++){
+                  let fecha1 = new Date(datos[0][i]);
                   if (fecha1.getHours()<10)
                     var hora =  "0"+fecha1.getHours();
                   else
@@ -140,11 +137,13 @@
                   else 
                     var sec = fecha1.getSeconds();
                   let fecha = hora+":"+min+":"+sec;
-                  let datosarray=[fecha, datos[i].value]
+                  let datosarray=[fecha, datos[1][i], datos[2][i], datos[3][i]]
+                  
                   info.push(datosarray);
                   //console.log(typeof(fecha))
                   //console.log(typeof(datos[i].value))
                 }
+                console.log(info)
                 var data2 = google.visualization.arrayToDataTable(
                     info
                   );

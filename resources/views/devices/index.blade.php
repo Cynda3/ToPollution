@@ -12,16 +12,18 @@
 
             </tr>
         </thead>
-        @foreach ($devices as $d)
-        <tbody>
-            <tr>
-                <td>{{$d->id}}</td>
-                <td>{{$d->name}}</td>
-                <td>{{$d->latitude}}</td>
-                <td>{{$d->longitude}}</td>
-                <td>{{$d->user->name}}</td>
-            </tr>
-        </tbody>
+        @foreach ($devices as $device)
+            @can('view', $device)
+                <tbody>
+                    <tr>
+                        <td>{{$device->id}}</td>
+                        <td>{{$device->name}}</td>
+                        <td>{{$device->latitude}}</td>
+                        <td>{{$device->longitude}}</td>
+                        <td>{{$device->user->name}}</td>
+                    </tr>
+                </tbody>
+            @endcan
         @endforeach
     </table>
 </div>
