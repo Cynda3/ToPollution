@@ -49,7 +49,6 @@ Route::get('/messages/{id}', 'AdminController@showMessage')->middleware('auth', 
 Route::resource('devices', 'DeviceController')->middleware('verified');
 
 
-
 // Rutas Api
 
 
