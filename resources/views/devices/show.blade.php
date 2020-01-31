@@ -91,7 +91,7 @@
         var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
 
         setInterval(function() {
-          $.get("http://topolution.herokuapp.com/api/device/" + {{ $device->id }}, function (datos, status) {
+          $.get("http://topollution.herokuapp.com/api/device/" + {{ $device->id }}, function (datos, status) {
             if (status == "success") {
               for(i = 0; i < datos.length; i++){
                 data.setValue(i, 1, datos[i].value%100);
