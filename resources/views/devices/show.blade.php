@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="row justify-content-center mt-4">
-        <h4>Medidas historicas</h4>
+        <h4>Medidas historicas de hoy</h4>
         <div id="chart_div2" style="height: 400px;" class="text-center col-12">
           <h5>Cargando...</h5>
         </div>
@@ -91,7 +91,7 @@
         var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
 
         setInterval(function() {
-          $.get("http://topollution.herokuapp.com/api/device/" + {{ $device->id }}, function (datos, status) {
+          $.get("https://topollution.herokuapp.com/api/device/" + {{ $device->id }}, function (datos, status) {
             if (status == "success") {
               for(i = 0; i < datos.length; i++){
                 data.setValue(i, 1, datos[i].value%100);
@@ -99,9 +99,9 @@
               }
             }
           }).fail(function () {
-            console.log('Error')
+            document.getElementById('chart_div').innerHTML = "<p class='alert alert-danger'>Hubo un problema de conexion</p>";
           });
-        }, 5000)
+        }, 10000)
       }
 </script>
 <script>
@@ -119,47 +119,51 @@
     function drawChart2() {
       setInterval(function() {
         var info = [['Update', 'CO2', 'NOX', 'O2']]
-        $.get("http://topollution.herokuapp.com/api/device/" + {{ $device->id }} + "/" + date, function (datos, status) {
+        $.get("https://topollution.herokuapp.com/api/device/" + {{ $device->id }} + "/" + date, function (datos, status) {
               if (status == "success") {
                 console.log(datos)
-                for(i = 1; i < datos[1].length; i++){
-                  let fecha1 = new Date(datos[0][i]);
-                  if (fecha1.getHours()<10)
-                    var hora =  "0"+fecha1.getHours();
-                  else
-                    var hora = fecha1.getHours();
-                  if (fecha1.getMinutes()<10)
-                    var min = "0"+fecha1.getMinutes();
-                  else
-                    var min = fecha1.getMinutes();
-                  if (fecha1.getSeconds()<10)
-                    var sec = "0"+fecha1.getSeconds();
-                  else 
-                    var sec = fecha1.getSeconds();
-                  let fecha = hora+":"+min+":"+sec;
-                  let datosarray=[fecha, datos[1][i], datos[2][i], datos[3][i]]
-                  
-                  info.push(datosarray);
-                  //console.log(typeof(fecha))
-                  //console.log(typeof(datos[i].value))
-                }
-                console.log(info)
-                var data2 = google.visualization.arrayToDataTable(
-                    info
-                  );
-        
-                var options2 = {
-                    hAxis: {title: 'Date',  titleTextStyle: {color: '#333'}},
-                    vAxis: {minValue: 0}
-                };
+                if(datos[0].length == 1){
+                  document.getElementById('chart_div2').innerHTML = "<p class='alert alert-warning'>No hay mediciones de hoy</p>";
+                } else {
+                  for(i = 1; i < datos[1].length; i++){
+                    let fecha1 = new Date(datos[0][i]);
+                    if (fecha1.getHours()<10)
+                      var hora =  "0"+fecha1.getHours();
+                    else
+                      var hora = fecha1.getHours();
+                    if (fecha1.getMinutes()<10)
+                      var min = "0"+fecha1.getMinutes();
+                    else
+                      var min = fecha1.getMinutes();
+                    if (fecha1.getSeconds()<10)
+                      var sec = "0"+fecha1.getSeconds();
+                    else 
+                      var sec = fecha1.getSeconds();
+                    let fecha = hora+":"+min+":"+sec;
+                    let datosarray=[fecha, datos[1][i], datos[2][i], datos[3][i]]
+                    
+                    info.push(datosarray);
+                    //console.log(typeof(fecha))
+                    //console.log(typeof(datos[i].value))
+                  }
+                  console.log(info)
+                  var data2 = google.visualization.arrayToDataTable(
+                      info
+                    );
+          
+                  var options2 = {
+                      hAxis: {title: 'Date',  titleTextStyle: {color: '#333'}},
+                      vAxis: {minValue: 0}
+                  };
 
-                var chart2 = new google.visualization.AreaChart(document.getElementById('chart_div2'));
-                chart2.draw(data2, options2);
+                  var chart2 = new google.visualization.AreaChart(document.getElementById('chart_div2'));
+                  chart2.draw(data2, options2);
+                }
               }
             }).fail(function () {
-              console.log('Error')
+              document.getElementById('chart_div2').innerHTML = "<p class='alert alert-danger'>Hubo un problema de conexion</p>";
             });
-      }, 5000)
+      }, 10000)
     }
 </script>
 
