@@ -110,7 +110,7 @@ class ApiMeassurement extends Controller
             return response()->json($response,200);
         }
         else {
-            return 'Faltan parametros';
+            return response()->json("Faltan parametros",203);
         }
 
     }
@@ -124,9 +124,97 @@ class ApiMeassurement extends Controller
     public function store(Request $request)
     {
 
-        $devices = Device::all();
+        if (isset($request->db) && isset($request->ppm) && isset($request->gps) && isset($request->device_id) && isset($request->net)) {
+                
 
-        return $devices;
+            // Split PPM and GPS 
+
+            // GPS -> latitude - longitude
+            $cords = explode('_', $request->gps, 2);
+            // PPM -> Co2 - O2
+            $gases = explode('_', $request->ppm, 3);
+
+            // Create a new meassurement for every data
+
+            // Decibel meassurement
+
+            $decibel = new Meassurement;
+            $decibel->value = $request->db;
+            $decibel->device_id = $request->device_id;
+            $decibel->latitude = $cords[0];
+            $decibel->longitude = $cords[1];
+            $decibel->data_id = 4;
+            $decibel->net = $request->net;
+            $decibel->net = $request->net;
+
+            $decibel->save();
+
+            // Particles per milion meassurement
+
+            // Co2
+            $co2 = new Meassurement;
+            $co2->value = $gases[0];
+            $co2->device_id = $request->device_id;
+            $co2->latitude = $cords[0];
+            $co2->longitude = $cords[1];
+            $co2->data_id = 1;
+            $co2->net = $request->net;
+
+            $co2->save();
+
+            // NOx
+            $nox = new Meassurement;
+            $nox->value = $gases[1];
+            $nox->device_id = $request->device_id;
+            $nox->latitude = $cords[0];
+            $nox->longitude = $cords[1];
+            $nox->data_id = 2;
+            $nox->net = $request->net;
+
+            $nox->save();
+
+            // O2
+            $o2 = new Meassurement;
+            $o2->value = $gases[2];
+            $o2->device_id = $request->device_id;
+            $o2->latitude = $cords[0];
+            $o2->longitude = $cords[1];
+            $o2->data_id = 3;
+            $o2->net = $request->net;
+
+            $o2->save();
+
+
+            // Device GPS update
+
+
+            $device = Device::find($request->device_id);
+
+            $device->name = $device->name;
+            $device->latitude = $cords[0];
+            $device->longitude = $cords[1];
+            $device->user_id = $device->user_id;
+
+            $device->save();
+
+
+            $response = [
+                'device' => $device->name,
+                'co2' => $co2->value,
+                'o2' => $o2->value,
+                'nox' => $nox->value,
+                'decibel' => $decibel->value,
+                'latitud' => $cords[0],
+                'longitud' => $cords[1],
+                'net' => $request->net,
+                'date' => $device->created_at
+            ];
+
+            return response()->json($response,200);
+        }
+        else {
+            return response()->json("Faltan parametros",203);
+        }
     }
 
     /**
