@@ -40,7 +40,6 @@ class ApiMeassurement extends Controller
             $decibel->longitude = $request->long;
             $decibel->data_id = 4;
             $decibel->net = $request->net;
-            $decibel->net = $request->net;
 
             $decibel->save();
 
@@ -128,7 +127,7 @@ class ApiMeassurement extends Controller
             // Split PPM 
 
             // PPM -> Co2 - O2
-            $gases = explode('_', $request->ppm, 3);
+            $gases = explode('_', $request->ppm, 2);
 
             // Create a new meassurement for every data
 
@@ -140,7 +139,6 @@ class ApiMeassurement extends Controller
             $decibel->latitude = $request->lat;
             $decibel->longitude = $request->long;
             $decibel->data_id = 4;
-            $decibel->net = $request->net;
             $decibel->net = $request->net;
 
             $decibel->save();
@@ -158,16 +156,6 @@ class ApiMeassurement extends Controller
 
             $co2->save();
 
-            // NOx
-            $nox = new Meassurement;
-            $nox->value = $gases[1];
-            $nox->device_id = $request->device_id;
-            $nox->latitude = $request->lat;
-            $nox->longitude = $request->long;
-            $nox->data_id = 2;
-            $nox->net = $request->net;
-
-            $nox->save();
 
             // O2
             $o2 = new Meassurement;
@@ -198,7 +186,6 @@ class ApiMeassurement extends Controller
                 'device' => $device->name,
                 'co2' => $co2->value,
                 'o2' => $o2->value,
-                'nox' => $nox->value,
                 'decibel' => $decibel->value,
                 'latitud' => $request->lat,
                 'longitud' => $request->long,
