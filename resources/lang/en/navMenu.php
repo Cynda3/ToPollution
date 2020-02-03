@@ -57,7 +57,7 @@ return [
     * Home page translation texts
     */
     'dGlobales' => 'Global Devices',
-    'mapas' => 'Maps',
+    'mapas' => 'Map',
     'misDisp' => 'My Devices',
     /*
     *User show page translations
