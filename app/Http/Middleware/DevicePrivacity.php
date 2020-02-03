@@ -15,7 +15,6 @@ class DevicePrivacity
      */
     public function handle($request, Closure $next, $device)
     {
-        dd($request->files);
         foreach ($request->user()->devices as $device) {
             if ($device->user_id == $request->user()->id) {
                 return $next($request);
