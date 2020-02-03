@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Device;
+use App\Meassurement;
 use Auth;
 //Quitar cuando reciba los datos
 use Faker\Generator as Faker;
@@ -17,7 +18,28 @@ class DeviceController extends Controller
      */
     public function index()
     {
-        return redirect('home');
+        $devices = Device::all();
+
+        foreach($devices as $device){
+            
+            $data = [];
+            
+            $meassurement1 = Meassurement::where(['data_id'=>1,'device_id'=>$device->id])->get();
+  
+            array_push($data, $meassurement1);
+            $meassurement2 =Meassurement::where(['data_id'=>2,'device_id'=>$device->id])->get();
+            array_push($data, $meassurement2);
+            $meassurement3 =Meassurement::where(['data_id'=>3,'device_id'=>$device->id])->get();
+            array_push($data, $meassurement3);
+            $meassurement4 =Meassurement::where(['data_id'=>4,'device_id'=>$device->id])->get();
+            array_push($data, $meassurement4);
+
+            $device->data = $data;
+        }
+
+
+       return view('/devices.index')->with('devices', $devices);
+        
     }
 
     /**
@@ -85,7 +107,7 @@ class DeviceController extends Controller
         $request->validate( [
             'name' => 'required|name',
         ]);
-        
+
         $messages = [
             'name.required' => 'Name is required!',
         ];
@@ -93,7 +115,7 @@ class DeviceController extends Controller
         $device = Device::find($id);
         // Actualizo cada parametro del device
         $device->name = $request->name;
-        
+
         // Guardo los cambios
         $device->save();
 

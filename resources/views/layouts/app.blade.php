@@ -50,15 +50,17 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link " href="{{route('home')}}">
-                        @lang('navMenu.dGlobales')
-                        </a>
-
-                    <li class="nav-item">
-                        <a class="nav-link " href="{{route('home')}}">
                         @lang('navMenu.mapas')
                         </a>
 
                         @if(Auth::user())
+  
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{route('devices.index')}}">
+                        @lang('navMenu.dGlobales')
+                        </a>
+                        
                     <li class="nav-item">
                         <a class="nav-link " href="{{route('users.index', Auth::user()->id)}}">
                         @lang('navMenu.misDisp')
@@ -99,13 +101,13 @@
                     </li>
                     @else
                     <li class="nav-item">
-                        <button type="button" class="btn btn-dark p-2 mt-3 mt-lg-4 ml-lg-2" data-toggle="modal"
+                        <button type="button" class="btn btn-success p-2 mt-3 mt-lg-4 ml-lg-2" data-toggle="modal"
                             data-target="#ModalLoginForm">
                             @lang('navMenu.login')
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-dark p-2 mt-3 mt-lg-4 mb-3 mb-lg-0 ml-lg-3"
+                        <button type="button" class="btn btn-success p-2 mt-3 mt-lg-4 mb-3 mb-lg-0 ml-lg-3"
                             data-toggle="modal" data-target="#ModalRegisterForm">
                             @lang('navMenu.register')
                         </button>

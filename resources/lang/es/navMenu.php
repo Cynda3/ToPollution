@@ -56,7 +56,7 @@ return [
     * Home page translation texts
     */
     'dGlobales' => 'Dispositivos Globales',
-    'mapas' => 'Mapas',
+    'mapas' => 'Mapa',
     'misDisp' => 'Mis Dispositivos',
      /*
     *User show page translations
