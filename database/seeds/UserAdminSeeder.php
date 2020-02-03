@@ -39,5 +39,19 @@ class UserAdminSeeder extends Seeder
 	        'remember_token' => Str::random(10),
 	        'role_id' => 1,
         ]);
+
+        User::insert([
+            'name' => "Don",
+	        'lastname' => "Bosco",
+            'email' => "donbosco@bobomaster.com",
+            'age' => "20",
+            'biography' => "Estudiante de grado superior",
+            'country' => "Spain",
+	        'avatar' => "/images/p4.png",
+	        'email_verified_at' => now(),
+	        'password' => bcrypt('patata'), // password
+	        'remember_token' => Str::random(10),
+	        'role_id' => 1
+        ]);
     }
 }

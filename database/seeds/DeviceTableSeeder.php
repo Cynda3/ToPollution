@@ -17,14 +17,14 @@ class DeviceTableSeeder extends Seeder
 	        'name' => 'Zubiri-Manteo',
             'latitude' => 43.327363,
             'longitude' => -1.970753,
-            'user_id' => 1
+            'user_id' => 3
         ]);
         Device::insert([
             'id' => 2,
 	        'name' => 'Urgul',
             'latitude' => 43.324959, 
             'longitude' => -1.988826,
-            'user_id' => 1
+            'user_id' => 3
         ]);
         Device::insert([
             'id' => 3,
