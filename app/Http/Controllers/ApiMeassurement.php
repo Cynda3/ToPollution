@@ -107,8 +107,7 @@ class ApiMeassurement extends Controller
                 'date' => $device->created_at
             ];
 
-
-            return $response;
+            return response()->json($response,200);
         }
         else {
             return 'Faltan parametros';
