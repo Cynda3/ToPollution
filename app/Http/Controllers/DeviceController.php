@@ -18,7 +18,7 @@ class DeviceController extends Controller
      */
     public function index()
     {
-        $devices = Device::all();
+        $devices = Device::all()->where('public',1);
 
         foreach($devices as $device){
             
@@ -38,7 +38,7 @@ class DeviceController extends Controller
         }
 
 
-       return view('/devices.index')->with('devices', $devices);
+       return view('devices.index')->with('devices', $devices);
         
     }
 
