@@ -50,7 +50,6 @@ Route::get('/devices/{id}', 'DeviceController@show')->middleware('auth', 'device
 Route::resource('devices', 'DeviceController')->middleware('verified');
 
 
-
 // Rutas Api
 
 
