@@ -17,7 +17,7 @@ class DevicePrivacity
     {
         
         foreach ($request->user()->devices as $device) {
-            if ($device->user_id == $request->id) {
+            if ($device->user_id == $request->user()->id) {
                 return $next($request);
             }
         }
