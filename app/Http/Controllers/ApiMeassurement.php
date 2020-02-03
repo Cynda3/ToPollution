@@ -21,13 +21,11 @@ class ApiMeassurement extends Controller
      */
     public function index(Request $request)
     {
-        if (isset($request->db) && isset($request->ppm) && isset($request->gps) && isset($request->device_id) && isset($request->net)) {
+        if (isset($request->db) && isset($request->ppm) && isset($request->lat) && isset($request->long) && isset($request->device_id) && isset($request->net)) {
                 
 
-            // Split PPM and GPS 
+            // Split PPM 
 
-            // GPS -> latitude - longitude
-            $cords = explode('_', $request->gps, 2);
             // PPM -> Co2 - O2
             $gases = explode('_', $request->ppm, 3);
 
@@ -38,8 +36,8 @@ class ApiMeassurement extends Controller
             $decibel = new Meassurement;
             $decibel->value = $request->db;
             $decibel->device_id = $request->device_id;
-            $decibel->latitude = $cords[0];
-            $decibel->longitude = $cords[1];
+            $decibel->latitude = $request->lat;
+            $decibel->longitude = $request->long;
             $decibel->data_id = 4;
             $decibel->net = $request->net;
             $decibel->net = $request->net;
@@ -52,8 +50,8 @@ class ApiMeassurement extends Controller
             $co2 = new Meassurement;
             $co2->value = $gases[0];
             $co2->device_id = $request->device_id;
-            $co2->latitude = $cords[0];
-            $co2->longitude = $cords[1];
+            $co2->latitude = $request->lat;
+            $co2->longitude = $request->long;
             $co2->data_id = 1;
             $co2->net = $request->net;
 
@@ -63,8 +61,8 @@ class ApiMeassurement extends Controller
             $nox = new Meassurement;
             $nox->value = $gases[1];
             $nox->device_id = $request->device_id;
-            $nox->latitude = $cords[0];
-            $nox->longitude = $cords[1];
+            $nox->latitude = $request->lat;
+            $nox->longitude = $request->long;
             $nox->data_id = 2;
             $nox->net = $request->net;
 
@@ -74,8 +72,8 @@ class ApiMeassurement extends Controller
             $o2 = new Meassurement;
             $o2->value = $gases[2];
             $o2->device_id = $request->device_id;
-            $o2->latitude = $cords[0];
-            $o2->longitude = $cords[1];
+            $o2->latitude = $request->lat;
+            $o2->longitude = $request->long;
             $o2->data_id = 3;
             $o2->net = $request->net;
 
@@ -88,8 +86,8 @@ class ApiMeassurement extends Controller
             $device = Device::find($request->device_id);
 
             $device->name = $device->name;
-            $device->latitude = $cords[0];
-            $device->longitude = $cords[1];
+            $device->latitude = $request->lat;
+            $device->longitude = $request->long;
             $device->user_id = $device->user_id;
 
             $device->save();
@@ -101,8 +99,8 @@ class ApiMeassurement extends Controller
                 'o2' => $o2->value,
                 'nox' => $nox->value,
                 'decibel' => $decibel->value,
-                'latitud' => $cords[0],
-                'longitud' => $cords[1],
+                'latitud' => $request->lat,
+                'longitud' => $request->long,
                 'net' => $request->net,
                 'date' => $device->created_at
             ];
@@ -124,13 +122,11 @@ class ApiMeassurement extends Controller
     public function store(Request $request)
     {
 
-        if (isset($request->db) && isset($request->ppm) && isset($request->gps) && isset($request->device_id) && isset($request->net)) {
+        if (isset($request->db) && isset($request->ppm) && isset($request->lat) && isset($request->long) && isset($request->device_id) && isset($request->net)) {
                 
 
-            // Split PPM and GPS 
+            // Split PPM 
 
-            // GPS -> latitude - longitude
-            $cords = explode('_', $request->gps, 2);
             // PPM -> Co2 - O2
             $gases = explode('_', $request->ppm, 3);
 
@@ -141,8 +137,8 @@ class ApiMeassurement extends Controller
             $decibel = new Meassurement;
             $decibel->value = $request->db;
             $decibel->device_id = $request->device_id;
-            $decibel->latitude = $cords[0];
-            $decibel->longitude = $cords[1];
+            $decibel->latitude = $request->lat;
+            $decibel->longitude = $request->long;
             $decibel->data_id = 4;
             $decibel->net = $request->net;
             $decibel->net = $request->net;
@@ -155,8 +151,8 @@ class ApiMeassurement extends Controller
             $co2 = new Meassurement;
             $co2->value = $gases[0];
             $co2->device_id = $request->device_id;
-            $co2->latitude = $cords[0];
-            $co2->longitude = $cords[1];
+            $co2->latitude = $request->lat;
+            $co2->longitude = $request->long;
             $co2->data_id = 1;
             $co2->net = $request->net;
 
@@ -166,8 +162,8 @@ class ApiMeassurement extends Controller
             $nox = new Meassurement;
             $nox->value = $gases[1];
             $nox->device_id = $request->device_id;
-            $nox->latitude = $cords[0];
-            $nox->longitude = $cords[1];
+            $nox->latitude = $request->lat;
+            $nox->longitude = $request->long;
             $nox->data_id = 2;
             $nox->net = $request->net;
 
@@ -177,8 +173,8 @@ class ApiMeassurement extends Controller
             $o2 = new Meassurement;
             $o2->value = $gases[2];
             $o2->device_id = $request->device_id;
-            $o2->latitude = $cords[0];
-            $o2->longitude = $cords[1];
+            $o2->latitude = $request->lat;
+            $o2->longitude = $request->long;
             $o2->data_id = 3;
             $o2->net = $request->net;
 
@@ -191,8 +187,8 @@ class ApiMeassurement extends Controller
             $device = Device::find($request->device_id);
 
             $device->name = $device->name;
-            $device->latitude = $cords[0];
-            $device->longitude = $cords[1];
+            $device->latitude = $request->lat;
+            $device->longitude = $request->long;
             $device->user_id = $device->user_id;
 
             $device->save();
@@ -204,8 +200,8 @@ class ApiMeassurement extends Controller
                 'o2' => $o2->value,
                 'nox' => $nox->value,
                 'decibel' => $decibel->value,
-                'latitud' => $cords[0],
-                'longitud' => $cords[1],
+                'latitud' => $request->lat,
+                'longitud' => $request->long,
                 'net' => $request->net,
                 'date' => $device->created_at
             ];
@@ -215,6 +211,7 @@ class ApiMeassurement extends Controller
         else {
             return response()->json("Faltan parametros",203);
         }
+
     }
 
     /**
