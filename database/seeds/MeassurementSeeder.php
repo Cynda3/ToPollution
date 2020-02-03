@@ -16,23 +16,85 @@ class MeassurementSeeder extends Seeder
         Meassurement::create([
 	        'device_id' => "1",
             'data_id' => "1",
-	        'value' => "9999"
+            'value' => "90",
+            'created_at' => '2020-01-31 08:54:50'
+        ]);
+        
+        Meassurement::create([
+	        'device_id' => "1",
+            'data_id' => "1",
+            'value' => "10",
+            'created_at' => '2020-01-31 08:54:55'
+        ]);
+
+        Meassurement::create([
+	        'device_id' => "1",
+            'data_id' => "1",
+            'value' => "70",
+            'created_at' => '2020-01-31 08:55:00'
         ]);
         
         Meassurement::create([
 	        'device_id' => "1",
             'data_id' => "2",
-	        'value' => "4321"
+            'value' => "10",
+            'created_at' => '2020-01-31 08:54:50'
         ]);
+
+        Meassurement::create([
+	        'device_id' => "1",
+            'data_id' => "2",
+            'value' => "40",
+            'created_at' => '2020-01-31 08:54:55' 
+        ]);
+
+        Meassurement::create([
+	        'device_id' => "1",
+            'data_id' => "2",
+            'value' => "20",
+            'created_at' => '2020-01-31 08:55:00'
+        ]);
+
         Meassurement::create([
 	        'device_id' => "1",
             'data_id' => "3",
-	        'value' => "4234"
+            'value' => "50",
+            'created_at' => '2020-01-31 08:54:50'
         ]);
+
+        Meassurement::create([
+	        'device_id' => "1",
+            'data_id' => "3",
+            'value' => "20",
+            'created_at' => '2020-01-31 08:54:55'
+        ]);
+
+        Meassurement::create([
+	        'device_id' => "1",
+            'data_id' => "3",
+            'value' => "80",
+            'created_at' => '2020-01-31 08:55:00'
+        ]);
+
         Meassurement::create([
 	        'device_id' => "1",
             'data_id' => "4",
-	        'value' => "50"
+            'value' => "0",
+            'created_at' => '2020-01-31 08:54:50'
+        ]);
+
+        Meassurement::create([
+	        'device_id' => "1",
+            'data_id' => "4",
+            'value' => "20",
+            'created_at' => '2020-01-31 08:54:55'
+        ]);
+
+        Meassurement::create([
+	        'device_id' => "1",
+            'data_id' => "4",
+            'value' => "50",
+            'created_at' => '2020-01-31 08:55:00'
         ]);
 
         //Dispos 2
@@ -56,6 +118,5 @@ class MeassurementSeeder extends Seeder
             'data_id' => "4",
 	        'value' => "70"
         ]);
-        
     }
 }

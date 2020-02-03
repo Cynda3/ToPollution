@@ -5,6 +5,7 @@
     <div class="row">
         <div class="col-lg-12 col-sm-6 col-xs-3">
             <h1>@lang('navMenu.perfil')</h1>
+               
         </div>
 
     </div>
@@ -12,7 +13,8 @@
     <div class="row">
         <div class="col-lg-3 col-xs-3">
             <!--columna izquierda-->
-
+            <div class="card" style="box-shadow: 5px 10px">
+	            <div class="card-header py-3">
             <div class="text-start">
                 <img class="img-profile" src="{{Auth::user()->avatar}}">
 
@@ -26,11 +28,14 @@
                 @endforeach
             </ul>
            
-
+                </div>
+            </div>
         </div>
         <!--/col-3-->
-
+        
             <div class="col-9">
+                <div class="card" style="box-shadow: 5px 10px">
+                    <div class="card-header py-3">
                 <div class="row mb-2">
                     <div class="col-lg-6 col-xs-3">
                         <label for="first_name">
@@ -79,27 +84,31 @@
                     </div>
                 </div>
 
-                <div class="row justify-content-between">
+                <div class="row">
+                    <div class="col-lg-6 col-xs-3">
                     <div class="form-group">
                         <a href="{{route('users.edit', Auth::user()->id)}}"><button
                                 class="btn btn-lg btn-success" type="submit">@lang('navMenu.actualizar')</button></a>
                     </div>
+                    </div>
 
-                    <div class="form-group mr-5">
+                    <div class="col-lg-6 col-xs-3">
+                    <div class="form-group ">
                         <form action="{{route('users.destroy', Auth::user()->id)}}" method="post">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-lg btn-danger" type="submit">@lang('navMenu.eliminar')</button>
                         </form>
                     </div>
-                </div>
+                    </div>
 
-            
+                </div>
         </div>
         <!--/col-9-->
     </div>
     <!--/general row-->
-
+            </div>
+    </div>
 </div>
 
 @endsection

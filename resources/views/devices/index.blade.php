@@ -15,20 +15,17 @@
             </tr>
         </thead>
         @foreach ($devices as $device)
-        <tbody>
-            <tr>
-                <td>{{$device->name}}</td>
-                <td>{{$device->latitude}}</td>
-                <td>{{$device->longitude}}</td>
-                @if(isset($device->data[0][0]) && isset($device->data[1][0]) && isset($device->data[2][0]) && isset($device->data[3][0]))
-                <td>{{$device->data[0][0]->value}}</td>
-                <td>{{$device->data[1][0]->value}}</td>
-                <td>{{$device->data[2][0]->value}}</td>
-                <td>{{$device->data[3][0]->value}}</td>
-                @endif
-                <td>{{$device->user->name}}</td>
-            </tr>
-        </tbody>
+            @can('view', $device)
+                <tbody>
+                    <tr>
+                        <td>{{$device->id}}</td>
+                        <td>{{$device->name}}</td>
+                        <td>{{$device->latitude}}</td>
+                        <td>{{$device->longitude}}</td>
+                        <td>{{$device->user->name}}</td>
+                    </tr>
+                </tbody>
+            @endcan
         @endforeach
     </table>
 </div>

@@ -14,10 +14,11 @@ class CreateDevicesTable extends Migration
     public function up()
     {
         Schema::create('devices', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->integer('id')->unique();
             $table->string('name');
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
+            $table->boolean('public')->default(true);
             $table->string('net')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();

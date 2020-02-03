@@ -9,7 +9,7 @@
 @section('content')
 <div class="container">
   <div class="row justify-content-center my-3">
-    <h1 class=""><u>Device {{ $device->name }}</u></h1>
+    <h1 class=""><u>Device: {{ $device->name }}</u></h1>
   </div>
   <div class="row justify-content-center">
     <div class="col-6">
@@ -90,12 +90,9 @@
 
         var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
 
-        chart.draw(data, options);
-
         setInterval(function() {
-          $.get("http://10.14.2.59:8000/api/device/" + {{ $device->id }}, function (datos, status) {
+          $.get("http://topolution.herokuapp.com/api/device/" + {{ $device->id }}, function (datos, status) {
             if (status == "success") {
-              console.log(datos)
               for(i = 0; i < datos.length; i++){
                 data.setValue(i, 1, datos[i].value%100);
                 chart.draw(data, options);
@@ -104,30 +101,65 @@
           }).fail(function () {
             console.log('Error')
           });
-        }, 2000)
-        
+        }, 5000)
       }
-
+</script>
+<script>
+  //Fecha
+    let f = new Date();
+    let dia = f.getDate();
+    let mes = f.getMonth();
+    let año = f.getFullYear();
+    let date = año + "-" + (mes+1) + "-" + dia;
+    
     //GRAFICO2
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart2);
-
+  
     function drawChart2() {
-    var data2 = google.visualization.arrayToDataTable([
-        ['Update', 'Db'],
-        ['2013',  100],
-        ['2014',  165],
-        ['2015',  57],
-        ['2016',  74]
-    ]);
+      setInterval(function() {
+        var info = [['Update', 'CO2', 'NOX', 'O2']]
+        $.get("http://topollution.herokuapp.com/api/device/" + {{ $device->id }} + "/" + date, function (datos, status) {
+              if (status == "success") {
+                console.log(datos)
+                for(i = 1; i < datos[1].length; i++){
+                  let fecha1 = new Date(datos[0][i]);
+                  if (fecha1.getHours()<10)
+                    var hora =  "0"+fecha1.getHours();
+                  else
+                    var hora = fecha1.getHours();
+                  if (fecha1.getMinutes()<10)
+                    var min = "0"+fecha1.getMinutes();
+                  else
+                    var min = fecha1.getMinutes();
+                  if (fecha1.getSeconds()<10)
+                    var sec = "0"+fecha1.getSeconds();
+                  else 
+                    var sec = fecha1.getSeconds();
+                  let fecha = hora+":"+min+":"+sec;
+                  let datosarray=[fecha, datos[1][i], datos[2][i], datos[3][i]]
+                  
+                  info.push(datosarray);
+                  //console.log(typeof(fecha))
+                  //console.log(typeof(datos[i].value))
+                }
+                console.log(info)
+                var data2 = google.visualization.arrayToDataTable(
+                    info
+                  );
+        
+                var options2 = {
+                    hAxis: {title: 'Date',  titleTextStyle: {color: '#333'}},
+                    vAxis: {minValue: 0}
+                };
 
-    var options2 = {
-        hAxis: {title: 'Date',  titleTextStyle: {color: '#333'}},
-        vAxis: {minValue: 0}
-    };
-
-    var chart2 = new google.visualization.AreaChart(document.getElementById('chart_div2'));
-    chart2.draw(data2, options2);
+                var chart2 = new google.visualization.AreaChart(document.getElementById('chart_div2'));
+                chart2.draw(data2, options2);
+              }
+            }).fail(function () {
+              console.log('Error')
+            });
+      }, 5000)
     }
 </script>
 
