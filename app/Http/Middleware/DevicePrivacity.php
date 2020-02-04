@@ -16,21 +16,27 @@ class DevicePrivacity
      */
     public function handle($request, Closure $next)
     {
-        $devices = Device::all();
 
-        foreach ($devices as $device) {
-            if ($device->public == false ) {
-                foreach ($request->user()->devices as $device) {
-                    if ($device->id == $request->route('id')) {
-                        return $next($request);
-                    }
+        // Search for the device to show.
+        $thisDevice = Device::find($request->route('id'));
+
+        // Verify if the device is public.
+        if ($thisDevice->public == false ) {
+            // Is private, this device belongs to this user?
+            foreach ($request->user()->devices as $device) {
+                if ($device->id == $thisDevice->id) {
+                    // It belongs to this user, continue.
+                    return $next($request);
                 }
-            }else{
-            return $next($request);            
             }
+            // It doesn't belongs to him, can't show the device.
+            return redirect('home');
+
+        }elseif($thisDevice->public == true){
+            // Is public, ok, continue.
+            return $next($request);            
         }
 
 
-        return redirect('home');
     }
 }
