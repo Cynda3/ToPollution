@@ -29,7 +29,7 @@
                         <td>{{$device->latitude}}</td>
                         <td>{{$device->longitude}}</td>
                         <td><a href="{{route('users.show',$device->user->id)}}">{{$device->user->name}}</td>
-                        <td class="d-flex justify-content-center"><a href="{{route('devices.show',$device->id)}}">
+                        <td class="d-flex justify-content-center"><a href="{{route('showDevice',$device->id)}}">
                             <button type="submit" id="show"><i class="fas fa-glasses" style="color:black"></i></a></button>
                             </td>
                     </tr>

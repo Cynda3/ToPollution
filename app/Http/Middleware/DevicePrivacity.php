@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\Device;
 
 class DevicePrivacity
 {
@@ -13,14 +14,22 @@ class DevicePrivacity
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $device)
+    public function handle($request, Closure $next)
     {
-        
-        foreach ($request->user()->devices as $device) {
-            if ($device->user_id == $request->user()->id) {
-                return $next($request);
+        $devices = Device::all();
+
+        foreach ($devices as $device) {
+            if ($device->public == false ) {
+                foreach ($request->user()->devices as $device) {
+                    if ($device->id == $request->route('id')) {
+                        return $next($request);
+                    }
+                }
+            }else{
+            return $next($request);            
             }
         }
+
 
         return redirect('home');
     }
