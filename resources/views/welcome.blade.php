@@ -138,19 +138,19 @@
         <div class="row justify-content-center">
           <div class="mx-4 mb-5">
             <strong class="number text-white display-4" data-number="10000">10.000</strong><br>
-            <span class="text-primary h5">@lang('navMenu.sensores')</span>
+            <span style="color: #28a745!important" class="text-primary h5">@lang('navMenu.sensores')</span>
           </div>
           <div class="mx-4">
             <strong class="number text-white display-4" data-number="6000">6.000</strong><br>
-            <span class="text-primary h5">@lang('navMenu.miembros')</span>
+            <span style="color: #28a745!important" class="text-primary h5">@lang('navMenu.miembros')</span>
           </div>
           <div class="mx-4">
             <strong class="number text-white display-4" data-number="2000">2.000</strong><br>
-            <span class="text-primary h5">@lang('navMenu.ciudades')</span>
+            <span style="color: #28a745!important" class="text-primary h5">@lang('navMenu.ciudades')</span>
           </div>
           <div class="mx-4">
             <strong class="number text-white display-4" data-number="50">50</strong><br>
-            <span class="text-primary h5">@lang('navMenu.paises')</span>
+            <span style="color: #28a745!important" class="text-primary h5">@lang('navMenu.paises')</span>
           </div>
         </div>
       </div>
