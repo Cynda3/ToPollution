@@ -216,10 +216,10 @@ class ApiMeassurement extends Controller
         $datos = [];
         $meassurement = Meassurement::where('device_id', $id)->where('data_id', 1)->latest('created_at')->get()->first();
         array_push($datos, $meassurement);
-        /*$meassurement = Meassurement::where('device_id', $id)->where('data_id', 2)->latest('created_at')->get()->first();
-        array_push($datos, $meassurement);*/
-        $meassurement = Meassurement::where('device_id', $id)->where('data_id', 3)->latest('created_at')->get()->first();
+        $meassurement = Meassurement::where('device_id', $id)->where('data_id', 2)->latest('created_at')->get()->first();
         array_push($datos, $meassurement);
+        /*$meassurement = Meassurement::where('device_id', $id)->where('data_id', 3)->latest('created_at')->get()->first();
+        array_push($datos, $meassurement);*/
         $meassurement = Meassurement::where('device_id', $id)->where('data_id', 4)->latest('created_at')->get()->first();
         array_push($datos, $meassurement);
         
@@ -258,7 +258,7 @@ class ApiMeassurement extends Controller
                                     ->orderBy('device_id', 'asc')
                                     ->get();
         
-        $info = [['dates'],['CO2'],['O2']];
+        $info = [['dates'],['CO2'],['CO']];
 
         foreach($meassurements as $meassurement) {
             if (in_array($meassurement->created_at, $info[0])){
@@ -268,7 +268,7 @@ class ApiMeassurement extends Controller
                 array_push($info[0], $meassurement->created_at);
             if($meassurement->data_id == 1)
                 array_push($info[1], $meassurement->value);
-            if($meassurement->data_id == 3)
+            if($meassurement->data_id == 2)
                 array_push($info[2], $meassurement->value);
         }
         return $info;
