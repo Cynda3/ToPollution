@@ -30,11 +30,11 @@
                 <td>{{$d->id}}</td>
 
                 <td style='white-space: nowrap'>
-                    <a href="{{route('devices.show',$d->id)}}"><button type="submit" id="show">
+                    <a href="{{route('showDevice',$d->id)}}"><button type="submit" id="show">
                         <i class="fas fa-glasses"></i></a></button>
                     <a href="{{route('devices.edit',$d->id)}}"><button type="submit" id="update">
                         <i class="fas fa-pencil-alt"></i></a></button>
-                    <a href="{{route('devices.show',$d->id)}}"><button type="submit" id="showgraph">
+                    <a href="{{route('showDevice',$d->id)}}"><button type="submit" id="showgraph">
                         <i class="far fa-chart-bar"></i></a></button>
                     <form style='display:inline;' action="{{route('devices.destroy',$d->id)}}" method="post">
                         @csrf
