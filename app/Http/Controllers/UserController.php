@@ -17,6 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
+
+        /* Call to gases data */
         $devices = Device::where('user_id', Auth::user()->id)->get();
         return view('users.index')->with('devices', $devices);
     }
