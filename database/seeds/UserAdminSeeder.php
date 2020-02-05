@@ -13,8 +13,13 @@ class UserAdminSeeder extends Seeder
     public function run()
     {  
     	User::insert([
-	        'name' => "Antonio",
-	        'email' => "antonio@bobomaster.com",
+            'name' => "Antonio",
+	        'lastname' => "Smith",
+            'email' => "antonio@bobomaster.com",
+            'age' => "20",
+            'biography' => "Estudiante de grado superior de desarrollo de aplicaciones web",
+            'country' => "Japan",
+	        'avatar' => "/images/p4.png",
 	        'email_verified_at' => now(),
 	        'password' => bcrypt('patata'), // password
 	        'remember_token' => Str::random(10),

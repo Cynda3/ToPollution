@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
-use App\Sensor;
+use App\Device;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,9 +13,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(User::class, 50)->create();
-        factory(Sensor::class, 50)->create();
-        $this->call(RoleTableSeeder::class);
         $this->call(UserAdminSeeder::class);
+        factory(User::class, 50)->create();
+        factory(Device::class, 50)->create();
+        $this->call(RoleTableSeeder::class);
+        $this->call(DataSeeder::class);
+        $this->call(MeassurementSeeder::class);
     }
 }

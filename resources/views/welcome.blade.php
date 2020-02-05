@@ -46,7 +46,7 @@
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
         data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
         aria-label="Toggle navigation">
-        Menu
+        @lang('navMenu.menu')
         <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -55,10 +55,10 @@
             <a class="nav-link js-scroll-trigger px-0 px-lg-3" href="#about">@lang('navMenu.about')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger px-0 px-lg-3" href="#projects">Our work</a>
+            <a class="nav-link js-scroll-trigger px-0 px-lg-3" href="#projects">@lang('navMenu.ourWork')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger px-0 px-lg-3" href="#signup">Contacto</a>
+            <a class="nav-link js-scroll-trigger px-0 px-lg-3" href="#signup">@lang('navMenu.contact')</a>
           </li>
           <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
@@ -67,12 +67,10 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{{ url('locale/en') }}">
-                <img src="img/languajes/en.png" width="30px" height="20x">
-                English
+                @lang('navMenu.english')
               </a>
               <a class="dropdown-item" href="{{ url('locale/es') }}">
-                <img src="img/languajes/es.png" width="30px" height="20x">
-                Spanish
+                @lang('navMenu.spanish')
               </a>
             </div>
           </li>
@@ -83,7 +81,7 @@
               {{Auth::user()->name}}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{route('users.show', Auth::user()->id)}}">Profile</a>
+              <a class="dropdown-item" href="{{route('users.show', Auth::user()->id)}}">@lang('navMenu.profile')</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
@@ -96,13 +94,13 @@
           <li class="nav-item">
             <button type="button" class="btn btn-dark p-2 mt-3 mt-lg-4 ml-lg-2" data-toggle="modal"
               data-target="#inicioSesionModal">
-              Log in
+              @lang('navMenu.login')
             </button>
           </li>
           <li class="nav-item">
             <button type="button" class="btn btn-dark p-2 mt-3 mt-lg-4 mb-3 mb-lg-0 ml-lg-3" data-toggle="modal"
               data-target="#registroModal">
-              Register
+              @lang('navMenu.register')
             </button>
           </li>
           @endif
@@ -116,11 +114,11 @@
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
         <h1 class="mx-auto my-0 text-uppercase">ToPollution</h1>
-        <h2 class="text-white-50 mx-auto mt-2 mb-5">Track your city pollution data with your own sensors.</h2>
+        <h2 class="text-white-50 mx-auto mt-2 mb-5">@lang('navMenu.subtitle')</h2>
         @if(Auth::user())
         @else
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registroModal">
-          Register
+          @lang('navMenu.register')
         </button>
         @endif
       </div>
@@ -132,28 +130,27 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h2 class="text-white mb-4">We try to convince people with real data</h2>
-          <p class="text-white-50">Our sensors are day after day tracking data of their enviroment to show it with
-            graphics and maps. We choose this way to show people the impact of our daily rutins in the enviroment.</p>
+          <h2 class="text-white mb-4">@lang('navMenu.eslogan')</h2>
+          <p class="text-white-50">@lang('navMenu.subslogan')</p>
         </div>
       </div>
       <div class="col-lg-10 mx-auto">
         <div class="row justify-content-center">
           <div class="mx-4 mb-5">
             <strong class="number text-white display-4" data-number="10000">10.000</strong><br>
-            <span class="text-primary h5">Sensors</span>
+            <span class="text-primary h5">@lang('navMenu.sensores')</span>
           </div>
           <div class="mx-4">
             <strong class="number text-white display-4" data-number="6000">6.000</strong><br>
-            <span class="text-primary h5">Members</span>
+            <span class="text-primary h5">@lang('navMenu.miembros')</span>
           </div>
           <div class="mx-4">
             <strong class="number text-white display-4" data-number="2000">2.000</strong><br>
-            <span class="text-primary h5">Cities</span>
+            <span class="text-primary h5">@lang('navMenu.ciudades')</span>
           </div>
           <div class="mx-4">
             <strong class="number text-white display-4" data-number="50">50</strong><br>
-            <span class="text-primary h5">Countries</span>
+            <span class="text-primary h5">@lang('navMenu.paises')</span>
           </div>
         </div>
       </div>
@@ -171,9 +168,8 @@
         </div>
         <div class="col-xl-4 col-lg-5">
           <div class="featured-text text-center text-lg-left">
-            <h4>Air-Pollution</h4>
-            <p class="text-black-50 mb-0">Occurs when harmful or excessive quantities of substances including gases,
-              particulates, and biological molecules are introduced into Earths atmosphere.</p>
+            <h4>@lang('navMenu.airTitle')</h4>
+            <p class="text-black-50 mb-0">@lang('navMenu.airText')</p>
           </div>
         </div>
       </div>
@@ -187,9 +183,8 @@
           <div class="bg-black text-center h-100 project">
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-left">
-                <h4 class="text-white">Enviroment noise</h4>
-                <p class="mb-0 text-white-50">Is the propagation of noise with harmful impact on the activity of human
-                  or animal life.</p>
+                <h4 class="text-white">@lang('navMenu.noiseTitle')</h4>
+                <p class="mb-0 text-white-50">@lang('navMenu.noiseText')</p>
                 <hr class="d-none d-lg-block mb-0 ml-0">
               </div>
             </div>
@@ -206,9 +201,8 @@
           <div class="bg-black text-center h-100 project">
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-right">
-                <h4 class="text-white">Land pollution</h4>
-                <p class="mb-0 text-white-50">Is the degradation of the Earths surface caused by a misuse of resources
-                  and improper disposal of waste.</p>
+                <h4 class="text-white">@lang('navMenu.groundTitle')</h4>
+                <p class="mb-0 text-white-50">@lang('navMenu.groundText')</p>
                 <hr class="d-none d-lg-block mb-0 mr-0">
               </div>
             </div>
@@ -226,27 +220,28 @@
       <div class="col-md-10 col-lg-8 mx-auto text-center">
 
         <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-        <h2 class="text-white mb-5">Contact</h2>
+        <h2 class="text-white mb-5">@lang('navMenu.contact')</h2>
 
         <form action="{{ Route('contacts.store') }}" method="POST" class="text-left text-white">
           @csrf
           <div class="form-group">
-            <label for="exampleFormControlInput1">Name</label>
+            <label for="exampleFormControlInput1">@lang('navMenu.name')</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Asier" name="name">
           </div>
           <div class="form-group">
-            <label for="exampleFormControlInput1">Subject</label>
+            <label for="exampleFormControlInput1">@lang('navMenu.subject')</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Subject" name="subject">
           </div>
           <div class="form-group">
-            <label for="exampleFormControlInput1">Email</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Example@email.com " name="email">
+            <label for="exampleFormControlInput1">@lang('navMenu.email')</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Example@email.com "
+              name="email">
           </div>
           <div class="form-group">
-            <label for="exampleFormControlTextarea1">Message</label>
+            <label for="exampleFormControlTextarea1">@lang('navMenu.message')</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary mx-auto">Send Message</button>
+          <button type="submit" class="btn btn-primary mx-auto">@lang('navMenu.')</button>
         </form>
       </div>
     </div>
@@ -262,7 +257,7 @@
           <div class="card py-4 h-100">
             <div class="card-body text-center">
               <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-              <h4 class="text-uppercase m-0">Address</h4>
+              <h4 class="text-uppercase m-0">@lang('navMenu.address')</h4>
               <hr class="my-4">
               <div class="small text-black-50">Calle de alejandria, 2</div>
             </div>
@@ -273,7 +268,7 @@
           <div class="card py-4 h-100">
             <div class="card-body text-center">
               <i class="fas fa-envelope text-primary mb-2"></i>
-              <h4 class="text-uppercase m-0">Email</h4>
+              <h4 class="text-uppercase m-0">@lang('navMenu.email')</h4>
               <hr class="my-4">
               <div class="small text-black-50">
                 topollution@gmail.com
@@ -286,7 +281,7 @@
           <div class="card py-4 h-100">
             <div class="card-body text-center">
               <i class="fas fa-mobile-alt text-primary mb-2"></i>
-              <h4 class="text-uppercase m-0">Phone</h4>
+              <h4 class="text-uppercase m-0">@lang('navMenu.phone')</h4>
               <hr class="my-4">
               <div class="small text-black-50">+34 943 89 92 93</div>
             </div>
@@ -314,7 +309,9 @@
   <!-- Footer -->
   <footer class="bg-black small text-center text-white-50">
     <div class="container">
-      Copyright &copy; ToPollution 2019
+      Copyright &copy; ToPollution <script>
+        document.write(new Date().getFullYear());
+      </script>
     </div>
   </footer>
 
