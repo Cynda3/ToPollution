@@ -1,4 +1,9 @@
 @extends('layouts.app')
+
+@section('head')
+<link href="{{ asset('css/hyperbutton.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -10,14 +15,29 @@
                     <form action="{{route('devices.update', $device->id)}}" method="post">
                         @csrf
                         @method('PUT')
+                        <label for="id"> Device Id:</label> <input type="text" class="form-control"
+                        placeholder="{{$device->id}}" name="id" value="{{ old('id') }}" readonly><br>
+
                         <label for="name"> New Name:</label> <input type="text" class="form-control"
                             placeholder="{{$device->name}}" name="name" value="{{ old('name') }}"><br>
                         @error('name')
                         <span class="text-danger" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
-                        @enderror<br>
-
+                        @enderror
+                
+                        <!-- hyper mega button -->
+                        <div>
+                            <label>
+                                <input type="radio" class="option-input radio" name="example" checked />
+                              Publico
+                            </label>
+                            <label>
+                                <input type="radio" class="option-input radio" name="example" />
+                              Privado
+                            </label>
+                        </div><br>
+                        <!-- End hyper mega button -->
                         <button>Send</button>
                     </form>
                 </div>

@@ -17,6 +17,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-
 Route::apiResource('device', 'ApiMeassurement');
+
+Route::group(['middleware' => 'cors'], function () {
+    //Route::get('device/{id}/{tipo}/{fecha}', 'ApiMeassurement@dia');
+    Route::get('device/{id}/{fecha}', 'ApiMeassurement@dia'); 
+});

@@ -14,6 +14,7 @@ return [
     'login' => 'Login',
     'profile' => 'Perfil',
     'register' => 'Register',
+    'profile' => 'Profile',
     'menu' => 'menú',
     'subtitle' => 'Track your city pollution data with your own sensors.',
     'eslogan' => 'We try to convince people with real data',
@@ -28,14 +29,14 @@ return [
     'noiseText' => 'Is the propagation of noise with harmful impact on the activity of human or animal life.',
     'groundTitle' => 'Ground Pollution',
     'groundText' => 'Is the degradation of the Earths surface caused by a misuse of resources and improper disposal of waste.',
-    'name'=> 'name',
+    'name'=> 'Name',
     'subject' => 'Subject',
     'email' => 'Email',
     'message' => 'Message',
     'cinfo' => 'Contact Information',
-    'address' => 'address:',
+    'address' => 'Address:',
     'phone' => 'Phone number:',
-    'email' => 'Email:',
+    'email' => 'Email',
     'website' => 'Web Page',
     'formulariologin' => 'Log In Form',
     'correo' => 'Email Address',
@@ -44,5 +45,28 @@ return [
     'iniciar'=> 'Log In',
     'formularioregistro' => 'Register Form',
     'cContraseña' => 'Confirm Password',
-    'registrarse' => 'Register'
+    'registrarse' => 'Register',
+    'enviar' => 'Send Message',
+    /*
+    * Home page translation texts
+    */
+    'latitud' => 'Latitude',
+    'longitud' => 'Longitude',
+    'dueño' => 'Owner',
+    /*
+    * Home page translation texts
+    */
+    'dGlobales' => 'Global Devices',
+    'mapas' => 'Map',
+    'misDisp' => 'My Devices',
+    /*
+    *User show page translations
+    */
+    'edad' =>'Age',
+    'apellido' =>'Last Name',
+    'eliminar' => 'Delete',
+    'actualizar' => 'Update',
+    'perfil' => 'Profile',
+    'sensores' => 'Owned Sensors'
+
 ];
