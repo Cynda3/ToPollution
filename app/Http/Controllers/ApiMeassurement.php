@@ -71,7 +71,7 @@ class ApiMeassurement extends Controller
             $co->device_id = $request->device_id;
             $co->latitude = $request->latitud;
             $co->longitude = $request->longitud;
-            $co->data_id = 3;
+            $co->data_id = 2;
             $co->net = $request->net;
 
             $co->save();
@@ -223,7 +223,7 @@ class ApiMeassurement extends Controller
         $meassurement = Meassurement::where('device_id', $id)->where('data_id', 4)->latest('created_at')->get()->first();
         array_push($datos, $meassurement);
         
-        return $datos;
+        return response()->json($datos,200);
     }
 
     /**
