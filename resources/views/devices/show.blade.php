@@ -18,6 +18,8 @@
     <div class="col-6">
       <div class="row justify-content-center mt-3">
         <h4>Medidas en tiempo real</h4>
+      </div>
+      <div class="row justify-content-center">
         <div id="chart_div" style="width: 400px; height: 120px;" class="text-center">
           <h5>Cargando...</h5>
         </div>
@@ -76,7 +78,7 @@
         var data = google.visualization.arrayToDataTable([
           ['Unidad', 'Value'],
           ['CO2', 0],
-          ['NOx', 0],
+          /*['NOX', 0],*/
           ['CO', 0],
           ['dB', 0]
         ]);
@@ -118,7 +120,8 @@
   
     function drawChart2() {
       setInterval(function() {
-        var info = [['Update', 'CO2', 'NOX', 'O2']]
+        var info = [['Update', 'CO2', 'CO']]
+        //https://topollution.herokuapp.com
         $.get("https://topollution.herokuapp.com/api/device/" + {{ $device->id }} + "/" + date, function (datos, status) {
               if (status == "success") {
                 console.log(datos)
@@ -140,13 +143,11 @@
                     else 
                       var sec = fecha1.getSeconds();
                     let fecha = hora+":"+min+":"+sec;
-                    let datosarray=[fecha, datos[1][i], datos[2][i], datos[3][i]]
-                    
+                    let datosarray=[fecha, datos[1][i], datos[2][i]]
                     info.push(datosarray);
                     //console.log(typeof(fecha))
                     //console.log(typeof(datos[i].value))
                   }
-                  console.log(info)
                   var data2 = google.visualization.arrayToDataTable(
                       info
                     );
