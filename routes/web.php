@@ -49,6 +49,7 @@ Route::get('/messages/{id}', 'AdminController@showMessage')->middleware('auth', 
 Route::get('/devices/create', 'DeviceController@create')->middleware('auth', 'verified');
 Route::get('/devices/{id}', 'DeviceController@show')->middleware('auth', 'device:id', 'verified');
 Route::resource('devices', 'DeviceController')->middleware('verified');
+Route::get('/device/{id}', 'DeviceController@show')->middleware('auth', 'device:id', 'verified')->name('showDevice');
 
 
 // Rutas Api
