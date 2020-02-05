@@ -95,7 +95,6 @@
         setInterval(function() {
           $.get("https://topollution.herokuapp.com/api/device/" + {{ $device->id }}, function (datos, status) {
             if (status == "success") {
-              console.log(datos)
               for(i = 0; i < datos.length; i++){
                 data.setValue(i, 1, datos[i].value%100);
                 chart.draw(data, options);
@@ -122,6 +121,7 @@
     function drawChart2() {
       setInterval(function() {
         var info = [['Update', 'CO2', 'CO']]
+        //https://topollution.herokuapp.com
         $.get("https://topollution.herokuapp.com/api/device/" + {{ $device->id }} + "/" + date, function (datos, status) {
               if (status == "success") {
                 console.log(datos)
