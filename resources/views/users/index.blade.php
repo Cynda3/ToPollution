@@ -24,12 +24,13 @@
                 <td>{{$d->name}}</td>
                 <td>{{$d->latitude}}</td>
                 <td>{{$d->longitude}}</td>
-                <td>{{$d->id}}</td>
-                <td>{{$d->id}}</td>
-                <td>{{$d->id}}</td>
-                <td>{{$d->id}}</td>
-
-                <td style='white-space: nowrap'>
+                @if(isset($device->data[0][0]) && isset($device->data[1][0]) && isset($device->data[2][0]) && isset($device->data[3][0]))
+                <td>{{$d->data[0][0]->value}}</td>
+                <td>{{$d->data[1][0]->value}}</td>
+                <td>{{$d->data[2][0]->value}}</td>
+                <td>{{$d->data[3][0]->value}}</td>
+                @endif
+                <td>
                     <a href="{{route('devices.show',$d->id)}}"><button type="submit" id="show">
                         <i class="fas fa-glasses"></i></a></button>
                     <a href="{{route('devices.edit',$d->id)}}"><button type="submit" id="update">
