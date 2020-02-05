@@ -92,14 +92,14 @@ class UserController extends Controller
         //VALIDATE
         $request->validate([
             'name' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
-            //'password' => 'required|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/|confirmed',//
+            //'password' => 'required|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/|confirmed'
         ]);
 
         $messages = [
             'name.required' => 'Name field is required!',
             'name.regex' => 'Name field must be a text between 1 and 20 words!',
-            //'password.required' => 'password is required',//
-            //'password.regex' => 'password must have minimun 6 chars including upper case',//
+            //'password.required' => 'password is required',
+            //'password.regex' => 'password must have minimun 6 chars including upper case'
         ];
 
         //UPDATE
