@@ -46,14 +46,9 @@ Route::get('/admin/{id}', 'AdminController@show')->middleware('auth', 'role:admi
 Route::get('/messages/{id}', 'AdminController@showMessage')->middleware('auth', 'role:admin')->name('messageShow');
 
 //Devices
-<<<<<<< HEAD
 Route::get('/devices/create', 'DeviceController@create')->middleware('auth', 'verified');
 Route::get('/devices/{id}', 'DeviceController@show')->middleware('auth', 'device:id', 'verified');
 Route::resource('devices', 'DeviceController')->middleware('verified');
-=======
-Route::get('/devices/{id}', 'DeviceController@show')->middleware('auth', 'device', 'verified')->name('showDevice');
-Route::resource('devices', 'DeviceController')->except(['show'])->middleware('verified');
->>>>>>> c75b694a38a67d5f7ea167623d4de5b73156381c
 
 
 // Rutas Api
