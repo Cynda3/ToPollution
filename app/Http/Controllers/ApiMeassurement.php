@@ -216,8 +216,8 @@ class ApiMeassurement extends Controller
         $datos = [];
         $meassurement = Meassurement::where('device_id', $id)->where('data_id', 1)->latest('created_at')->get()->first();
         array_push($datos, $meassurement);
-        $meassurement = Meassurement::where('device_id', $id)->where('data_id', 2)->latest('created_at')->get()->first();
-        array_push($datos, $meassurement);
+        /*$meassurement = Meassurement::where('device_id', $id)->where('data_id', 2)->latest('created_at')->get()->first();
+        array_push($datos, $meassurement);*/
         $meassurement = Meassurement::where('device_id', $id)->where('data_id', 3)->latest('created_at')->get()->first();
         array_push($datos, $meassurement);
         $meassurement = Meassurement::where('device_id', $id)->where('data_id', 4)->latest('created_at')->get()->first();
