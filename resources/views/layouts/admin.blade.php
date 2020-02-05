@@ -291,12 +291,11 @@
   <script src="/AdminPanel/vendor/datatables/dataTables.bootstrap4.min.js"></script>
   <script src="/AdminPanel/vendor/chart.js/Chart.min.js"></script>
 
-  <!-- Page level custom scripts -->
+  <!-- Page level custom scripts 
   <script src="/AdminPanel/js/demo/datatables-demo.js"></script>
   <script src="/AdminPanel/js/demo/chart-area-demo.js"></script>
   <script src="/AdminPanel/js/demo/chart-pie-demo.js"></script>
-
-  <!-- Page level custom scripts -->
+  -->
 </body>
 
 </html>
