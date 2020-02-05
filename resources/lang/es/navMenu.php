@@ -78,7 +78,13 @@ return [
     'dB' =>'Db',
     'actions' =>'Acciones',
 
-
-    
-
+    /* Mi dispositivo */
+    'dispositivo' => 'Dispositivo',
+    'medidasTiempoReal' => 'Medidas en tiempo real',
+    'medidasHistoricas' => 'Medidas historicas de hoy',
+    'cargando' => 'Cargando...',
+    'dueño' => 'Dueño',
+    'noMediciones' => 'No hay mediciones',
+    'problemaConex' => 'Hubo un problema de conexion',
+    'hora' => 'Hora'
 ];

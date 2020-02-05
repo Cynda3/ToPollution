@@ -9,25 +9,25 @@
 @section('content')
 <div class="container">
   <div class="row justify-content-center my-3">
-    <h1 class=""><u>Device: {{ $device->name }}</u></h1>
+    <h1 class=""><u>@lang('navMenu.dispositivo'): {{ $device->name }}</u></h1>
   </div>
   <div class="row justify-content-center">
-    <div class="col-6">
-      <div id="mapid" style="height: 500px;"></div>
+    <div class="col-4">
+      <div id="mapid" style="height: 300px;"></div>
     </div>
     <div class="col-6">
       <div class="row justify-content-center mt-3">
-        <h4>Medidas en tiempo real</h4>
+        <h4>@lang('navMenu.medidasTiempoReal')</h4>
       </div>
       <div class="row justify-content-center">
         <div id="chart_div" style="width: 400px; height: 120px;" class="text-center">
-          <h5>Cargando...</h5>
+          <h5>@lang('navMenu.cargando')</h5>
         </div>
       </div>
       <div class="row justify-content-center mt-4">
-        <h4>Medidas historicas de hoy</h4>
+        <h4>@lang('navMenu.medidasHistoricas')</h4>
         <div id="chart_div2" style="height: 400px;" class="text-center col-12">
-          <h5>Cargando...</h5>
+          <h5>@lang('navMenu.cargando')</h5>
         </div>
       </div>
     </div>
@@ -60,8 +60,8 @@
     }).addTo(map);
 
     var popup = L.popup();
-
-    marker.bindPopup("<h4><u> {{ $device->name }} </u></h4> <b>Owner:</b> {{ $device->user->name }}").openPopup();
+    
+    marker.bindPopup("<h4><u> {{ $device->name }} </u></h4> <b>@lang('navMenu.dueño'):</b> {{ $device->user->name }}").openPopup();
 
 </script>
 <!-- -----END MAPA---- -->
@@ -95,13 +95,17 @@
         setInterval(function() {
           $.get("https://topollution.herokuapp.com/api/device/" + {{ $device->id }}, function (datos, status) {
             if (status == "success") {
-              for(i = 0; i < datos.length; i++){
-                data.setValue(i, 1, datos[i].value%100);
-                chart.draw(data, options);
+              if(datos[0] == null || datos[1] == null || datos[2] == null)
+                document.getElementById('chart_div').innerHTML = "<p class='alert alert-warning'>@lang('navMenu.noMediciones')</p>";
+              else {
+                for(i = 0; i < datos.length; i++){
+                  data.setValue(i, 1, datos[i].value%100);
+                  chart.draw(data, options);
+                }
               }
             }
           }).fail(function () {
-            document.getElementById('chart_div').innerHTML = "<p class='alert alert-danger'>Hubo un problema de conexion</p>";
+            document.getElementById('chart_div').innerHTML = "<p class='alert alert-danger'>@lang('navMenu.problemaConex')</p>";
           });
         }, 10000)
       }
@@ -124,9 +128,8 @@
         //https://topollution.herokuapp.com
         $.get("https://topollution.herokuapp.com/api/device/" + {{ $device->id }} + "/" + date, function (datos, status) {
               if (status == "success") {
-                console.log(datos)
                 if(datos[0].length == 1){
-                  document.getElementById('chart_div2').innerHTML = "<p class='alert alert-warning'>No hay mediciones de hoy</p>";
+                  document.getElementById('chart_div2').innerHTML = "<p class='alert alert-warning'>@lang('navMenu.noMediciones')</p>";
                 } else {
                   for(i = 1; i < datos[1].length; i++){
                     let fecha1 = new Date(datos[0][i]);
@@ -151,9 +154,9 @@
                   var data2 = google.visualization.arrayToDataTable(
                       info
                     );
-          
+                  
                   var options2 = {
-                      hAxis: {title: 'Date',  titleTextStyle: {color: '#333'}},
+                      hAxis: {title: "@lang('navMenu.hora')",  titleTextStyle: {color: '#333'}},
                       vAxis: {minValue: 0}
                   };
 
@@ -162,7 +165,7 @@
                 }
               }
             }).fail(function () {
-              document.getElementById('chart_div2').innerHTML = "<p class='alert alert-danger'>Hubo un problema de conexion</p>";
+              document.getElementById('chart_div2').innerHTML = "<p class='alert alert-danger'>@lang('navMenu.problemaConex')</p>";
             });
       }, 10000)
     }

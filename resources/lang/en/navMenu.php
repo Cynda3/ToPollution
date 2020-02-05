@@ -80,4 +80,13 @@ return [
     'dB' =>'Db',
     'actions' =>'Actions',
 
+    /* Mi dispositivo */
+    'dispositivo' => 'Device',
+    'medidasTiempoReal' => 'Real time meassurements',
+    'medidasHistoricas' => 'Today historical meassurements',
+    'cargando' => 'Charging...',
+    'dueño' => 'Owner',
+    'noMediciones' => 'There arent meassurements',
+    'problemaConex' => 'There was a conexion error',
+    'hora' => 'Hour'
 ];
