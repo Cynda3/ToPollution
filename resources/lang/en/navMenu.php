@@ -30,6 +30,7 @@ return [
     'groundTitle' => 'Ground Pollution',
     'groundText' => 'Is the degradation of the Earths surface caused by a misuse of resources and improper disposal of waste.',
     'name'=> 'Name',
+    'apellido' => 'Apellido',
     'subject' => 'Subject',
     'email' => 'Email',
     'message' => 'Message',
@@ -68,6 +69,15 @@ return [
     'actualizar' => 'Update',
     'perfil' => 'Profile',
     'biography' => 'Biography',
-    'sensores' => 'Owned Sensors'
+    'sensores' => 'Owned Sensors',
+
+    /* Mis dispositivos */
+    'deviceadd' =>'Add Device',
+    'numserie' =>'Serial Number',
+    'sensorname' =>'Device Name',
+    'co2' =>'CO2',
+    'co' =>'CO',
+    'dB' =>'Db',
+    'actions' =>'Actions',
 
 ];
