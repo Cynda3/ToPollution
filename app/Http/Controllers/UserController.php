@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Device;
+use App\Meassurement;
 use Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -16,9 +17,29 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $devices = Device::where('user_id', Auth::user()->id)->get();
+    {$devices = Device::all()->where('public',1);
+
+        foreach($devices as $device){
+            
+            $data = [];
+            
+            $meassurement1 = Meassurement::where(['data_id'=>1,'device_id'=>$device->id])->get();
+  
+            array_push($data, $meassurement1);
+            $meassurement2 =Meassurement::where(['data_id'=>2,'device_id'=>$device->id])->get();
+            array_push($data, $meassurement2);
+            $meassurement3 =Meassurement::where(['data_id'=>3,'device_id'=>$device->id])->get();
+            array_push($data, $meassurement3);
+            $meassurement4 =Meassurement::where(['data_id'=>4,'device_id'=>$device->id])->get();
+            array_push($data, $meassurement4);
+
+            $device->data = $data;
+        }
         return view('users.index')->with('devices', $devices);
+
+        /* Call to gases data */
+        /*$devices = Device::where('user_id', Auth::user()->id)->get();
+        return view('users.index')->with('devices', $devices); */
     }
 
     /**

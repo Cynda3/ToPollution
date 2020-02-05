@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\Device;
 
 class DevicePrivacity
 {
@@ -13,15 +14,29 @@ class DevicePrivacity
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $device)
+    public function handle($request, Closure $next)
     {
-        dd($request->files);
-        foreach ($request->user()->devices as $device) {
-            if ($device->user_id == $request->user()->id) {
-                return $next($request);
+
+        // Search for the device to show.
+        $thisDevice = Device::find($request->route('id'));
+
+        // Verify if the device is public.
+        if ($thisDevice->public == false ) {
+            // Is private, this device belongs to this user?
+            foreach ($request->user()->devices as $device) {
+                if ($device->id == $thisDevice->id) {
+                    // It belongs to this user, continue.
+                    return $next($request);
+                }
             }
+            // It doesn't belongs to him, can't show the device.
+            return redirect('home');
+
+        }elseif($thisDevice->public == true){
+            // Is public, ok, continue.
+            return $next($request);            
         }
 
-        return redirect('home');
+
     }
 }

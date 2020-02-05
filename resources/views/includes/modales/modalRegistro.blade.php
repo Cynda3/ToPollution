@@ -25,7 +25,37 @@
                             @enderror
                         </div>
                     </div>
+                    <!-- Apellido -->
+                    <div class="form-group row">
+                        <label for="name" class="col-md-4 col-form-label text-md-right">@lang('navMenu.apellido')</label>
 
+                        <div class="col-md-6">
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <span id="nameError" class="text-danger">Tienes que escribir un nombre</span>
+                            <span id="nameError2" class="text-danger">El nombre no puede tener mas de 20 caracteres ni caracteres especiales</span>
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <!-- Edad -->
+                    <div class="form-group row">
+                        <label for="name" class="col-md-4 col-form-label text-md-right">@lang('navMenu.edad')</label>
+
+                        <div class="col-md-6">
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <span id="nameError" class="text-danger">Tienes que escribir un nombre</span>
+                            <span id="nameError2" class="text-danger">El nombre no puede tener mas de 20 caracteres ni caracteres especiales</span>
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <!-- Email -->
                     <div class="form-group row">
                         <label for="email" class="col-md-4 col-form-label text-md-right">@lang('navMenu.correo')</label>
 
@@ -34,6 +64,36 @@
                             <span id="emailError" class="text-danger">Tienes que escribir un email</span>
                             <span id="emailError2" class="text-danger">Introduce un email valido</span>
                             @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <!-- Ciudad -->
+                    <div class="form-group row">
+                                            <label for="name" class="col-md-4 col-form-label text-md-right">@lang('navMenu.ciudad')</label>
+
+                                            <div class="col-md-6">
+                                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                                <span id="nameError" class="text-danger">Tienes que escribir un nombre</span>
+                                                <span id="nameError2" class="text-danger">El nombre no puede tener mas de 20 caracteres ni caracteres especiales</span>
+                                                @error('name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                    <!-- Biografia -->
+                    <div class="form-group row">
+                        <label for="name" class="col-md-4 col-form-label text-md-right">@lang('navMenu.biography')</label>
+
+                        <div class="col-md-6">
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <span id="nameError" class="text-danger">Tienes que escribir un nombre</span>
+                            <span id="nameError2" class="text-danger">El nombre no puede tener mas de 20 caracteres ni caracteres especiales</span>
+                            @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

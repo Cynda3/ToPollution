@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Data;
 use App\Device;
+use App\Meassurement;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -16,9 +18,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $messages = Contact::orderBy('created_at', 'desc')->get();
         $devices = Device::all();
+        $messages = Contact::orderBy('created_at', 'desc')->get();
         $users = User::all();
+
         return view('admin.index')->with(['users' => $users, 'devices' => $devices, 'messages' => $messages]);
     }
 

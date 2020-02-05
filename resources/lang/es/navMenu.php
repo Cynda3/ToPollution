@@ -20,7 +20,7 @@ return [
     'subslogan' => 'Nuestros sensores día tras día trabajan recogiendo la información de nuestros alrededores para mostrarlos en mapas y gráficos. Elegimos esta forma de demostrar a la gente el impacto de nuestra rutina en el médio ambiente ',
     'sensores' => 'Sensores',
     'miembros' => 'Miembros',
-    'ciudades' => 'Ciudades',
+    'ciudad' => 'Ciudad',
     'paises' => 'Paises',
     'airTitle' => 'Contaminación Atmosférica',
     'airText' => 'Ocurre cuando se introducen cantidades dañinas o excesivas de sustancias, incluidos gases, partículas y moléculas biológicas en la atmósfera terrestre.',
@@ -29,6 +29,7 @@ return [
     'groundTitle' => 'Contaminacion del suelo',
     'groundText' => 'Es la degradación de la superficie de la Tierra causada por un mal uso de los recursos y la eliminación inadecuada de los desechos.',
     'name'=> 'Nombre',
+    'apellido' => 'Apellido',
     'subject' => 'Asunto',
     'email' => 'Email',
     'message' => 'Mensaje',
@@ -66,7 +67,16 @@ return [
     'eliminar' => 'Eliminar',
     'actualizar' => 'Editar',
     'perfil' => 'Perfil',
-    'sensores' => 'Sensores Obtenidos'
+    'biography' => 'Biografía',
+    'sensores' => 'Sensores Obtenidos',
+    /* Mis dispositivos */
+    'deviceadd' =>'Añadir Sensor',
+    'numserie' =>'Num. Serie',
+    'sensorname' =>'Nombre Sensor',
+    'co2' =>'CO2',
+    'co' =>'CO',
+    'dB' =>'Db',
+    'actions' =>'Acciones',
 
 
     
