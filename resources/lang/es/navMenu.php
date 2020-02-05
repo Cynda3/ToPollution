@@ -29,6 +29,7 @@ return [
     'groundTitle' => 'Contaminacion del suelo',
     'groundText' => 'Es la degradación de la superficie de la Tierra causada por un mal uso de los recursos y la eliminación inadecuada de los desechos.',
     'name'=> 'Nombre',
+    'apellido' => 'Apellido',
     'subject' => 'Asunto',
     'email' => 'Email',
     'message' => 'Mensaje',
@@ -67,7 +68,15 @@ return [
     'actualizar' => 'Editar',
     'perfil' => 'Perfil',
     'biography' => 'Biografía',
-    'sensores' => 'Sensores Obtenidos'
+    'sensores' => 'Sensores Obtenidos',
+    /* Mis dispositivos */
+    'deviceadd' =>'Añadir Sensor',
+    'numserie' =>'Num. Serie',
+    'sensorname' =>'Nombre Sensor',
+    'co2' =>'CO2',
+    'co' =>'CO',
+    'dB' =>'Db',
+    'actions' =>'Acciones',
 
 
     
