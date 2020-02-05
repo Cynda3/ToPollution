@@ -16,11 +16,6 @@ class DevicePrivacity
      */
     public function handle($request, Closure $next)
     {
-<<<<<<< HEAD
-        foreach ($request->user()->devices as $device) {
-            if ($device->user_id == $request->user()->id) {
-                return $next($request);
-=======
 
         // Search for the device to show.
         $thisDevice = Device::find($request->route('id'));
@@ -33,7 +28,6 @@ class DevicePrivacity
                     // It belongs to this user, continue.
                     return $next($request);
                 }
->>>>>>> c75b694a38a67d5f7ea167623d4de5b73156381c
             }
             // It doesn't belongs to him, can't show the device.
             return redirect('home');
