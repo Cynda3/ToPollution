@@ -18,54 +18,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        /*
-        *
-        *   Datas:
-        * 
-        *   1 = co2
-        *   2 = co
-        *   4 = dbs
-        *
-        */
-        $datas = Data::all();
         $devices = Device::all();
         $messages = Contact::orderBy('created_at', 'desc')->get();
-        $meassurements = Meassurement::all();
         $users = User::all();
-
-        // Max & min co2 values
-        $maxCO2 = Meassurement::where('data_id', '=', '1')->orderBy('value', 'desc')->first();
-        $minCO2 = Meassurement::where('data_id', '=', '1')->orderBy('value', 'asc')->first();
-
-        $valCO2 = [
-            'max' => $maxCO2,
-            'min' => $minCO2
-        ];
-
-        // Max & min co values
-        $maxCO = Meassurement::where('data_id', '=', '2')->orderBy('value', 'desc')->first();
-        $minCO = Meassurement::where('data_id', '=', '2')->orderBy('value', 'asc')->first();
-
-        $valCO = [
-            'max' => $maxCO,
-            'min' => $minCO
-        ];
-
-        // Max & min db values
-        $maxDbs = Meassurement::where('data_id', '=', '4')->orderBy('value', 'desc')->first();
-        $minDbs = Meassurement::where('data_id', '=', '4')->orderBy('value', 'asc')->first();
-
-        $valDbs = [
-            'max' => $maxDbs,
-            'min' => $minDbs
-        ];
-
-        $dataValues = [
-            'co2' => $valCO2,
-            'co' => $valCO,
-            'dbs' => $valDbs
-        ];
-
 
         return view('admin.index')->with(['users' => $users, 'devices' => $devices, 'messages' => $messages]);
     }
