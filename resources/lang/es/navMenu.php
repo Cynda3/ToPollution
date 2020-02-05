@@ -20,7 +20,7 @@ return [
     'subslogan' => 'Nuestros sensores día tras día trabajan recogiendo la información de nuestros alrededores para mostrarlos en mapas y gráficos. Elegimos esta forma de demostrar a la gente el impacto de nuestra rutina en el médio ambiente ',
     'sensores' => 'Sensores',
     'miembros' => 'Miembros',
-    'ciudades' => 'Ciudades',
+    'ciudad' => 'Ciudad',
     'paises' => 'Paises',
     'airTitle' => 'Contaminación Atmosférica',
     'airText' => 'Ocurre cuando se introducen cantidades dañinas o excesivas de sustancias, incluidos gases, partículas y moléculas biológicas en la atmósfera terrestre.',
@@ -66,6 +66,7 @@ return [
     'eliminar' => 'Eliminar',
     'actualizar' => 'Editar',
     'perfil' => 'Perfil',
+    'biography' => 'Biografía',
     'sensores' => 'Sensores Obtenidos'
 
 

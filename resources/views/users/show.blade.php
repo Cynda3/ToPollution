@@ -71,14 +71,14 @@
                 <div class="row mb-2">
                     <div class="col-lg-6 col-xs-3">
                         <label for="country">
-                            <h4>@lang('navMenu.ciudades')</h4>
+                            <h4>@lang('navMenu.ciudad')</h4>
                         </label><br>
                         {{$user->country}}
                     </div>
 
                     <div class="col-lg-6 col-xs-3">
                         <label for="biography">
-                            <h4>@lang('navMenu.email')</h4>
+                            <h4>@lang('navMenu.biography')</h4>
                         </label><br>
                         {{$user->biography}}
                     </div>

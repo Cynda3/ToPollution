@@ -11,7 +11,6 @@
                 <th scope="col">Latitude</th>
                 <th scope="col">Longitude</th>
                 <th scope="col">CO2</th>
-                <th scope="col">O2</th>
                 <th scope="col">CO</th>
                 <th scope="col">dB</th>
                 <th scope="col">Actions</th>
@@ -24,11 +23,14 @@
                 <td>{{$d->name}}</td>
                 <td>{{$d->latitude}}</td>
                 <td>{{$d->longitude}}</td>
-                @if(isset($device->data[0][0]) && isset($device->data[1][0]) && isset($device->data[2][0]) && isset($device->data[3][0]))
+                @if(isset($d->data[0][0]) && isset($d->data[1][0]) && isset($d->data[3][0]))
                 <td>{{$d->data[0][0]->value}}</td>
                 <td>{{$d->data[1][0]->value}}</td>
-                <td>{{$d->data[2][0]->value}}</td>
                 <td>{{$d->data[3][0]->value}}</td>
+                @else(!isset($d->data[0][0]) && !isset($d->data[1][0]) && !isset($d->data[3][0]))
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
                 @endif
                 <td>
                     <a href="{{route('devices.show',$d->id)}}"><button type="submit" id="show">

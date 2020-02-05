@@ -21,7 +21,7 @@ return [
     'subslogan' => 'Our sensors are day after day tracking data of their enviroment to show it with graphics and maps. We choose this way to show people the impact of our daily rutins in the enviroment.',
     'sensores' => 'Sensors',
     'miembros' => 'Members',
-    'ciudades' => 'Cities',
+    'ciudad' => 'City',
     'paises' => 'Countries',
     'airTitle' => 'Air Pollution',
     'airText' => 'Occurs when harmful or excessive quantities of substances including gases, particulates, and biological molecules are introduced into Earths atmosphere.',
@@ -67,6 +67,7 @@ return [
     'eliminar' => 'Delete',
     'actualizar' => 'Update',
     'perfil' => 'Profile',
+    'biography' => 'Biography',
     'sensores' => 'Owned Sensors'
 
 ];
