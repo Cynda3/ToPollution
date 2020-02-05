@@ -12,8 +12,8 @@
 #mainNav .navbar-toggler {
     font-size: 80%;
     padding: 0.75rem;
-    color: #64a19d;
-    border: 1px solid #64a19d;
+    color: #ffffff;
+    border: 1px solid #ffffff;
 }
 
 #mainNav .navbar-toggler:focus {
@@ -21,7 +21,7 @@
 }
 
 #mainNav .navbar-brand {
-    color: #161616;
+    color: #ffffff;
     font-weight: 700;
     padding: .9rem 0;
 }
@@ -331,7 +331,7 @@ a:hover {
 }
 
 .bg-black {
-    background-color: #161616 !important;
+    background-color: #000 !important;
 }
 
 .bg-primary {
