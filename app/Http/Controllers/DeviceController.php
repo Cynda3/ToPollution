@@ -65,8 +65,8 @@ class DeviceController extends Controller
         $device->id = $request->id;
         $device->public = $request->example;
         $device->name = $request->name;
-        $device->latitude = " - ";
-        $device->longitude = " - ";
+        $device->latitude = "43.32147";
+        $device->longitude = "-1.985725";
 
         $device->save();
         return view('devices.show')->with('device', $device);
