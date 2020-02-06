@@ -119,11 +119,12 @@ class DeviceController extends Controller
     {
         //VALIDATE
         $request->validate( [
-            'name' => 'required|name',
+            'name' => 'required|regex:/^[A-Za-záéíóú0-9+ +\.]{0,20}$/m',
         ]);
 
         $messages = [
-            'name.required' => 'Name is required!',
+            'name.required' => 'Name field is required!',
+            'name.regex' => 'Name field must be a text between 1 and 20 words!',
         ];
         //UPDATE
         $device = Device::find($id);

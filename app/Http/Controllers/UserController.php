@@ -111,9 +111,9 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
             'lastname' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
-            'age' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
+            'age' => 'regex:/^[0-9]{0,2}$/m',
             'city' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
-            'biography' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
+            'biography' => 'regex:/^[A-Za-záéíóú0-9+ +\.]{0,150}$/m',
             'password' => 'required|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/|confirmed'
         ]);
 
@@ -122,11 +122,9 @@ class UserController extends Controller
             'name.regex' => 'Name field must be a text between 1 and 20 words!',
             'lastname.required' => 'Last Name field is required!',
             'lastname.regex' => 'Last Name field must be a text between 1 and 20 words!',
-            'age.required' => 'Age field is required!',
-            'age.regex' => 'Age field must be a text between 1 and 20 words!',
+            'age.regex' => 'Age must be a number!',
             'city.required' => 'City field is required!',
             'city.regex' => 'City field must be a text between 1 and 20 words!',
-            'biography.required' => 'Biography field is required!',
             'biography.regex' => 'Biography field must be a text between 1 and 20 words!',
             'password.required' => 'password is required',
             'password.regex' => 'password must have minimun 6 chars including upper case'
