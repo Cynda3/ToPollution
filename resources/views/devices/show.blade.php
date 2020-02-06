@@ -11,25 +11,28 @@
   <div class="row justify-content-center my-3">
     <h1 class=""><u>@lang('navMenu.dispositivo'): {{ $device->name }}</u></h1>
   </div>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center align-items-center">
     <div class="col-4">
       <div id="mapid" style="height: 300px;"></div>
     </div>
     <div class="col-6">
-      <div class="row justify-content-center mt-3">
-        <h4>@lang('navMenu.medidasTiempoReal')</h4>
-      </div>
-      <div class="row justify-content-center">
-        <div id="chart_div" style="width: 400px; height: 120px;" class="text-center">
-          <h5>@lang('navMenu.cargando')</h5>
+      <h4 class="text-center"><b>@lang('navMenu.medidasTiempoReal')</b></h4>
+        <div class="row justify-content-center">
+          <div id="chart_div" style="width: 400px; height: 120px;" class="text-center">
+            <h5>@lang('navMenu.cargando')</h5>
+          </div>
         </div>
-      </div>
-      <div class="row justify-content-center mt-4">
-        <h4>@lang('navMenu.medidasHistoricas')</h4>
-        <div id="chart_div2" style="height: 400px;" class="text-center col-12">
-          <h5>@lang('navMenu.cargando')</h5>
-        </div>
-      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-4">
+    <h4><b>@lang('navMenu.medidasHistoricas')</b></h4>
+  </div>
+  <div class="row justify-content-center mt-4">
+    <div id="chart_div2" style="height: 400px;" class="text-center col-6">
+      <h5>@lang('navMenu.cargando')</h5>
+    </div>
+    <div id="chart_div3" style="height: 400px;" class="text-center col-6">
+      <h5>@lang('navMenu.cargando')</h5>
     </div>
   </div>
 </div>
@@ -128,6 +131,59 @@
         //https://topollution.herokuapp.com
         $.get("https://topollution.herokuapp.com/api/device/" + {{ $device->id }} + "/" + date, function (datos, status) {
               if (status == "success") {
+                if(datos[0].length == 1){
+                  document.getElementById('chart_div2').innerHTML = "<p class='alert alert-warning'>@lang('navMenu.noMediciones')</p>";
+                } else {
+                  for(i = 1; i < datos[1].length; i++){
+                    let fecha1 = new Date(datos[0][i]);
+                    if (fecha1.getHours()<10)
+                      var hora =  "0"+fecha1.getHours();
+                    else
+                      var hora = fecha1.getHours();
+                    if (fecha1.getMinutes()<10)
+                      var min = "0"+fecha1.getMinutes();
+                    else
+                      var min = fecha1.getMinutes();
+                    if (fecha1.getSeconds()<10)
+                      var sec = "0"+fecha1.getSeconds();
+                    else 
+                      var sec = fecha1.getSeconds();
+                    let fecha = hora+":"+min+":"+sec;
+                    let datosarray=[fecha, datos[1][i], datos[2][i]]
+                    info.push(datosarray);
+                    //console.log(typeof(fecha))
+                    //console.log(typeof(datos[i].value))
+                  }
+                  var data2 = google.visualization.arrayToDataTable(
+                      info
+                    );
+                  
+                  var options2 = {
+                      hAxis: {title: "@lang('navMenu.hora')",  titleTextStyle: {color: '#333'}},
+                      vAxis: {minValue: 0}
+                  };
+
+                  var chart2 = new google.visualization.AreaChart(document.getElementById('chart_div2'));
+                  chart2.draw(data2, options2);
+                }
+              }
+            }).fail(function () {
+              document.getElementById('chart_div2').innerHTML = "<p class='alert alert-danger'>@lang('navMenu.problemaConex')</p>";
+            });
+      }, 10000)
+    }
+
+    //GRAFICO3
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart3);
+  
+    function drawChart3() {
+      setInterval(function() {
+        var info = [['Update', 'dB', 'CO']]
+        //https://topollution.herokuapp.com
+        $.get("https://topollution.herokuapp.com/api/device/" + {{ $device->id }} + "/" + date + "/decibelios", function (datos, status) {
+              if (status == "success") {
+                console.log(datos)
                 if(datos[0].length == 1){
                   document.getElementById('chart_div2').innerHTML = "<p class='alert alert-warning'>@lang('navMenu.noMediciones')</p>";
                 } else {
