@@ -90,7 +90,7 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Most dangerous pollution</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Pollution meassurements</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -127,29 +127,29 @@
                   <h6 class="m-0 font-weight-bold text-primary">Pollution levels registered</h6>
                 </div>
                 <div class="card-body">
-                  <h4 class="small font-weight-bold">Minimun noise (decibels) <span class="float-right" id="minDbs">30</span></h4>
+                  <h4 class="small font-weight-bold">Minimun noise (decibels) <span class="float-right" id="minDbs">0</span></h4>
                   <div class="progress mb-4">
-                    <div id="minBarDbs" class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="30" aria-valuemin="25" aria-valuemax="110"></div>
+                    <div id="minBarDbs" class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="30" aria-valuemin="25" aria-valuemax="110"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Maximum noise (decibels) <span class="float-right" id="maxDbs">130</span></h4>
+                  <h4 class="small font-weight-bold">Maximum noise (decibels) <span class="float-right" id="maxDbs">0</span></h4>
                   <div class="progress mb-4">
-                    <div id="maxBarDbs" class="progress-bar bg-danger" role="danger" style="width: 90%" aria-valuenow="40" aria-valuemin="25" aria-valuemax="110"></div>
+                    <div id="maxBarDbs" class="progress-bar bg-danger" role="danger" style="width: 0%" aria-valuenow="40" aria-valuemin="25" aria-valuemax="110"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Minimun CO2 (particle per milion) <span class="float-right" id="minCO2">60</span></h4>
+                  <h4 class="small font-weight-bold">Minimun CO2 (particle per milion) <span class="float-right" id="minCO2">0</span></h4>
                   <div class="progress mb-4">
-                    <div id="minBarCO2" class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="600" aria-valuemin="400" aria-valuemax="2000"></div>
+                    <div id="minBarCO2" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="600" aria-valuemin="400" aria-valuemax="2000"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Maximum CO2 (particle per milion) <span class="float-right" id="maxCO2">200</span></h4>
+                  <h4 class="small font-weight-bold">Maximum CO2 (particle per milion) <span class="float-right" id="maxCO2">0</span></h4>
                   <div class="progress mb-4">
-                    <div id="maxBarCO2" class="progress-bar bg-warning" role="progressbar" style="width: 80%" aria-valuenow="800" aria-valuemin="400" aria-valuemax="2000"></div>
+                    <div id="maxBarCO2" class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="800" aria-valuemin="400" aria-valuemax="2000"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Minimum CO (particle per milion) <span class="float-right" id="minCO">5</span></h4>
+                  <h4 class="small font-weight-bold">Minimum CO (particle per milion) <span class="float-right" id="minCO">0</span></h4>
                   <div class="progress mb-4">
-                    <div id="minBarCO" class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="4" aria-valuemin="1" aria-valuemax="10"></div>
+                    <div id="minBarCO" class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="4" aria-valuemin="1" aria-valuemax="10"></div>
                   </div>
-                  <h4 class="small font-weight-bold">Maximum CO (particle per milion) <span class="float-right" id="maxCO">16</span></h4>
+                  <h4 class="small font-weight-bold">Maximum CO (particle per milion) <span class="float-right" id="maxCO">0</span></h4>
                   <div class="progress">
-                    <div id="maxBarCO" class="progress-bar bg-warning" role="progressbar" style="width: 80%" aria-valuenow="4" aria-valuemin="1" aria-valuemax="10"></div>
+                    <div id="maxBarCO" class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="4" aria-valuemin="1" aria-valuemax="10"></div>
                   </div>
                 </div>
               </div>
@@ -323,7 +323,7 @@
 
               }
 
-              setInterval(refreshData, 5000);
+              setInterval(refreshData, 100000);
 
 
               function refreshUsers(){
