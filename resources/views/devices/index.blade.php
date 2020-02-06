@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <table class="table table-hover table-dark">
+    <h1 class="text-center mt-3">@lang('navMenu.todosDispos')</h1>
+    <table class="table table-hover table-dark rounded">
         <thead>
             <tr>
                 <th scope="col">Name</th>

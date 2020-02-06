@@ -60,6 +60,7 @@ return [
     'dGlobales' => 'Global Devices',
     'mapas' => 'Map',
     'misDisp' => 'My Devices',
+    'todosDispos' => 'Public devices',
     /*
     *User show page translations
     */
@@ -70,7 +71,7 @@ return [
     'perfil' => 'Profile',
     'biography' => 'Biography',
     'sensores' => 'Owned Sensors',
-
+    'misDispos' => 'My devices',
     /* Mis dispositivos */
     'deviceadd' =>'Add Device',
     'numserie' =>'Serial Number',
@@ -78,6 +79,9 @@ return [
     'co2' =>'CO2',
     'co' =>'CO',
     'dB' =>'Db',
+    'public' => 'Public/Private',
+    'publico' => 'Public',
+    'privado' => 'Private',
     'actions' =>'Actions',
 
     /* Mi dispositivo */

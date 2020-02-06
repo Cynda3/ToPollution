@@ -3,9 +3,9 @@
 <div class="container bootstrap snippet">
     
     <div class="row">
-
         <div class="col-lg-12 col-sm-6 col-xs-3">
             <h1>@lang('navMenu.perfil')</h1>
+               
         </div>
 
     </div>
