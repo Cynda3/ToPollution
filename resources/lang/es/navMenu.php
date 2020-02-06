@@ -86,5 +86,7 @@ return [
     'dueño' => 'Dueño',
     'noMediciones' => 'No hay mediciones',
     'problemaConex' => 'Hubo un problema de conexion',
-    'hora' => 'Hora'
+    'hora' => 'Hora',
+    'decibelios' => 'Decibelios',
+    'partPorMillon' => ' Particulas por millon'
 ];

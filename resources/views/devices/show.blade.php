@@ -12,8 +12,8 @@
     <h1 class=""><u>@lang('navMenu.dispositivo'): {{ $device->name }}</u></h1>
   </div>
   <div class="row justify-content-center align-items-center">
-    <div class="col-4">
-      <div id="mapid" style="height: 300px;"></div>
+    <div class="col-6">
+      <div id="mapid" style="height: 400px;"></div>
     </div>
     <div class="col-6">
       <h4 class="text-center"><b>@lang('navMenu.medidasTiempoReal')</b></h4>
@@ -30,7 +30,7 @@
   <div class="row justify-content-center">
     <div class="col-6">
       <div class="row justify-content-center">
-        <h4>Particulas por millon</h4>
+        <h4>@lang('navMenu.partPorMillon')</h4>
       </div>
       <div id="chart_div2" style="height: 400px;" class="text-center">
         <h5>@lang('navMenu.cargando')</h5>
@@ -38,7 +38,7 @@
     </div>
     <div class="col-6">
       <div class="row justify-content-center">
-        <h4>Decibelios</h4>
+        <h4>@lang('navMenu.decibelios')</h4>
       </div>
       <div id="chart_div3" style="height: 400px;" class="text-center">
         <h5>@lang('navMenu.cargando')</h5>

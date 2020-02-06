@@ -88,5 +88,7 @@ return [
     'dueño' => 'Owner',
     'noMediciones' => 'There arent meassurements',
     'problemaConex' => 'There was a conexion error',
-    'hora' => 'Hour'
+    'hora' => 'Hour',
+    'decibelios' => 'Decibels',
+    'partPorMillon' => ' Particles per million'
 ];
