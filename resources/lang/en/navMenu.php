@@ -72,6 +72,7 @@ return [
     'biography' => 'Biography',
     'sensores' => 'Owned Sensors',
     'misDispos' => 'My devices',
+    'view' => 'View device',
     /* Mis dispositivos */
     'deviceadd' =>'Add Device',
     'numserie' =>'Serial Number',
@@ -94,5 +95,6 @@ return [
     'problemaConex' => 'There was a conexion error',
     'hora' => 'Hour',
     'decibelios' => 'Decibels',
-    'partPorMillon' => ' Particles per million'
+    'partPorMillon' => 'Particles per million',
+    'verDispos' => 'Show device'
 ];

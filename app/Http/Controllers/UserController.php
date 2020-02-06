@@ -80,7 +80,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        $devices = Device::where('user_id', $id)->get();
+        $devices = Device::where('user_id', $id)->where('public', 1)->get();
         return view('users.show',compact('user','devices'));
     
     }

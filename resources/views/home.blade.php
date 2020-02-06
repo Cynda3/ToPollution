@@ -32,13 +32,8 @@
     browserLat =  position.coords.latitude;
     browserLong = position.coords.longitude;
  
-    var greenIcon = L.icon({
-    iconUrl: 'img/map-icon.png',
-
-    iconSize:     [38, 95], // size of the icon
-    iconAnchor:   [browserLong, browserLat], // point of the icon which will correspond to marker's location
-    });
-    marker_actual = L.marker([browserLat,browserLong], {icon: greenIcon}).addTo(map);
+    
+    marker_actual = L.marker([browserLat,browserLong]).addTo(map);
     marker_actual.bindPopup('<b>Hola </b><br>Tu estas aqui').openPopup();
     map.setView([browserLat,browserLong], 18);  
     
@@ -63,7 +58,7 @@
 
             var popup = L.popup();
 
-            marker.bindPopup("<h4><u> {{ $device->name }} </u></h4> <b>Owner:</b> {{ $device->user->name }}");
+            marker.bindPopup("<h4 class='text-center'><u> {{ $device->name }} </u></h4> <b>Owner:</b> <a class='text-success' href='{{route('users.show', $device->user->id)}}'>{{ $device->user->name }} {{ $device->user->lastname }}</a><br><a class='text-success' href='{{route('devices.show', $device->id)}}'>@lang('navMenu.verDispos')</a>");
         @endcan
     @endforeach
 </script>
