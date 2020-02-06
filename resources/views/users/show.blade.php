@@ -21,7 +21,7 @@
                     <ul class="list-group">
                         <li class="list-group-item text-muted">@lang('navMenu.sensores'): <i
                                 class="fa fa-dashboard fa-1x"></i></li>
-                        @if (sizeof($devices) == 0)
+                        @if (empty($devices))
                         <li class="list-group-item text-left"><span class="pull-left"><strong>No tiene dispositivos
                                     publicos</strong></span></li>
                         @else
@@ -77,7 +77,7 @@
                     <div class="row my-4">
                         <div class="col-lg-6 col-xs-3">
                             <label for="country">
-                                <h4><b>@lang('navMenu.ciudad')</b></h4>
+                                <h4><b>@lang('navMenu.city')</b></h4>
                             </label><br>
                             {{$user->country}}
                         </div>

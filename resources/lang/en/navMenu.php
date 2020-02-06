@@ -97,5 +97,19 @@ return [
     'hora' => 'Hour',
     'decibelios' => 'Decibels',
     'partPorMillon' => 'Particles per million',
-    'verDispos' => 'Show device'
+    'verDispos' => 'Show device',
+
+    /* Edit Profile */
+    'editprofile' => 'You can edit your profile here',
+    'newname' => 'New Name:',
+    'newlastname' => 'New Last Name:',
+    'newage' => 'New Age:',
+    'newbiography' => 'New Biography: ',
+    'newcity' => 'New City',
+    'city' => 'City',
+    'newpassword' => 'New Password:',
+    'newconfpassword' => 'Confirm Password',
+
+
+
 ];

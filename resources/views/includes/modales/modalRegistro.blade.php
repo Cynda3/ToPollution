@@ -31,11 +31,7 @@
                         <label for="lastname" class="col-md-4 col-form-label text-md-right">@lang('navMenu.apellido')</label>
 
                         <div class="col-md-6">
-<<<<<<< HEAD
-                            <input id="label" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
-=======
                             <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname">
->>>>>>> 3b82c9da238963a902bb7f95da5c0902689d8b57
                             <span id="lastnameError" class="text-danger">Tienes que escribir un apellido</span>
                             <span id="lastnameError2" class="text-danger">El apellido no puede tener mas de 20 caracteres ni caracteres especiales</span>
                             @error('lastname')
@@ -60,11 +56,7 @@
                             @enderror
                         </div>
                     </div>
-<<<<<<< HEAD
-
-=======
                     <!-- Password -->                
->>>>>>> 3b82c9da238963a902bb7f95da5c0902689d8b57
                     <div class="form-group row">
                         <label for="password" class="col-md-4 col-form-label text-md-right">@lang('navMenu.contraseña')</label>
 

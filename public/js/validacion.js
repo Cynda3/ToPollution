@@ -43,10 +43,6 @@ $(document).ready(function () {
             $('#Registrarse').prop('disabled', true);
             $('#nameError2').show();
             $('#nameError').hide();
-<<<<<<< HEAD
-            $('#lastnameError2').hide();
-            $('#lastnameError').hide();
-=======
             $('#lastnameError').hide();
             $('#lastnameError2').hide();
             $('#emailError').hide();
@@ -74,7 +70,6 @@ $(document).ready(function () {
             $('#nameError').hide();
             $('#lastnameError').hide();
             $('#lastnameError2').show();
->>>>>>> 3b82c9da238963a902bb7f95da5c0902689d8b57
             $('#emailError').hide();
             $('#emailError2').hide();
             $('#passError').hide();
@@ -88,34 +83,6 @@ $(document).ready(function () {
             $('#nameError2').hide();
             $('#lastnameError').hide();
             $('#lastnameError2').hide();
-<<<<<<< HEAD
-            $('#emailError2').hide();
-            $('#passError').hide();
-            $('#passError2').hide();
-            $('#cPassError').hide();
-        }
-         //LastName regex validation
-         else if(lastname.match(reLastName) === null){
-            $('#Registrarse').prop('disabled', true);
-            $('#nameError2').hide();
-            $('#nameError').hide();
-            $('#lastnameError2').show();
-            $('#lastnameError').hide();
-            $('#emailError').hide();
-            $('#emailError2').hide();
-            $('#passError').hide();
-            $('#passError2').hide();
-            $('#cPassError').hide();
-        }
-        else if(email === ''){
-            $('#Registrarse').prop('disabled', true);
-            $('#emailError').show();
-            $('#nameError').hide();
-            $('#nameError2').hide();
-            $('#lastnameError').hide();
-            $('#lastnameError2').hide();
-=======
->>>>>>> 3b82c9da238963a902bb7f95da5c0902689d8b57
             $('#emailError2').hide();
             $('#passError').hide();
             $('#passError2').hide();
@@ -127,10 +94,7 @@ $(document).ready(function () {
             $('#emailError2').show();
             $('#nameError').hide();
             $('#lastnameError').hide();
-<<<<<<< HEAD
-=======
             $('#lastnameError2').hide();
->>>>>>> 3b82c9da238963a902bb7f95da5c0902689d8b57
             $('#emailError').hide();
             $('#passError').hide();
             $('#passError2').hide();

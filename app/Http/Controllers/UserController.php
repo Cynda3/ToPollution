@@ -112,9 +112,9 @@ class UserController extends Controller
             'name' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
             'lastname' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
             'age' => 'regex:/^[0-9]{0,2}$/m',
-            'city' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
+            'country' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
             'biography' => 'regex:/^[A-Za-záéíóú0-9+ +\.]{0,150}$/m',
-            'password' => 'required|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/|confirmed'
+            'password' => 'required|string|min:6|confirmed|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
         ]);
 
         $messages = [
@@ -123,8 +123,8 @@ class UserController extends Controller
             'lastname.required' => 'Last Name field is required!',
             'lastname.regex' => 'Last Name field must be a text between 1 and 20 words!',
             'age.regex' => 'Age must be a number!',
-            'city.required' => 'City field is required!',
-            'city.regex' => 'City field must be a text between 1 and 20 words!',
+            'country.required' => 'Country field is required!',
+            'country.regex' => 'Country field must be a text between 1 and 20 words!',
             'biography.regex' => 'Biography field must be a text between 1 and 20 words!',
             'password.required' => 'password is required',
             'password.regex' => 'password must have minimun 6 chars including upper case'
@@ -134,7 +134,12 @@ class UserController extends Controller
         $user = User::find($id);
         // Actualizo cada parametro del usuario
         $user->name = $request->name;
+        $user->lastname = $request->lastname;
+        $user->age = $request->age;
+        $user->country = $request->country;
+        $user->biography = $request->biography;
         $user->password = Hash::make($request->password);
+
 
 
         // Guardo los cambios

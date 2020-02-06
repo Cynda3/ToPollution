@@ -4,7 +4,7 @@
     <div class="row justify-content-center mt-3">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Aqui puede editar su perfil</div>
+                <div class="card-header">@lang('navMenu.editprofile')</div>
                 <span class="card-body">
 
                 <div class="row justify-content-around">
@@ -13,7 +13,7 @@
                         @csrf
                         @method('PUT')
                         <!-- Name  -->
-                        <label for="name"> New Name:</label> <input type="text" class="form-control"
+                        <label for="name">@lang('navMenu.newname')</label> <input type="text" class="form-control"
                             placeholder="{{$user->name}}" name="name" value="{{ old('name') }}">
                             
                         @error('name')
@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-4">
                         <!-- LastName  -->
-                        <label for="lastname"> New LastName:</label> <input type="text" class="form-control"
+                        <label for="lastname">@lang('navMenu.newlastname')</label> <input type="text" class="form-control"
                             placeholder="{{$user->lastname}}" name="lastname" value="{{ old('lastname') }}">
                         
                         @error('lastname')
@@ -31,7 +31,7 @@
                     </div>
                         <div class="col-4">
                         <!-- Age  -->
-                        <label for="age"> New Age:</label> <input type="text" class="form-control"
+                        <label for="age">@lang('navMenu.newage')</label> <input type="text" class="form-control"
                             placeholder="{{$user->age}}" name="age" value="{{ old('age') }}">
                         
                         @error('age')
@@ -44,7 +44,7 @@
                     <div class="row justify-content-around">
                         <div class="col-8">
                         <!-- Biography  -->
-                        <label for="biography"> New Biography:</label> <input type="textarea" class="form-control"
+                        <label for="biography">@lang('navMenu.newbiography')</label> <input type="textarea" class="form-control"
                             placeholder="{{$user->biography}}" name="biography" value="{{ old('biography') }}">
                         
                         @error('biography')
@@ -53,8 +53,8 @@
                     </div>
                     <div class="col-4">
                         <!-- City  -->
-                        <label for="name"> New City:</label> <input type="text" class="form-control"
-                            placeholder="{{$user->city}}" name="city" value="{{ old('city') }}">
+                        <label for="country">@lang('navMenu.newcity')</label> <input type="text" class="form-control"
+                            placeholder="{{$user->country}}" name="country" value="{{ old('country') }}">
                         
                         @error('city')
                         <span class="text-danger" role="alert">{{ $message }}</span>
@@ -64,7 +64,7 @@
                     <div class="row justify-content-between">  
                         <div class="col-6">                      
                         <!-- password  -->
-                        <label for="password">New password:</label> <input type="password" class="form-control"
+                        <label for="password">@lang('navMenu.newpassword')</label> <input type="password" class="form-control"
                             name="password" value="{{ old('password') }}">
 
                         @error('password')
@@ -73,7 +73,7 @@
                         </div>
                         <div class="col-6"> 
                         <!-- confirmPassword  -->
-                        <label for="confpassword">Confirm Password:</label><input type="password" class="form-control"
+                        <label for="confpassword">@lang('navMenu.newconfpassword')</label><input type="password" class="form-control"
                             name="password_confirmation" value="{{ old('password') }}">
 
                         @error('password')
