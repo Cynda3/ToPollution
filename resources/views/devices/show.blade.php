@@ -108,7 +108,7 @@
       redFrom: 1500, redTo: 2000,
       yellowFrom: 1000, yellowTo: 1500,
       greenFrom: 400, greenTo: 1000,
-      minorTicks: 5
+      minorTicks: 10
     };
 
     var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
@@ -149,7 +149,7 @@
       redFrom: 5, redTo: 10,
       yellowFrom: 3, yellowTo: 9,
       greenFrom: 1, greenTo: 3,
-      minorTicks: 5
+      minorTicks: 3
     };
 
     var chart = new google.visualization.Gauge(document.getElementById('chart_div4'));
@@ -158,7 +158,7 @@
       $.get("https://topollution.herokuapp.com/api/device/" + {{ $device->id }}, function (datos, status) {
         if (status == "success") {
           if(datos[1] == null)
-            document.getElementById('chart_div').innerHTML = "<p class='alert alert-warning'>@lang('navMenu.noMediciones')</p>";
+            document.getElementById('chart_div4').innerHTML = "<p class='alert alert-warning'>@lang('navMenu.noMediciones')</p>";
           else {
             data4.setValue(0, 1, datos[1].value);
             chart.draw(data4, options4);
@@ -188,7 +188,7 @@
       redFrom: 90, redTo: 110,
       yellowFrom: 50, yellowTo: 90,
       greenFrom: 25, greenTo: 50,
-      minorTicks: 5
+      minorTicks: 6
     };
 
     var chart = new google.visualization.Gauge(document.getElementById('chart_div5'));

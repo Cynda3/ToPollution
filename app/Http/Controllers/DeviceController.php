@@ -120,7 +120,7 @@ class DeviceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {   
         //VALIDATE
         $request->validate( [
             'name' => 'required|regex:/^[A-Za-záéíóú0-9+ +\.]{0,20}$/m',
@@ -134,10 +134,12 @@ class DeviceController extends Controller
         $device = Device::find($id);
         // Actualizo cada parametro del device
         $device->name = $request->name;
-
+        if($request->public == '1')
+            $device->public = true;
+        else
+            $device->public = false;
         // Guardo los cambios
         $device->save();
-
         return redirect (route('home'));
     }
 

@@ -29,11 +29,11 @@
                         <!-- hyper mega button -->
                         <div>
                             <label>
-                                <input type="radio" class="option-input radio" name="example" checked />
+                                <input type="radio" class="option-input radio" name="public" value="1" requred/>
                               Publico
                             </label>
                             <label>
-                                <input type="radio" class="option-input radio" name="example" />
+                                <input type="radio" class="option-input radio" name="public" value="0"/>
                               Privado
                             </label>
                         </div><br>
