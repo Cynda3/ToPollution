@@ -298,7 +298,20 @@ class ApiMeassurement extends Controller
         }
         return $info;
     }
-
+    public function meassures($id){
+        $meassures = [];
+            
+        $meassures1 = Meassurement::where(['data_id'=>1,'device_id'=>$id])->latest('created_at')->first();
+        array_push($meassures, $meassures1);
+        $meassures2 =Meassurement::where(['data_id'=>2,'device_id'=>$id])->latest('created_at')->first();
+        array_push($meassures, $meassures2);
+        /*$meassurement3 =Meassurement::where(['data_id'=>3,'device_id'=>$id])->latest('created_at')->first();
+        array_push($data, $meassurement3);*/
+        $meassures4 =Meassurement::where(['data_id'=>4,'device_id'=>$id])->latest('created_at')->first();
+        array_push($meassures, $meassures4);
+        
+        return $meassures;
+    }
 
     // This function returns de min and max values from all datas.
     public function minMax()
