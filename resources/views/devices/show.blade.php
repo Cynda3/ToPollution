@@ -24,15 +24,25 @@
         </div>
     </div>
   </div>
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center mt-5">
     <h4><b>@lang('navMenu.medidasHistoricas')</b></h4>
   </div>
-  <div class="row justify-content-center mt-4">
-    <div id="chart_div2" style="height: 400px;" class="text-center col-6">
-      <h5>@lang('navMenu.cargando')</h5>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="row justify-content-center">
+        <h4>Particulas por millon</h4>
+      </div>
+      <div id="chart_div2" style="height: 400px;" class="text-center">
+        <h5>@lang('navMenu.cargando')</h5>
+      </div>
     </div>
-    <div id="chart_div3" style="height: 400px;" class="text-center col-6">
-      <h5>@lang('navMenu.cargando')</h5>
+    <div class="col-6">
+      <div class="row justify-content-center">
+        <h4>Decibelios</h4>
+      </div>
+      <div id="chart_div3" style="height: 400px;" class="text-center">
+        <h5>@lang('navMenu.cargando')</h5>
+      </div>
     </div>
   </div>
 </div>
@@ -56,8 +66,8 @@
     var marker = L.marker([ {{ $device->latitude }}, {{ $device->longitude }} ]).addTo(map);
 
     var circle = L.circle([ {{ $device->latitude }}, {{ $device->longitude }} ], {
-        color: 'yellow',
-        fillColor: 'yellow',
+        color: "{{$cont}}",
+        fillColor: "{{$cont}}",
         fillOpacity: 0.5,
         radius: 400
     }).addTo(map);
@@ -88,8 +98,9 @@
 
         var options = {
           width: 400, height: 120,
-          redFrom: 90, redTo: 100,
-          yellowFrom:75, yellowTo: 90,
+          redFrom: 75, redTo: 100,
+          yellowFrom: 25, yellowTo: 75,
+          greenFrom: 0, greenTo: 25,
           minorTicks: 5
         };
 
@@ -144,15 +155,13 @@
                       var min = "0"+fecha1.getMinutes();
                     else
                       var min = fecha1.getMinutes();
-                    if (fecha1.getSeconds()<10)
+                    /*if (fecha1.getSeconds()<10)
                       var sec = "0"+fecha1.getSeconds();
                     else 
-                      var sec = fecha1.getSeconds();
-                    let fecha = hora+":"+min+":"+sec;
+                      var sec = fecha1.getSeconds();*/
+                    let fecha = hora+":"+min/*+":"+sec*/;
                     let datosarray=[fecha, datos[1][i], datos[2][i]]
                     info.push(datosarray);
-                    //console.log(typeof(fecha))
-                    //console.log(typeof(datos[i].value))
                   }
                   var data2 = google.visualization.arrayToDataTable(
                       info
@@ -179,11 +188,10 @@
   
     function drawChart3() {
       setInterval(function() {
-        var info = [['Update', 'dB', 'CO']]
+        var info = [['Update', 'dB']]
         //https://topollution.herokuapp.com
         $.get("https://topollution.herokuapp.com/api/device/" + {{ $device->id }} + "/" + date + "/decibelios", function (datos, status) {
               if (status == "success") {
-                console.log(datos)
                 if(datos[0].length == 1){
                   document.getElementById('chart_div2').innerHTML = "<p class='alert alert-warning'>@lang('navMenu.noMediciones')</p>";
                 } else {
@@ -197,31 +205,29 @@
                       var min = "0"+fecha1.getMinutes();
                     else
                       var min = fecha1.getMinutes();
-                    if (fecha1.getSeconds()<10)
+                    /*if (fecha1.getSeconds()<10)
                       var sec = "0"+fecha1.getSeconds();
                     else 
-                      var sec = fecha1.getSeconds();
-                    let fecha = hora+":"+min+":"+sec;
-                    let datosarray=[fecha, datos[1][i], datos[2][i]]
+                      var sec = fecha1.getSeconds();*/
+                    let fecha = hora+":"+min/*+":"+sec*/;
+                    let datosarray=[fecha, datos[1][i]]
                     info.push(datosarray);
-                    //console.log(typeof(fecha))
-                    //console.log(typeof(datos[i].value))
                   }
-                  var data2 = google.visualization.arrayToDataTable(
+                  var data3 = google.visualization.arrayToDataTable(
                       info
                     );
                   
-                  var options2 = {
+                  var options3 = {
                       hAxis: {title: "@lang('navMenu.hora')",  titleTextStyle: {color: '#333'}},
                       vAxis: {minValue: 0}
                   };
 
-                  var chart2 = new google.visualization.AreaChart(document.getElementById('chart_div2'));
-                  chart2.draw(data2, options2);
+                  var chart3 = new google.visualization.AreaChart(document.getElementById('chart_div3'));
+                  chart3.draw(data3, options3);
                 }
               }
             }).fail(function () {
-              document.getElementById('chart_div2').innerHTML = "<p class='alert alert-danger'>@lang('navMenu.problemaConex')</p>";
+              document.getElementById('chart_div3').innerHTML = "<p class='alert alert-danger'>@lang('navMenu.problemaConex')</p>";
             });
       }, 10000)
     }

@@ -83,7 +83,7 @@ return [
     /* Mi dispositivo */
     'dispositivo' => 'Device',
     'medidasTiempoReal' => 'Real time meassurements',
-    'medidasHistoricas' => 'Today historical meassurements',
+    'medidasHistoricas' => "Today's historical meassurements",
     'cargando' => 'Charging...',
     'dueño' => 'Owner',
     'noMediciones' => 'There arent meassurements',
