@@ -16,21 +16,20 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {$devices = Device::all()->where('public',1);
+    public function index() {
+    $devices = Device::where('user_id', Auth::user()->id)->get();
 
         foreach($devices as $device){
             
             $data = [];
             
-            $meassurement1 = Meassurement::where(['data_id'=>1,'device_id'=>$device->id])->get();
-  
-            array_push($data, $meassurement1);
-            $meassurement2 =Meassurement::where(['data_id'=>2,'device_id'=>$device->id])->get();
-            array_push($data, $meassurement2);
-            $meassurement3 =Meassurement::where(['data_id'=>3,'device_id'=>$device->id])->get();
-            array_push($data, $meassurement3);
-            $meassurement4 =Meassurement::where(['data_id'=>4,'device_id'=>$device->id])->get();
+            $meassurement1 = Meassurement::where('device_id', $device->id)->where('data_id', 1)->latest('created_at')->get()->first();
+            array_push($data, $meassurement1);          
+            $meassurement2 = Meassurement::where('device_id', $device->id)->where('data_id', 2)->latest('created_at')->get()->first();
+            array_push($data, $meassurement2);            
+            $meassurement3 = Meassurement::where('device_id', $device->id)->where('data_id', 3)->latest('created_at')->get()->first();
+            array_push($data, $meassurement3);            
+            $meassurement4 = Meassurement::where('device_id', $device->id)->where('data_id', 4)->latest('created_at')->get()->first();
             array_push($data, $meassurement4);
 
             $device->data = $data;
@@ -81,7 +80,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        $devices = Device::where('user_id', $id)->get();
+        $devices = Device::where('user_id', $id)->where('public', 1)->get();
         return view('users.show',compact('user','devices'));
     
     }
@@ -111,14 +110,24 @@ class UserController extends Controller
         //VALIDATE
         $request->validate([
             'name' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
-            //'password' => 'required|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/|confirmed',//
+            'lastname' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
+            'age' => 'regex:/^[0-9]{0,2}$/m',
+            'city' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
+            'biography' => 'regex:/^[A-Za-záéíóú0-9+ +\.]{0,150}$/m',
+            'password' => 'required|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/|confirmed'
         ]);
 
         $messages = [
             'name.required' => 'Name field is required!',
             'name.regex' => 'Name field must be a text between 1 and 20 words!',
-            //'password.required' => 'password is required',//
-            //'password.regex' => 'password must have minimun 6 chars including upper case',//
+            'lastname.required' => 'Last Name field is required!',
+            'lastname.regex' => 'Last Name field must be a text between 1 and 20 words!',
+            'age.regex' => 'Age must be a number!',
+            'city.required' => 'City field is required!',
+            'city.regex' => 'City field must be a text between 1 and 20 words!',
+            'biography.regex' => 'Biography field must be a text between 1 and 20 words!',
+            'password.required' => 'password is required',
+            'password.regex' => 'password must have minimun 6 chars including upper case'
         ];
 
         //UPDATE

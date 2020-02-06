@@ -1,50 +1,55 @@
 @extends('layouts.app')
 @section('content')
-<div class="container table-responsive">
-    <a href="{{route('devices.create')}}"><button type="button" class="btn btn-primary btn-lg btn-block">@lang('navMenu.deviceadd')
+<div class="container">
+    <h1 class="text-center mt-3">@lang('navMenu.misDispos')</h1>
+    <a href="{{route('devices.create')}}"><button type="button" class="btn btn-success btn-lg btn-block">@lang('navMenu.deviceadd')
             </button></a>
     <table class="table table-hover table-dark">
         <thead>
             <tr>
                 <th scope="col">@lang('navMenu.numserie')</th>
-                <th scope="col">@lang('navMenu.sensorname')</th>
-                <th scope="col">@lang('navMenu.latitud')</th>
-                <th scope="col">@lang('navMenu.longitud')</th>
-                <th scope="col">@lang('navMenu.co2')</th>
-                <th scope="col">@lang('navMenu.co')</th>
-                <th scope="col">@lang('navMenu.dB')</th>
-                <th scope="col">@lang('navMenu.actions')</th>
+                <th scope="col" class="text-center">@lang('navMenu.sensorname')</th>
+                <th scope="col" class="text-center">@lang('navMenu.latitud')</th>
+                <th scope="col" class="text-center">@lang('navMenu.longitud')</th>
+                <th scope="col" class="text-center">@lang('navMenu.co2')</th>
+                <th scope="col" class="text-center">@lang('navMenu.co')</th>
+                <th scope="col" class="text-center">@lang('navMenu.dB')</th>
+                <th scope="col" class="text-center">@lang('navMenu.public')</th>
+                <th scope="col" class="text-center">@lang('navMenu.actions')</th>
             </tr>
         </thead>
         @foreach ($devices as $d)
         <tbody>
             <tr>
                 <td>{{$d->id}}</td>
-                <td>{{$d->name}}</td>
-                <td>{{$d->latitude}}</td>
-                <td>{{$d->longitude}}</td>
-                @if(isset($d->data[0][0]))
-                <td>{{$d->data[0][0]->value}}</td>
+                <td class="text-center">{{$d->name}}</td>
+                <td class="text-center">{{$d->latitude}}</td>
+                <td class="text-center">{{$d->longitude}}</td>
+                @if(isset($d->data[0]))
+                <td class="text-center">{{$d->data[0]->value}}</td>
                 @else
-                <td> - </td>
+                <td class="text-center"> - </td>
                 @endif
-                @if(isset($d->data[0][1]))
-                <td>{{$d->data[0][1]->value}}</td>
+                @if(isset($d->data[1]))
+                <td class="text-center">{{$d->data[1]->value}}</td>
                 @else
-                <td> - </td>
+                <td class="text-center"> - </td>
                 @endif
-                @if(isset($d->data[0][3]))
-                <td>{{$d->data[0][3]->value}}</td>
+                @if(isset($d->data[3]))
+                <td class="text-center">{{$d->data[3]->value}}</td>
                 @else
-                <td> - </td>
+                <td class="text-center"> - </td>
                 @endif
-                <td>
-                    <a href="{{route('devices.show',$d->id)}}"><button type="submit" id="show">
+                @if($d->public == 1)
+                <td class="text-center">@lang('navMenu.publico')</td>
+                @else
+                <td class="text-center">@lang('navMenu.privado')</td>
+                @endif
+                <td class="text-center">
+                    <a class="text-success" href="{{route('devices.show',$d->id)}}"><button type="submit" id="show">
                         <i class="fas fa-glasses"></i></a></button>
-                    <a href="{{route('devices.edit',$d->id)}}"><button type="submit" id="update">
+                    <a class="text-success" href="{{route('devices.edit',$d->id)}}"><button type="submit" id="update">
                         <i class="fas fa-pencil-alt"></i></a></button>
-                    <a href="{{route('showDevice',$d->id)}}"><button type="submit" id="showgraph">
-                        <i class="far fa-chart-bar"></i></a></button>
                     <form style='display:inline;' action="{{route('devices.destroy',$d->id)}}" method="post">
                         @csrf
                         @method('DELETE')

@@ -23,20 +23,21 @@ class DeviceController extends Controller
         foreach($devices as $device){
             
             $data = [];
-            
-            $meassurement1 = Meassurement::where(['data_id'=>1,'device_id'=>$device->id])->get();
-  
-            array_push($data, $meassurement1);
-            $meassurement2 =Meassurement::where(['data_id'=>2,'device_id'=>$device->id])->get();
-            array_push($data, $meassurement2);
-            $meassurement3 =Meassurement::where(['data_id'=>3,'device_id'=>$device->id])->get();
-            array_push($data, $meassurement3);
-            $meassurement4 =Meassurement::where(['data_id'=>4,'device_id'=>$device->id])->get();
-            array_push($data, $meassurement4);
 
+            $meassurement1 = Meassurement::where('device_id', $device->id)->where('data_id', 1)->latest('created_at')->get()->first();
+            array_push($data, $meassurement1);
+
+            $meassurement2 = Meassurement::where('device_id', $device->id)->where('data_id', 2)->latest('created_at')->get()->first();
+            array_push($data, $meassurement2);
+
+            $meassurement3 = Meassurement::where('device_id', $device->id)->where('data_id', 3)->latest('created_at')->get()->first();
+            array_push($data, $meassurement3);
+
+            $meassurement4 = Meassurement::where('device_id', $device->id)->where('data_id', 4)->latest('created_at')->get()->first();
+            array_push($data, $meassurement4);
+            
             $device->data = $data;
         }
-
 
        return view('devices.index')->with('devices', $devices);
         
@@ -81,7 +82,19 @@ class DeviceController extends Controller
     public function show($id)
     {
         $device = Device::find($id);
-        return view('devices.show')->with('device', $device);
+        $cont = 'black';
+        $meassurement1 = Meassurement::where('device_id', $id)->where('data_id', 1)->latest('created_at')->get()->first();
+        $meassurement2 = Meassurement::where('device_id', $id)->where('data_id', 2)->latest('created_at')->get()->first();
+        $meassurement3 = Meassurement::where('device_id', $id)->where('data_id', 4)->latest('created_at')->get()->first();
+        if (isset($meassurement1) && isset($meassurement2) && isset($meassurement3)){
+            if(($meassurement1->value >= 0 && $meassurement1->value <= 25) && ($meassurement2->value >= 0 && $meassurement2->value <= 25) && ($meassurement3->value >= 0 && $meassurement3->value <= 25))
+                $cont = 'green';
+            else if(($meassurement1->value > 25 && $meassurement1->value <= 75) || ($meassurement2->value > 25 && $meassurement2->value <= 75) || ($meassurement3->value > 25 && $meassurement3->value <= 75))
+                $cont = 'yellow';
+            else if(($meassurement1->value > 75) || ($meassurement2->value > 75) || ($meassurement3->value > 75))
+                $cont = 'red';
+        }
+        return view('devices.show', ['device' => $device, 'cont' => $cont]);
     }
 
     /**
@@ -107,11 +120,12 @@ class DeviceController extends Controller
     {
         //VALIDATE
         $request->validate( [
-            'name' => 'required|name',
+            'name' => 'required|regex:/^[A-Za-záéíóú0-9+ +\.]{0,20}$/m',
         ]);
 
         $messages = [
-            'name.required' => 'Name is required!',
+            'name.required' => 'Name field is required!',
+            'name.regex' => 'Name field must be a text between 1 and 20 words!',
         ];
         //UPDATE
         $device = Device::find($id);

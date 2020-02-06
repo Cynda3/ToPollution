@@ -21,7 +21,7 @@ return [
     'subslogan' => 'Our sensors are day after day tracking data of their enviroment to show it with graphics and maps. We choose this way to show people the impact of our daily rutins in the enviroment.',
     'sensores' => 'Sensors',
     'miembros' => 'Members',
-    'ciudad' => 'City',
+    'ciudades' => 'Cities',
     'paises' => 'Countries',
     'airTitle' => 'Air Pollution',
     'airText' => 'Occurs when harmful or excessive quantities of substances including gases, particulates, and biological molecules are introduced into Earths atmosphere.',
@@ -60,6 +60,7 @@ return [
     'dGlobales' => 'Global Devices',
     'mapas' => 'Map',
     'misDisp' => 'My Devices',
+    'todosDispos' => 'Public devices',
     /*
     *User show page translations
     */
@@ -69,8 +70,10 @@ return [
     'actualizar' => 'Update',
     'perfil' => 'Profile',
     'biography' => 'Biography',
+    'ciudad' => 'City',
     'sensores' => 'Owned Sensors',
-
+    'misDispos' => 'My devices',
+    'view' => 'View device',
     /* Mis dispositivos */
     'deviceadd' =>'Add Device',
     'numserie' =>'Serial Number',
@@ -78,6 +81,21 @@ return [
     'co2' =>'CO2',
     'co' =>'CO',
     'dB' =>'Db',
+    'public' => 'Public/Private',
+    'publico' => 'Public',
+    'privado' => 'Private',
     'actions' =>'Actions',
 
+    /* Mi dispositivo */
+    'dispositivo' => 'Device',
+    'medidasTiempoReal' => 'Real time meassurements',
+    'medidasHistoricas' => "Today's historical meassurements",
+    'cargando' => 'Charging...',
+    'dueño' => 'Owner',
+    'noMediciones' => 'There arent meassurements',
+    'problemaConex' => 'There was a conexion error',
+    'hora' => 'Hour',
+    'decibelios' => 'Decibels',
+    'partPorMillon' => 'Particles per million',
+    'verDispos' => 'Show device'
 ];

@@ -20,7 +20,7 @@ return [
     'subslogan' => 'Nuestros sensores día tras día trabajan recogiendo la información de nuestros alrededores para mostrarlos en mapas y gráficos. Elegimos esta forma de demostrar a la gente el impacto de nuestra rutina en el médio ambiente ',
     'sensores' => 'Sensores',
     'miembros' => 'Miembros',
-    'ciudad' => 'Ciudad',
+    'ciudades' => 'Ciudades',
     'paises' => 'Paises',
     'airTitle' => 'Contaminación Atmosférica',
     'airText' => 'Ocurre cuando se introducen cantidades dañinas o excesivas de sustancias, incluidos gases, partículas y moléculas biológicas en la atmósfera terrestre.',
@@ -59,6 +59,7 @@ return [
     'dGlobales' => 'Dispositivos Globales',
     'mapas' => 'Mapa',
     'misDisp' => 'Mis Dispositivos',
+    'todosDispos' => 'Dispositivos publicos',
      /*
     *User show page translations
     */
@@ -68,7 +69,10 @@ return [
     'actualizar' => 'Editar',
     'perfil' => 'Perfil',
     'biography' => 'Biografía',
+    'ciudad' => 'Ciudad',
     'sensores' => 'Sensores Obtenidos',
+    'misDispos' => 'Mis dispositivos',
+    'view' => 'Ver dispositivo',
     /* Mis dispositivos */
     'deviceadd' =>'Añadir Sensor',
     'numserie' =>'Num. Serie',
@@ -76,9 +80,21 @@ return [
     'co2' =>'CO2',
     'co' =>'CO',
     'dB' =>'Db',
+    'public' => 'Publico/Privado',
+    'publico' => 'Publico',
+    'privado' => 'Privado',
     'actions' =>'Acciones',
 
-
-    
-
+    /* Mi dispositivo */
+    'dispositivo' => 'Dispositivo',
+    'medidasTiempoReal' => 'Medidas en tiempo real',
+    'medidasHistoricas' => 'Medidas historicas de hoy',
+    'cargando' => 'Cargando...',
+    'dueño' => 'Dueño',
+    'noMediciones' => 'No hay mediciones',
+    'problemaConex' => 'Hubo un problema de conexion',
+    'hora' => 'Hora',
+    'decibelios' => 'Decibelios',
+    'partPorMillon' => 'Particulas por millon',
+    'verDispos' => 'Ver dispositivo'
 ];

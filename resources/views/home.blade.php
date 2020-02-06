@@ -7,38 +7,6 @@
 @section('content')
 <div id="mapid"  style="height: 50rem;"></div>
 
-<div class="container" style="overflow-x:auto">
-
-    <table class="table table-hover table-dark">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">@lang('navMenu.name')</th>
-                <th scope="col">@lang('navMenu.latitud')</th>
-                <th scope="col">@lang('navMenu.longitud')</th>
-                <th scope="col">@lang('navMenu.dueño')</th>
-                <th scope="col" class="d-flex justify-content-center">Información</th>
-            </tr>
-        </thead>
-        @foreach ($devices as $device)
-            @can('view', $device)
-                <tbody>
-                    <tr>
-                        <td>{{$device->id}}</td>
-                        <td>{{$device->name}}</td>
-                        <td>{{$device->latitude}}</td>
-                        <td>{{$device->longitude}}</td>
-                        <td><a href="{{route('users.show',$device->user->id)}}">{{$device->user->name}}</td>
-                        <td class="d-flex justify-content-center"><a href="{{route('showDevice',$device->id)}}">
-                            <button type="submit" id="show"><i class="fas fa-glasses" style="color:black"></i></a></button>
-                            </td>
-                    </tr>
-                </tbody>
-            @endcan
-        @endforeach
-    </table>
-</div>
-
     @endsection
     @section('scripts')
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
@@ -50,8 +18,6 @@
     <!-- -------MAPA------ -->
 <script type="text/javascript">
 
- 
-
   var map = L.map('mapid', {
      center: [ 43.31656, -1.987495 ],
      zoom: 14   
@@ -60,12 +26,13 @@
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    var browserLat;
+  var browserLat;
   var browserLong;
   navigator.geolocation.getCurrentPosition(function(position) {
     browserLat =  position.coords.latitude;
     browserLong = position.coords.longitude;
  
+    
     marker_actual = L.marker([browserLat,browserLong]).addTo(map);
     marker_actual.bindPopup('<b>Hola </b><br>Tu estas aqui').openPopup();
     map.setView([browserLat,browserLong], 18);  
@@ -83,15 +50,15 @@
     
 
             var circle = L.circle([ {{ $device->latitude }}, {{ $device->longitude }} ], {
-                color: 'yellow',
-                fillColor: 'yellow',
+                color: "{{$device->cont}}",
+                fillColor: "{{$device->cont}}",
                 fillOpacity: 0.5,
                 radius: 400
             }).addTo(map);
 
             var popup = L.popup();
 
-            marker.bindPopup("<h4><u> {{ $device->name }} </u></h4> <b>Owner:</b> {{ $device->user->name }}");
+            marker.bindPopup("<h4 class='text-center'><u> {{ $device->name }} </u></h4> <b>Owner:</b> <a class='text-success' href='{{route('users.show', $device->user->id)}}'>{{ $device->user->name }} {{ $device->user->lastname }}</a><br><a class='text-success' href='{{route('devices.show', $device->id)}}'>@lang('navMenu.verDispos')</a>");
         @endcan
     @endforeach
 </script>
