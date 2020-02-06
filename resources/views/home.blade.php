@@ -26,13 +26,19 @@
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    var browserLat;
+  var browserLat;
   var browserLong;
   navigator.geolocation.getCurrentPosition(function(position) {
     browserLat =  position.coords.latitude;
     browserLong = position.coords.longitude;
  
-    marker_actual = L.marker([browserLat,browserLong]).addTo(map);
+    var greenIcon = L.icon({
+    iconUrl: 'img/map-icon.png',
+
+    iconSize:     [38, 95], // size of the icon
+    iconAnchor:   [browserLong, browserLat], // point of the icon which will correspond to marker's location
+    });
+    marker_actual = L.marker([browserLat,browserLong], {icon: greenIcon}).addTo(map);
     marker_actual.bindPopup('<b>Hola </b><br>Tu estas aqui').openPopup();
     map.setView([browserLat,browserLong], 18);  
     
