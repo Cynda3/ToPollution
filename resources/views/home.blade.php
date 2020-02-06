@@ -35,7 +35,7 @@
     var greenIcon = L.icon({
     iconUrl: 'img/icon.png',
 
-    iconSize:     [38, 95], // size of the icon
+    iconSize:     [60, 95], // size of the icon
     iconAnchor:   [browserLong, browserLat], // point of the icon which will correspond to marker's location
     });
     marker_actual = L.marker([browserLat,browserLong], {icon: greenIcon}).addTo(map);
