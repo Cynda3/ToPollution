@@ -1,9 +1,8 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-3">
         <div class="col-md-8">
-            
             <div class="card">
                 <div class="card-header">Aqui puede editar su perfil</div>
                 <span class="card-body">
@@ -75,7 +74,7 @@
                         <div class="col-6"> 
                         <!-- confirmPassword  -->
                         <label for="confpassword">Confirm Password:</label><input type="password" class="form-control"
-                            name="password-confirm" value="{{ old('password') }}">
+                            name="password_confirmation" value="{{ old('password') }}">
 
                         @error('password')
                         <span class="text-danger" role="alert">{{ $message }}</span>

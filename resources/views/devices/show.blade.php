@@ -17,9 +17,13 @@
     </div>
     <div class="col-6">
       <h4 class="text-center"><b>@lang('navMenu.medidasTiempoReal')</b></h4>
+      <h5 id="cargando" class="text-center">@lang('navMenu.cargando')</h5>
         <div class="row justify-content-center">
-          <div id="chart_div" style="width: 400px; height: 120px;" class="text-center">
-            <h5>@lang('navMenu.cargando')</h5>
+          <div id="chart_div" style="height: 120px;" class="w-25 row justify-content-center mx-1">
+          </div>
+          <div id="chart_div4" style="height: 120px;" class="w-25 row justify-content-center mx-1">
+          </div>
+          <div id="chart_div5" style="height: 120px;" class="w-25 row justify-content-center mx-1">
           </div>
         </div>
     </div>
@@ -74,7 +78,7 @@
 
     var popup = L.popup();
     
-    marker.bindPopup("<h4 class='text-center'><u> {{ $device->name }} </u></h4> <b>@lang('navMenu.dueño'):</b> <a class='text-success' href='{{route('users.show', $device->user->id)}}'>{{ $device->user->name }} {{ $device->user->name }}</a>").openPopup();
+    marker.bindPopup("<h4 class='text-center'><u> {{ $device->name }} </u></h4> <b>@lang('navMenu.dueño'):</b> <a class='text-success' href='{{route('users.show', $device->user->id)}}'>{{ $device->user->name }} {{ $device->user->lastname }}</a>").openPopup();
 
 </script>
 <!-- -----END MAPA---- -->
@@ -91,16 +95,14 @@
         var data = google.visualization.arrayToDataTable([
           ['Unidad', 'Value'],
           ['CO2', 0],
-          /*['NOX', 0],*/
-          ['CO', 0],
-          ['dB', 0]
         ]);
 
         var options = {
           width: 400, height: 120,
-          redFrom: 75, redTo: 100,
-          yellowFrom: 25, yellowTo: 75,
-          greenFrom: 0, greenTo: 25,
+          min: 400, max: 2000,
+          redFrom: 1500, redTo: 2000,
+          yellowFrom: 1000, yellowTo: 1500,
+          greenFrom: 400, greenTo: 1000,
           minorTicks: 5
         };
 
@@ -109,17 +111,93 @@
         setInterval(function() {
           $.get("https://topollution.herokuapp.com/api/device/" + {{ $device->id }}, function (datos, status) {
             if (status == "success") {
-              if(datos[0] == null || datos[1] == null || datos[2] == null)
+              if(datos[0] == null)
                 document.getElementById('chart_div').innerHTML = "<p class='alert alert-warning'>@lang('navMenu.noMediciones')</p>";
               else {
-                for(i = 0; i < datos.length; i++){
-                  data.setValue(i, 1, datos[i].value%100);
-                  chart.draw(data, options);
-                }
+                data.setValue(0, 1, datos[0].value);
+                chart.draw(data, options);
               }
             }
           }).fail(function () {
             document.getElementById('chart_div').innerHTML = "<p class='alert alert-danger'>@lang('navMenu.problemaConex')</p>";
+          });
+          $("#cargando").hide();
+        }, 10000)
+
+      }
+
+      //Grafico4
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChart4);
+
+      function drawChart4() {
+
+        var data4 = google.visualization.arrayToDataTable([
+          ['Unidad', 'Value'],
+          ['CO', 0]
+        ]);
+
+        var options4 = {
+          width: 400, height: 120,
+          min: 1, max: 10,
+          redFrom: 5, redTo: 10,
+          yellowFrom: 3, yellowTo: 9,
+          greenFrom: 1, greenTo: 3,
+          minorTicks: 5
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div4'));
+
+        setInterval(function() {
+          $.get("https://topollution.herokuapp.com/api/device/" + {{ $device->id }}, function (datos, status) {
+            if (status == "success") {
+              if(datos[1] == null)
+                document.getElementById('chart_div').innerHTML = "<p class='alert alert-warning'>@lang('navMenu.noMediciones')</p>";
+              else {
+                data4.setValue(0, 1, datos[1].value);
+                chart.draw(data4, options4);
+              }
+            }
+          }).fail(function () {
+            document.getElementById('chart_div4').innerHTML = "<p class='alert alert-danger'>@lang('navMenu.problemaConex')</p>";
+          });
+        }, 10000)
+      }
+
+      //Grafico5
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawChart5);
+
+      function drawChart5() {
+
+        var data5 = google.visualization.arrayToDataTable([
+          ['Unidad', 'Value'],
+          ['dB', 0]
+        ]);
+
+        var options5 = {
+          width: 400, height: 120,
+          min: 25, max: 110,
+          redFrom: 90, redTo: 120,
+          yellowFrom: 50, yellowTo: 90,
+          greenFrom: 25, greenTo: 50,
+          minorTicks: 5
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div5'));
+
+        setInterval(function() {
+          $.get("https://topollution.herokuapp.com/api/device/" + {{ $device->id }}, function (datos, status) {
+            if (status == "success") {
+              if(datos[2] == null)
+                document.getElementById('chart_div5').innerHTML = "<p class='alert alert-warning'>@lang('navMenu.noMediciones')</p>";
+              else {
+                data5.setValue(0, 1, datos[2].value);
+                chart.draw(data5, options5);
+              }
+            }
+          }).fail(function () {
+            document.getElementById('chart_div5').innerHTML = "<p class='alert alert-danger'>@lang('navMenu.problemaConex')</p>";
           });
         }, 10000)
       }
