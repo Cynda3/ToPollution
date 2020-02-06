@@ -102,12 +102,12 @@ class MeassurementSeeder extends Seeder
         Meassurement::create([
 	        'device_id' => "2",
             'data_id' => "1",
-	        'value' => "5824"
+	        'value' => "1500"
         ]);
         Meassurement::create([
 	        'device_id' => "2",
             'data_id' => "2",
-	        'value' => "8643"
+	        'value' => "1000"
         ]);
         /*
         Meassurement::create([

@@ -172,7 +172,7 @@
 
 
                 let request = new XMLHttpRequest();
-                request.open('GET', 'http://topollution.herokuapp.com/api/dataValues', true);
+                request.open('GET', 'https://topollution.herokuapp.com/api/dataValues', true);
                 request.onload = function(){
 
                   let data = JSON.parse(this.response);
