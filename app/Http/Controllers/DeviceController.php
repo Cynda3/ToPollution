@@ -23,20 +23,21 @@ class DeviceController extends Controller
         foreach($devices as $device){
             
             $data = [];
-            
-            $meassurement1 = Meassurement::where(['data_id'=>1,'device_id'=>$device->id])->get();
-  
-            array_push($data, $meassurement1);
-            $meassurement2 =Meassurement::where(['data_id'=>2,'device_id'=>$device->id])->get();
-            array_push($data, $meassurement2);
-            $meassurement3 =Meassurement::where(['data_id'=>3,'device_id'=>$device->id])->get();
-            array_push($data, $meassurement3);
-            $meassurement4 =Meassurement::where(['data_id'=>4,'device_id'=>$device->id])->get();
-            array_push($data, $meassurement4);
 
+            $meassurement1 = Meassurement::where('device_id', $device->id)->where('data_id', 1)->latest('created_at')->get()->first();
+            array_push($data, $meassurement1);
+
+            $meassurement2 = Meassurement::where('device_id', $device->id)->where('data_id', 2)->latest('created_at')->get()->first();
+            array_push($data, $meassurement2);
+
+            $meassurement3 = Meassurement::where('device_id', $device->id)->where('data_id', 3)->latest('created_at')->get()->first();
+            array_push($data, $meassurement3);
+
+            $meassurement4 = Meassurement::where('device_id', $device->id)->where('data_id', 4)->latest('created_at')->get()->first();
+            array_push($data, $meassurement4);
+            
             $device->data = $data;
         }
-
 
        return view('devices.index')->with('devices', $devices);
         
@@ -81,7 +82,7 @@ class DeviceController extends Controller
     public function show($id)
     {
         $device = Device::find($id);
-
+        $cont = 'black';
         $meassurement1 = Meassurement::where('device_id', $id)->where('data_id', 1)->latest('created_at')->get()->first();
         $meassurement2 = Meassurement::where('device_id', $id)->where('data_id', 2)->latest('created_at')->get()->first();
         $meassurement3 = Meassurement::where('device_id', $id)->where('data_id', 4)->latest('created_at')->get()->first();
