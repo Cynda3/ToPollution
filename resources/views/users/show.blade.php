@@ -47,7 +47,7 @@
                     <div class="col-lg-6 col-xs-3">
                         <label for="last_name">
                             <h4>@lang('navMenu.apellido')</h4>
-                        </label><br>
+                        </label><br> 
                         {{$user->lastname}}
                     </div>
                 </div>
@@ -58,6 +58,7 @@
                             <h4>@lang('navMenu.edad')</h4>
                         </label><br>
                         {{$user->age}}<br>
+                      
                     </div>
 
                     <div class="col-lg-6 col-xs-3">
