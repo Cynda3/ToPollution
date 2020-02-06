@@ -22,4 +22,5 @@ Route::apiResource('device', 'ApiMeassurement');
 
 Route::apiResource('user', 'ApiUser');
 Route::get('device/{id}/{fecha}', 'ApiMeassurement@dia'); 
+Route::get('device/{id}/{fecha}/decibelios', 'ApiMeassurement@dB'); 
 //Route::get('device/{id}/{tipo}/{fecha}', 'ApiMeassurement@dia');

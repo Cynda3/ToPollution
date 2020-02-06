@@ -276,6 +276,29 @@ class ApiMeassurement extends Controller
         return $info;
     }
 
+    public function dB($id, /*$tipo,*/ $fecha)
+    {
+        $meassurements = Meassurement::where('device_id', $id)
+                                    //->where('data_id', $tipo)
+                                    ->whereDate('created_at', $fecha)
+                                    ->orderBy('created_at', 'asc')
+                                    ->orderBy('device_id', 'asc')
+                                    ->get();
+        
+        $info = [['dates'],['dB']];
+
+        foreach($meassurements as $meassurement) {
+            if (in_array($meassurement->created_at, $info[0])){
+            
+            }
+            else
+                array_push($info[0], $meassurement->created_at);
+            if($meassurement->data_id == 4)
+                array_push($info[1], $meassurement->value);
+        }
+        return $info;
+    }
+
 
     // This function returns de min and max values from all datas.
     public function minMax()
