@@ -37,11 +37,8 @@
 
     iconSize:     [38, 95], // size of the icon
     iconAnchor:   [browserLong, browserlat], // point of the icon which will correspond to marker's location
-   
-});
 
-
-    marker_actual = greenicon([browserLat,browserLong]).addTo(map);
+    marker_actual = L.marker([browserLat,browserLong], {icon, greenIcon}).addTo(map);
     marker_actual.bindPopup('<b>Hola </b><br>Tu estas aqui').openPopup();
     map.setView([browserLat,browserLong], 18);  
     
