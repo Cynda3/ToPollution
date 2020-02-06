@@ -16,8 +16,8 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {$devices = Device::all()->where('public',1);
+    public function index() {
+    $devices = Device::where('user_id', Auth::user()->id)->get();
 
         foreach($devices as $device){
             
