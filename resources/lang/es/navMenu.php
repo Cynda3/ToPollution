@@ -108,4 +108,12 @@ return [
     'city' => 'Ciudad',
     'newpassword' => 'Nueva Contraseña:',
     'newconfpassword' => 'Confirmar Contraseña:',
+
+    /* Create device*/
+    'createnewsens' => 'Añadir nuevo sensor',
+    'sensid' => 'Id',
+    'sensname' => 'Nombre',
+    'senspublico' => 'Publico',
+    'sensprivate' => 'Privado',
+    'sensenviar' => 'Enviar',
 ];

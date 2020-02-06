@@ -110,6 +110,12 @@ return [
     'newpassword' => 'New Password:',
     'newconfpassword' => 'Confirm Password',
 
-
+    /* Create Device */
+    'createnewsens' => 'Create a new sensor',
+    'sensid' => 'Id',
+    'sensname' => 'Name',
+    'senspublico' => 'Public',
+    'sensprivate' => 'Private',
+    'sensenviar' => 'Send',
 
 ];
