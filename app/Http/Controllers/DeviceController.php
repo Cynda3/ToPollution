@@ -65,8 +65,8 @@ class DeviceController extends Controller
         $device->id = $request->id;
         $device->public = $request->example;
         $device->name = $request->name;
-        $device->latitude = " - ";
-        $device->longitude = " - ";
+        $device->latitude = "43.32147";
+        $device->longitude = "-1.985725";
 
         $device->save();
         return view('devices.show')->with('device', $device);
@@ -81,7 +81,18 @@ class DeviceController extends Controller
     public function show($id)
     {
         $device = Device::find($id);
-        return view('devices.show')->with('device', $device);
+
+        $meassurement1 = Meassurement::where('device_id', $id)->where('data_id', 1)->latest('created_at')->get()->first();
+        $meassurement2 = Meassurement::where('device_id', $id)->where('data_id', 2)->latest('created_at')->get()->first();
+        $meassurement3 = Meassurement::where('device_id', $id)->where('data_id', 4)->latest('created_at')->get()->first();
+        $cont = '';
+        if(($meassurement1->value >= 0 && $meassurement1->value <= 25) && ($meassurement2->value >= 0 && $meassurement2->value <= 25) && ($meassurement3->value >= 0 && $meassurement3->value <= 25))
+            $cont = 'green';
+        else if(($meassurement1->value > 25 && $meassurement1->value <= 75) || ($meassurement2->value > 25 && $meassurement2->value <= 75) || ($meassurement3->value > 25 && $meassurement3->value <= 75))
+            $cont = 'yellow';
+        else if(($meassurement1->value > 75) || ($meassurement2->value > 75) || ($meassurement3->value > 75))
+            $cont = 'red';
+        return view('devices.show', ['device' => $device, 'cont' => $cont]);
     }
 
     /**

@@ -19,7 +19,7 @@
                         placeholder="{{$device->id}}" name="id" value="{{ old('id') }}" readonly><br>
 
                         <label for="name"> New Name:</label> <input type="text" class="form-control"
-                            placeholder="{{$device->name}}" name="name" value="{{ old('name') }}"><br>
+                            placeholder="{{$device->name}}" name="name" value="{{ old('name') }}">
                         @error('name')
                         <span class="text-danger" role="alert">
                             <strong>{{ $message }}</strong>
