@@ -37,9 +37,9 @@
 <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-black " id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white text-dark " id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="{{ route('home') }}">ToPollution</a>
+            <a class="navbar-brand js-scroll-trigger text-dark" href="{{ route('home') }}">ToPollution</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -47,9 +47,9 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link " href="{{route('home')}}">
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item ">
+                        <a class="nav-link text-dark" href="{{route('home')}}">
                         @lang('navMenu.mapas')
                         </a>
 
@@ -57,12 +57,12 @@
   
 
                     <li class="nav-item">
-                        <a class="nav-link " href="{{route('devices.index')}}">
+                        <a class="nav-link text-dark" href="{{route('devices.index')}}">
                         @lang('navMenu.dGlobales')
                         </a>
                         
                     <li class="nav-item">
-                        <a class="nav-link " href="{{route('users.index', Auth::user()->id)}}">
+                        <a class="nav-link text-dark" href="{{route('users.index', Auth::user()->id)}}">
                         @lang('navMenu.misDisp')
                         </a>
                     </li>
@@ -70,29 +70,29 @@
 
 
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             @lang('navMenu.language') <span class="caret"></span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-right text-dark" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ url('locale/en') }}">
                             @lang('navMenu.english')
                             </a>
-                            <a class="dropdown-item" href="{{ url('locale/es') }}"> 
+                            <a class="dropdown-item text-dark" href="{{ url('locale/es') }}"> 
                                 @lang('navMenu.spanish')
                             </a>
                         </div>
                     </li>
                     @if(Auth::user())
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{Auth::user()->name}}
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu text-dark" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('users.show', Auth::user()->id)}}">@lang('navMenu.profile')</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            <a class="dropdown-item " href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
