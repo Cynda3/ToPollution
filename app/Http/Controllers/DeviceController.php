@@ -59,18 +59,21 @@ class DeviceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Faker $faker)//Quitar faker cuando reciba valores
+    public function store(Request $request)
     {
         $device = new Device;
         $device->user_id = Auth::user()->id;
         $device->id = $request->id;
-        $device->public = $request->example;
         $device->name = $request->name;
         $device->latitude = "43.32147";
         $device->longitude = "-1.985725";
-
+        if($request->public == '1')
+            $device->public = true;
+        else
+            $device->public = false;
         $device->save();
-        return view('devices.show')->with('device', $device);
+
+        return redirect()->route('devices.show', $request->id);
     }
 
     /**
