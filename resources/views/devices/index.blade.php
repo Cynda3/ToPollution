@@ -19,10 +19,20 @@
                 <td>{{$device->name}}</td>
                 <td>{{$device->latitude}}</td>
                 <td>{{$device->longitude}}</td>
-                @if(isset($device->data[0][0]) && isset($device->data[1][0]) && isset($device->data[2][0]) && isset($device->data[3][0]))
+                @if(isset($device->data[0][0]))
                 <td>{{$device->data[0][0]->value}}</td>
-                <td>{{$device->data[1][0]->value}}</td>
-                <td>{{$device->data[3][0]->value}}</td>
+                @else
+                <td> - </td>
+                @endif
+                @if(isset($device->data[0][1]))
+                <td>{{$device->data[0][1]->value}}</td>
+                @else
+                <td> - </td>
+                @endif
+                @if(isset($device->data[0][3]))
+                <td>{{$device->data[0][3]->value}}</td>
+                @else
+                <td> - </td>
                 @endif
                 <td>{{$device->user->name}}</td>
             </tr>

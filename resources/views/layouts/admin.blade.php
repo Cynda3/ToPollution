@@ -11,6 +11,9 @@
 
   <title>ToPollution - Admin Dashboard</title>
 
+  <!-- Jquery -->
+  <script src="{{ URL::asset('/necessary/jquery/jquery.min.js') }}"></script>
+  
   <!-- Custom fonts for this template-->
   <link href="/AdminPanel/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link
@@ -291,12 +294,11 @@
   <script src="/AdminPanel/vendor/datatables/dataTables.bootstrap4.min.js"></script>
   <script src="/AdminPanel/vendor/chart.js/Chart.min.js"></script>
 
-  <!-- Page level custom scripts -->
+  <!-- Page level custom scripts 
   <script src="/AdminPanel/js/demo/datatables-demo.js"></script>
   <script src="/AdminPanel/js/demo/chart-area-demo.js"></script>
+  -->
   <script src="/AdminPanel/js/demo/chart-pie-demo.js"></script>
-
-  <!-- Page level custom scripts -->
 </body>
 
 </html>

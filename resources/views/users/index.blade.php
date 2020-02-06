@@ -1,19 +1,19 @@
 @extends('layouts.app')
 @section('content')
 <div class="container table-responsive">
-    <a href="{{route('devices.create')}}"><button type="button" class="btn btn-primary btn-lg btn-block">ADD
-            DEVICE</button></a>
+    <a href="{{route('devices.create')}}"><button type="button" class="btn btn-primary btn-lg btn-block">@lang('navMenu.deviceadd')
+            </button></a>
     <table class="table table-hover table-dark">
         <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Sensor Name</th>
-                <th scope="col">Latitude</th>
-                <th scope="col">Longitude</th>
-                <th scope="col">CO2</th>
-                <th scope="col">CO</th>
-                <th scope="col">dB</th>
-                <th scope="col">Actions</th>
+                <th scope="col">@lang('navMenu.numserie')</th>
+                <th scope="col">@lang('navMenu.sensorname')</th>
+                <th scope="col">@lang('navMenu.latitud')</th>
+                <th scope="col">@lang('navMenu.longitud')</th>
+                <th scope="col">@lang('navMenu.co2')</th>
+                <th scope="col">@lang('navMenu.co')</th>
+                <th scope="col">@lang('navMenu.dB')</th>
+                <th scope="col">@lang('navMenu.actions')</th>
             </tr>
         </thead>
         @foreach ($devices as $d)
@@ -23,10 +23,20 @@
                 <td>{{$d->name}}</td>
                 <td>{{$d->latitude}}</td>
                 <td>{{$d->longitude}}</td>
-                @if(isset($device->data[0][0]) && isset($device->data[1][0]) && isset($device->data[2][0]) && isset($device->data[3][0]))
+                @if(isset($d->data[0][0]))
                 <td>{{$d->data[0][0]->value}}</td>
-                <td>{{$d->data[1][0]->value}}</td>
-                <td>{{$d->data[3][0]->value}}</td>
+                @else
+                <td> - </td>
+                @endif
+                @if(isset($d->data[0][1]))
+                <td>{{$d->data[0][1]->value}}</td>
+                @else
+                <td> - </td>
+                @endif
+                @if(isset($d->data[0][3]))
+                <td>{{$d->data[0][3]->value}}</td>
+                @else
+                <td> - </td>
                 @endif
                 <td>
                     <a href="{{route('devices.show',$d->id)}}"><button type="submit" id="show">
