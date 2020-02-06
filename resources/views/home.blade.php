@@ -58,7 +58,7 @@
 
             var popup = L.popup();
 
-            marker.bindPopup("<h4><u> {{ $device->name }} </u></h4> <b>Owner:</b> {{ $device->user->name }}");
+            marker.bindPopup("<h4 class='text-center'><u> {{ $device->name }} </u></h4> <b>Owner:</b> <a class='text-success' href='{{route('users.show', $device->user->id)}}'>{{ $device->user->name }} {{ $device->user->lastname }}</a><br><a class='text-success' href='{{route('devices.show', $device->id)}}'>@lang('navMenu.verDispos')</a>");
         @endcan
     @endforeach
 </script>

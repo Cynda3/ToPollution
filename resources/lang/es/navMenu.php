@@ -71,6 +71,7 @@ return [
     'biography' => 'Biografía',
     'sensores' => 'Sensores Obtenidos',
     'misDispos' => 'Mis dispositivos',
+    'view' => 'Ver dispositivo',
     /* Mis dispositivos */
     'deviceadd' =>'Añadir Sensor',
     'numserie' =>'Num. Serie',
@@ -93,5 +94,6 @@ return [
     'problemaConex' => 'Hubo un problema de conexion',
     'hora' => 'Hora',
     'decibelios' => 'Decibelios',
-    'partPorMillon' => ' Particulas por millon'
+    'partPorMillon' => 'Particulas por millon',
+    'verDispos' => 'Ver dispositivo'
 ];

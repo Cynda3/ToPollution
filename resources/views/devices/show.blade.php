@@ -74,7 +74,7 @@
 
     var popup = L.popup();
     
-    marker.bindPopup("<h4><u> {{ $device->name }} </u></h4> <b>@lang('navMenu.dueño'):</b> {{ $device->user->name }}").openPopup();
+    marker.bindPopup("<h4 class='text-center'><u> {{ $device->name }} </u></h4> <b>@lang('navMenu.dueño'):</b> <a class='text-success' href='{{route('users.show', $device->user->id)}}'>{{ $device->user->name }} {{ $device->user->name }}</a>").openPopup();
 
 </script>
 <!-- -----END MAPA---- -->
@@ -193,7 +193,7 @@
         $.get("https://topollution.herokuapp.com/api/device/" + {{ $device->id }} + "/" + date + "/decibelios", function (datos, status) {
               if (status == "success") {
                 if(datos[0].length == 1){
-                  document.getElementById('chart_div2').innerHTML = "<p class='alert alert-warning'>@lang('navMenu.noMediciones')</p>";
+                  document.getElementById('chart_div3').innerHTML = "<p class='alert alert-warning'>@lang('navMenu.noMediciones')</p>";
                 } else {
                   for(i = 1; i < datos[1].length; i++){
                     let fecha1 = new Date(datos[0][i]);

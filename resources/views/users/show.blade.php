@@ -21,11 +21,15 @@
             </div><br>
 
             <ul class="list-group">
-                <li class="list-group-item text-muted">@lang('navMenu.sensores'): <i class="fa fa-dashboard fa-1x"></i></li> 
+                <li class="list-group-item text-muted">@lang('navMenu.sensores'): <i class="fa fa-dashboard fa-1x"></i></li>
+                @if (sizeof($devices) == 0)
+                <li class="list-group-item text-left"><span class="pull-left"><strong>No tiene dispositivos publicos</strong></span></li>
+                @else
                 @foreach ($devices as $dev)
-                <li class="list-group-item text-left"><span class="pull-left"><strong><a href="{{route('devices.show',$dev->id)}}">
+                <li class="list-group-item text-left"><span class="pull-left"><strong><a class="text-success" href="{{route('devices.show',$dev->id)}}">
                 {{$dev->name}}</strong></a></span></li>
                 @endforeach
+                @endif
             </ul>
            
                 </div>
