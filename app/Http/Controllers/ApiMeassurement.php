@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Data;
 use App\Device;
 use App\Meassurement;
+use App\User;
 
+use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\DB;
 
@@ -21,17 +23,17 @@ class ApiMeassurement extends Controller
      */
     public function index(Request $request)
     {
-/*
+        /*
 
-    Db - decibelios.
-    Co2 - dioxido de carbono.
-    Co - monoxido de carbono.
-    Latitud - latitud de las coordenadas gps
-    Longitud - longitud de las coordenadas gps
-    device _id - identificador de dispositivo que manda las mediciones
-    Net - El protocolo de comunicación, será lora o sim808.
+            Db - decibelios.
+            Co2 - dioxido de carbono.
+            Co - monoxido de carbono.
+            Latitud - latitud de las coordenadas gps
+            Longitud - longitud de las coordenadas gps
+            device _id - identificador de dispositivo que manda las mediciones
+            Net - El protocolo de comunicación, será lora o sim808.
 
-*/
+        */
 
         if (isset($request->dbs) && isset($request->co2) && isset($request->co) && isset($request->latitud) && isset($request->longitud) && isset($request->device_id) && isset($request->net)) {
                 
@@ -118,17 +120,17 @@ class ApiMeassurement extends Controller
     public function store(Request $request)
     {
 
-/*
+        /*
 
-    Db - decibelios.
-    Co2 - dioxido de carbono.
-    Co - monoxido de carbono.
-    Latitud - latitud de las coordenadas gps
-    Longitud - longitud de las coordenadas gps
-    device _id - identificador de dispositivo que manda las mediciones
-    Net - El protocolo de comunicación, será lora o sim808.
+            Db - decibelios.
+            Co2 - dioxido de carbono.
+            Co - monoxido de carbono.
+            Latitud - latitud de las coordenadas gps
+            Longitud - longitud de las coordenadas gps
+            device _id - identificador de dispositivo que manda las mediciones
+            Net - El protocolo de comunicación, será lora o sim808.
 
-*/
+        */
 
         if (isset($request->dbs) && isset($request->co2) && isset($request->co) && isset($request->latitud) && isset($request->longitud) && isset($request->device_id) && isset($request->net)) {
                 
@@ -272,5 +274,85 @@ class ApiMeassurement extends Controller
                 array_push($info[2], $meassurement->value);
         }
         return $info;
+    }
+
+
+    // This function returns de min and max values from all datas.
+    public function minMax()
+    {
+        
+        /*
+        *
+        *   Datas:
+        * 
+        *   1 = co2
+        *   2 = co
+        *   4 = dbs
+        *
+        */
+        $meassurements = Meassurement::all();
+
+        // Max & min co2 values
+        $maxCO2 = Meassurement::where('data_id', '=', '1')->orderBy('value', 'desc')->first();
+        $minCO2 = Meassurement::where('data_id', '=', '1')->orderBy('value', 'asc')->first();
+
+        $valCO2 = [
+            'max' => $maxCO2,
+            'min' => $minCO2
+        ];
+
+        // Max & min co values
+        $maxCO = Meassurement::where('data_id', '=', '2')->orderBy('value', 'desc')->first();
+        $minCO = Meassurement::where('data_id', '=', '2')->orderBy('value', 'asc')->first();
+
+        $valCO = [
+            'max' => $maxCO,
+            'min' => $minCO
+        ];
+
+        // Max & min db values
+        $maxDbs = Meassurement::where('data_id', '=', '4')->orderBy('value', 'desc')->first();
+        $minDbs = Meassurement::where('data_id', '=', '4')->orderBy('value', 'asc')->first();
+
+        $valDbs = [
+            'max' => $maxDbs,
+            'min' => $minDbs
+        ];
+
+        $dataValues = [
+            'co2' => $valCO2,
+            'co' => $valCO,
+            'dbs' => $valDbs
+        ];
+
+
+
+        // Users registered
+
+        $users = User::all();
+
+        $usersPerMonth = [
+            '01' => 0,
+            '02' => 0,
+            '03' => 0,
+            '04' => 0,
+            '05' => 0,
+            '06' => 0,
+            '07' => 0,
+            '08' => 0,
+            '09' => 0,
+            '10' => 0,
+            '11' => 0,
+            '12' => 0,
+        ];
+
+        foreach ($users as $user) {
+            $date = Carbon::parse($user->email_verified_at)->format('m');
+
+
+            $usersPerMonth[$date] += 1;
+
+        }
+        return ['dataValues' => $dataValues, 'usersPerMonth' => $usersPerMonth];
     }
 }
