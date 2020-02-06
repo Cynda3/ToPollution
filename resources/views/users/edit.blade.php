@@ -82,7 +82,7 @@
                         @enderror<br>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-success btn-sm ">Editar datos</button>
+                    <button class="btn btn-success btn-sm">Editar datos</button>
                     </form>
                 </div>
             </div>
