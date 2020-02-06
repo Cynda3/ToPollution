@@ -3,9 +3,14 @@
 <div class="container bootstrap snippet">
     
     <div class="row">
+<<<<<<< HEAD
+        <div class="col-sm-10">
+            <h1>@lang('navMenu.perfil')</h1>
+=======
         <div class="col-lg-12 col-sm-6 col-xs-3">
             <h1>@lang('navMenu.perfil')</h1>
                
+>>>>>>> 0b94130db9eab582781ce2e77e19402fe1022283
         </div>
 
     </div>
