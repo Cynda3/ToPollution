@@ -20,13 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('dataValues', 'ApiMeassurement@minMax');  // Return an array of min and max values of every data
 Route::apiResource('device', 'ApiMeassurement');
 
-Route::group(['middleware' => 'cors'], function () {
-    //Route::get('device/{id}/{tipo}/{fecha}', 'ApiMeassurement@dia');
-    Route::get('device/{id}/{fecha}', 'ApiMeassurement@dia'); 
-});
-
-
 Route::apiResource('user', 'ApiUser');
-
 Route::get('device/{id}/{fecha}', 'ApiMeassurement@dia'); 
+Route::get('device/{id}/{fecha}/decibelios', 'ApiMeassurement@dB'); 
+Route::get('device/{id}/meassures', 'ApiMeassurement@meassures'); 
 //Route::get('device/{id}/{tipo}/{fecha}', 'ApiMeassurement@dia');
