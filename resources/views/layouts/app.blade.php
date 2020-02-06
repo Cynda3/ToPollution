@@ -37,7 +37,7 @@
 <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white text-dark " id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white text-dark border-bottom" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger text-dark" href="{{ route('home') }}">ToPollution</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"

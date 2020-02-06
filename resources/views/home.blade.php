@@ -55,8 +55,8 @@
     
 
             var circle = L.circle([ {{ $device->latitude }}, {{ $device->longitude }} ], {
-                color: 'yellow',
-                fillColor: 'yellow',
+                color: "{{$device->cont}}",
+                fillColor: "{{$device->cont}}",
                 fillOpacity: 0.5,
                 radius: 400
             }).addTo(map);

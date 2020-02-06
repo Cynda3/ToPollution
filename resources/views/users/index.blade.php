@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<div class="container table-responsive">
-    <a href="{{route('devices.create')}}"><button type="button" class="btn btn-primary btn-lg btn-block">@lang('navMenu.deviceadd')
+<div class="container">
+    <h1 class="text-center mt-3">@lang('navMenu.misDispos')</h1>
+    <a href="{{route('devices.create')}}"><button type="button" class="btn btn-success btn-lg btn-block">@lang('navMenu.deviceadd')
             </button></a>
     <table class="table table-hover table-dark">
         <thead>
@@ -13,6 +14,7 @@
                 <th scope="col">@lang('navMenu.co2')</th>
                 <th scope="col">@lang('navMenu.co')</th>
                 <th scope="col">@lang('navMenu.dB')</th>
+                <th scope="col">@lang('navMenu.public')</th>
                 <th scope="col">@lang('navMenu.actions')</th>
             </tr>
         </thead>
@@ -37,6 +39,11 @@
                 <td>{{$d->data[3]->value}}</td>
                 @else
                 <td> - </td>
+                @endif
+                @if($d->public == 1)
+                <td>@lang('navMenu.publico')</td>
+                @else
+                <td>@lang('navMenu.privado')</td>
                 @endif
                 <td>
                     <a href="{{route('devices.show',$d->id)}}"><button type="submit" id="show">

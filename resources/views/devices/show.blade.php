@@ -9,7 +9,7 @@
 @section('content')
 <div class="container">
   <div class="row justify-content-center my-3">
-    <h1 class=""><u>@lang('navMenu.dispositivo'): {{ $device->name }}</u></h1>
+    <h1 class="mt-3">@lang('navMenu.dispositivo'): {{ $device->name }}</h1>
   </div>
   <div class="row justify-content-center align-items-center">
     <div class="col-6">
