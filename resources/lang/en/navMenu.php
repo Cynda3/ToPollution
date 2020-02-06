@@ -36,7 +36,7 @@ return [
     'cinfo' => 'Contact Information',
     'address' => 'Address:',
     'phone' => 'Phone number:',
-    'email' => 'Email:',
+    'email' => 'Email',
     'website' => 'Web Page',
     'formulariologin' => 'Log In Form',
     'correo' => 'Email Address',
@@ -46,6 +46,7 @@ return [
     'formularioregistro' => 'Register Form',
     'cContraseña' => 'Confirm Password',
     'registrarse' => 'Register',
+    'enviar' => 'Send Message',
     /*
     * Home page translation texts
     */
@@ -56,7 +57,7 @@ return [
     * Home page translation texts
     */
     'dGlobales' => 'Global Devices',
-    'mapas' => 'Maps',
+    'mapas' => 'Map',
     'misDisp' => 'My Devices',
     /*
     *User show page translations
@@ -66,7 +67,6 @@ return [
     'eliminar' => 'Delete',
     'actualizar' => 'Update',
     'perfil' => 'Profile',
-    'sensores' => 'Owned Sensors',
-
+    'sensores' => 'Owned Sensors'
 
 ];

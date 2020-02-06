@@ -20,17 +20,17 @@
 			          	@csrf
 			          	@method('get')
 			          		<label>Avatar</label><br>
-					        <input type="file" name="avatar" value="{{$user->avatar}}"><br>
+					        <input type="file" class="form-control" name="avatar" value="{{$user->avatar}}"><br>
 			          		<label>Name</label><br>
-					        <input type="text" name="name" value="{{$user->name}}"><br>
+					        <input type="text" class="form-control" name="name" value="{{$user->name}}"><br>
 			          		<label>Last name</label><br>
-					        <input type="text" name="lastname" value="{{$user->lastname}}"><br>
+					        <input type="text" class="form-control" name="lastname" value="{{$user->lastname}}"><br>
 			          		<label>Biography</label><br>
-					        <input type="text" name="biography" value="{{$user->biography}}"><br>
+					        <input type="text" class="form-control" name="biography" value="{{$user->biography}}"><br>
 			          		<label>Age</label><br>
-					        <input type="text" name="age" value="{{$user->age}}"><br>
+					        <input type="text" class="form-control" name="age" value="{{$user->age}}"><br>
 			          		<label>Country</label><br>
-					        <input type="text" name="country" value="{{$user->country}}"><br><br>
+					        <input type="text" class="form-control" name="country" value="{{$user->country}}"><br><br>
 
 					        <button type="submit" class="btn btn-light">Edit profile</button>
 				    	</form>

@@ -35,16 +35,21 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 //Admin
 Route::get('/admin', 'AdminController@index')->middleware('auth', 'role:admin')->name('admin');
 Route::get('/admin/users', 'AdminController@listUsers')->middleware('auth', 'role:admin')->name('listUsers');
+Route::get('/admin/messages', 'AdminController@listMessages')->middleware('auth', 'role:admin')->name('listMessages');
 Route::get('/admin/bannedusers', 'AdminController@bannedUsers')->middleware('auth', 'role:admin')->name('bannedUsers');
 Route::get('/admin/restore/{id}', 'AdminController@restoreUser')->middleware('auth', 'role:admin')->name('/restore');
 Route::get('/admin/ban/{id}', 'AdminController@banUser')->middleware('auth', 'role:admin')->name('/ban');
+Route::get('/admin/delete/{id}', 'AdminController@destroyMessage')->middleware('auth', 'role:admin')->name('/deleteMessage');
 Route::get('/admin/{id}/edit', 'AdminController@edit')->middleware('auth', 'role:admin')->name('userEdit');
 Route::get('/admin/{id}/update', 'AdminController@update')->middleware('auth', 'role:admin')->name('userUpdate');
 Route::get('/admin/{id}', 'AdminController@show')->middleware('auth', 'role:admin')->name('adminShow');
+Route::get('/messages/{id}', 'AdminController@showMessage')->middleware('auth', 'role:admin')->name('messageShow');
 
 //Devices
+Route::get('/devices/create', 'DeviceController@create')->middleware('auth', 'verified');
+Route::get('/devices/{id}', 'DeviceController@show')->middleware('auth', 'device:id', 'verified');
 Route::resource('devices', 'DeviceController')->middleware('verified');
-
+Route::get('/device/{id}', 'DeviceController@show')->middleware('auth', 'device:id', 'verified')->name('showDevice');
 
 
 // Rutas Api

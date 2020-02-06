@@ -92,13 +92,13 @@
           </li>
           @else
           <li class="nav-item">
-            <button type="button" class="btn btn-dark p-2 mt-3 mt-lg-4 ml-lg-2" data-toggle="modal"
+            <button type="button" class="btn btn-success p-2 mt-3 mt-lg-4 ml-lg-2" data-toggle="modal"
               data-target="#inicioSesionModal">
               @lang('navMenu.login')
             </button>
           </li>
           <li class="nav-item">
-            <button type="button" class="btn btn-dark p-2 mt-3 mt-lg-4 mb-3 mb-lg-0 ml-lg-3" data-toggle="modal"
+            <button type="button" class="btn btn-success p-2 mt-3 mt-lg-4 mb-3 mb-lg-0 ml-lg-3" data-toggle="modal"
               data-target="#registroModal">
               @lang('navMenu.register')
             </button>
@@ -114,10 +114,10 @@
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
         <h1 class="mx-auto my-0 text-uppercase">ToPollution</h1>
-        <h2 class="text-white-50 mx-auto mt-2 mb-5">@lang('navMenu.subtitle')</h2>
+        <h2 class="text-white mx-auto mt-2 mb-5">@lang('navMenu.subtitle')</h2>
         @if(Auth::user())
         @else
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registroModal">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#registroModal">
           @lang('navMenu.register')
         </button>
         @endif
@@ -138,19 +138,19 @@
         <div class="row justify-content-center">
           <div class="mx-4 mb-5">
             <strong class="number text-white display-4" data-number="10000">10.000</strong><br>
-            <span class="text-primary h5">@lang('navMenu.sensores')</span>
+            <span style="color: #28a745!important" class="text-primary h5">@lang('navMenu.sensores')</span>
           </div>
           <div class="mx-4">
             <strong class="number text-white display-4" data-number="6000">6.000</strong><br>
-            <span class="text-primary h5">@lang('navMenu.miembros')</span>
+            <span style="color: #28a745!important" class="text-primary h5">@lang('navMenu.miembros')</span>
           </div>
           <div class="mx-4">
             <strong class="number text-white display-4" data-number="2000">2.000</strong><br>
-            <span class="text-primary h5">@lang('navMenu.ciudades')</span>
+            <span style="color: #28a745!important" class="text-primary h5">@lang('navMenu.ciudades')</span>
           </div>
           <div class="mx-4">
             <strong class="number text-white display-4" data-number="50">50</strong><br>
-            <span class="text-primary h5">@lang('navMenu.paises')</span>
+            <span style="color: #28a745!important" class="text-primary h5">@lang('navMenu.paises')</span>
           </div>
         </div>
       </div>
@@ -164,7 +164,7 @@
       <!-- Featured Project Row -->
       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
         <div class="col-xl-8 col-lg-7">
-          <img class="img-fluid mb-3 mb-lg-0" src="img/bg-masthead.jpg" alt="">
+          <img class="img-fluid mb-3 mb-lg-0" src="img/enviroment3.jpg" alt="">
         </div>
         <div class="col-xl-4 col-lg-5">
           <div class="featured-text text-center text-lg-left">
@@ -177,10 +177,10 @@
       <!-- Project One Row -->
       <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
-          <img class="img-fluid" src="img/demo-image-01.jpg" alt="">
+          <img class="img-fluid" src="img/enviroment1.jpg" alt="">
         </div>
         <div class="col-lg-6">
-          <div class="bg-black text-center h-100 project">
+          <div class="bg-primary text-center h-100 project">
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-left">
                 <h4 class="text-white">@lang('navMenu.noiseTitle')</h4>
@@ -195,10 +195,10 @@
       <!-- Project Two Row -->
       <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
-          <img class="img-fluid" src="img/demo-image-02.jpg" alt="">
+          <img class="img-fluid" src="img/ground.jpg" alt="">
         </div>
         <div class="col-lg-6 order-lg-first">
-          <div class="bg-black text-center h-100 project">
+          <div class="bg-primary text-center h-100 project">
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-right">
                 <h4 class="text-white">@lang('navMenu.groundTitle')</h4>
@@ -209,6 +209,8 @@
           </div>
         </div>
       </div>
+
+      
 
     </div>
   </section>
@@ -241,7 +243,7 @@
             <label for="exampleFormControlTextarea1">@lang('navMenu.message')</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary mx-auto">@lang('navMenu.')</button>
+          <button type="submit" class="btn btn-success mx-auto">@lang('navMenu.enviar')</button>
         </form>
       </div>
     </div>

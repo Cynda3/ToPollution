@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Meassurement;
+use Carbon\Carbon;
 
 class MeassurementSeeder extends Seeder
 {
@@ -13,44 +14,109 @@ class MeassurementSeeder extends Seeder
     public function run()
     {
         //Dispos 1
-        Meassurement::insert([
+        Meassurement::create([
 	        'device_id' => "1",
             'data_id' => "1",
-	        'value' => "1234"
+            'value' => "90",
+            'created_at' => Carbon::now()
         ]);
-        Meassurement::insert([
+        
+        Meassurement::create([
+	        'device_id' => "1",
+            'data_id' => "1",
+            'value' => "10",
+            'created_at' => Carbon::now()
+        ]);
+
+        Meassurement::create([
+	        'device_id' => "1",
+            'data_id' => "1",
+            'value' => "70",
+            'created_at' => Carbon::now()
+        ]);
+        
+        Meassurement::create([
 	        'device_id' => "1",
             'data_id' => "2",
-	        'value' => "4321"
+            'value' => "10",
+            'created_at' => Carbon::now()
         ]);
-        Meassurement::insert([
+
+        Meassurement::create([
+	        'device_id' => "1",
+            'data_id' => "2",
+            'value' => "40",
+            'created_at' => Carbon::now() 
+        ]);
+
+        Meassurement::create([
+	        'device_id' => "1",
+            'data_id' => "2",
+            'value' => "20",
+            'created_at' => Carbon::now()
+        ]);
+        /*
+        Meassurement::create([
 	        'device_id' => "1",
             'data_id' => "3",
-	        'value' => "4234"
+            'value' => "50",
+            'created_at' => Carbon::now()
         ]);
-        Meassurement::insert([
+
+        Meassurement::create([
+	        'device_id' => "1",
+            'data_id' => "3",
+            'value' => "20",
+            'created_at' => Carbon::now()
+        ]);
+
+        Meassurement::create([
+	        'device_id' => "1",
+            'data_id' => "3",
+            'value' => "80",
+            'created_at' => Carbon::now()
+        ]);
+        */
+        Meassurement::create([
 	        'device_id' => "1",
             'data_id' => "4",
-	        'value' => "50"
+            'value' => "0",
+            'created_at' => Carbon::now()
+        ]);
+
+        Meassurement::create([
+	        'device_id' => "1",
+            'data_id' => "4",
+            'value' => "20",
+            'created_at' => Carbon::now()
+        ]);
+
+        Meassurement::create([
+	        'device_id' => "1",
+            'data_id' => "4",
+            'value' => "50",
+            'created_at' => Carbon::now()
         ]);
 
         //Dispos 2
-        Meassurement::insert([
+        Meassurement::create([
 	        'device_id' => "2",
             'data_id' => "1",
 	        'value' => "5824"
         ]);
-        Meassurement::insert([
+        Meassurement::create([
 	        'device_id' => "2",
             'data_id' => "2",
 	        'value' => "8643"
         ]);
-        Meassurement::insert([
+        /*
+        Meassurement::create([
 	        'device_id' => "2",
             'data_id' => "3",
 	        'value' => "3241"
         ]);
-        Meassurement::insert([
+        */
+        Meassurement::create([
 	        'device_id' => "2",
             'data_id' => "4",
 	        'value' => "70"

@@ -12,7 +12,7 @@ class Device extends Model
 
     public function Datas()
     {
-        return $this->belongsToMany('App\Data', 'meassurements');
+        return $this->belongsToMany('App\Data', 'meassurements')->withPivot('value', 'created_at')->orderBy('pivot_created_at', 'desc');
     }
 
     public function User()

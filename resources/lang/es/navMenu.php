@@ -35,7 +35,7 @@ return [
     'cinfo' => 'Información de contacto',
     'address' => 'Dirección:',
     'phone' => 'Teléfono:',
-    'email' => 'Email:',
+    'email' => 'Email',
     'website' => 'Página Web',
     'formulariologin' => 'Formulario de inicio de sesión',
     'correo' => 'Correo Electrónico',
@@ -45,6 +45,7 @@ return [
     'formularioregistro' => 'Formulario de registro',
     'cContraseña' => 'Confirmar Contraseña',
     'registrarse' => 'Registrarse',
+    'enviar' => 'Enviar Mensaje',
     /*
     * Home page translation texts
     */
@@ -55,7 +56,7 @@ return [
     * Home page translation texts
     */
     'dGlobales' => 'Dispositivos Globales',
-    'mapas' => 'Mapas',
+    'mapas' => 'Mapa',
     'misDisp' => 'Mis Dispositivos',
      /*
     *User show page translations
@@ -65,7 +66,7 @@ return [
     'eliminar' => 'Eliminar',
     'actualizar' => 'Editar',
     'perfil' => 'Perfil',
-    'sensores' => 'Sensores Adquiridos',
+    'sensores' => 'Sensores Obtenidos'
 
 
     

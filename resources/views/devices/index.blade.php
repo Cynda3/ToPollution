@@ -4,22 +4,27 @@
     <table class="table table-hover table-dark">
         <thead>
             <tr>
-                <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Latitude</th>
                 <th scope="col">Longitude</th>
+                <th scope="col">CO2</th>
+                <th scope="col">CO</th>
+                <th scope="col">dB</th>
                 <th scope="col">Owner</th>
-
             </tr>
         </thead>
-        @foreach ($devices as $d)
+        @foreach ($devices as $device)
         <tbody>
             <tr>
-                <td>{{$d->id}}</td>
-                <td>{{$d->name}}</td>
-                <td>{{$d->latitude}}</td>
-                <td>{{$d->longitude}}</td>
-                <td>{{$d->user->name}}</td>
+                <td>{{$device->name}}</td>
+                <td>{{$device->latitude}}</td>
+                <td>{{$device->longitude}}</td>
+                @if(isset($device->data[0][0]) && isset($device->data[1][0]) && isset($device->data[2][0]) && isset($device->data[3][0]))
+                <td>{{$device->data[0][0]->value}}</td>
+                <td>{{$device->data[1][0]->value}}</td>
+                <td>{{$device->data[3][0]->value}}</td>
+                @endif
+                <td>{{$device->user->name}}</td>
             </tr>
         </tbody>
         @endforeach

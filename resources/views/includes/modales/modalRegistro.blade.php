@@ -1,7 +1,7 @@
 <!-- Modal Registro -->
 <div id="registroModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content bg-dark text-white">
+        <div class="modal-content  text-white" style="background-color: #21330f ">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">@lang('navMenu.formularioregistro')</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -72,7 +72,7 @@
                     <div class="modal-footer">
                         <div class="form-group row mb-0">
                             <div class="input-group col">
-                                <button type="submit" class="btn btn-primary p-2 mt-1" id="Registrarse" disabled>
+                                <button type="submit" class="btn btn-success p-2 mt-1" id="Registrarse" disabled>
                                 @lang('navMenu.registrarse')
                                 </button>
                             </div>
