@@ -33,7 +33,7 @@
     browserLong = position.coords.longitude;
  
     var greenIcon = L.icon({
-    iconUrl: 'img/map-icon.png',
+    iconUrl: 'img/icon.png',
 
     iconSize:     [38, 95], // size of the icon
     iconAnchor:   [browserLong, browserLat], // point of the icon which will correspond to marker's location
