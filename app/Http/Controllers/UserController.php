@@ -23,14 +23,13 @@ class UserController extends Controller
             
             $data = [];
             
-            $meassurement1 = Meassurement::where(['data_id'=>1,'device_id'=>$device->id])->get();
-  
-            array_push($data, $meassurement1);
-            $meassurement2 =Meassurement::where(['data_id'=>2,'device_id'=>$device->id])->get();
-            array_push($data, $meassurement2);
-            $meassurement3 =Meassurement::where(['data_id'=>3,'device_id'=>$device->id])->get();
-            array_push($data, $meassurement3);
-            $meassurement4 =Meassurement::where(['data_id'=>4,'device_id'=>$device->id])->get();
+            $meassurement1 = Meassurement::where('device_id', $device->id)->where('data_id', 1)->latest('created_at')->get()->first();
+            array_push($data, $meassurement1);          
+            $meassurement2 = Meassurement::where('device_id', $device->id)->where('data_id', 2)->latest('created_at')->get()->first();
+            array_push($data, $meassurement2);            
+            $meassurement3 = Meassurement::where('device_id', $device->id)->where('data_id', 3)->latest('created_at')->get()->first();
+            array_push($data, $meassurement3);            
+            $meassurement4 = Meassurement::where('device_id', $device->id)->where('data_id', 4)->latest('created_at')->get()->first();
             array_push($data, $meassurement4);
 
             $device->data = $data;
@@ -111,14 +110,26 @@ class UserController extends Controller
         //VALIDATE
         $request->validate([
             'name' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
-            //'password' => 'required|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/|confirmed'
+            'lastname' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
+            'age' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
+            'city' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
+            'biography' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
+            'password' => 'required|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/|confirmed'
         ]);
 
         $messages = [
             'name.required' => 'Name field is required!',
             'name.regex' => 'Name field must be a text between 1 and 20 words!',
-            //'password.required' => 'password is required',
-            //'password.regex' => 'password must have minimun 6 chars including upper case'
+            'lastname.required' => 'Last Name field is required!',
+            'lastname.regex' => 'Last Name field must be a text between 1 and 20 words!',
+            'age.required' => 'Age field is required!',
+            'age.regex' => 'Age field must be a text between 1 and 20 words!',
+            'city.required' => 'City field is required!',
+            'city.regex' => 'City field must be a text between 1 and 20 words!',
+            'biography.required' => 'Biography field is required!',
+            'biography.regex' => 'Biography field must be a text between 1 and 20 words!',
+            'password.required' => 'password is required',
+            'password.regex' => 'password must have minimun 6 chars including upper case'
         ];
 
         //UPDATE

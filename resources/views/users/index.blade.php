@@ -23,18 +23,18 @@
                 <td>{{$d->name}}</td>
                 <td>{{$d->latitude}}</td>
                 <td>{{$d->longitude}}</td>
-                @if(isset($d->data[0][0]))
-                <td>{{$d->data[0][0]->value}}</td>
+                @if(isset($d->data[0]))
+                <td>{{$d->data[0]->value}}</td>
                 @else
                 <td> - </td>
                 @endif
-                @if(isset($d->data[0][1]))
-                <td>{{$d->data[0][1]->value}}</td>
+                @if(isset($d->data[1]))
+                <td>{{$d->data[1]->value}}</td>
                 @else
                 <td> - </td>
                 @endif
-                @if(isset($d->data[0][3]))
-                <td>{{$d->data[0][3]->value}}</td>
+                @if(isset($d->data[3]))
+                <td>{{$d->data[3]->value}}</td>
                 @else
                 <td> - </td>
                 @endif
@@ -43,8 +43,6 @@
                         <i class="fas fa-glasses"></i></a></button>
                     <a href="{{route('devices.edit',$d->id)}}"><button type="submit" id="update">
                         <i class="fas fa-pencil-alt"></i></a></button>
-                    <a href="{{route('showDevice',$d->id)}}"><button type="submit" id="showgraph">
-                        <i class="far fa-chart-bar"></i></a></button>
                     <form style='display:inline;' action="{{route('devices.destroy',$d->id)}}" method="post">
                         @csrf
                         @method('DELETE')
