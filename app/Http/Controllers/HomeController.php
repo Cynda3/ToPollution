@@ -56,16 +56,14 @@ class HomeController extends Controller
             $meassurement3 = Meassurement::where('device_id', $device->id)->where('data_id', 4)->latest('created_at')->get()->first();
             
             if (isset($meassurement1) && isset($meassurement2) && isset($meassurement3)){
-
-                if(($meassurement1->value >= 0 && $meassurement1->value <= 25) && ($meassurement2->value >= 0 && $meassurement2->value <= 25) && ($meassurement3->value >= 0 && $meassurement3->value <= 25))
+                if(($meassurement1->value >= 400 && $meassurement1->value <= 1000) && ($meassurement2->value >= 1 && $meassurement2->value <= 3) && ($meassurement3->value >= 25 && $meassurement3->value <= 50))
                     $cont = 'green';
-                else if(($meassurement1->value > 25 && $meassurement1->value <= 75) || ($meassurement2->value > 25 && $meassurement2->value <= 75) || ($meassurement3->value > 25 && $meassurement3->value <= 75))
+                else if(($meassurement1->value > 1000 && $meassurement1->value <= 1500) || ($meassurement2->value > 3 && $meassurement2->value <= 5) || ($meassurement3->value > 50 && $meassurement3->value <= 90))
                     $cont = 'yellow';
-                else if(($meassurement1->value > 75) || ($meassurement2->value > 75) || ($meassurement3->value > 75))
+                else if(($meassurement1->value > 1500) || ($meassurement2->value > 5) || ($meassurement3->value > 90))
                     $cont = 'red';
-                
             }
-            $device->cont =$cont;
+            $device->cont = $cont;
         }
         return view('home')->with('devices', $devices);
 
