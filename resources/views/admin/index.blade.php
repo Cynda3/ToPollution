@@ -323,28 +323,12 @@
 
               }
 
+              refreshData();
               setInterval(refreshData, 100000);
 
 
-              function refreshUsers(){
-
-                let request = new XMLHttpRequest();
-                request.open('GET', 'http://127.0.0.1:8000/api/user', true);
-                request.onload = function(){
-
-                  console.log(request);
-                  let data = JSON.parse(this.response);
 
 
-                  if (request.status >= 200 && request.status < 400) {
-                    
-                  }
-                }
-              }
-
-              refreshUsers();
-
-              setInterval(refreshUsers, 4000);
 
             </script>
 
