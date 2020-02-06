@@ -342,6 +342,8 @@
                 }
               }
 
+              refreshUsers();
+
               setInterval(refreshUsers, 4000);
 
             </script>
