@@ -118,4 +118,12 @@ return [
     'sensprivate' => 'Private',
     'sensenviar' => 'Send',
 
+    /* Edit Profile */
+    'devupdatename' => 'Update your sensor name',
+    'devid' => 'Device Id:',
+    'deveditname' => 'New Name:',
+    'deveditpublic' => 'Public',
+    'deveditprivate' => 'Private',
+    'deveditsend' => 'Send',
+
 ];
