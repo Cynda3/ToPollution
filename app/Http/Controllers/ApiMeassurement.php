@@ -236,6 +236,8 @@ class ApiMeassurement extends Controller
         array_push($datos, $meassurement);*/
         $meassurement = Meassurement::where('device_id', $id)->where('data_id', 4)->latest('created_at')->get()->first();
         array_push($datos, $meassurement);
+        $meassurement = Meassurement::where('device_id', $id)->where('data_id', 5)->latest('created_at')->get()->first();
+        array_push($datos, $meassurement);
         
         return response()->json($datos,200);
     }
