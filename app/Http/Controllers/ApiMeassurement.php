@@ -144,7 +144,7 @@ class ApiMeassurement extends Controller
 
         */
 
-        if (isset($request->dbs) && isset($request->co2) && isset($request->co) && isset($request->latitud) && isset($request->longitud) && isset($request->device_id) && isset($request->net)) {
+        if (isset($request->dbs) && isset($request->co2) && isset($request->co) && isset($request->latitud) && isset($request->longitud) && isset($request->device_id) && isset($request->net) && isset($request->bateria)) {
                 
 
 
@@ -187,6 +187,16 @@ class ApiMeassurement extends Controller
 
             $co->save();
 
+            // Bateria
+            $batery = new Meassurement;
+            $batery->value = $request->bateria;
+            $batery->device_id = $request->device_id;
+            $batery->latitude = $request->latitud;
+            $batery->longitude = $request->longitud;
+            $batery->data_id = 5;
+            $batery->net = $request->net;
+
+            $batery->save();
 
             // Device GPS update
 
