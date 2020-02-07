@@ -116,4 +116,12 @@ return [
     'senspublico' => 'Publico',
     'sensprivate' => 'Privado',
     'sensenviar' => 'Enviar',
+
+    /* Edit Profile */
+    'devupdatename' => 'Modifica tu Dispositivo',
+    'devid' => 'Id del Dispositivo:',
+    'deveditname' => 'Nuevo Nombre:',
+    'deveditpublic' => 'Publico',
+    'deveditprivate' => 'Privado',
+    'deveditsend' => 'Enviar',
 ];

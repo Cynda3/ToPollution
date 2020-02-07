@@ -17,43 +17,43 @@ class MeassurementSeeder extends Seeder
         Meassurement::create([
 	        'device_id' => "1",
             'data_id' => "1",
-            'value' => "90",
-            'created_at' => Carbon::now()
+            'value' => "464",
+            'created_at' => '2020-02-07 08:30:00'
         ]);
         
         Meassurement::create([
 	        'device_id' => "1",
             'data_id' => "1",
-            'value' => "10",
-            'created_at' => Carbon::now()
+            'value' => "579",
+            'created_at' => '2020-02-07 08:33:30'
         ]);
 
         Meassurement::create([
 	        'device_id' => "1",
             'data_id' => "1",
-            'value' => "70",
-            'created_at' => Carbon::now()
+            'value' => "600",
+            'created_at' => '2020-02-07 08:35:00'
         ]);
         
         Meassurement::create([
 	        'device_id' => "1",
             'data_id' => "2",
-            'value' => "10",
-            'created_at' => Carbon::now()
+            'value' => "2",
+            'created_at' => '2020-02-07 08:30:00'
         ]);
 
         Meassurement::create([
 	        'device_id' => "1",
             'data_id' => "2",
-            'value' => "40",
-            'created_at' => Carbon::now() 
+            'value' => "4",
+            'created_at' => '2020-02-07 08:33:30' 
         ]);
 
         Meassurement::create([
 	        'device_id' => "1",
             'data_id' => "2",
-            'value' => "20",
-            'created_at' => Carbon::now()
+            'value' => "2",
+            'created_at' => '2020-02-07 08:35:00'
         ]);
         /*
         Meassurement::create([
@@ -80,46 +80,138 @@ class MeassurementSeeder extends Seeder
         Meassurement::create([
 	        'device_id' => "1",
             'data_id' => "4",
-            'value' => "0",
-            'created_at' => Carbon::now()
+            'value' => "30",
+            'created_at' => '2020-02-07 08:30:00'
         ]);
 
         Meassurement::create([
 	        'device_id' => "1",
             'data_id' => "4",
-            'value' => "20",
-            'created_at' => Carbon::now()
+            'value' => "45",
+            'created_at' => '2020-02-07 08:33:30'
         ]);
 
         Meassurement::create([
 	        'device_id' => "1",
             'data_id' => "4",
-            'value' => "50",
-            'created_at' => Carbon::now()
+            'value' => "40",
+            'created_at' => '2020-02-07 08:35:00'
         ]);
 
         //Dispos 2
         Meassurement::create([
 	        'device_id' => "2",
             'data_id' => "1",
-	        'value' => "1500"
+            'value' => "1452",
+            'created_at' => '2020-02-07 08:59:00'
+        ]);
+        Meassurement::create([
+	        'device_id' => "2",
+            'data_id' => "1",
+            'value' => "1398",
+            'created_at' => '2020-02-07 09:00:30'
+        ]);
+        Meassurement::create([
+	        'device_id' => "2",
+            'data_id' => "1",
+            'value' => "1434",
+            'created_at' => '2020-02-07 09:02:00'
+        ]);
+
+        Meassurement::create([
+	        'device_id' => "2",
+            'data_id' => "2",
+            'value' => "4",
+            'created_at' => '2020-02-07 08:59:00'
         ]);
         Meassurement::create([
 	        'device_id' => "2",
             'data_id' => "2",
-	        'value' => "1000"
+            'value' => "3",
+            'created_at' => '2020-02-07 09:00:30'
         ]);
-        /*
         Meassurement::create([
 	        'device_id' => "2",
-            'data_id' => "3",
-	        'value' => "3241"
+            'data_id' => "2",
+            'value' => "3",
+            'created_at' => '2020-02-07 09:02:00'
         ]);
-        */
+
         Meassurement::create([
 	        'device_id' => "2",
             'data_id' => "4",
-	        'value' => "70"
+            'value' => "82",
+            'created_at' => '2020-02-07 08:59:00'
+        ]);
+        Meassurement::create([
+	        'device_id' => "2",
+            'data_id' => "4",
+            'value' => "79",
+            'created_at' => '2020-02-07 09:00:30'
+        ]);
+        Meassurement::create([
+	        'device_id' => "2",
+            'data_id' => "4",
+            'value' => "83",
+            'created_at' => '2020-02-07 09:02:00'
+        ]);
+
+        //Dispos 3
+        Meassurement::create([
+	        'device_id' => "3",
+            'data_id' => "1",
+            'value' => "1800",
+            'created_at' => '2020-02-07 08:59:00'
+        ]);
+        Meassurement::create([
+	        'device_id' => "3",
+            'data_id' => "1",
+            'value' => "1864",
+            'created_at' => '2020-02-07 09:00:30'
+        ]);
+        Meassurement::create([
+	        'device_id' => "3",
+            'data_id' => "1",
+            'value' => "1882",
+            'created_at' => '2020-02-07 09:02:00'
+        ]);
+
+        Meassurement::create([
+	        'device_id' => "3",
+            'data_id' => "2",
+            'value' => "6",
+            'created_at' => '2020-02-07 08:59:00'
+        ]);
+        Meassurement::create([
+	        'device_id' => "3",
+            'data_id' => "2",
+            'value' => "8",
+            'created_at' => '2020-02-07 09:00:30'
+        ]);
+        Meassurement::create([
+	        'device_id' => "3",
+            'data_id' => "2",
+            'value' => "6",
+            'created_at' => '2020-02-07 09:02:00'
+        ]);
+
+        Meassurement::create([
+	        'device_id' => "3",
+            'data_id' => "4",
+            'value' => "94",
+            'created_at' => '2020-02-07 08:59:00'
+        ]);
+        Meassurement::create([
+	        'device_id' => "3",
+            'data_id' => "4",
+            'value' => "108",
+            'created_at' => '2020-02-07 09:00:30'
+        ]);
+        Meassurement::create([
+	        'device_id' => "3",
+            'data_id' => "4",
+            'value' => "102",
+            'created_at' => '2020-02-07 09:02:00'
         ]);
     }
 }
