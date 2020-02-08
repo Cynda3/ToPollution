@@ -160,7 +160,7 @@
                   </div>
                   <div>
                     <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">You should pay the cocaine, second advice!</span>
+                    <span class="font-weight-bold">Don't forget to take a jacket, it's cold outside!</span>
                   </div>
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -171,7 +171,7 @@
                   </div>
                   <div>
                     <div class="small text-gray-500">December 7, 2019</div>
-                    $290.29 has been donated to Mia Khalifa!
+                    Laravel update, take a moment to see it!
                   </div>
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -182,7 +182,7 @@
                   </div>
                   <div>
                     <div class="small text-gray-500">December 2, 2019</div>
-                    I don't want to get mad, pay de cocaine, first advice.
+                    A custom mensaje por alerts in Laravel 6.
                   </div>
                 </a>
                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
