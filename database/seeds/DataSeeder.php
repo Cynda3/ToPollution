@@ -28,5 +28,9 @@ class DataSeeder extends Seeder
 	        'name' => "Decibelios",
 	        'description' => "Ruido"
         ]);
+        Data::insert([
+	        'name' => "Bateria",
+	        'description' => "Cuanta bateria queda"
+        ]);
     }
 }

@@ -37,7 +37,7 @@
                                 @lang('navMenu.sensprivate')
                             </label>
                         </div><br>
-                        <button>@lang('navMenu.sensenviar')</button>
+                        <button class="btn btn-success">@lang('navMenu.sensenviar')</button>
                     </form>
                 </div>
             </div>

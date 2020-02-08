@@ -38,7 +38,7 @@
         </div>
         <!--/col-3-->
 
-        <div class="col-9">
+        <div class="col-9 mb-5">
             <div class="card" style="box-shadow: 5px 10px">
                 <div class="card-header py-3">
                     <div class="row my-4">

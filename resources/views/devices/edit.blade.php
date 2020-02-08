@@ -6,19 +6,19 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-4">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Update your sensor name</div>
+                <div class="card-header">@lang('navMenu.devupdatename')</div>
                 <div class="card-body">
 
                     <form action="{{route('devices.update', $device->id)}}" method="post">
                         @csrf
                         @method('PUT')
-                        <label for="id"> Device Id:</label> <input type="text" class="form-control"
+                        <label for="id">@lang('navMenu.devid')</label> <input type="text" class="form-control"
                         placeholder="{{$device->id}}" name="id" value="{{ old('id') }}" readonly><br>
 
-                        <label for="name"> New Name:</label> <input type="text" class="form-control"
+                        <label for="name">@lang('navMenu.deveditname')</label> <input type="text" class="form-control"
                             placeholder="{{$device->name}}" name="name" value="{{ old('name') }}">
                         @error('name')
                         <span class="text-danger" role="alert">
@@ -30,15 +30,15 @@
                         <div>
                             <label>
                                 <input type="radio" class="option-input radio" name="public" value="1" requred/>
-                              Publico
+                                @lang('navMenu.deveditpublic')
                             </label>
                             <label>
                                 <input type="radio" class="option-input radio" name="public" value="0"/>
-                              Privado
+                                @lang('navMenu.deveditprivate')
                             </label>
                         </div><br>
                         <!-- End hyper mega button -->
-                        <button>Send</button>
+                        <button class="btn btn-success">@lang('navMenu.deveditsend')</button>
                     </form>
                 </div>
             </div>
