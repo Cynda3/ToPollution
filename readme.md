@@ -72,8 +72,10 @@ MAIL_ENCRYPTION=tls
 
 ## Usuarios
 
-- **Admin** - antonio@topollution.com -> contraseña: patata.
-- **User** - fernando@topollution.com -> contraseña: patata.
+- **Admin**<br>
+antonio@topollution.com -> contraseña: patata.
+- **User**<br>
+fernando@topollution.com -> contraseña: patata.
 
 ## Despliegue 📦
 
@@ -91,8 +93,8 @@ Hemos realizado el despliegue en heroku: [ToPollution](https://topollution.herok
 
 * **Ander Gonzalez** - *Jefe* - [Cynda3](https://github.com/Cynda3)
 * **Adrián Gómez** - *Cojefe* - [agomezdo18dw](https://github.com/agomezdo18dw)
-* **Asier Fernandez** - *Diseño* - [esimonor](https://github.com/esimonor)
-* **Jon Imanol Pinto** - *Base de datos* - [AitorOrtizdeZarate](https://github.com/AitorOrtizdeZarate)
+* **Asier Fernandez** - *Diseño* - [AsiFernandez](https://github.com/AsiFernandez)
+* **Jon Imanol Pinto** - *Base de datos* - [ScarletRyu](https://github.com/ScarletRyu)
 
 También puedes mirar la lista de todos los [contribuyentes](https://github.com/Cynda3/ToPollution/graphs/contributors) quíenes han participado en este proyecto. 
 
