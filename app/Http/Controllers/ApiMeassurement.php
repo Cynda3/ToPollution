@@ -80,7 +80,7 @@ class ApiMeassurement extends Controller
 
             // Bateria
             $batery = new Meassurement;
-            $batery->value = $request->bateria;
+            $batery->value = intval($request->bateria); //Cambiar cuando arreglemos lo de la bateria --> abajo poner que escribe el value de batery
             $batery->device_id = $request->device_id;
             $batery->latitude = $request->latitud;
             $batery->longitude = $request->longitud;
@@ -108,7 +108,7 @@ class ApiMeassurement extends Controller
                 'co2' => $co2->value,
                 'co' => $co->value,
                 'decibel' => $decibel->value,
-                'batery' => $batery->value,
+                'batery' => $request->bateria,//$batery->value,
                 'latitud' => $request->latitud,
                 'longitud' => $request->longitud,
                 'net' => $request->net,
@@ -189,7 +189,7 @@ class ApiMeassurement extends Controller
 
             // Bateria
             $batery = new Meassurement;
-            $batery->value = $request->bateria;
+            $batery->value = intval($request->bateria);
             $batery->device_id = $request->device_id;
             $batery->latitude = $request->latitud;
             $batery->longitude = $request->longitud;
