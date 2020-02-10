@@ -1,12 +1,12 @@
-# Esturi
+# ToPollution
 
-Esturi es una web para encontrar tu establecimiento favorito en la ciudad que te encuentres, o en caso de ser dueño de un establecimiento para darlo a conocer
+ToPollution es una pagina en la que podremos ver la contaminacion de nuestro alrededor gracias a unos dispositivos creados por unos compañeros del colegio de Don Bosco, podras registrar tus dispositivos y recibir sus mediciones, despues nuestra pagina las mostrara y te dira si es una contaminacion excesiva o normal mediante graficos y un mapa.
 
 ## Comenzando 🚀
 
-Clona [Esturi](https://github.com/agomezdo18dw/esturi) en local y sigue los pasos de **Pre-requisitos** e **Insitalacion** para tener una copia funciona del proyecto en local
+Clona [ToPollution](https://github.com/Cynda3/ToPollution) en local y sigue los pasos de **Pre-requisitos** e **Insitalacion** para tener una copia funciona del proyecto en local
 ```
-git clone https://github.com/agomezdo18dw/esturi.git
+git clone https://github.com/Cynda3/ToPollution.git
 ```
 
 ### Pre-requisitos 📋
@@ -77,7 +77,7 @@ MAIL_ENCRYPTION=tls
 
 ## Despliegue 📦
 
-Hemos realizado el despliegue en heroku: [topollution](https://topollution.herokuapp.com/)
+Hemos realizado el despliegue en heroku: [ToPollution](https://topollution.herokuapp.com/)
 
 ## Construido con 🛠️
 
