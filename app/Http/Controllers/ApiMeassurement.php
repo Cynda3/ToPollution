@@ -108,7 +108,7 @@ class ApiMeassurement extends Controller
                 'co2' => $co2->value,
                 'co' => $co->value,
                 'decibel' => $decibel->value,
-                'batery' => $request->bateria,//$batery->value,
+                //'batery' => $request->bateria,//$batery->value,
                 'latitud' => $request->latitud,
                 'longitud' => $request->longitud,
                 'net' => $request->net,
