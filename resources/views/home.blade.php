@@ -37,8 +37,8 @@
     marker_actual.bindPopup('<b>Hola </b><br>Tu estas aqui').openPopup();
     map.setView([browserLat,browserLong], 18);  
     
-    console.log(browserLat);
-    console.log(browserLong);
+    // console.log(browserLat);
+    // console.log(browserLong);
 }, function(err) {
     console.error(err);
 });
@@ -46,7 +46,7 @@
     @foreach ($devices as $device)
         @can('view', $device)
             var marker = L.marker([ {{ $device->latitude }}, {{ $device->longitude }} ]).addTo(map);
-    
+            
     
 
             var circle = L.circle([ {{ $device->latitude }}, {{ $device->longitude }} ], {
