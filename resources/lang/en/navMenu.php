@@ -11,6 +11,7 @@ return [
     'language' => 'Language',
     'spanish' => 'Spanish',
     'english' => 'English',
+    'tienda' => 'Shop',
     'login' => 'Login',
     'profile' => 'Perfil',
     'register' => 'Register',

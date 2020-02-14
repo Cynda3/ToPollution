@@ -50,24 +50,21 @@
                 <ul class="navbar-nav ml-auto ">
                     <li class="nav-item ">
                         <a class="nav-link text-dark" href="{{route('home')}}">
-                        @lang('navMenu.mapas')
+                            @lang('navMenu.mapas')
                         </a>
-
-                        @if(Auth::user())
-  
-
+                    </li>
+                    @if(Auth::user())
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="{{route('devices.index')}}">
-                        @lang('navMenu.dGlobales')
+                            @lang('navMenu.dGlobales')
                         </a>
-                        
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="{{route('users.index', Auth::user()->id)}}">
-                        @lang('navMenu.misDisp')
+                            @lang('navMenu.misDisp')
                         </a>
                     </li>
                     @endif
-
 
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark" href="#" role="button"
@@ -76,12 +73,17 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right text-dark" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ url('locale/en') }}">
-                            @lang('navMenu.english')
+                                @lang('navMenu.english')
                             </a>
-                            <a class="dropdown-item text-dark" href="{{ url('locale/es') }}"> 
+                            <a class="dropdown-item text-dark" href="{{ url('locale/es') }}">
                                 @lang('navMenu.spanish')
                             </a>
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="{{route('shop')}}">
+                            @lang('navMenu.tienda')
+                        </a>
                     </li>
                     @if(Auth::user())
                     <li class="nav-item dropdown">
@@ -90,7 +92,8 @@
                             {{Auth::user()->name}}
                         </a>
                         <div class="dropdown-menu text-dark" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{route('users.show', Auth::user()->id)}}">@lang('navMenu.profile')</a>
+                            <a class="dropdown-item"
+                                href="{{route('users.show', Auth::user()->id)}}">@lang('navMenu.profile')</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item " href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>

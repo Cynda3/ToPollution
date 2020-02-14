@@ -74,6 +74,11 @@
               </a>
             </div>
           </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger px-0 px-lg-3" href="{{route('shop')}}">
+                @lang('navMenu.tienda')
+            </a>
+          </li>
           @if(Auth::user())
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -210,7 +215,7 @@
         </div>
       </div>
 
-      
+
 
     </div>
   </section>

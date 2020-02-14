@@ -56,3 +56,8 @@ Route::get('/device/{id}', 'DeviceController@show')->middleware('auth', 'device:
 
 
 //Route::get('/device/{id}', 'ApiMeasurement@show');
+
+//Shop
+Route::get('/shop', function () {
+    return view('shop');
+})->name('shop');
