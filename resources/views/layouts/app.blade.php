@@ -124,7 +124,7 @@
     @yield('content')
 
     <!-- Footer -->
-    <footer class="bg-black small text-center text-white-50 footer">
+    <footer class="bg-black small text-center text-white-50 footer mt-5">
         <div class="container">
             Copyright &copy; ToPollution <script>
                 document.write(new Date().getFullYear());
