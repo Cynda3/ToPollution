@@ -43,7 +43,7 @@
       shadowSize: [41, 41]
     });
     L.marker([browserLat,browserLong], {icon: iconPersona}).addTo(map)
-    iconPersona.bindPopup('<b>Hola </b><br>Tu estas aqui').openPopup();
+    marker.bindPopup('<b>Hola </b><br>Tu estas aqui').openPopup();
     map.setView([browserLat,browserLong], 18);  
     
     // console.log(browserLat);
