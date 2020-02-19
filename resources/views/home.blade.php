@@ -35,14 +35,15 @@
     
     //marker_actual = L.marker([browserLat,browserLong]).addTo(map);
     var iconPersona = L.icon({
-      iconUrl: "/images/iconoPersona.png",
-
-      iconSize:     [38, 95], // size of the icon
-      iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-      popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+      iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png',
+      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
     });
     L.marker([browserLat,browserLong], {icon: iconPersona}).addTo(map)
-    marker_actual.bindPopup('<b>Hola </b><br>Tu estas aqui').openPopup();
+    iconPersona.bindPopup('<b>Hola </b><br>Tu estas aqui').openPopup();
     map.setView([browserLat,browserLong], 18);  
     
     // console.log(browserLat);
