@@ -19,7 +19,7 @@ class UserAdminSeeder extends Seeder
             'age' => "20",
             'biography' => "Estudiante de grado superior de desarrollo de aplicaciones web",
             'country' => "Japan",
-	        'avatar' => "/images/p4.png",
+	        'avatar' => "/images/profileIcon.jpg",
 	        'email_verified_at' => now(),
 	        'password' => bcrypt('patata'), // password
 	        'remember_token' => Str::random(10),
@@ -33,7 +33,7 @@ class UserAdminSeeder extends Seeder
             'age' => "10",
             'biography' => "Niño curioso",
             'country' => "China",
-	        'avatar' => "/images/p4.png",
+	        'avatar' => "/images/profileIcon.jpg",
 	        'email_verified_at' => now(),
 	        'password' => bcrypt('patata'), // password
 	        'remember_token' => Str::random(10),
@@ -47,7 +47,7 @@ class UserAdminSeeder extends Seeder
             'age' => "20",
             'biography' => "Estudiante de grado superior",
             'country' => "Spain",
-	        'avatar' => "/images/p4.png",
+	        'avatar' => "/images/donbosco.jpeg",
 	        'email_verified_at' => now(),
 	        'password' => bcrypt('secret'), // password
 	        'remember_token' => Str::random(10),

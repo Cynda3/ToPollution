@@ -102,14 +102,14 @@ return [
 
     /* Edit Profile */
     'editprofile' => 'You can edit your profile here',
-    'newname' => 'New Name:',
-    'newlastname' => 'New Last Name:',
-    'newage' => 'New Age:',
-    'newbiography' => 'New Biography: ',
-    'newcity' => 'New City',
+    'name' => 'Name',
+    'lastname' => 'Last Name',
+    'age' => 'Age',
+    'biography' => 'Biography ',
     'city' => 'City',
-    'newpassword' => 'New Password:',
-    'newconfpassword' => 'Confirm Password',
+    'password' => 'Password',
+    'confpassword' => 'Confirm Password',
+    'editDatos' => 'Change info',
 
     /* Create Device */
     'createnewsens' => 'Create a new sensor',

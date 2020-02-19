@@ -64,7 +64,7 @@ class UserController extends Controller
         // Actualizo cada parametro del usuario
         $user->name = $request->name;
         $user->email = $request->email;
-
+        $user->avatar = "/images/profileIcon.jpg";
         // Guardo los cambios
         $user->save();
 

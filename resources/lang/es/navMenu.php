@@ -101,14 +101,14 @@ return [
 
     /* Edit Profile */
     'editprofile' => 'Aqui puedes modificar tu perfil',
-    'newname' => 'Nuevo Nombre:',
-    'newlastname' => 'Nuevo Apellido:',
-    'newage' => 'Nueva Edad:',
-    'newbiography' => 'Nueva Biografía:',
-    'newcity' => 'Nueva Ciudad:',
+    'name' => 'Nombre',
+    'lastname' => 'Apellido',
+    'age' => 'Edad',
+    'biography' => 'Biografía',
     'city' => 'Ciudad',
-    'newpassword' => 'Nueva Contraseña:',
-    'newconfpassword' => 'Confirmar Contraseña:',
+    'password' => 'Contraseña',
+    'confpassword' => 'Confirmar Contraseña',
+    'editDatos' => 'Editar datos',
 
     /* Create device*/
     'createnewsens' => 'Añadir nuevo sensor',
