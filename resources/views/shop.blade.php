@@ -6,17 +6,17 @@
         <div class="card">
             <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
-            <h5 class="card-title"><b>Dispositivo LoRa</b></h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <button type="button" class="btn btn-success btn-block">Success</button>
+                <h5 class="card-title"><b>Dispositivo LoRa</b></h5>
+                <p class="card-text">Dispositivo que funciona mediante el medio de comunicacion LoRa</p>
+                <button type="button" class="btn btn-success btn-block">Comprar</button>
             </div>
         </div>
         <div class="card">
             <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
-            <h5 class="card-title"><b>Dispositivo SIM808</b></h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <button type="button" class="btn btn-success btn-block">Comprar</button>
+                <h5 class="card-title"><b>Dispositivo SIM808</b></h5>
+                <p class="card-text">Dispositivo que funciona mediante el medio de comunicacion SIM808</p>
+                <button type="button" class="btn btn-success btn-block">Comprar</button>
             </div>
         </div>
     </div>
@@ -24,17 +24,17 @@
         <div class="card">
             <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
-            <h5 class="card-title"><b>Kit de montaje LoRa</b></h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <button type="button" class="btn btn-success btn-block">Success</button>
+                <h5 class="card-title"><b>Kit de montaje LoRa</b></h5>
+                <p class="card-text">Kit de montaje para crear tu propio dispositivo con el medio de comunicacion LoRa</p>
+                <button type="button" class="btn btn-success btn-block">Comprar</button>
             </div>
         </div>
         <div class="card">
             <img class="card-img-top" src="..." alt="Card image cap">
             <div class="card-body">
-            <h5 class="card-title"><b>Kit de montaje SIM808</b></h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <button type="button" class="btn btn-success btn-block">Success</button>
+                <h5 class="card-title"><b>Kit de montaje SIM808</b></h5>
+                <p class="card-text">Kit de montaje para crear tu propio dispositivo con el medio de comunicacion SIM808</p>
+                <button type="button" class="btn btn-success btn-block">Comprar</button>
             </div>
         </div>
     </div>

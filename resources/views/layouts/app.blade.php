@@ -29,6 +29,11 @@
     @else
     @include('includes.modales.modalInicioSesion')
     @include('includes.modales.modalRegistro')
+    <!-- Register validation-->
+    <script src="{{ URL::asset('/js/validacion.js') }}"></script>
+
+    <!-- Custom styles for buttons -->
+    <link href="{{ URL::asset('css/botones.css') }}" rel="stylesheet">
     @endif
     @yield('head')
 
@@ -105,13 +110,13 @@
                     @else
                     <li class="nav-item">
                         <button type="button" class="btn btn-success p-2 mt-3 mt-lg-4 ml-lg-2" data-toggle="modal"
-                            data-target="#ModalLoginForm">
+                            data-target="#inicioSesionModal">
                             @lang('navMenu.login')
                         </button>
                     </li>
                     <li class="nav-item">
                         <button type="button" class="btn btn-success p-2 mt-3 mt-lg-4 mb-3 mb-lg-0 ml-lg-3"
-                            data-toggle="modal" data-target="#ModalRegisterForm">
+                            data-toggle="modal" data-target="#registroModal">
                             @lang('navMenu.register')
                         </button>
                     </li>

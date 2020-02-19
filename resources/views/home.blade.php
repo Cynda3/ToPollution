@@ -33,7 +33,15 @@
     browserLong = position.coords.longitude;
  
     
-    marker_actual = L.marker([browserLat,browserLong]).addTo(map);
+    //marker_actual = L.marker([browserLat,browserLong]).addTo(map);
+    var iconPersona = L.icon({
+      iconUrl: "/img/iconoPersona.png",
+
+      iconSize:     [38, 95], // size of the icon
+      iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+      popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+    L.marker([browserLat,browserLong], {icon: iconPersona}).addTo(map)
     marker_actual.bindPopup('<b>Hola </b><br>Tu estas aqui').openPopup();
     map.setView([browserLat,browserLong], 18);  
     
@@ -47,8 +55,6 @@
         @can('view', $device)
             var marker = L.marker([ {{ $device->latitude }}, {{ $device->longitude }} ]).addTo(map);
             
-    
-
             var circle = L.circle([ {{ $device->latitude }}, {{ $device->longitude }} ], {
                 color: "{{$device->cont}}",
                 fillColor: "{{$device->cont}}",
