@@ -35,7 +35,7 @@
     
     //marker_actual = L.marker([browserLat,browserLong]).addTo(map);
     var iconPersona = L.icon({
-      iconUrl: "/img/iconoPersona.png",
+      iconUrl: "/images/iconoPersona.png",
 
       iconSize:     [38, 95], // size of the icon
       iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
