@@ -12,7 +12,7 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Banned Users</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Admin List</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -34,11 +34,11 @@
                       <td>{{$user->email}}</td>
                       <td>{{$user->role->name}}</td>
                       <td>
-                        <a href="{{route('/restore', $user->id)}}" class="btn btn-success btn-circle btn-sm">
-                          <i class="fas fa-check"></i>
+                        <a href="{{route('adminShow', $user->id)}}" class="btn btn-info btn-circle btn-sm">
+                          <i class="fas fa-info"></i>
                         </a>
-                        <a href="{{route('/ban', $user->id)}}" class="btn btn-danger btn-circle btn-sm">
-                          <i class="fas fa-trash"></i>
+                        <a href="{{route('/ban', $user->id)}}" class="btn btn-warning btn-circle btn-sm">
+                          <i class="fas fa-exclamation-triangle"></i>
                         </a>
                       </td>
                     </tr>

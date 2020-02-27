@@ -233,7 +233,7 @@
           @csrf
           <div class="form-group">
             <label for="exampleFormControlInput1">@lang('navMenu.name')</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Asier" name="name">
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name" name="name">
           </div>
           <div class="form-group">
             <label for="exampleFormControlInput1">@lang('navMenu.subject')</label>

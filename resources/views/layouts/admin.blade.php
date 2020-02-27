@@ -79,6 +79,13 @@
         </div>
       </li>
 
+      <!-- Nav Item - Admin User List -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('listUsersAdmins')}}">
+          <i class="fas fa-fw fa-users-cog"></i>
+          <span>Administrators</span></a>
+      </li>
+
       <!-- Nav Item - User List -->
       <li class="nav-item">
         <a class="nav-link" href="{{route('listUsers')}}">
@@ -91,6 +98,30 @@
         <a class="nav-link" href="{{route('bannedUsers')}}">
           <i class="fas fa-fw fa-ban"></i>
           <span>Banneds</span></a>
+      </li>
+
+
+
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Devices
+      </div>
+      <!-- Nav Item - Banned List -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('listDevicesOn')}}">
+          <i class="fas fa-fw fa-broadcast-tower"></i>
+          <span>On line</span></a>
+      </li>
+
+      <!-- Nav Item - Banned List -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('listDevicesOff')}}">
+          <i class="fas fa-broadcast-tower"></i>
+          <span>Off line</span></a>
       </li>
 
       <!-- Divider -->
@@ -106,7 +137,6 @@
           <i class="fas fa-fw fa-sms"></i>
           <span>Messages</span></a>
       </li>
-
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -262,7 +292,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; ToPollution 2019</span>
+            <span>Copyright &copy; ToPollution 2020</span>
           </div>
         </div>
       </footer>

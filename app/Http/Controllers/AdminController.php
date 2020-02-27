@@ -21,8 +21,9 @@ class AdminController extends Controller
         $devices = Device::all();
         $messages = Contact::orderBy('created_at', 'desc')->get();
         $users = User::all();
+        $meassurements = Meassurement::all();
 
-        return view('admin.index')->with(['users' => $users, 'devices' => $devices, 'messages' => $messages]);
+        return view('admin.index')->with(['users' => $users, 'devices' => $devices, 'messages' => $messages, 'meassurements' => $meassurements]);
     }
 
     /**
@@ -33,11 +34,16 @@ class AdminController extends Controller
     public function listUsers()
     {
         $messages = Contact::orderBy('created_at', 'desc')->get();
-        $users = User::all();
+        $users = User::where('role_id','<>',2)->get();
         return view('admin.userlist')->with(['users' => $users, 'messages' => $messages]);
     }
 
-
+    public function listUsersAdmins()
+    {
+        $messages = Contact::orderBy('created_at', 'desc')->get();
+        $users = User::where('role_id','=',2)->get();
+        return view('admin.userlistadmin')->with(['users' => $users, 'messages' => $messages]);
+    }
 
     public function bannedUsers()
     {
@@ -247,4 +253,19 @@ class AdminController extends Controller
 
         return view('admin.messagelist')->with(['messages' => $messages]);
     }
+
+
+    public function listDevicesOn()
+    {
+        $messages = Contact::orderBy('created_at', 'desc')->get();
+        $devices = Device::all();
+        return view('admin.devices')->with(['devices' => $devices, 'messages' => $messages]);
+    }    
+
+    public function listDevicesOff()
+    {
+        $messages = Contact::orderBy('created_at', 'desc')->get();
+        $devices = Device::all();
+        return view('admin.devices')->with(['devices' => $devices, 'messages' => $messages]);
+    }  
 }

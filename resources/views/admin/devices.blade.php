@@ -6,39 +6,42 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Users</h1>
+            <h1 class="h3 mb-0 text-gray-800">Devices</h1>
           </div>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Banned Users</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Device List</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Id</th>
+                      <th>Serial Number</th>
                       <th>Name</th>
-                      <th>Email</th>
-                      <th>Role</th>
-                      <th>Delete</th>
+                      <th>Latitude</th>
+                      <th>Longitude</th>
+                      <th>Public/Private</th>
+                      <th>Owner</th>
+                      <th>Last data</th>
+                      <th>Show</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($users as $user)
+                    @foreach($devices as $device)
                     <tr>
-                      <td>{{$user->id}}</td>
-                      <td>{{$user->name}}</td>
-                      <td>{{$user->email}}</td>
-                      <td>{{$user->role->name}}</td>
+                      <td>{{$device->id}}</td>
+                      <td>{{$device->name}}</td>
+                      <td>{{$device->latitude}}</td>
+                      <td>{{$device->longitude}}</td>
+                      <td>{{ ($device->public) ? 'public' : 'private'}}</td>
+                      <td>{{$device->User->name}} {{$device->User->lastname}}</td>
+                      <td>{{$device->updated_at}}</td>
                       <td>
-                        <a href="{{route('/restore', $user->id)}}" class="btn btn-success btn-circle btn-sm">
-                          <i class="fas fa-check"></i>
-                        </a>
-                        <a href="{{route('/ban', $user->id)}}" class="btn btn-danger btn-circle btn-sm">
-                          <i class="fas fa-trash"></i>
+                        <a href="" class="btn btn-info btn-circle btn-sm">
+                          <i class="fas fa-eye"></i>
                         </a>
                       </td>
                     </tr>
