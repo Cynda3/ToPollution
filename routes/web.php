@@ -40,6 +40,8 @@ Route::get('/admin/usersadmins', 'AdminController@listUsersAdmins')->middleware(
 Route::get('/admin/messages', 'AdminController@listMessages')->middleware('auth', 'role:admin')->name('listMessages');
 Route::get('/admin/deviceson', 'AdminController@listDevicesOn')->middleware('auth', 'role:admin')->name('listDevicesOn');
 Route::get('/admin/devicesoff', 'AdminController@listDevicesOff')->middleware('auth', 'role:admin')->name('listDevicesOff');
+Route::get('/admin/create', 'AdminController@adminCreate')->middleware('auth', 'role:admin')->name('adminCreate');
+Route::post('/admin', 'AdminController@adminStore')->middleware('auth', 'role:admin')->name('adminStore');
 Route::get('/admin/restore/{id}', 'AdminController@restoreUser')->middleware('auth', 'role:admin')->name('/restore');
 Route::get('/admin/ban/{id}', 'AdminController@banUser')->middleware('auth', 'role:admin')->name('/ban');
 Route::get('/admin/delete/{id}', 'AdminController@destroyMessage')->middleware('auth', 'role:admin')->name('/deleteMessage');

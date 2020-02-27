@@ -268,4 +268,32 @@ class AdminController extends Controller
         $devices = Device::all();
         return view('admin.devices')->with(['devices' => $devices, 'messages' => $messages]);
     }  
+
+    public function admincreate()
+    {
+        $messages = Contact::all();
+        return view('admin.create')->with(['messages' => $messages]);
+    }
+
+    public function adminStore(Request $request)
+    {
+
+        $request->validate([
+            'name' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|email|unique:users',
+        ]);
+        $user = new User;
+        $user->name = $request->name;
+        $user->lastname = $request->lastname;
+        $user->email = $request->email;
+        $user->role_id=2;
+        $user->created_at=now();
+        $user->email_verified_at=now();
+        $user->password=bcrypt('secret');
+        
+        $user->save();
+
+        return redirect()->route('listUsersAdmins');
+    }    
 }
