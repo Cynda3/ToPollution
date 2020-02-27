@@ -8,6 +8,7 @@ use App\Device;
 use App\Meassurement;
 use Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Data;
 
 class UserController extends Controller
 {
@@ -95,7 +96,13 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('users.edit')->with('user', $user);
+        if($id == Auth::user()->id)
+        {
+            return view('users.edit')->with('user', $user);
+        }
+        else {
+            return redirect('home');
+        }
     }
 
     /**
@@ -113,8 +120,8 @@ class UserController extends Controller
             'lastname' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
             'age' => 'regex:/^[0-9]{0,2}$/m',
             'country' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
-            'biography' => 'regex:/^[A-Za-záéíóú0-9+ +\.]{0,150}$/m',
-            'password' => 'required|string|min:6|confirmed|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
+            //'biography' => 'regex:/^[A-Za-záéíóú0-9+ +\.]{0,150}$/m',
+            //'password' => 'required|string|min:6|confirmed|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
         ]);
 
         $messages = [
@@ -130,20 +137,49 @@ class UserController extends Controller
             'password.regex' => 'password must have minimun 6 chars including upper case'
         ];
 
-        //UPDATE
-        $user = User::find($id);
-        // Actualizo cada parametro del usuario
-        $user->name = $request->name;
-        $user->lastname = $request->lastname;
-        $user->age = $request->age;
-        $user->country = $request->country;
-        $user->biography = $request->biography;
-        $user->password = Hash::make($request->password);
+         // Image
 
+        $image = $request->avatar;
+        $image64 = base64_encode(file_get_contents($image));
+        $curl = curl_init();
 
+        $client_id = "ea6b6f70e1374d5";
 
-        // Guardo los cambios
-        $user->save();
+        $token = "e12ef67319da5de1c22ed6f4b3d813f46f0f07d4";
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.imgur.com/3/image",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => false,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => array("image" => $image64),
+            CURLOPT_HTTPHEADER => array("Authorization: Client-ID ". $client_id)
+        ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if($err){
+            echo "cURL Error #:" . $err;
+        }else{
+            $json = json_decode($response, true);
+            $user = User::find($id);
+
+            $user->name = $request->name;
+            $user->avatar = $json['data']['link'];
+            $user->lastname = $request->lastname;
+            $user->biography = $request->biography;
+            $user->age = $request->age;
+            $user->country = $request->country;
+            $user->password = Hash::make($request->password);
+
+            $user->save();
+        }
 
         return view('users.show')->with('user', $user);
    }
