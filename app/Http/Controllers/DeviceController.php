@@ -109,7 +109,14 @@ class DeviceController extends Controller
     public function edit($id)
     {
         $device = Device::find($id);
-        return view('devices.edit')->with('device', $device);
+        if($device->user_id == Auth::user()->id)
+        {
+            return view('devices.edit')->with('device', $device);
+        }
+        else {
+            return redirect('home');
+        }
+        
     }
 
     /**
