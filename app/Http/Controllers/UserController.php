@@ -121,7 +121,7 @@ class UserController extends Controller
             'age' => 'regex:/^[0-9]{0,2}$/m',
             'country' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
             //'biography' => 'regex:/^[A-Za-záéíóú0-9+ +\.]{0,150}$/m',
-            //'password' => 'required|string|min:6|confirmed|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
+            'password' => 'required|string|min:6|confirmed|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
         ]);
 
         $messages = [
