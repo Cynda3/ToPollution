@@ -127,4 +127,16 @@ return [
     'deveditprivate' => 'Private',
     'deveditsend' => 'Send',
 
+    /* Tienda */
+    'comprar' => 'Buy',
+    'Lora' => 'LoRa device',
+    'lora' => 'Device that works through the LoRa communication medium',
+    'Lorakit' => 'LoRa assembly kit',
+    'lorakit' => 'Assembly kit to create your own device with the LoRa communication medium',
+    'Sim' => 'SIM808 device',
+    'sim' => 'Device that works through the SIM808 communication medium',
+    'Simkit' => 'SIM808 assembly kit',
+    'simkit' => 'Assembly kit to create your own device with the SIM808 communication medium',
+
+
 ];

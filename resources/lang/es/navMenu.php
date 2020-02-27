@@ -125,4 +125,15 @@ return [
     'deveditpublic' => 'Publico',
     'deveditprivate' => 'Privado',
     'deveditsend' => 'Enviar',
+
+    /* Tienda */
+    'comprar' => 'Comprar',
+    'Lora' => 'Dispositivo LoRa',
+    'lora' => 'Dispositivo que funciona mediante el medio de comunicacion LoRa',
+    'Lorakit' => 'Kit de montaje LoRa',
+    'lorakit' => 'Kit de montaje para crear tu propio dispositivo con el medio de comunicacion LoRa',
+    'Sim' => 'Dispositivo SIM808',
+    'sim' => 'Dispositivo que funciona mediante el medio de comunicacion SIM808',
+    'Simkit' => 'Kit de montaje SIM808',
+    'simkit' => 'Kit de montaje para crear tu propio dispositivo con el medio de comunicacion SIM808',
 ];
