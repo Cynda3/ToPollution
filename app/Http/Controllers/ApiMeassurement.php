@@ -99,9 +99,8 @@ class ApiMeassurement extends Controller
             $device->latitude = $request->latitud;
             $device->longitude = $request->longitud;
             $device->user_id = $device->user_id;
-
             $device->save();
-
+            $device->touch();
 
             $response = [
                 'device' => $device->name,

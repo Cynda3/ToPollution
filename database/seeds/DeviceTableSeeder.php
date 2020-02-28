@@ -18,7 +18,8 @@ class DeviceTableSeeder extends Seeder
             'latitude' => 43.327363,
             'longitude' => -1.970753,
             'net' => 'lora',
-            'user_id' => 3
+            'user_id' => 3,
+            'created_at' => now(),
         ]);
 
         Device::insert([
@@ -27,7 +28,8 @@ class DeviceTableSeeder extends Seeder
             'latitude' => 43.324959, 
             'longitude' => -1.988826,
             'net' => 'lora',
-            'user_id' => 3
+            'user_id' => 3,
+            'created_at' => now(),
         ]);
 
         Device::insert([
@@ -36,7 +38,8 @@ class DeviceTableSeeder extends Seeder
             'latitude' => 43.32154,
             'longitude' => -1.999147,
             'net' => 'lora',
-            'user_id' => 1
+            'user_id' => 1,
+            'created_at' => now(),
         ]);
 
         Device::insert([
@@ -45,7 +48,8 @@ class DeviceTableSeeder extends Seeder
             'latitude' => 43.316779,
             'longitude' => -1.981573,
             'net' => 'lora',
-            'user_id' => 2
+            'user_id' => 2,
+            'created_at' => now(),
         ]);
 
         Device::insert([
@@ -55,7 +59,8 @@ class DeviceTableSeeder extends Seeder
             'longitude' => -1.913627,
             'public' => false,
             'net' => 'lora',
-            'user_id' => 3
+            'user_id' => 3,
+            'created_at' => now(),
         ]);
     }
 }

@@ -22,8 +22,8 @@ class AdminController extends Controller
         $messages = Contact::orderBy('created_at', 'desc')->get();
         $users = User::all();
         $meassurements = Meassurement::all();
-
-        return view('admin.index')->with(['users' => $users, 'devices' => $devices, 'messages' => $messages, 'meassurements' => $meassurements]);
+        $nMessages = $messages->count();
+        return view('admin.index')->with(['users' => $users, 'devices' => $devices, 'messages' => $messages, 'meassurements' => $meassurements, 'nMessages' => $nMessages]);
     }
 
     /**
@@ -35,21 +35,24 @@ class AdminController extends Controller
     {
         $messages = Contact::orderBy('created_at', 'desc')->get();
         $users = User::where('role_id','<>',2)->get();
-        return view('admin.userlist')->with(['users' => $users, 'messages' => $messages]);
+        $nMessages = $messages->count();
+        return view('admin.userlist')->with(['users' => $users, 'messages' => $messages, 'nMessages' => $nMessages]);
     }
 
     public function listUsersAdmins()
     {
         $messages = Contact::orderBy('created_at', 'desc')->get();
         $users = User::where('role_id','=',2)->get();
-        return view('admin.userlistadmin')->with(['users' => $users, 'messages' => $messages]);
+        $nMessages = $messages->count();
+        return view('admin.userlistadmin')->with(['users' => $users, 'messages' => $messages, 'nMessages' => $nMessages]);
     }
 
     public function bannedUsers()
     {
         $messages = Contact::orderBy('created_at', 'desc')->get();
+        $nMessages = $messages->count();
         $users = User::onlyTrashed()->get();
-        return view('admin.bannedlist')->with(['users' => $users, 'messages' => $messages]);
+        return view('admin.bannedlist')->with(['users' => $users, 'messages' => $messages, 'nMessages' => $nMessages]);
     }
 
 
@@ -57,15 +60,16 @@ class AdminController extends Controller
     {
         $messages = Contact::orderBy('created_at', 'desc')->get();
         $userToBan = User::withTrashed()->find($id);
+        $nMessages = $messages->count();
         if ($userToBan->deleted_at != NULL) {
             $userToBan->forceDelete();
             $bannedUsers = User::onlyTrashed()->get();
-            return view('admin.bannedlist')->with(['users' => $bannedUsers, 'messages' => $messages]);
+            return view('admin.bannedlist')->with(['users' => $bannedUsers, 'messages' => $messages, 'nMessages' => $nMessages]);
         }
         else{
             User::where('id', $id)->delete();
             $users = User::all();
-            return view('admin.userlist')->with(['users' => $users, 'messages' => $messages]);
+            return view('admin.userlist')->with(['users' => $users, 'messages' => $messages, 'nMessages' => $nMessages]);
         }
     }
 
@@ -75,7 +79,8 @@ class AdminController extends Controller
         $messages = Contact::orderBy('created_at', 'desc')->get();
         $user_recuperado = User::onlyTrashed()->find($id)->restore();
         $users = User::onlyTrashed()->get();
-        return view('admin.bannedlist')->with(['users' => $users, 'messages' => $messages]);
+        $nMessages = $messages->count();
+        return view('admin.bannedlist')->with(['users' => $users, 'messages' => $messages, 'nMessages' => $nMessages]);
     }
 
 
@@ -110,9 +115,9 @@ class AdminController extends Controller
     public function show($id)
     {
         $messages = Contact::orderBy('created_at', 'desc')->get();
-        
+        $nMessages = $messages->count();
         $user = User::find($id);
-        return view('admin.profile')->with(['user'=> $user, 'messages' => $messages]);
+        return view('admin.profile')->with(['user'=> $user, 'messages' => $messages, 'nMessages' => $nMessages]);
     }
 
     /**
@@ -124,8 +129,9 @@ class AdminController extends Controller
     public function edit($id)
     {
         $messages = Contact::orderBy('created_at', 'desc')->get();
+        $nMessages = $messages->count();
         $user = User::find($id);
-        return view('admin.edit')->with(['user' => $user, 'messages' => $messages]);
+        return view('admin.edit')->with(['user' => $user, 'messages' => $messages, 'nMessages' => $nMessages]);
     }
 
     /**
@@ -138,7 +144,7 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         $messages = Contact::orderBy('created_at', 'desc')->get();
-
+        $nMessages = $messages->count();
         $request->validate([
             'avatar' => 'required',
             'name' => 'required|regex:/^[A-Za-záéíóú+ +]{1,20}$/m',
@@ -209,7 +215,7 @@ class AdminController extends Controller
 
 
 
-        return view('admin.profile')->with(['user' => $user, 'errMessages' => $errMessages, 'messages' => $messages]);
+        return view('admin.profile')->with(['user' => $user, 'errMessages' => $errMessages, 'messages' => $messages, 'nMessages' => $nMessages]);
     }
 
     /**
@@ -235,44 +241,54 @@ class AdminController extends Controller
 
     public function listMessages()
     {
-        $messages = Contact::all();
-        return view('admin.messagelist')->with(['messages' => $messages]);
+        $messages = Contact::orderBy('created_at', 'desc')->get();
+        $nMessages = $messages->count();
+        return view('admin.messagelist')->with(['messages' => $messages, 'nMessages' => $nMessages]);
     }
 
     public function showMessage($id)
     {
         $message = Contact::find($id);
-        return view('admin.message')->with(['message' => $message]);
+        $messages = Contact::orderBy('created_at', 'desc')->get();
+        $nMessages = $messages->count();
+        return view('admin.message')->with(['messages' => $messages, 'message' => $message, 'nMessages' => $nMessages]);
     }
 
     public function destroyMessage($id)
     {
         $message = Contact::destroy($id);
 
-        $messages = Contact::all();
+        $messages = Contact::orderBy('created_at', 'desc')->get();
+        $nMessages = $messages->count();
 
-        return view('admin.messagelist')->with(['messages' => $messages]);
+        return view('admin.messagelist')->with(['messages' => $messages, 'nMessages' => $nMessages]);
     }
 
 
     public function listDevicesOn()
     {
+        $name = 'On';
         $messages = Contact::orderBy('created_at', 'desc')->get();
-        $devices = Device::all();
-        return view('admin.devices')->with(['devices' => $devices, 'messages' => $messages]);
+        $nMessages = $messages->count();
+        $devices = Device::whereNotNull('updated_at')->get();
+        return view('admin.devices')->with(['devices' => $devices, 'messages' => $messages, 'nMessages' => $nMessages, 'name' => $name]);
     }    
 
     public function listDevicesOff()
     {
+        $name = 'Off';
         $messages = Contact::orderBy('created_at', 'desc')->get();
-        $devices = Device::all();
-        return view('admin.devices')->with(['devices' => $devices, 'messages' => $messages]);
+        $nMessages = $messages->count();
+        $lastData = '-';
+        $devices = Device::whereNull('updated_at')->get();
+        return view('admin.devices')->with(['devices' => $devices, 'messages' => $messages, 'nMessages' => $nMessages, 'name' => $name, 'lastData' => $lastData]);
     }  
 
     public function admincreate()
     {
-        $messages = Contact::all();
-        return view('admin.create')->with(['messages' => $messages]);
+        $messages = Contact::orderBy('created_at', 'desc')->get();
+        $nMessages = $messages->count();
+        return view('admin.create')->with(['messages' => $messages, 'nMessages' => $nMessages]);
     }
 
     public function adminStore(Request $request)
@@ -282,15 +298,16 @@ class AdminController extends Controller
             'name' => 'required',
             'lastname' => 'required',
             'email' => 'required|email|unique:users',
+            'password' => 'required|confirmed'
         ]);
         $user = new User;
         $user->name = $request->name;
         $user->lastname = $request->lastname;
         $user->email = $request->email;
-        $user->role_id=2;
-        $user->created_at=now();
-        $user->email_verified_at=now();
-        $user->password=bcrypt('secret');
+        $user->role_id = 2;
+        $user->created_at = now();
+        $user->email_verified_at = now();
+        $user->password = bcrypt($request->password);
         
         $user->save();
 

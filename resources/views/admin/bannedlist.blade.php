@@ -1,4 +1,7 @@
 @extends('layouts.admin')
+@section('messages')
+{{$nMessages}}
+@endsection
 @section('content')
 
         <!-- Begin Page Content -->

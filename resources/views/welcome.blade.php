@@ -9,6 +9,7 @@
   <meta name="author" content="">
 
   <title>ToPollution</title>
+  <link rel="icon" type="image/png" href="{{ URL::asset('/images/favIcon.png') }}" />
 
   <!-- Jquery -->
   <script src="{{ URL::asset('/necessary/jquery/jquery.min.js') }}"></script>
@@ -76,7 +77,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger px-0 px-lg-3" href="{{route('shop')}}">
-                @lang('navMenu.tienda')
+              @lang('navMenu.tienda')
             </a>
           </li>
           @if(Auth::user())
@@ -86,6 +87,9 @@
               {{Auth::user()->name}}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              @if(Auth::user()->role_id == "2")
+              <a class="dropdown-item" href="{{route('admin')}}">Admin menu</a>
+              @endif
               <a class="dropdown-item" href="{{route('users.show', Auth::user()->id)}}">@lang('navMenu.profile')</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{{ route('logout') }}"
