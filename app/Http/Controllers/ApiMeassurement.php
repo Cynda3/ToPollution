@@ -399,6 +399,31 @@ class ApiMeassurement extends Controller
             $usersPerMonth[$date] += 1;
 
         }
-        return ['dataValues' => $dataValues, 'usersPerMonth' => $usersPerMonth];
+
+        $devices = Device::all();
+
+        $devicesPerMonth = [
+            '01' => 0,
+            '02' => 0,
+            '03' => 0,
+            '04' => 0,
+            '05' => 0,
+            '06' => 0,
+            '07' => 0,
+            '08' => 0,
+            '09' => 0,
+            '10' => 0,
+            '11' => 0,
+            '12' => 0,
+        ];
+
+        foreach ($devices as $device) {
+            $date = Carbon::parse($device->created_at)->format('m');
+
+
+            $devicesPerMonth[$date] += 1;
+
+        }
+        return ['dataValues' => $dataValues, 'usersPerMonth' => $usersPerMonth, 'devicesPerMonth' => $devicesPerMonth];
     }
 }
