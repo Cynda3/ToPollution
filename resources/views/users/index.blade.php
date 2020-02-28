@@ -2,8 +2,9 @@
 @section('content')
 <div class="container">
     <h1 class="text-center mt-3">@lang('navMenu.misDispos')</h1>
-    <a href="{{route('devices.create')}}"><button type="button" class="btn btn-success btn-lg btn-block">@lang('navMenu.deviceadd')
-            </button></a>
+    <a href="{{route('devices.create')}}"><button type="button"
+            class="btn btn-success btn-lg btn-block">@lang('navMenu.deviceadd')
+        </button></a>
     <table class="table table-hover table-dark">
         <thead>
             <tr>
@@ -47,9 +48,11 @@
                 @endif
                 <td class="text-center">
                     <a class="text-success" href="{{route('devices.show',$d->id)}}"><button type="submit" id="show">
-                        <i class="fas fa-glasses"></i></a></button>
+                            <i class="fas fa-glasses"></i></a></button>
+                    <a class="text-success" href="{{route('historical',$d->id)}}"><button type="submit" id="update">
+                            <i class="fas fa-chart-bar"></i></a></button>
                     <a class="text-success" href="{{route('devices.edit',$d->id)}}"><button type="submit" id="update">
-                        <i class="fas fa-pencil-alt"></i></a></button>
+                            <i class="fas fa-pencil-alt"></i></a></button>
                     <form style='display:inline;' action="{{route('devices.destroy',$d->id)}}" method="post">
                         @csrf
                         @method('DELETE')
